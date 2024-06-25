@@ -1,0 +1,27 @@
+{
+  "Title": "Battlebugs",
+  "Type": "game",
+  "Org": "carsonk",
+  "Ident": "bb_test",
+  "Tags": null,
+  "Schema": 1,
+  "Resources": null,
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "Metadata": {
+    "MaxPlayers": 64,
+    "MinPlayers": 1,
+    "TickRate": 50,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Unrestricted",
+    "MapList": [
+      "facepunch.flatgrass"
+    ],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "CsProjName": "",
+    "StartupScene": "scenes/game.scene",
+    "LaunchMode": "Normal"
+  }
+}

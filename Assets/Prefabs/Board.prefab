@@ -1,0 +1,82 @@
+{
+  "RootObject": {
+    "__guid": "d57b6bbc-86a9-4643-98e0-3f7055b14c02",
+    "Flags": 0,
+    "Name": "board",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Battlebugs.BoardManager",
+        "__guid": "a6ecc2a7-f413-41c3-838e-25210e12b6da",
+        "BugInventory": [
+          {
+            "Bug": "bugs/dev_bug_2.bug",
+            "Count": 2
+          },
+          {
+            "Bug": "bugs/dev_bug_3.bug",
+            "Count": 2
+          },
+          {
+            "Bug": "bugs/dev_bug_4.bug",
+            "Count": 1
+          },
+          {
+            "Bug": "bugs/dev_bug_5.bug",
+            "Count": 1
+          }
+        ],
+        "CameraPosition": {
+          "_type": "gameobject",
+          "go": "76b20fd4-1b35-4108-a9f2-7b99767ed1ef"
+        },
+        "GridSize": 64,
+        "Height": 10,
+        "Width": 10
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "76b20fd4-1b35-4108-a9f2-7b99767ed1ef",
+        "Flags": 0,
+        "Name": "Camera Position",
+        "Position": "-878.2805,0,532.6988",
+        "Rotation": "-0.00000001797573,0.2798287,0.00000006167203,0.9600499",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true
+      },
+      {
+        "__guid": "1829e4c2-688b-4c5d-ac2b-59ecc640dfcb",
+        "Flags": 0,
+        "Name": "Cube",
+        "Position": "0,0,-1",
+        "Rotation": "0,0,1,-0.00000004371139",
+        "Scale": "64,64,1",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "3b001d37-65eb-4062-8774-34fdd458440a",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/dev/reflectivity_90b.vmat",
+            "Model": "models/dev/plane.vmdl",
+            "RenderType": "On",
+            "Tint": "0.25544,0.43256,0.1529,1"
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

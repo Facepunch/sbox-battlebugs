@@ -1,0 +1,130 @@
+{
+  "RootObject": {
+    "__guid": "eae2dbef-0f59-4f7e-a6a5-f1a9b66f833d",
+    "Flags": 0,
+    "Name": "bug_segment",
+    "Tags": "bug",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Battlebugs.BugSegment",
+        "__guid": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
+        "Body": {
+          "_type": "gameobject",
+          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d"
+        },
+        "BodyRenderer": {
+          "_type": "component",
+          "component_id": "43caf1b2-dea2-40e9-9711-9a68f084d202",
+          "go": "012d53be-b409-403e-83a1-d6d105cea566",
+          "component_type": "ModelRenderer"
+        }
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+        "Flags": 0,
+        "Name": "Body",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Children": [
+          {
+            "__guid": "012d53be-b409-403e-83a1-d6d105cea566",
+            "Flags": 0,
+            "Name": "Body",
+            "Position": "0,0,24.97275",
+            "Scale": "1,0.7594551,1",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "43caf1b2-dea2-40e9-9711-9a68f084d202",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/dev/sphere.vmdl",
+                "RenderType": "On",
+                "Tint": "0.16387,0.34884,0.04056,1"
+              },
+              {
+                "__type": "Sandbox.SphereCollider",
+                "__guid": "3893f0e5-e42b-43f4-8b62-f8b7da9c6906",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Radius": 32,
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "24a9335a-43d6-4f74-8b79-078e3d97f37b",
+            "Flags": 0,
+            "Name": "Shoe L",
+            "Position": "-0.00004770116,25,14.33761",
+            "Scale": "0.7215342,0.4053524,0.4941731",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "aebccc9a-cc7d-4a18-8bf3-2b1a1c77bfdf",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/dev/sphere.vmdl",
+                "RenderType": "On",
+                "Tint": "0.17209,0.09845,0.09845,1"
+              },
+              {
+                "__type": "Sandbox.SphereCollider",
+                "__guid": "e8cd7f8e-fdf6-495f-ac8b-5c2257644750",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Radius": 32,
+                "Static": false
+              }
+            ]
+          },
+          {
+            "__guid": "704cef01-cbe4-4e77-9d08-e236e551b32d",
+            "Flags": 0,
+            "Name": "Shoe R",
+            "Position": "-0.00004770116,-25,14.33761",
+            "Scale": "0.7215342,0.4053524,0.4941731",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "84fe5171-37a2-4807-923c-f0b3ae31330a",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/dev/sphere.vmdl",
+                "RenderType": "On",
+                "Tint": "0.17209,0.09845,0.09845,1"
+              },
+              {
+                "__type": "Sandbox.SphereCollider",
+                "__guid": "4ca3576c-0a50-48e4-a6c7-33a897d51ef5",
+                "Center": "0,0,0",
+                "IsTrigger": false,
+                "Radius": 32,
+                "Static": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

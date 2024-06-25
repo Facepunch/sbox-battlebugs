@@ -1,0 +1,97 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc29:version{3cec427c-1b0e-4d48-a90a-0436f33a6041} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "PhysicsShapeList"
+				children = 
+				[
+					{
+						_class = "PhysicsMeshFromRender"
+						parent_bone = ""
+						surface_prop = "default"
+						collision_tags = "solid"
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderPrimitiveMesh"
+						mesh = 
+						{
+							vertices_stream_data = 
+							{
+								num_values = 4
+								streams = 
+								[
+									{
+										name = "position"
+										type = "position_3d"
+										values = 
+										[
+											[ -32.0, -32.0, 0.0 ],
+											[ 32.0, -32.0, 0.0 ],
+											[ 32.0, 32.0, 0.0 ],
+											[ -32.0, 32.0, 0.0 ],
+										]
+									},
+								]
+							}
+							face_vertices_stream_data = 
+							{
+								num_values = 4
+								streams = 
+								[
+									{
+										name = "normal"
+										type = "normal_3d"
+										values = 
+										[
+											[ 0.0, 0.0, 1.0 ],
+											[ 0.0, 0.0, 1.0 ],
+											[ 0.0, 0.0, 1.0 ],
+											[ 0.0, 0.0, 1.0 ],
+										]
+									},
+									{
+										name = "texcoord"
+										type = "texcoord_2d"
+										values = 
+										[
+											[ -0.25, 0.25 ],
+											[ 0.25, 0.25 ],
+											[ 0.25, -0.25 ],
+											[ -0.25, -0.25 ],
+										]
+									},
+								]
+							}
+							face_groups = 
+							[
+								"materials/dev/reflectivity_30.vmat",
+								"materials/dev/reflectivity_30.vmat",
+							]
+							faces = 
+							[
+								{
+									group_index = 0
+									vertices = [ 0, 1, 2, 3 ]
+								},
+							]
+						}
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		base_model_name = ""
+	}
+}

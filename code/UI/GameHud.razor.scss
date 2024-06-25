@@ -1,0 +1,57 @@
+GameHud
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-family: Poppins;
+
+	.enable-mouse
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 0px;
+		height: 0px;
+		pointer-events: all;
+	}
+
+	.bug-inventory
+	{
+		position: absolute;
+		top: 16px;
+		left: 16px;
+		flex-direction: column;
+		font-size: 32px;
+
+		.bug-inventory-item
+		{
+			gap: 12px;
+			align-items: center;
+
+			.color
+			{
+				width: 32px;
+				height: 32px;
+				flex-shrink: 0;
+				font-size: 12px;
+				justify-content: flex-end;
+				align-items: flex-end;
+
+				label
+				{
+					position: relative;
+					top: 8px;
+				}
+			}
+
+			label
+			{
+				color: white;
+				text-shadow: 1px 1px 1px black;
+				font-weight: 800;
+			}
+		}
+	}
+}

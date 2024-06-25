@@ -1,0 +1,25 @@
+{
+  "RootObject": {
+    "__guid": "a2839e4b-f050-4de2-9f0f-583a7dc3a1a7",
+    "Flags": 0,
+    "Name": "player",
+    "Tags": "player",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Battlebugs.Player",
+        "__guid": "1cc32626-02d9-45d8-af55-90922f7f56e9"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

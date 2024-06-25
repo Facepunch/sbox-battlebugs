@@ -1,0 +1,42 @@
+{
+  "RootObject": {
+    "__guid": "460ade40-34db-408e-b336-b7d576ac14af",
+    "Flags": 0,
+    "Name": "cell",
+    "Tags": "cell",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "4612c2e9-4e0b-416c-882c-50b7167af40c",
+        "BodyGroups": 18446744073709551615,
+        "MaterialOverride": "materials/dev/reflectivity_90b.vmat",
+        "Model": "models/dev/dev_cell.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.PlaneCollider",
+        "__guid": "cb2b051f-4745-44a8-9c13-631a0f99c95f",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Scale": "64,64",
+        "Static": true
+      },
+      {
+        "__type": "Battlebugs.CellComponent",
+        "__guid": "ee2809fb-9697-4946-a378-201ac23086eb"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

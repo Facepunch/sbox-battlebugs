@@ -1,0 +1,11 @@
+{
+  "Name": "Bug",
+  "Color": "1,0,0,1",
+  "SegmentCount": 2,
+  "SegmentPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bug_segment.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}
