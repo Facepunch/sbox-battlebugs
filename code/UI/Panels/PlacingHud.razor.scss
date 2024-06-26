@@ -57,6 +57,15 @@ PlacingHud
 		padding: 10px;
 		justify-content: center;
 		pointer-events: all;
+		flex-direction: column;
+		gap: 12px;
+
+		> *
+		{
+			width: 100%;
+			justify-content: center;
+			text-align: center;
+		}
 	
 		button
 		{
@@ -73,6 +82,16 @@ PlacingHud
 			&:hover
 			{
 				background-color: #45a049;
+			}
+
+			&.clear-bugs
+			{
+				background-color: #f44336;
+	
+				&:hover
+				{
+					background-color: #d32f2f;
+				}
 			}
 		}
 	}

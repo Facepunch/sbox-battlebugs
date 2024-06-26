@@ -46,7 +46,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 			LoadingScreen.Title = "Creating Lobby";
 			await Task.DelayRealtimeSeconds( 0.1f );
 			GameNetworkSystem.CreateLobby();
-			StartGame();
 		}
 	}
 
@@ -64,9 +63,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
+	[Broadcast]
 	void StartGame()
 	{
-		State = GameState.Waiting;
+		if ( Networking.IsHost )
+		{
+			State = GameState.Placing;
+		}
+
+		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
 	void EndGame()
@@ -95,7 +100,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			if ( Boards.Count > 1 )
 			{
-				State = GameState.Placing;
+				StartGame();
 			}
 		}
 	}

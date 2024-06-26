@@ -4,6 +4,7 @@ namespace Battlebugs;
 
 public sealed class BoardManager : Component
 {
+	// Static Variables
 	public static BoardManager Local
 	{
 		get
@@ -17,14 +18,18 @@ public sealed class BoardManager : Component
 	}
 	private static BoardManager _local;
 
+	// Properties
 	[Property] public int GridSize { get; set; } = 64;
 	[Property] public int Width { get; set; } = 10;
 	[Property] public int Height { get; set; } = 10;
+	[Property, Group( "References" )] public GameObject CameraPosition { get; set; }
 
+	// Networked Variables
+	[Sync] public bool IsReady { get; set; } = false;
+
+	// Public Variables
 	public Dictionary<Bug, int> BugInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
-
-	[Property, Group( "References" )] public GameObject CameraPosition { get; set; }
 
 	protected override void OnStart()
 	{
@@ -65,6 +70,12 @@ public sealed class BoardManager : Component
 			segment.Clear();
 		}
 		ResetInventory();
+	}
+
+	public void ToggleReady()
+	{
+		if ( IsProxy ) return;
+		IsReady = !IsReady;
 	}
 
 	void ResetInventory()

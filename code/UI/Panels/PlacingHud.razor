@@ -22,11 +22,18 @@
 		}
 	</div>
 	<div class="footer">
-		<button class="clear-bugs" onclick=@BoardManager.Local.ClearAllBugs>Reset Bugs</button>
+		@if (GameManager.Instance.Boards.Any(x => x.IsReady))
+		{
+			<label>@(BoardManager.Local.IsReady ? "Waiting for opponent..." : "Opponent is ready...")</label>
+		}
+		<div class="buttons">
+			<button class="clear-bugs" onclick=@BoardManager.Local.ClearAllBugs>Reset Bugs</button>
+			<button class="ready-up" onclick=@BoardManager.Local.ToggleReady>@(BoardManager.Local.IsReady ? "Un-Ready" : "Ready")</button>
+		</div>
 	</div>
 </root>
 
 @code
 {
-	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Value));
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Value), BoardManager.Local?.IsReady, GameManager.Instance.Boards.Any(x => x.IsReady));
 }
