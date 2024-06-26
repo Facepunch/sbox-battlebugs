@@ -59,11 +59,11 @@ public sealed class CellComponent : Component
 	public void Select()
 	{
 		IsSelected = true;
-		GameInput.Instance.SelectedCells.Add( this );
+		PlacementInput.Instance.SelectedCells.Add( this );
 
 		Sound.Play( "ui-select" );
 
-		foreach ( var cell in GameInput.Instance.SelectedCells )
+		foreach ( var cell in PlacementInput.Instance.SelectedCells )
 		{
 			cell.UpdateHighlight();
 		}
@@ -75,11 +75,11 @@ public sealed class CellComponent : Component
 
 		if ( remove )
 		{
-			GameInput.Instance.SelectedCells.Remove( this );
+			PlacementInput.Instance.SelectedCells.Remove( this );
 			Sound.Play( "ui-select-bug" );
 			UpdateHighlight();
 		}
-		foreach ( var cell in GameInput.Instance.SelectedCells )
+		foreach ( var cell in PlacementInput.Instance.SelectedCells )
 		{
 			cell.UpdateHighlight();
 		}
@@ -103,7 +103,7 @@ public sealed class CellComponent : Component
 		if ( IsSelected )
 		{
 			var color = Color.Yellow;
-			var placing = GameInput.Instance.AttemptingToPlace;
+			var placing = PlacementInput.Instance.AttemptingToPlace;
 			if ( placing is not null )
 			{
 				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.ResourceId == placing.ResourceId ).Value <= 0 ) color = Color.Yellow;

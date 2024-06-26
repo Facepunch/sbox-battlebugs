@@ -2,36 +2,23 @@ using Sandbox;
 
 namespace Battlebugs;
 
-public sealed class GameInput : Component
+public sealed class PlacementInput : Component
 {
-	public static GameInput Instance { get; private set; }
+	public static PlacementInput Instance { get; private set; }
 
 	public CellComponent HighlightedCell { get; set; } = null;
 	public List<CellComponent> SelectedCells { get; set; } = new();
-
-	public bool CanSelect { get; set; } = false;
 	public bool IsSelecting { get; private set; } = false;
 	public Bug AttemptingToPlace { get; private set; } = null;
 
 	protected override void OnAwake()
 	{
 		Instance = this;
+		Enabled = false;
 	}
 
 	protected override void OnUpdate()
 	{
-		if ( !CanSelect )
-		{
-			if ( SelectedCells.Count > 0 )
-			{
-				DeselectAll();
-			}
-			if ( HighlightedCell.IsValid() )
-			{
-				HighlightedCell.MouseExit();
-			}
-			return;
-		}
 		var tr = Scene.Trace.Ray( Scene.Camera.ScreenPixelToRay( Mouse.Position ), 8000f )
 			.WithoutTags( "bug" )
 			.Run();
@@ -96,6 +83,18 @@ public sealed class GameInput : Component
 				Sound.Play( "ui-select-bug" );
 			}
 			DeselectAll();
+		}
+	}
+
+	protected override void OnDisabled()
+	{
+		if ( SelectedCells.Count > 0 )
+		{
+			DeselectAll();
+		}
+		if ( HighlightedCell.IsValid() )
+		{
+			HighlightedCell.MouseExit();
 		}
 	}
 

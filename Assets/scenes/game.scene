@@ -26,8 +26,8 @@
           }
         },
         {
-          "__type": "Battlebugs.GameInput",
-          "__guid": "f460bf56-a8c6-4220-841b-80693c96673c"
+          "__type": "Battlebugs.PlacementInput",
+          "__guid": "e7314c1d-f812-4f62-b865-829b914b9dc4"
         }
       ]
     },
@@ -128,7 +128,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-26T11:50:41.2806769-04:00",
+  "LastSaved": "2024-06-26T12:49:35.6429287-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

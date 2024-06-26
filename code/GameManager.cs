@@ -17,6 +17,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 {
 	public static GameManager Instance { get; private set; }
 
+	[RequireComponent] PlacementInput _ { get; set; }
+
 	// Properties
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
@@ -117,7 +119,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void UpdatePlacing()
 	{
-		GameInput.Instance.CanSelect = true;
+		PlacementInput.Instance.Enabled = true;
+
 		if ( BoardManager.Local is not null )
 		{
 			UpdateCamera( BoardManager.Local );
@@ -138,7 +141,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void UpdateGame()
 	{
-		GameInput.Instance.CanSelect = false;
+		PlacementInput.Instance.Enabled = false;
 
 		if ( CurrentPlayer is not null )
 		{
