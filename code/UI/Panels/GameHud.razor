@@ -16,9 +16,7 @@
 				<span class="score">0</span>
 			</div>
 		</div>
-		<div class="banner">
-			It's your turn!
-		</div>
+		<div class="banner">@GetHeader()</div>
 		<div class="player opponent">
 			<img src="ui/player-banner.png" />
 			<div class="content">
@@ -32,5 +30,26 @@
 
 @code
 {
+	public static GameHud Instance { get; private set; }
+
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		base.OnAfterTreeRender(firstTime);
+
+		if (firstTime)
+		{
+			Instance = this;
+		}
+	}
+
+	string GetHeader()
+	{
+		if (GameManager.Instance.CurrentPlayer == BoardManager.Local)
+		{
+			return "It's your turn!";
+		}
+		return "Your opponent is thinking...";
+	}
+
 	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local);
 }
