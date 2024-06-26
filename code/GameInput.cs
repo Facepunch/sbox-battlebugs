@@ -39,6 +39,7 @@ public sealed class GameInput : Component
 		if ( tr.Hit )
 		{
 			var newCell = tr.GameObject.Components.Get<CellComponent>();
+			if ( newCell?.Board != BoardManager.Local ) return;
 			if ( newCell != HighlightedCell )
 			{
 				HighlightedCell?.MouseExit();
