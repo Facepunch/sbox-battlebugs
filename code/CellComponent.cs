@@ -96,7 +96,12 @@ public sealed class CellComponent : Component
 		if ( IsSelected )
 		{
 			var color = Color.Yellow;
-			if ( GameInput.Instance.AttemptingToPlace is not null ) color = GameInput.Instance.AttemptingToPlace.Color;
+			var placing = GameInput.Instance.AttemptingToPlace;
+			if ( placing is not null )
+			{
+				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Bug.ResourceId == placing.ResourceId ).Count <= 0 ) color = Color.Yellow;
+				else color = placing.Color;
+			}
 			Renderer.Tint = Color.Lerp( BaseColor, color, 0.8f );
 		}
 		else if ( IsHovering )

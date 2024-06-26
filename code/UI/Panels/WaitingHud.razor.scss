@@ -1,0 +1,37 @@
+WaitingHud
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(black, 0.4);
+	backdrop-filter: blur(1px);
+	justify-content: center;
+	align-items: center;
+	font-family: Poppins;
+	font-size: 58px;
+	font-weight: 700;
+	color: white;
+	flex-direction: column;
+	gap: 64px;
+	pointer-events: all;
+
+	i
+	{
+		font-size: 128px;
+		animation: rotateright 1s linear infinite;
+	}
+}
+
+@keyframes rotateright
+{
+	from
+	{
+		transform: rotate(0deg);
+	}
+	to
+	{
+		transform: rotate(360deg);
+	}
+}

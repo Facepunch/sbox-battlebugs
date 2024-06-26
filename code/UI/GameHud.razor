@@ -6,26 +6,17 @@
 <root>
 	<div class="enable-mouse" />
 
-	@if (!BoardManager.Local.IsValid()) return;
-
-	<div class="bug-inventory">
-		@if (true)
-		{
-			@foreach (var bugItem in BoardManager.Local.BugInventory)
-			{
-				Log.Info(bugItem);
-				<div class="bug-inventory-item">
-					<div class="color" style="background-color: @bugItem.Bug.Color.Hex">
-						<label>x@(bugItem.Bug.SegmentCount)</label>
-					</div>
-					<label>@bugItem.Count</label>
-				</div>
-			}
-		}
-	</div>
+	@if (GameManager.Instance.State == GameState.Waiting)
+	{
+		<WaitingHud />
+	}
+	else if (GameManager.Instance.State == GameState.Placing)
+	{
+		<PlacingHud />
+	}
 </root>
 
 @code
 {
-	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Count));
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State);
 }
