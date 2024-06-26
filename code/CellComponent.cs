@@ -106,7 +106,7 @@ public sealed class CellComponent : Component
 		}
 		else if ( IsHovering )
 		{
-			Renderer.Tint = Color.Lerp( BaseColor, Color.Yellow, 0.5f );
+			Renderer.Tint = IsOccupied ? Color.Lerp( BaseColor, Color.Red, 0.5f ) : Color.Lerp( BaseColor, Color.Yellow, 0.5f );
 		}
 		else
 		{

@@ -73,7 +73,10 @@ public sealed class GameInput : Component
 
 			IsSelecting = true;
 			DeselectAll();
-			HighlightedCell?.Select();
+			if ( HighlightedCell is not null && !HighlightedCell.IsOccupied )
+			{
+				HighlightedCell?.Select();
+			}
 		}
 
 		if ( Input.Released( "Attack1" ) )
