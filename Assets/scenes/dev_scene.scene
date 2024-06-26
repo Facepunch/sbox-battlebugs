@@ -27,6 +27,46 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.Bloom",
+          "__guid": "74e7bb96-25d2-4605-8b16-f19514b356fc",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Screen",
+          "Strength": 0.71,
+          "Threshold": 0.91,
+          "ThresholdWidth": 0.76
+        },
+        {
+          "__type": "Sandbox.Highlight",
+          "__guid": "6b90fdb3-203b-47b8-9479-2cc168703236"
+        },
+        {
+          "__type": "Sandbox.AmbientOcclusion",
+          "__guid": "f6cf7b0a-56bf-4179-9f99-8df237656b43",
+          "Intensity": 8,
+          "Quality": "High",
+          "Radius": 32
         }
       ]
     },
@@ -35,7 +75,7 @@
       "Flags": 0,
       "Name": "Directional Light",
       "Position": "0,0,200",
-      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Rotation": "-0.25,0.4330127,0.4330127,0.7500001",
       "Tags": "light_directional,light",
       "Enabled": true,
       "NetworkMode": 2,
@@ -46,9 +86,9 @@
           "__guid": "0935a716-c534-4160-8036-f9aefc4c2cc6",
           "FogMode": "Enabled",
           "FogStrength": 1,
-          "LightColor": "0.91373,0.98039,1,1",
+          "LightColor": "0.98481,1,0.86977,1",
           "Shadows": true,
-          "SkyColor": "0.05882,0.07451,0.08235,1"
+          "SkyColor": "0.1899,0.24004,0.26512,1"
         }
       ]
     },
@@ -73,6 +113,2533 @@
       "NetworkInterpolation": true,
       "__Prefab": "prefabs/board.prefab",
       "__PrefabVariables": {}
+    },
+    {
+      "__guid": "f0a82ffc-7922-41ab-8cf5-b4e34bf5805a",
+      "Flags": 0,
+      "Name": "Object",
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Children": [
+        {
+          "__guid": "02206c21-242d-4fa1-8abd-b6284dcbdf7b",
+          "Flags": 0,
+          "Name": "hill_01 (1)",
+          "Position": "-802.4141,453.166,-64",
+          "Scale": "2,2.836742,1.64921",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "a88c27ca-ca96-47cb-b346-e5e6a406be7d",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "77d723ea-9746-4bb1-8b28-cc18a573459d",
+          "Flags": 0,
+          "Name": "hill_01 (10)",
+          "Position": "-128,-1728,-63.9999",
+          "Rotation": "0,0,0.3826835,0.9238795",
+          "Scale": "4.371832,3.460509,1.809869",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "e7c23e92-e817-497c-9136-bde418838890",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "101e000d-8b3d-43b6-8ca0-0dbf95f3963a",
+          "Flags": 0,
+          "Name": "hill_01 (9)",
+          "Position": "-1309.746,-965.8686,-64.00034",
+          "Rotation": "0,0,0.8660254,0.5",
+          "Scale": "3.895122,2.691635,2.241595",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "5fcefd15-f91e-4b84-9fec-b2e53dd14bbe",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "6e05fe51-6d5b-446e-b05f-9028343106f2",
+          "Flags": 0,
+          "Name": "hill_01 (8)",
+          "Position": "-1422.834,-101.7586,-64.00029",
+          "Rotation": "0,0,0.8660254,0.5",
+          "Scale": "2.642099,2,1.555372",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "cef8f739-486b-47ae-9cdb-c56aa896cebc",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "b15b56c3-c77d-4514-a919-720e8600c5d3",
+          "Flags": 0,
+          "Name": "hill_01 (7)",
+          "Position": "-1266.215,878.8509,-64.00024",
+          "Rotation": "0,0,0.5000001,0.8660254",
+          "Scale": "2.642099,2,1.555372",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "2c16ecb0-957d-49ab-8e49-f7771cf5c9f6",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "2b297b09-ba21-46e7-9125-1ed4bbd9272c",
+          "Flags": 0,
+          "Name": "hill_01 (6)",
+          "Position": "-786.2155,1710.236,-64",
+          "Rotation": "0,0,0.5000001,0.8660254",
+          "Scale": "2.642099,2,3.407391",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "e2de5944-a4be-49df-838e-2051c840a3d5",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "4e67767f-2122-4bf1-800c-9a3e8b362def",
+          "Flags": 0,
+          "Name": "hill_01 (5)",
+          "Position": "135.7645,1764.938,-64.00043",
+          "Rotation": "0,0,-0.3826834,0.9238796",
+          "Scale": "2.642099,2,3.407391",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "bbd63f24-7458-44f5-a2cc-e55b7054c93a",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "960e29e1-9f58-4422-b27b-5294394f9e3f",
+          "Flags": 0,
+          "Name": "hill_01 (2)",
+          "Position": "-832,-448,-64",
+          "Rotation": "0,0,-0.3826834,0.9238796",
+          "Scale": "2.642099,2,1.491807",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "0ad1ef5e-3512-4e6e-bb34-c510a31822c4",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "42514db5-d03f-45f9-afc2-e7fe1e3f67bb",
+          "Flags": 0,
+          "Name": "hill_01 (3)",
+          "Position": "-640,-1024,-64",
+          "Scale": "2.464876,2.195917,2.634894",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "c135bb22-3603-4c94-8950-b74a1de31d09",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "b6b73bad-89e5-49ba-ac20-477445b24628",
+          "Flags": 0,
+          "Name": "hill_01 (4)",
+          "Position": "64,-1024,-63.99968",
+          "Scale": "2.631233,2.271471,2.215884",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "defd0408-81f2-4e96-9bfc-633c8f309ad0",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        },
+        {
+          "__guid": "99d905f0-654c-405c-89f5-c5a7ca728e78",
+          "Flags": 0,
+          "Name": "Cube",
+          "Position": "0,0,-8",
+          "Rotation": "0,0,1,-0.00000004371139",
+          "Scale": "64,64,1",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "6ab462b0-c47f-4590-836b-ea3d9b12b239",
+              "BodyGroups": 18446744073709551615,
+              "MaterialOverride": "materials/dev/reflectivity_90b.vmat",
+              "Model": "models/dev/plane.vmdl",
+              "RenderType": "On",
+              "Tint": "0.25544,0.43256,0.1529,1"
+            }
+          ]
+        },
+        {
+          "__guid": "a5564041-4245-4f9a-9ae7-22a7e03df58e",
+          "Flags": 0,
+          "Name": "hill_01",
+          "Position": "-203.2115,1005.672,-64",
+          "Rotation": "0,0,0.1305262,0.9914449",
+          "Scale": "3.293299,2.407619,1.924003",
+          "Enabled": true,
+          "NetworkMode": 2,
+          "NetworkInterpolation": true,
+          "Components": [
+            {
+              "__type": "Sandbox.ModelRenderer",
+              "__guid": "f9cbdf1a-66a8-468e-b661-52cbfca93a66",
+              "BodyGroups": 18446744073709551615,
+              "Model": "models/enviroment/hill_01.vmdl",
+              "RenderType": "On",
+              "Tint": "0,1,0.08333,1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "93b489da-9cfe-48cd-aa2d-726191de1847",
+      "Flags": 0,
+      "Name": "Object",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.EnvmapProbe",
+          "__guid": "7093ee06-9ab3-4edc-a564-0b221a0613a8",
+          "Bounds": {
+            "Mins": "-5120,-5120,-512",
+            "Maxs": "5120,5120,512"
+          },
+          "DelayBetweenUpdates": 0.1,
+          "Feathering": 0.02,
+          "FrameInterval": 5,
+          "MaxDistance": 5120,
+          "Projection": "Sphere",
+          "RenderDynamically": true,
+          "TintColor": "1,1,1,1",
+          "UpdateStrategy": "OnEnabled",
+          "ZFar": 4096,
+          "ZNear": 16
+        }
+      ]
+    },
+    {
+      "__guid": "76550fc4-f4c3-4698-a26d-7c57600c8ead",
+      "Flags": 0,
+      "Name": "Terrain",
+      "Position": "-8185.235,-8192,-8",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Terrain",
+          "__guid": "2e616564-f402-4284-8ba5-d4df8cc1af30",
+          "__version": 1,
+          "ClipMapLodExtentTexels": 128,
+          "ClipMapLodLevels": 7,
+          "DebugView": "None",
+          "EnableCollision": true,
+          "IsTrigger": false,
+          "RenderType": "Off",
+          "Static": true,
+          "Storage": "terrain/untitled.terrain",
+          "TerrainHeight": 10000,
+          "TerrainSize": 79871.86
+        },
+        {
+          "__type": "Sandbox.HighlightOutline",
+          "__guid": "1e6e7945-a887-41c6-995b-4c94e7b7b09d",
+          "Color": "1,1,1,1",
+          "InsideColor": "0,0,0,0",
+          "InsideObscuredColor": "0,0,0,0",
+          "ObscuredColor": "0,0,0,0.4",
+          "Width": 0.25
+        }
+      ]
+    },
+    {
+      "__guid": "26615d74-a7b6-4629-92d0-1a687022fe97",
+      "Flags": 0,
+      "Name": "Gradient Fog",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.GradientFog",
+          "__guid": "4c12f6d5-7ecd-4e81-8ecf-818340710363",
+          "Color": "0.32554,0.92093,0.74231,1",
+          "EndDistance": 2048,
+          "FalloffExponent": 4,
+          "Height": 256,
+          "StartDistance": 1100,
+          "VerticalFalloffExponent": 2
+        }
+      ]
+    },
+    {
+      "__guid": "fd22a307-d88d-4802-82f1-643cf68f1ff0",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "-475.3824,324.3156,-32.44848",
+      "Scale": "0.4467597,0.4467597,0.4467597",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5e3ffed4-8e70-4777-9104-4200e4e93de1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ad1e8b73-5aa2-4136-a6b2-1c518511e125",
+      "Flags": 0,
+      "Name": "rock_01 (2)",
+      "Position": "-540.8557,279.9921,-29.98215",
+      "Rotation": "-0.1325526,-0.1263945,0.8467264,0.4995086",
+      "Scale": "0.4467597,0.4467597,0.6603265",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7748fc31-5466-4179-a1a3-6a6ac85d2925",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f66b089c-c65f-486b-b172-5b9b711d496d",
+      "Flags": 0,
+      "Name": "rock_01 (1)",
+      "Position": "-482.2597,246.5809,-38.54617",
+      "Rotation": "0.06039815,0.07871239,0.789439,0.605758",
+      "Scale": "0.6574777,0.4467597,0.4467597",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "126a4d9e-55fa-4410-ba77-da1f9b948c65",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "bee9e84e-4271-44f7-8aa9-97d07cf001ef",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "78.29726,491.2298,-32.93257",
+      "Scale": "0.5598923,0.404305,0.5598923",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "35112e11-7a33-4f11-81aa-3d405b4d54a5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2cfdddee-4815-4366-a63c-528160767ffc",
+      "Flags": 0,
+      "Name": "rock_01 (3)",
+      "Position": "-9.797684,502.3156,-19.79306",
+      "Rotation": "-0.03679271,-0.08490015,0.913609,0.3959257",
+      "Scale": "0.408804,0.4665861,0.5598923",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5ae0c91d-45a8-4dd5-b910-6f625712091d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "7b0c2c9a-43c9-4882-87f6-83a2ed1139eb",
+      "Flags": 0,
+      "Name": "rock_01 (4)",
+      "Position": "-84.72616,474.325,-44.36539",
+      "Rotation": "-0.2719984,0.02046585,0.8729559,0.4044086",
+      "Scale": "0.4017803,0.4665861,0.5598923",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ab6599ec-13c5-4639-8331-edf53bd98e70",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d6b1de4b-8020-4b20-bdef-e7b186fdeac6",
+      "Flags": 0,
+      "Name": "rock_01 (5)",
+      "Position": "-154.5965,474.6529,-44.36524",
+      "Rotation": "0.08518126,-0.2591257,0.03955919,-0.9612666",
+      "Scale": "0.5428743,0.4665861,0.4232349",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "89c95a0c-6f4c-4b5f-9609-c5e817e7fd59",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2be07cc9-5904-4bea-9de5-18bf3f01bce9",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "520.2385,-5.76827,-14.75031",
+      "Scale": "0.270052,0.3634622,0.270052",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7518d18b-1e38-4fd4-a8ec-8aab50ba1df4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "01d98776-1f1d-49af-8dbc-6e5db019b374",
+      "Flags": 0,
+      "Name": "rock_01 (6)",
+      "Position": "520.2385,-72,-18.7425",
+      "Rotation": "0,0,0.4890604,0.8722499",
+      "Scale": "0.3953755,0.3821876,0.2298218",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9027dddf-2a0f-4777-a79a-900fbd74288c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f79680bc-e5ec-4108-a936-c4d01f888a01",
+      "Flags": 0,
+      "Name": "rock_01 (7)",
+      "Position": "486.63,-141.7775,-17.76353",
+      "Rotation": "0,0,0.9189898,0.3942813",
+      "Scale": "0.3953755,0.5592064,0.2298218",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7256546c-f43c-470d-9b77-cccacdc11a53",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a9af99a8-7a15-4ffd-bac2-615e39b21bc2",
+      "Flags": 0,
+      "Name": "erock_01 (8)",
+      "Position": "528,-208,-17.76353",
+      "Rotation": "0,0,0.1180373,0.9930092",
+      "Scale": "0.3953755,0.5592064,0.2298218",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f9cfb553-2649-4b82-ab03-bf20d35465d4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e066023c-ab63-4a21-8053-14dbc3fab609",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "592.9488,615.3667,59.27359",
+      "Rotation": "0.2429038,0.1876002,-0.7532427,0.5817468",
+      "Scale": "0.7474815,0.700053,0.8146158",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1f4bedaa-e13b-4649-a649-1347f9630faa",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "14cfca44-99c0-4dcb-ab9d-320bb24eae60",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "340.9908,-670.4983,-10.86662",
+      "Rotation": "-0.01246613,0.02452708,0.8378037,0.5452775",
+      "Scale": "0.2387227,0.3102946,0.3102946",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0ee69cb5-bb0c-4db2-a4ed-37d100e570ed",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ff2ac15f-a4bf-49d5-9349-0efcc2e40bba",
+      "Flags": 0,
+      "Name": "rock_01 (9)",
+      "Position": "242.8116,-707.949,-10.26605",
+      "Rotation": "0.001467558,0.02747414,0.9981982,0.05332229",
+      "Scale": "0.3534824,0.2365469,0.2305257",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1912529a-62eb-4358-9655-dd41ff9f0aea",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d7b290c6-219f-4498-ad75-d894076b0eb4",
+      "Flags": 0,
+      "Name": "rock_01 (10)",
+      "Position": "182.308,-701.4665,-10.26606",
+      "Rotation": "0.01788949,0.02090331,0.8243846,-0.5653611",
+      "Scale": "0.2091755,0.2365469,0.186764",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1f8e9002-6fcb-4a57-9992-63aee544187a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "66ce6402-ad28-463c-8e25-6a40a1119039",
+      "Flags": 0,
+      "Name": "rock_01 (11)",
+      "Position": "274.5334,-733.6666,-9.043524",
+      "Rotation": "-0.02601967,-0.1010719,0.9778718,0.1813121",
+      "Scale": "0.2091755,0.2365469,0.3846945",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "034334e5-fe0d-477f-9310-3213b6f4dcce",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3508be1b-3263-42e9-b31a-457605c6f75d",
+      "Flags": 0,
+      "Name": "rock_01 (8)",
+      "Position": "300.4499,-688.7167,-9.630756",
+      "Rotation": "-0.02482119,0.01186974,0.3327305,0.9426203",
+      "Scale": "0.2387227,0.3843451,0.2433916",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9958dad3-a039-41d5-bf83-1c3bd1475e94",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ce178d10-fc01-4a00-b747-c64dfb94dc13",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "280.066,660.0732,23.59952",
+      "Rotation": "-0.1156504,-0.2121033,0.843153,-0.4803438",
+      "Scale": "0.272428,0.272428,0.272428",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ee05e16c-fbdd-4401-901c-9c6824a31657",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "cef32891-8458-4df7-99b1-65931a3c98c3",
+      "Flags": 0,
+      "Name": "rock_01 (12)",
+      "Position": "209.2244,655.1443,21.68491",
+      "Rotation": "-0.01470453,0.2411361,-0.9695137,-0.04099227",
+      "Scale": "0.272428,0.1570062,0.2551552",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "93787b62-b62f-44b4-a39a-0e876d7d5f52",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a914070c-eb9e-4f57-aa57-48881ff66a62",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "664.2898,-597.4156,-16.22502",
+      "Rotation": "-0.1301619,0.02255964,0.8103126,0.5709136",
+      "Scale": "0.2625806,0.2625806,0.2625806",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1a60fdd8-fffc-4efc-9842-a6e5060bcc68",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ce4eb8eb-f55e-4f4b-b026-4cb246a71d1f",
+      "Flags": 0,
+      "Name": "rock_01 (13)",
+      "Position": "637.8542,-624.9678,-14.22553",
+      "Rotation": "0.03621385,-0.01984379,0.584874,-0.8100723",
+      "Scale": "0.2991293,0.3022156,0.3586403",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "dd30a860-2e77-42c1-9b5a-82dd119a950d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "04f22fe8-a923-4486-b86d-80aa0f68e044",
+      "Flags": 0,
+      "Name": "rock_01 (14)",
+      "Position": "735.5126,-598.7042,-21.35314",
+      "Rotation": "0.0301229,-0.02824589,0.915527,-0.4001311",
+      "Scale": "0.1864931,0.3022156,0.2719293",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "60f58824-bdda-4aba-82a6-85a0b408e81a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "daf59d92-463b-4e4d-8acb-e1d4bf198383",
+      "Flags": 0,
+      "Name": "tree_01",
+      "Position": "274.6432,-547.6525,-10.93528",
+      "Rotation": "0.00961789,-0.003633726,0.935413,0.3534076",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "87f9af17-45bb-450c-9aed-fcc5c6956822",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "dark",
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b3195df1-9dc9-44ee-af64-06f678c7fd1a",
+      "Flags": 0,
+      "Name": "tree_01 (9)",
+      "Position": "-290.6757,375.1712,-10.21869",
+      "Rotation": "-0.0254349,0.06492639,0.767257,0.6375379",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "69e65753-bc1f-410c-98c9-327baeb22d1b",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "dark",
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d36a2e9d-aa06-4bae-b76a-0fbed3f6a3fa",
+      "Flags": 0,
+      "Name": "tree_01 (6)",
+      "Position": "-257.7662,-411.0455,-5.275039",
+      "Rotation": "-0.0356659,-0.03864231,0.8027501,0.5939925",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7354e6ba-7aee-47b4-b53e-b373e5c15098",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "dark",
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "85c69770-eb54-42be-8779-ba532fd7673f",
+      "Flags": 0,
+      "Name": "tree_01 (8)",
+      "Position": "-133.6621,380.0918,-10.62244",
+      "Rotation": "-0.04586958,-0.0241226,0.9174791,-0.3943935",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1156fcfb-123f-4056-9fca-395924ebc658",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "77ccf35e-5ce7-4508-a235-b70c665e6f3f",
+      "Flags": 0,
+      "Name": "tree_01 (1)",
+      "Position": "92.44476,-617.8509,-12.2076",
+      "Rotation": "-0.01594703,-0.07713819,-0.1608664,-0.983828",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b02c5e6c-35ad-4c10-9a19-d830cad3e6e8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "54bc258d-447b-435d-a139-e12bcd1fdd4a",
+      "Flags": 0,
+      "Name": "tree_01 (10)",
+      "Position": "278.7536,520.3803,-8.614426",
+      "Rotation": "-0.01594703,-0.07713819,-0.1608664,-0.983828",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a961dc43-0058-4319-89d0-4ee870fde76b",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "dark",
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8d4bacb4-401a-4720-b688-8b3502370a6b",
+      "Flags": 0,
+      "Name": "tree_01 (4)",
+      "Position": "159.4989,-423.7018,-11.59091",
+      "Rotation": "0.07736908,0.01478636,0.9704995,0.2278734",
+      "Scale": "0.06511454,0.06511454,0.07304383",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2a248745-0222-40b6-a5cd-e08bcfc95cfd",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f73ec70e-71b4-484d-af56-af75cabd3733",
+      "Flags": 0,
+      "Name": "tree_01 (12)",
+      "Position": "427.9503,452.1711,8.190576",
+      "Rotation": "0.06450867,0.04520223,0.9786229,-0.1899811",
+      "Scale": "0.06511454,0.06511454,0.07304383",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "73f25d28-2f51-45f9-aac8-f25e4c67b4d1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "303d94ca-01fb-4437-95b9-61bca22708cc",
+      "Flags": 0,
+      "Name": "tree_01 (2)",
+      "Position": "22.17311,-453.3401,-15.33821",
+      "Rotation": "0.007403929,-0.1747765,0.4749897,-0.8624287",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "033de69e-e92f-456a-847e-70be46f8e9fe",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "dark",
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "cbe16bf9-24cd-48ba-bbc7-07aecdbec09e",
+      "Flags": 0,
+      "Name": "tree_01 (7)",
+      "Position": "-51.86607,591.7101,10.90329",
+      "Rotation": "-0.01029161,-0.05155586,0.3412699,-0.9384941",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2cc0b745-286d-42b0-a0b7-f1231de81960",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "749b200d-77f0-45b7-bb1b-255abb1765af",
+      "Flags": 0,
+      "Name": "tree_01 (5)",
+      "Position": "158.705,-563.3331,-13.50416",
+      "Rotation": "-0.005221196,-0.00753092,-0.8154225,-0.5787939",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "01dcd4d6-ce34-4ba5-a086-5f55f6b18abc",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "49acec33-72d9-4c2c-86b9-7e6da6f12f5a",
+      "Flags": 0,
+      "Name": "tree_01 (13)",
+      "Position": "458.9221,-298.9231,-13.50427",
+      "Rotation": "0.0585779,-0.09644353,0.5440667,-0.8314197",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3c0d663a-4539-44e5-b851-385d1bde5250",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4e046d3c-66d3-4ccb-a63c-f274aea66a10",
+      "Flags": 0,
+      "Name": "tree_01 (3)",
+      "Position": "276.9028,-378.4099,-15.33826",
+      "Rotation": "-0.1347115,0.1115996,-0.9667867,-0.1863383",
+      "Scale": "0.06511454,0.06511454,0.06511454",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7fbccb38-4787-401d-a392-3b2f39095518",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "32180b37-75e4-498b-ad7b-1bccdbcc3084",
+      "Flags": 0,
+      "Name": "tree_01",
+      "Position": "-36.5042,-503.8149,-9.423622",
+      "Rotation": "0,0,0.06038133,0.9981754",
+      "Scale": "0.0377308,0.0377308,0.0377308",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e0221c64-4f30-452b-a7eb-1f7d52436cf2",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "cbd90552-0f33-40b4-825a-9cda5fe4f03d",
+      "Flags": 0,
+      "Name": "tree_01 (11)",
+      "Position": "218.9621,438.4108,-9.22797",
+      "Rotation": "0,0,0.06038133,0.9981754",
+      "Scale": "0.0377308,0.0377308,0.0377308",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "98cd4173-272e-42c0-a421-621c874a9d3d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "56d7b924-b023-468c-9230-84ded4337a5d",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "94.08482,-471.8206,-9.574113",
+      "Scale": "0.2304367,0.2304367,0.1416263",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "92cf685a-fa90-490a-91ea-6e0eca0b08e3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.95349,0.66522,0.28826,1"
+        }
+      ]
+    },
+    {
+      "__guid": "701e020d-a6be-4e0a-a0f2-23d2b065124a",
+      "Flags": 0,
+      "Name": "tree_02",
+      "Position": "-254.9283,-372.8218,-10.09677",
+      "Rotation": "-0.01654558,0.003031577,0.9834848,0.180207",
+      "Scale": "0.02103099,0.04349466,0.04384845",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "df348908-cdb8-4167-a75b-ca4a610f2525",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f6f4b821-e5cc-4500-8a43-29cc6ab4b98f",
+      "Flags": 0,
+      "Name": "tree_02 (1)",
+      "Position": "-445.0428,135.0534,-10.62351",
+      "Rotation": "-0.01680983,0.0006133798,0.9991932,0.03646702",
+      "Scale": "0.05022602,0.05372068,0.05407447",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3e95c8a4-4038-4f26-942a-b955ccfc84c3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "acec10b9-3d06-463f-bee5-9de1d0453136",
+      "Flags": 0,
+      "Name": "bush_01",
+      "Position": "239.6608,-438.5496,-7.855506",
+      "Rotation": "-0.03019338,0.07606531,-0.3677002,0.9263363",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "bc34b061-dd4b-442b-8d36-438a79f71911",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2e532e08-6abc-4c50-b0f5-0d8cc8c42194",
+      "Flags": 0,
+      "Name": "bush_01 (1)",
+      "Position": "186.1577,416,-7.855506",
+      "Rotation": "-0.0690763,0.04388663,0.2456734,0.9658918",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5721cecc-473a-4d6c-83bb-cfc2467251e0",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f0aebf3b-f91f-4c34-98a1-adc0ca70cc0a",
+      "Flags": 0,
+      "Name": "bush_01 (4)",
+      "Position": "533.9785,87.27695,-7.855781",
+      "Rotation": "-0.07767334,0.1602664,-0.709832,0.6814837",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "175a11ec-0291-488c-aed5-843d3a211b4c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2aa7f0fe-1212-4adf-a29b-79fd4b7828a5",
+      "Flags": 0,
+      "Name": "bush_01 (5)",
+      "Position": "605.0925,-44.35182,-7.855844",
+      "Rotation": "-0.2195195,-0.0487792,-0.970984,-0.0813732",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3bbeaee4-23cb-4038-a405-da67805f7bda",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a40e3497-7e21-4497-b19b-ce9d50d74f7d",
+      "Flags": 0,
+      "Name": "bush_01 (2)",
+      "Position": "-175.8315,370.5506,-7.855506",
+      "Rotation": "-0.1089277,-0.08535422,-0.7978595,0.5867448",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3cc3662e-5bbf-4709-9496-64eaf96cb8a3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4c85bc55-15b3-4802-89c7-0bc0dc53c227",
+      "Flags": 0,
+      "Name": "bush_01 (3)",
+      "Position": "-376,-199.9999,-7.855604",
+      "Rotation": "-0.1371503,0.01844947,-0.9770445,-0.1619673",
+      "Scale": "0.09070404,0.09070404,0.09070404",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a2657e5f-0087-4cd0-b852-730f317ff1c1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/bush_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "567017ed-a96b-46e8-b5aa-50cf958a15dd",
+      "Flags": 0,
+      "Name": "grass_01",
+      "Position": "-281.9035,-342.8015,-10.02774",
+      "Rotation": "0,0,-0.2849014,0.9585568",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "471824fd-8b98-4397-846c-5d001eaad41b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "31ce974e-0b5d-400b-9898-8a4ef50ff4f3",
+      "Flags": 0,
+      "Name": "grass_01 (6)",
+      "Position": "-249.0305,-434.4931,-10.02777",
+      "Rotation": "0,0,-0.1142589,0.993451",
+      "Scale": "0.1934719,0.1934719,0.1461248",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "88d0b99e-46a2-4441-96eb-ead48b442ee5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "67d65309-1a54-45de-8bad-a36e08dba559",
+      "Flags": 0,
+      "Name": "grass_01 (4)",
+      "Position": "-274.0858,-419.7993,-10.02774",
+      "Rotation": "0,0,0.1316721,0.9912934",
+      "Scale": "0.1934719,0.1934719,0.203997",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2d47d69d-d40a-44bd-9aee-0ff05edc3d47",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b0ee861c-7d05-4d8e-a144-d5273085a0ac",
+      "Flags": 0,
+      "Name": "grass_01 (2)",
+      "Position": "-254.1717,-355.3033,-10.02776",
+      "Rotation": "0,0,-0.8477962,0.530322",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e96b76f4-3b01-477c-ae30-23ad1badc1d9",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2ddc26ff-b79b-4dab-a5db-df3b7cdd644a",
+      "Flags": 0,
+      "Name": "grass_01 (9)",
+      "Position": "6.261016,-449.0538,-10.02778",
+      "Rotation": "0,0,-0.4690521,0.8831704",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9f700b7b-f840-4372-be3e-d09582878cf1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d9f6f6d4-1f0a-494e-98a1-03d7418202f2",
+      "Flags": 0,
+      "Name": "grass_01 (15)",
+      "Position": "23.94006,-472.1004,-10.02775",
+      "Rotation": "0,0,-0.4690521,0.8831704",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d7a43233-f610-4bd0-82cf-4e6b5c177f59",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8f1904cb-de3a-451a-a556-341728a4cb49",
+      "Flags": 0,
+      "Name": "grass_01 (10)",
+      "Position": "77.35638,-533.5326,-10.02775",
+      "Rotation": "0,0,-0.7569966,0.6534188",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5b5b8283-dd9c-4265-b05c-19f76856cd3c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c80a85ce-9a81-4ad4-9499-a1994d6ec1ba",
+      "Flags": 0,
+      "Name": "grass_01 (23)",
+      "Position": "174.2318,-462.6259,-10.02773",
+      "Rotation": "0,0,-0.2005001,0.9796937",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5c58e132-6827-4172-99d6-08a0c6c92945",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ac843e0f-7709-47c3-9322-d1780e39c8dc",
+      "Flags": 0,
+      "Name": "grass_01 (27)",
+      "Position": "245.8515,-510.6402,-10.02766",
+      "Rotation": "0,0,0.9982047,-0.05989505",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8a6d3c88-3a56-455e-bd34-1056dbc38796",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "011a81e8-0e4c-4dc9-b366-ea468fe6cd49",
+      "Flags": 0,
+      "Name": "grass_01 (28)",
+      "Position": "226.6472,-567.144,-10.02765",
+      "Rotation": "0,0,0.9652333,0.2613902",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7dfdbb91-b17a-47f8-ba26-9a305c1ff52d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b315b3e8-8471-403f-ae47-3d5179bd813f",
+      "Flags": 0,
+      "Name": "grass_01 (26)",
+      "Position": "232.954,-369.4985,-10.02773",
+      "Rotation": "0,0,0.8255544,0.5643226",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0c042399-4e14-4d79-9420-9928125e75e0",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c7fea79f-1b17-4a2d-9db5-0e70ea0c7f33",
+      "Flags": 0,
+      "Name": "grass_01 (17)",
+      "Position": "-0.6586065,-529.1591,-10.02779",
+      "Rotation": "0,0,-0.002843529,0.9999959",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d38214be-6a7f-4957-97e5-199830010367",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "9b231708-ac20-40c2-8d05-a01f369fb17c",
+      "Flags": 0,
+      "Name": "grass_01 (21)",
+      "Position": "19.60414,-577.7868,-10.02779",
+      "Rotation": "0,0,-0.002843529,0.9999959",
+      "Scale": "0.1934719,0.1934719,0.1934719",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "bf5e8fec-3578-42ce-bf6d-a450392d69ec",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "980fa332-5823-4311-91b9-4cd1ab3ad2c2",
+      "Flags": 0,
+      "Name": "grass_01 (11)",
+      "Position": "-52.27346,-487.5497,-10.02781",
+      "Rotation": "0,0,0.9646605,0.2634958",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a4782d5f-3887-4916-8a01-03bd26085e4b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f8a7ce8e-ad02-4545-8b52-de47a1ffa3de",
+      "Flags": 0,
+      "Name": "grass_01 (12)",
+      "Position": "-62.56767,-519.359,-10.0278",
+      "Rotation": "0,0,0.9646605,0.2634958",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2f959458-b64e-4961-9b58-5b7f143cb900",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "25b0c92a-cd75-4175-a7da-0f80e0d5eab8",
+      "Flags": 0,
+      "Name": "grass_01 (14)",
+      "Position": "-27.26571,-526.9058,-10.02776",
+      "Rotation": "0,0,0.9855688,0.1692751",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3c385ea8-1fa6-427d-b90c-e66fad0197de",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ad05ffd8-af1b-4f83-b877-90433fc59133",
+      "Flags": 0,
+      "Name": "grass_01 (13)",
+      "Position": "241.6363,-433.8276,-10.02788",
+      "Rotation": "0,0,0.8752441,0.4836814",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3196144b-2506-495d-8799-e0d3664a91d4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4a6b3a23-67b9-4268-adb1-3e3b22f5b768",
+      "Flags": 0,
+      "Name": "grass_01 (18)",
+      "Position": "-49.14689,-558.3962,-10.0278",
+      "Rotation": "0,0,0.6208477,0.7839311",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "120a092f-e4ba-47c5-879c-919c96ee02e5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ddf780a7-55c1-460f-b98b-5a456fe1d613",
+      "Flags": 0,
+      "Name": "grass_01 (19)",
+      "Position": "-11.70139,-570.6873,-10.02773",
+      "Rotation": "0,0,0.6942416,0.7197418",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e0462f02-3eef-4a47-b60e-ea28a6d5f8b8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1db7218e-2b02-4db3-bf32-3b05f724fa0f",
+      "Flags": 0,
+      "Name": "grass_01 (20)",
+      "Position": "31.21106,-549.0209,-10.02778",
+      "Rotation": "0,0,0.989306,0.1458539",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ff54c67f-ab3b-42f6-86a3-ee44a8a73220",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f0e23581-9978-43d8-abae-8586a7e5a9d4",
+      "Flags": 0,
+      "Name": "grass_01 (22)",
+      "Position": "149.2708,-562.1656,-10.02768",
+      "Rotation": "0,0,0.9751492,-0.2215486",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "228e5252-6bca-45c2-a326-2e904a1ad807",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "46a3f53b-106e-4154-adbe-c2137ecfe201",
+      "Flags": 0,
+      "Name": "grass_01 (24)",
+      "Position": "155.7734,-424.721,-10.02761",
+      "Rotation": "0,0,0.9751492,-0.2215486",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c343d363-2b8b-4e5f-b5c6-bcc3b6623b64",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c2ba7cdb-1a05-4e4f-b16c-29972075b91b",
+      "Flags": 0,
+      "Name": "grass_01 (29)",
+      "Position": "-379.2491,-197.9859,-10.02767",
+      "Rotation": "0,0,0.7225596,-0.6913086",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "82237923-8495-4c24-9d46-3a86ae68912a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1a640271-327a-41bc-a9a5-b92fd88db86e",
+      "Flags": 0,
+      "Name": "grass_01 (31)",
+      "Position": "-444.2764,126.0907,-10.02769",
+      "Rotation": "0,0,0.9123698,-0.4093669",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "aadbea97-7708-40f6-83d1-9820046e1092",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "7ce29b34-3b09-4a3a-a169-49932a18c718",
+      "Flags": 0,
+      "Name": "grass_01 (35)",
+      "Position": "-297.2993,377.4702,-10.02753",
+      "Rotation": "0,0,0.9678453,-0.2515463",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c2646806-536d-478a-8de3-5cfb37abdb61",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1acc0a42-bb64-4afa-882a-00da657aa6b8",
+      "Flags": 0,
+      "Name": "grass_01 (38)",
+      "Position": "-176.9203,377.4702,-10.02753",
+      "Rotation": "0,0,0.9885673,0.1507807",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0655efea-9ab9-4276-8fed-98cf9d9ad1bb",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "09cb62cb-257d-4afa-9a74-d0ec8b3f55a4",
+      "Flags": 0,
+      "Name": "grass_01 (39)",
+      "Position": "-135.9846,374.2502,-10.02753",
+      "Rotation": "0,0,0.9999773,-0.006753407",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "37fe5aab-88a3-4e16-b3b0-e26f169e4c76",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5563a289-c28e-4ef5-acf5-45b835d7239e",
+      "Flags": 0,
+      "Name": "grass_01 (42)",
+      "Position": "186.575,416.4077,-10.02761",
+      "Rotation": "0,0,0.9940662,0.1087778",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "cafde0f9-a459-4706-95dc-976ee18a9cd7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f1212dce-bd8e-485c-ac5a-da794cc01a4f",
+      "Flags": 0,
+      "Name": "grass_01 (43)",
+      "Position": "226.0069,436.9197,-10.02778",
+      "Rotation": "0,0,0.922157,-0.3868159",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0d2b62ca-45a6-487f-9153-28bfb4c7523c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "93d0beb7-3f0d-4955-af83-9e2f1d7e4b2a",
+      "Flags": 0,
+      "Name": "grass_01 (46)",
+      "Position": "272.8232,517.2373,-10.0277",
+      "Rotation": "0,0,0.922157,-0.3868159",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9c91ace1-c9ff-4270-a8ac-738e762e6fa1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "726c41de-1656-4b39-94d9-77ab5d744934",
+      "Flags": 0,
+      "Name": "grass_01 (48)",
+      "Position": "427.3927,456.4847,7.999999",
+      "Rotation": "0,0,0.922157,-0.3868159",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3724c899-2dd5-4865-80af-1c1ae6b24163",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2d58cfeb-7c11-4198-b6c7-19c3369c606b",
+      "Flags": 0,
+      "Name": "grass_01 (50)",
+      "Position": "549.6113,85.63545,-8",
+      "Rotation": "0,0,0.7446308,-0.6674766",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "aeb9f6b2-e18d-475e-b634-2261c767440e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "64b38a77-f2c1-4438-84e1-8372c7b96e5d",
+      "Flags": 0,
+      "Name": "grass_01 (53)",
+      "Position": "447.7685,-282.3954,-9.43685",
+      "Rotation": "0,0,0.7446308,-0.6674766",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2886552c-e07f-4f14-a200-4a7d61c05291",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "18c5af08-18a1-4a7e-a491-423d832d95be",
+      "Flags": 0,
+      "Name": "grass_01 (56)",
+      "Position": "607.9995,-42.4603,-9.436883",
+      "Rotation": "0,0,0.7446308,-0.6674766",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2c19a8f1-d1b1-4067-8e8f-e1005b657454",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "95cdf940-6e19-4275-bd03-729de443e5da",
+      "Flags": 0,
+      "Name": "grass_01 (16)",
+      "Position": "268.989,-543.7685,-10.02761",
+      "Rotation": "0,0,0.9751492,-0.2215486",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7625312e-e257-44c1-8b3b-f9528f3b5b42",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "42d831c1-4902-441c-b7a1-888e39bd2798",
+      "Flags": 0,
+      "Name": "grass_01 (25)",
+      "Position": "275.6431,-381.8721,-10.02771",
+      "Rotation": "0,0,0.9878406,0.1554694",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c651cfe1-e6d0-42d4-b651-dc3da4380c5b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "adc24f70-745b-4fa9-b792-673815bebb08",
+      "Flags": 0,
+      "Name": "grass_01 (3)",
+      "Position": "-299.3824,-403.5854,-10.02777",
+      "Rotation": "0,0,-0.996286,-0.08610336",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5f50d501-7dbb-4fd0-8e4c-14ea1d78d2e1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "192101fe-35c4-412a-98c7-b0c4f7165b72",
+      "Flags": 0,
+      "Name": "grass_01 (30)",
+      "Position": "-410.9865,-227.3486,-10.02773",
+      "Rotation": "0,0,-0.9539794,0.2998713",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d274ecc5-cd78-455a-a34f-15d5dba017f8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3deb65d0-b93b-4cb4-8da5-32fad191d127",
+      "Flags": 0,
+      "Name": "grass_01 (34)",
+      "Position": "-407.6733,-131.93,-10.02766",
+      "Rotation": "0,0,0.245506,0.9693948",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "94e4df01-5531-43d1-8a6b-cbeeb882fc90",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f52f01cc-5b55-4405-b3a2-b478863bc3d9",
+      "Flags": 0,
+      "Name": "grass_01 (32)",
+      "Position": "-462.1872,87.07394,-10.02795",
+      "Rotation": "0,0,0.005170643,0.9999864",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7dd7a363-f553-4670-843a-53c09db8ab3b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "af8f9a93-9c50-42e6-9d6c-f264f08f8fd6",
+      "Flags": 0,
+      "Name": "grass_01 (37)",
+      "Position": "-328.9984,250.002,-10.02789",
+      "Rotation": "0,0,0.005170643,0.9999864",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "c63af181-8938-4afb-a13e-1240cde6b764",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "46d05d04-c70c-405a-b206-cac7799f2883",
+      "Flags": 0,
+      "Name": "grass_01 (36)",
+      "Position": "-327.9727,356.2072,-10.02784",
+      "Rotation": "0,0,-0.4786662,0.8779967",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e00ab737-c251-4f82-b11e-1726eab366f6",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "08e19d6b-713f-427e-9b2b-1e2ef7937394",
+      "Flags": 0,
+      "Name": "grass_01 (40)",
+      "Position": "-219.1192,369.3983,-10.02784",
+      "Rotation": "0,0,-0.699115,0.7150088",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7835a322-cf1e-42fd-95bf-cd38bde6a51c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e61a1daf-e4a1-44e9-bc71-2c7aa606c40b",
+      "Flags": 0,
+      "Name": "grass_01 (41)",
+      "Position": "-94.79011,360.7751,-10.02783",
+      "Rotation": "0,0,-0.699115,0.7150088",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b09d739f-7db2-4b2b-b635-579b13367988",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1194c988-78b7-437c-b40e-5e0c8d1d075f",
+      "Flags": 0,
+      "Name": "grass_01 (45)",
+      "Position": "132.8452,410.2099,-10.02773",
+      "Rotation": "0,0,0.7415928,0.6708497",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7af6b184-36ec-4f06-a0c2-0b1765bfa8cd",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "bd13a71b-7e7b-450b-8af5-de1ccbd0bb33",
+      "Flags": 0,
+      "Name": "grass_01 (47)",
+      "Position": "220.7629,522.9628,-10.02759",
+      "Rotation": "0,0,0.3881632,0.9215902",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "07cf5661-824c-41be-a643-87ce4c9a2b1b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "37c7bc11-f388-4338-becc-6e2d10866a45",
+      "Flags": 0,
+      "Name": "grass_01 (49)",
+      "Position": "441.1655,420.9702,3.10464",
+      "Rotation": "0,0,0.3881632,0.9215902",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8befe91e-7333-4e5e-8608-8c7f0dfdbf5f",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f9252069-aeab-4152-9e40-6b1325a3aa3c",
+      "Flags": 0,
+      "Name": "grass_01 (44)",
+      "Position": "253.1268,407.7707,-10.02782",
+      "Rotation": "0,0,-0.8001447,-0.5998064",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f8debeea-ce28-4112-9c27-2d7570e53cb5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e94c5228-7107-4ff5-96cc-176a23541a50",
+      "Flags": 0,
+      "Name": "grass_01 (51)",
+      "Position": "523.1616,119.9368,-10.02782",
+      "Rotation": "0,0,0.06103948,-0.998135",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "12458d3f-8aa1-435f-94d0-c6c94f778c65",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b1a1f20a-cc13-4145-a27a-d93920a8c6e8",
+      "Flags": 0,
+      "Name": "grass_01 (54)",
+      "Position": "442.4065,-239.7903,-11.00542",
+      "Rotation": "0,0,-0.3221229,-0.9466974",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a79af12b-70ed-44b4-9b82-f3a034464a83",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "0d9d36f5-46a6-442a-b123-552f52481309",
+      "Flags": 0,
+      "Name": "grass_01 (57)",
+      "Position": "598.1471,-81.2946,-11.00547",
+      "Rotation": "0,0,-0.99856,0.0536381",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "bda44198-d0cf-44ed-952a-e7ef7ec41915",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "76234af0-8ec4-482b-aa17-638ad8a158a5",
+      "Flags": 0,
+      "Name": "grass_01 (52)",
+      "Position": "565.0439,53.02022,-10.02782",
+      "Rotation": "0,0,-0.4085697,-0.9127267",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2267f7e3-0f59-483b-895f-c0cebf313066",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c635e82f-1f3a-47a6-bb13-a0ce8cf87e3e",
+      "Flags": 0,
+      "Name": "grass_01 (55)",
+      "Position": "440.1116,-317.0927,-10.02781",
+      "Rotation": "0,0,0.3394089,-0.9406385",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "139ed6bb-eb97-4f1c-ba63-ae65ea434c31",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1d707d55-c6a5-4eda-9e34-c59a99d1653e",
+      "Flags": 0,
+      "Name": "grass_01 (33)",
+      "Position": "-394.2781,130.6238,-10.02807",
+      "Rotation": "0,0,-0.2174844,0.9760636",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b6d5af5f-df31-4820-a145-88654a95c70e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3e33bb29-636f-457a-b4a2-a05d275bb32c",
+      "Flags": 0,
+      "Name": "grass_01 (7)",
+      "Position": "-293.1169,-428.3989,-10.02768",
+      "Rotation": "-0,0,0.3144546,0.9492723",
+      "Scale": "0.1934719,0.1934719,0.1805035",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6e4551f6-abe5-46a4-aea9-432ef0038e45",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b987d9df-9e17-4577-8315-b592e9b3a8b2",
+      "Flags": 0,
+      "Name": "grass_01 (1)",
+      "Position": "-282.3313,-374.0127,-10.0277",
+      "Rotation": "0,0,0.3360045,0.9418603",
+      "Scale": "0.1934719,0.1934719,0.1800511",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "709106c1-5576-450d-9f83-67d366b14220",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a028e3f6-0340-446d-84de-4a67192765ab",
+      "Flags": 0,
+      "Name": "grass_01 (8)",
+      "Position": "-271.8804,-456.3221,-10.02773",
+      "Rotation": "0,0,-0.5426815,0.8399386",
+      "Scale": "0.1934719,0.1934719,0.201745",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ee0eb27b-d5f4-4a98-8b7d-5c6157e832f7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "0f490fe9-e03e-492e-8d3f-997d0eabc98e",
+      "Flags": 0,
+      "Name": "grass_01 (5)",
+      "Position": "-247.7892,-384.3737,-10.02767",
+      "Rotation": "0,0,-0.1585845,0.9873453",
+      "Scale": "0.1934719,0.1934719,0.1800511",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0ee9f1c3-eaa0-4ac7-8ecf-04bcdb31b925",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/enviroment/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -98,7 +2665,7 @@
   },
   "Title": "dev_scene",
   "Description": "",
-  "LastSaved": "2024-06-26T08:18:05.6200544-04:00",
+  "LastSaved": "2024-06-26T16:38:32.5848891\u002B01:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
