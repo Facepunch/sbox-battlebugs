@@ -28,6 +28,11 @@ public sealed class BoardManager : Component
 
 	protected override void OnStart()
 	{
+		InitBoard();
+	}
+
+	void InitBoard()
+	{
 		Vector3 startingPosition = Transform.Position + new Vector3( -(Width * GridSize) / 2f + GridSize / 2f, -(Height * GridSize) / 2f + GridSize / 2f, 0 );
 		for ( int x = 0; x < Width; x++ )
 		{
@@ -41,9 +46,13 @@ public sealed class BoardManager : Component
 		}
 	}
 
-	protected override void OnUpdate()
+	protected override void DrawGizmos()
 	{
+		base.DrawGizmos();
 
+		var size = new Vector3( Width * GridSize, Height * GridSize, 0 );
+		var bounds = new BBox( Transform.Position + size / 2f, Transform.Position - size / 2f );
+		Gizmo.Draw.LineBBox( bounds );
 	}
 
 	public struct BugItem
