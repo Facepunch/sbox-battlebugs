@@ -85,6 +85,8 @@ public sealed class AttackingInput : Component
 
 	protected override void OnDisabled()
 	{
-
+		Reticle?.Destroy();
+		Reticle = null;
+		ReticleState = 0;
 	}
 }
