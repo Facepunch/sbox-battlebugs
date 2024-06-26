@@ -24,6 +24,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
+	[Property, Group( "Prefabs" )] public GameObject PebblePrefab { get; set; }
 
 	// Networked Variables
 	[HostSync] public GameState State { get; set; }
@@ -205,8 +206,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 		if ( board is null ) return;
 
 		// TODO: Implement firing logic
+		var pebbleObj = PebblePrefab.Clone( board.CameraPosition.Transform.Position.WithZ( 32f ) );
+		var pebble = pebbleObj.Components.Get<PebbleComponent>();
+		pebble.LaunchAt( position );
 
-		IsFiring = false;
+		//IsFiring = false;
 	}
 
 }

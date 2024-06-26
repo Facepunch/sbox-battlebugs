@@ -23,6 +23,10 @@
           "CellPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cell.prefab"
+          },
+          "PebblePrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/pebble.prefab"
           }
         },
         {
@@ -136,7 +140,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-26T14:19:03.6281798-04:00",
+  "LastSaved": "2024-06-26T16:31:48.4512467-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

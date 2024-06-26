@@ -1,0 +1,50 @@
+{
+  "RootObject": {
+    "__guid": "d5803de4-ebc5-4d08-bba6-99901156b4b3",
+    "Flags": 0,
+    "Name": "pebble",
+    "Tags": "pebble",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Sandbox.ModelRenderer",
+        "__guid": "6ae742cf-a67a-46e8-a527-d20a7c41ea77",
+        "BodyGroups": 18446744073709551615,
+        "Model": "models/dev/dev_pebble_01.vmdl",
+        "RenderType": "On",
+        "Tint": "1,1,1,1"
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "2dec48da-f878-4ac2-9e6c-6cef69d4f53e",
+        "IsTrigger": false,
+        "Model": "models/dev/dev_pebble_01.vmdl",
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "887f5e40-c398-4753-85d9-45ee726ec688",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Battlebugs.PebbleComponent",
+        "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e"
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
