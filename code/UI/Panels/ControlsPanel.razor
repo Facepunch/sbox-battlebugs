@@ -4,7 +4,7 @@
 @inherits Panel
 @attribute [StyleSheet]
 
-<root class="@(IsVisible() ? "show" : "")">
+<root class="@(CanSee() ? "show" : "")">
 	<div class="container">
 		<label class="header">Controls</label>
 		<div class="inputs">
@@ -39,7 +39,7 @@
 
 @code
 {
-	bool IsVisible()
+	bool CanSee()
 	{
 		return GameManager.Instance.State == GameState.Placing || (GameManager.Instance.CurrentPlayerId == BoardManager.Local.Network.OwnerId && GameManager.Instance.IsFiring);
 	}

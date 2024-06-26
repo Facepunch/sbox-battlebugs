@@ -84,10 +84,19 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
+	[Broadcast]
 	void StartPlaying()
 	{
-		State = GameState.Playing;
-		StartTurn();
+		if ( Networking.IsHost )
+		{
+			State = GameState.Playing;
+			StartTurn();
+		}
+
+		foreach ( var segment in Scene.GetAllComponents<BugSegment>() )
+		{
+			segment.SetAlpha( segment.IsProxy ? 0f : 0.5f );
+		}
 	}
 
 	void StartTurn()
