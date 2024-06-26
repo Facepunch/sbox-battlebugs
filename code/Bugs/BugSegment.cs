@@ -16,6 +16,15 @@ public class BugSegment : Component
         Body.Transform.LocalPosition = Vector3.Down * 250f;
         await GameTask.DelaySeconds( delay );
         _initialized = true;
+        Sound.Play( "segment-drop" );
+    }
+
+    protected override void OnStart()
+    {
+        foreach ( var renderer in Components.GetAll<ModelRenderer>( FindMode.EverythingInSelfAndDescendants ) )
+        {
+            renderer.Enabled = !IsProxy;
+        }
     }
 
     protected override void OnFixedUpdate()

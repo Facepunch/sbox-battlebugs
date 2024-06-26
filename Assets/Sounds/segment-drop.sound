@@ -1,8 +1,8 @@
 {
-  "UI": false,
+  "UI": true,
   "Volume": "0.50,1.00,0",
   "Pitch": "1.00,1.60,1",
-  "Decibels": 70,
+  "Decibels": 288,
   "SelectionMode": "Random",
   "Sounds": [
     "sounds/sndclose.vsnd"
