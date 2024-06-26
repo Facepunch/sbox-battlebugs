@@ -9,6 +9,8 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 	[Property] GameObject ParticlePrefab { get; set; }
 
+	[Sync] public float Damage { get; set; } = 4f;
+
 	public TimeSince TimeSinceCreated = 0;
 
 	public void LaunchAt( Vector3 target )
@@ -37,6 +39,11 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	public void OnCollisionStart( Collision collision )
 	{
 		if ( IsProxy ) return;
+
+		if ( collision.Other.GameObject.Components.TryGet<BugSegment>( out var segment ) )
+		{
+			segment.Damage( Damage );
+		}
 
 		BroadcastDestroyEffect();
 		GameObject.Destroy();

@@ -5,6 +5,8 @@ public class BugSegment : Component
     [Property] public GameObject Body { get; set; }
     [Property] public ModelRenderer BodyRenderer { get; set; }
 
+    [Sync] public float Health { get; set; } = 10f;
+
     public int ParentSegments { get; set; } = 1;
 
     bool _initialized { get; set; } = false;
@@ -29,7 +31,7 @@ public class BugSegment : Component
     {
         foreach ( var renderer in Components.GetAll<ModelRenderer>( FindMode.EverythingInSelfAndDescendants ) )
         {
-            renderer.Tint = renderer.Tint.WithAlpha( renderer.Tint.a.LerpTo( _targetAlpha, Time.Delta * 15f ) );
+            renderer.Tint = renderer.Tint.WithAlpha( renderer.Tint.a.LerpTo( _targetAlpha, Time.Delta * 5f ) );
         }
     }
 
@@ -58,5 +60,19 @@ public class BugSegment : Component
         if ( IsProxy ) return;
         // TODO: Funny destroy particles
         GameObject.Destroy();
+    }
+
+    [Broadcast]
+    public void Damage( float damage )
+    {
+        _targetAlpha = 1f;
+        if ( IsProxy ) return;
+
+        Health -= damage;
+
+        if ( Health <= 0f )
+        {
+            Clear();
+        }
     }
 }
