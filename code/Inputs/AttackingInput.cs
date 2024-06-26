@@ -1,3 +1,4 @@
+using System;
 using Sandbox;
 
 namespace Battlebugs;
@@ -50,12 +51,29 @@ public sealed class AttackingInput : Component
 				Reticle = null;
 			}
 		}
+		else if ( Reticle.IsValid() )
+		{
+			if ( ReticleState == 1 )
+			{
+				Reticle.Transform.Position = ReticlePosition + Vector3.Forward * MathF.Sin( Time.Now * 5f ) * 72f;
+			}
+			else if ( ReticleState == 2 )
+			{
+				Reticle.Transform.Position = ReticlePosition + ReticleOffset + Vector3.Right * MathF.Sin( Time.Now * 5f ) * 72f;
+			}
+		}
 
 		if ( Reticle.IsValid() && Input.Pressed( "Attack1" ) )
 		{
 			ReticleState++;
 			ReticleOffset = Reticle.Transform.Position - ReticlePosition;
-			ReticlePosition = Reticle.Transform.Position;
+			if ( ReticleState < 2 ) ReticlePosition = Reticle.Transform.Position;
+			if ( ReticleState == 3 )
+			{
+				Reticle.Destroy();
+				Reticle = null;
+				ReticleState = 0;
+			}
 		}
 
 		if ( Input.Pressed( "Attack2" ) && ReticleState > 0 )
