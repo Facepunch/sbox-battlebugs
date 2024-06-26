@@ -1,0 +1,50 @@
+ControlsPanel
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	flex-direction: column;
+	justify-content: center;
+	color: white;
+	font-family: Poppins;
+	font-size: 16px;
+
+	.container
+	{
+		position: relative;
+		left: 300px;
+		padding: 8px;
+		background-color: rgba(black, 0.5);
+		flex-direction: column;
+		align-items: center;
+		width: 250px;
+		transition: left 1s ease-out;
+
+		.header
+		{
+			font-weight: 700;
+			gap: 8px;
+		}
+
+		.inputs
+		{
+			flex-direction: column;
+			width: 100%;
+
+			.input
+			{
+				align-items: center;
+				gap: 4px;
+			}
+		}
+	}
+
+	&.show
+	{
+		.container
+		{
+			left: 0px;
+		}
+	}
+}

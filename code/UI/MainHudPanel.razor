@@ -9,6 +9,7 @@
 	@if (!(GameManager.Instance.State == GameState.Waiting || GameManager.Instance.State == GameState.Results))
 	{
 		<GameHud />
+		<ControlsPanel />
 	}
 
 	@if (GameManager.Instance.State == GameState.Waiting)

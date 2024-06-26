@@ -62,5 +62,5 @@
 		return "Your opponent is thinking...";
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local);
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, BoardManager.Local);
 }

@@ -1,0 +1,48 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root class="@(IsVisible() ? "show" : "")">
+	<div class="container">
+		<label class="header">Controls</label>
+		<div class="inputs">
+			@if (GameManager.Instance.State == GameState.Placing)
+			{
+				<div class="input">
+					<InputGlyph button="Attack1" />
+					<label>Drag to Create Bug</label>
+				</div>
+				<div class="input">
+					<InputGlyph button="Attack2" />
+					<label>Pick up Bug</label>
+				</div>
+			}
+			else
+			{
+				<div class="input">
+					<InputGlyph button="Attack1" />
+					<label>@(AttackingInput.Instance.ReticleState == 0 ? "Click to Fire" : "Confirm")</label>
+				</div>
+				@if (AttackingInput.Instance.ReticleState == 1)
+				{
+					<div class="input">
+						<InputGlyph button="Attack2" />
+						<label>Cancel</label>
+					</div>
+				}
+			}
+		</div>
+	</div>
+</root>
+
+@code
+{
+	bool IsVisible()
+	{
+		return GameManager.Instance.State == GameState.Placing || (GameManager.Instance.CurrentPlayerId == BoardManager.Local.Network.OwnerId && GameManager.Instance.IsFiring);
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, AttackingInput.Instance.ReticleState, GameManager.Instance.CurrentPlayerId);
+}

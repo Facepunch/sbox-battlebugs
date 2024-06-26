@@ -12,7 +12,7 @@ public sealed class AttackingInput : Component
 	GameObject Reticle = null;
 	Vector3 ReticlePosition = Vector3.Zero;
 	Vector3 ReticleOffset = Vector3.Zero;
-	int ReticleState = 0;
+	public int ReticleState = 0;
 
 	protected override void OnAwake()
 	{
@@ -77,7 +77,7 @@ public sealed class AttackingInput : Component
 			}
 		}
 
-		if ( Input.Pressed( "Attack2" ) && ReticleState > 0 )
+		if ( Input.Pressed( "Attack2" ) && ReticleState == 1 )
 		{
 			ReticleState--;
 		}
