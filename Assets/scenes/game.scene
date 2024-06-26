@@ -50,7 +50,7 @@
         },
         {
           "__type": "Battlebugs.MainHudPanel",
-          "__guid": "f10926dd-9f7e-4578-86a0-6a3b9e19ff24"
+          "__guid": "3c197abb-fa4c-4e9b-b560-55b6d0c831ec"
         }
       ]
     },
@@ -128,7 +128,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-26T07:54:53.3385034-04:00",
+  "LastSaved": "2024-06-26T11:50:41.2806769-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

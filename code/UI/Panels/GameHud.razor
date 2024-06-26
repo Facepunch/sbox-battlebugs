@@ -9,12 +9,23 @@
 
 	<div class="header">
 		<div class="player">
+			<img src="ui/player-banner.png" />
 			<div class="content">
 				<img src=@($"avatar:{BoardManager.Local.Network.OwnerConnection.SteamId}") />
 				<span class="name">@BoardManager.Local.GameObject.Name</span>
 				<span class="score">0</span>
 			</div>
-			<div class="ending" />
+		</div>
+		<div class="banner">
+			It's your turn!
+		</div>
+		<div class="player opponent">
+			<img src="ui/player-banner.png" />
+			<div class="content">
+				<img src=@($"avatar:{BoardManager.Local.Network.OwnerConnection.SteamId}") />
+				<span class="name">@BoardManager.Local.GameObject.Name</span>
+				<span class="score">0</span>
+			</div>
 		</div>
 	</div>
 </root>

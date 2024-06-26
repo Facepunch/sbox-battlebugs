@@ -9,6 +9,7 @@ GameHud
 	align-items: center;
 	font-family: Poppins;
 	font-size: 32px;
+	color: white;
 
 	.header
 	{
@@ -16,26 +17,63 @@ GameHud
 		top: 0;
 		left: 0;
 		right: 0;
-		justify-content: space-evenly;
+		justify-content: center;
+		font-weight: 700;
+		gap: 128px;
 
 		.player
 		{
+			position: relative;
 			flex-direction: column;
 			color: black;
 			font-size: 24px;
+			width: 160px;
+			height: 294px;
+			color: white;
+			text-shadow: 1px 1px 1px black;
+
+			> img
+			{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-size: 100%;
+				z-index: -5;
+			}
 
 			.content
 			{
-				background-color: aqua;
 				flex-direction: column;
 				padding: 16px;
+				height: 260px;
+				gap: 4px;
+				align-items: center;
+				
+				img
+				{
+					aspect-ratio: 1;
+					width: 100%;
+				}
 			}
 
-			img
+			&.opponent
 			{
-				aspect-ratio: 1;
-				width: 64px;
+				> img
+				{
+					filter: hue-rotate(140deg);
+				}
 			}
+		}
+
+		.banner
+		{
+			width: 55%;
+			height: 100px;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(black, 0.7);
+			font-size: 38px;
+			border-radius: 0px 0px 32px 32px;
 		}
 	}
 }
