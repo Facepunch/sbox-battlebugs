@@ -28,6 +28,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	// Networked Variables
 	[HostSync] public GameState State { get; set; }
 	[HostSync] public Guid CurrentPlayerId { get; set; }
+	[HostSync] public bool IsFiring { get; set; }
 
 	// Local Variables
 	public List<BoardManager> Boards;
@@ -83,7 +84,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void StartPlaying()
 	{
 		State = GameState.Playing;
-		CurrentPlayerId = Boards.FirstOrDefault().Network.OwnerId;
+		StartTurn();
+	}
+
+	void StartTurn()
+	{
+		CurrentPlayerId = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId ).Network.OwnerId;
+		IsFiring = true;
 	}
 
 	void EndGame()
@@ -143,7 +150,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void UpdateGame()
 	{
 		PlacementInput.Instance.Enabled = false;
-		AttackingInput.Instance.Enabled = CurrentPlayer == BoardManager.Local;
+		AttackingInput.Instance.Enabled = IsFiring && (CurrentPlayer == BoardManager.Local);
 
 		if ( CurrentPlayer is not null )
 		{
@@ -186,6 +193,20 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 
 		BoardManager.Local.BugInventory[bug.Key] = bug.Value - 1;
+	}
+
+	[Authority]
+	public void BroadcastFire( Vector3 position )
+	{
+		if ( Rpc.CallerId != CurrentPlayerId ) return;
+		if ( IsFiring == false ) return;
+
+		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
+		if ( board is null ) return;
+
+		// TODO: Implement firing logic
+
+		IsFiring = false;
 	}
 
 }
