@@ -1,0 +1,16 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@if (!BoardManager.Local.IsValid()) return;
+
+	<label class="header">Results</label>
+</root>
+
+@code
+{
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Count));
+}

@@ -12,7 +12,6 @@
 		{
 			@foreach (var bugItem in BoardManager.Local.BugInventory)
 			{
-				Log.Info(bugItem);
 				<div class="bug-inventory-item">
 					<div class="color" style="background-color: @bugItem.Bug.Color.Hex">
 						<label>x@(bugItem.Bug.SegmentCount)</label>

@@ -49,8 +49,8 @@
           "ZIndex": 100
         },
         {
-          "__type": "Battlebugs.GameHud",
-          "__guid": "4b870507-a6c9-4f6f-b6aa-2fc4a6b31476"
+          "__type": "Battlebugs.MainHudPanel",
+          "__guid": "f10926dd-9f7e-4578-86a0-6a3b9e19ff24"
         }
       ]
     },
@@ -128,7 +128,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-26T07:37:13.966212-04:00",
+  "LastSaved": "2024-06-26T07:54:53.3385034-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

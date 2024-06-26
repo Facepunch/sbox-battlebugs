@@ -14,6 +14,14 @@
 	{
 		<PlacingHud />
 	}
+	else if (GameManager.Instance.State == GameState.Playing)
+	{
+		
+	}
+	else if (GameManager.Instance.State == GameState.Results)
+	{
+		<ResultsHud />
+	}
 </root>
 
 @code
