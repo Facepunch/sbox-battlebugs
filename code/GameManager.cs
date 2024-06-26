@@ -17,7 +17,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 {
 	public static GameManager Instance { get; private set; }
 
-	[RequireComponent] PlacementInput _ { get; set; }
+	[RequireComponent] PlacementInput _placementInput { get; set; }
+	[RequireComponent] AttackingInput _attackingInput { get; set; }
 
 	// Properties
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
@@ -142,6 +143,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void UpdateGame()
 	{
 		PlacementInput.Instance.Enabled = false;
+		AttackingInput.Instance.Enabled = CurrentPlayer == BoardManager.Local;
 
 		if ( CurrentPlayer is not null )
 		{

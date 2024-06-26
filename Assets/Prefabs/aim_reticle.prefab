@@ -1,0 +1,53 @@
+{
+  "RootObject": {
+    "__guid": "6d3bf261-b8c8-4637-9faa-599db08039d7",
+    "Flags": 0,
+    "Name": "aim_reticle",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Children": [
+      {
+        "__guid": "2817ebef-7fec-4ceb-a1a3-97d3ab6ad4b2",
+        "Flags": 0,
+        "Name": "Plane",
+        "Scale": "0.8,0.8,1",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ea539e8a-6d5c-4ec2-ad12-16314517b6b4",
+            "BodyGroups": 18446744073709551615,
+            "MaterialOverride": "materials/crosshair.vmat",
+            "Model": "models/dev/plane.vmdl",
+            "RenderType": "Off",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Battlebugs.FixTransparency",
+            "__guid": "41b9c01a-bfb3-4504-95f1-9bb7abc0b65d",
+            "modelRenderer": {
+              "_type": "component",
+              "component_id": "ea539e8a-6d5c-4ec2-ad12-16314517b6b4",
+              "go": "2817ebef-7fec-4ceb-a1a3-97d3ab6ad4b2",
+              "component_type": "ModelRenderer"
+            }
+          },
+          {
+            "__type": "Battlebugs.RotateConstantly",
+            "__guid": "ebfd67e3-816a-4249-ac00-ead6de819f32",
+            "RotationSpeed": "0,50,0"
+          }
+        ]
+      }
+    ]
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
