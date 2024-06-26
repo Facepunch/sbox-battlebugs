@@ -34,6 +34,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	// Local Variables
 	public List<BoardManager> Boards;
 	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.Network.OwnerId == CurrentPlayerId );
+	Vector3 LastPebblePosition;
+	TimeSince TimeSincePebbleToss;
 
 	protected override void OnAwake()
 	{
@@ -162,10 +164,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 			}
 			else
 			{
-				var pebble = Scene.GetAllComponents<PebbleComponent>().Where( x => x.TimeSinceCreated > 0.6f ).FirstOrDefault();
+				var pebbles = Scene.GetAllComponents<PebbleComponent>();
+				var pebble = pebbles.Where( x => x.TimeSinceCreated > 0.6f ).FirstOrDefault();
 				if ( pebble is not null )
 				{
-					UpdateCamera( otherPlayer, pebble.Transform.Position );
+					LastPebblePosition = pebble.Transform.Position;
+				}
+				if ( pebbles.Count() > 0 ) TimeSincePebbleToss = 0;
+				UpdateCamera( otherPlayer, LastPebblePosition );
+
+				if ( pebbles.Count() == 0 && TimeSincePebbleToss > 2f )
+				{
+					StartTurn();
 				}
 			}
 		}
