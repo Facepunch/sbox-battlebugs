@@ -1,4 +1,4 @@
-PlacingHud
+GameHud
 {
 	position: absolute;
 	top: 0;
@@ -9,4 +9,33 @@ PlacingHud
 	align-items: center;
 	font-family: Poppins;
 	font-size: 32px;
+
+	.header
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		justify-content: space-evenly;
+
+		.player
+		{
+			flex-direction: column;
+			color: black;
+			font-size: 24px;
+
+			.content
+			{
+				background-color: aqua;
+				flex-direction: column;
+				padding: 16px;
+			}
+
+			img
+			{
+				aspect-ratio: 1;
+				width: 64px;
+			}
+		}
+	}
 }

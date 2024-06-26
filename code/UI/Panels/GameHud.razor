@@ -6,6 +6,17 @@
 
 <root>
 	@if (!BoardManager.Local.IsValid()) return;
+
+	<div class="header">
+		<div class="player">
+			<div class="content">
+				<img src=@($"avatar:{BoardManager.Local.Network.OwnerConnection.SteamId}") />
+				<span class="name">@BoardManager.Local.GameObject.Name</span>
+				<span class="score">0</span>
+			</div>
+			<div class="ending" />
+		</div>
+	</div>
 </root>
 
 @code
