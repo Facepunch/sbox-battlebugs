@@ -21,14 +21,15 @@ public sealed class BoardManager : Component
 	[Property] public int Width { get; set; } = 10;
 	[Property] public int Height { get; set; } = 10;
 
-	[Property] public List<BugItem> BugInventory = new();
-	public int MaxPlaceableSegments => BugInventory.Where( x => x.Count > 0 ).OrderBy( x => x.Bug.SegmentCount ).LastOrDefault().Bug?.SegmentCount ?? 0;
+	public Dictionary<Bug, int> BugInventory = new();
+	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
 
 	[Property, Group( "References" )] public GameObject CameraPosition { get; set; }
 
 	protected override void OnStart()
 	{
 		InitBoard();
+		ResetInventory();
 	}
 
 	void InitBoard()
@@ -55,15 +56,24 @@ public sealed class BoardManager : Component
 		Gizmo.Draw.LineBBox( bounds );
 	}
 
-	public struct BugItem
+	public void ClearAllBugs()
 	{
-		public Bug Bug { get; set; }
-		public int Count { get; set; }
-
-		public BugItem( Bug bug, int count )
+		var segments = Scene.GetAllComponents<BugSegment>();
+		foreach ( var segment in segments )
 		{
-			Bug = bug;
-			Count = count;
+			if ( segment.Network.OwnerId != Network.OwnerId ) continue;
+			segment.Clear();
+		}
+		ResetInventory();
+	}
+
+	void ResetInventory()
+	{
+		var allBugs = ResourceLibrary.GetAll<Bug>();
+		BugInventory.Clear();
+		foreach ( var bug in allBugs )
+		{
+			BugInventory[bug] = bug.StartingAmount;
 		}
 	}
 

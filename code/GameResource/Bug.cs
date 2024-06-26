@@ -7,4 +7,5 @@ public class Bug : GameResource
     public Color Color { get; set; } = Color.White;
     public int SegmentCount { get; set; } = 3;
     public GameObject SegmentPrefab { get; set; }
+    public int StartingAmount { get; set; } = 1;
 }

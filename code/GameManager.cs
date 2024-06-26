@@ -131,8 +131,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	public void CreateBug( List<CellComponent> cells )
 	{
-		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Bug.SegmentCount == cells.Count );
-		if ( bug.Count <= 0 ) return;
+		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
+		if ( bug.Value <= 0 ) return;
 
 		var rotation = new Angles( 0, 0, 0 );
 		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Transform.Position - cells[0].Transform.Position, Vector3.Up );
@@ -144,15 +144,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 			segment.Transform.Position = cells[i].Transform.Position;
 			segment.Transform.Rotation = rotation;
 			var component = segment.Components.Get<BugSegment>();
-			component.Init( bug.Bug.Color, cells.Count, i * 0.05f );
+			component.Init( bug.Key.Color, cells.Count, i * 0.05f );
 			segment.NetworkSpawn();
 
 			cells[i].IsOccupied = true;
 		}
 
-		int bugIndex = BoardManager.Local.BugInventory.IndexOf( bug );
-		bug.Count--;
-		BoardManager.Local.BugInventory[bugIndex] = bug;
+		BoardManager.Local.BugInventory[bug.Key] = bug.Value - 1;
 	}
 
 }

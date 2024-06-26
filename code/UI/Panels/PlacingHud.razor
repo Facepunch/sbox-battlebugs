@@ -13,17 +13,20 @@
 			@foreach (var bugItem in BoardManager.Local.BugInventory)
 			{
 				<div class="bug-inventory-item">
-					<div class="color" style="background-color: @bugItem.Bug.Color.Hex">
-						<label>x@(bugItem.Bug.SegmentCount)</label>
+					<div class="color" style="background-color: @bugItem.Key.Color.Hex">
+						<label>x@(bugItem.Key.SegmentCount)</label>
 					</div>
-					<label>@bugItem.Count</label>
+					<label>@bugItem.Value</label>
 				</div>
 			}
 		}
+	</div>
+	<div class="footer">
+		<button class="clear-bugs" onclick=@BoardManager.Local.ClearAllBugs>Reset Bugs</button>
 	</div>
 </root>
 
 @code
 {
-	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Count));
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Value));
 }

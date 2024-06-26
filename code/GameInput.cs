@@ -50,13 +50,13 @@ public sealed class GameInput : Component
 				{
 					if ( SelectedCells.Count > 1 && HighlightedCell == SelectedCells.ElementAt( SelectedCells.Count - 2 ) )
 					{
-						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Bug.SegmentCount == SelectedCells.Count - 1 ).Bug : null;
+						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == SelectedCells.Count - 1 ).Key : null;
 						SelectedCells.LastOrDefault()?.Deselect();
 					}
 
 					if ( HighlightedCell is not null && !HighlightedCell.IsOccupied && !SelectedCells.Contains( HighlightedCell ) && (SelectedCells.Count == 0 || SelectedCells.LastOrDefault().IsAdjacent( HighlightedCell )) && SelectedCells.Count < (BoardManager.Local?.MaxPlaceableSegments ?? 0) )
 					{
-						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Bug.SegmentCount == SelectedCells.Count + 1 ).Bug : null;
+						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == SelectedCells.Count + 1 ).Key : null;
 						HighlightedCell?.Select();
 					}
 				}

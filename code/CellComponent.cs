@@ -99,7 +99,7 @@ public sealed class CellComponent : Component
 			var placing = GameInput.Instance.AttemptingToPlace;
 			if ( placing is not null )
 			{
-				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Bug.ResourceId == placing.ResourceId ).Count <= 0 ) color = Color.Yellow;
+				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.ResourceId == placing.ResourceId ).Value <= 0 ) color = Color.Yellow;
 				else color = placing.Color;
 			}
 			Renderer.Tint = Color.Lerp( BaseColor, color, 0.8f );

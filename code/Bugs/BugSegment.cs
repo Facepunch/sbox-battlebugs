@@ -25,4 +25,11 @@ public class BugSegment : Component
 
         Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );
     }
+
+    public void Clear()
+    {
+        if ( IsProxy ) return;
+        // TODO: Funny destroy particles
+        GameObject.Destroy();
+    }
 }
