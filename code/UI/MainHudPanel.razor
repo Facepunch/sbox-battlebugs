@@ -6,6 +6,11 @@
 <root>
 	<div class="enable-mouse" />
 
+	@if (!BoardManager.Local.IsValid())
+	{
+		return;
+	}
+
 	@if (!(GameManager.Instance.State == GameState.Waiting || GameManager.Instance.State == GameState.Results))
 	{
 		<GameHud />

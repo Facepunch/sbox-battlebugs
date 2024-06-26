@@ -22,6 +22,8 @@ public sealed class AttackingInput : Component
 
 	protected override void OnUpdate()
 	{
+		if ( !BoardManager.Local.IsValid() ) return;
+
 		var tr = Scene.Trace.Ray( Scene.Camera.ScreenPixelToRay( Mouse.Position ), 8000f )
 			.WithoutTags( "bug" )
 			.Run();

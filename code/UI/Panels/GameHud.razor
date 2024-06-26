@@ -5,8 +5,6 @@
 @attribute [StyleSheet]
 
 <root>
-	@if (!BoardManager.Local.IsValid()) return;
-
 	<div class="header">
 		<div class="player">
 			@if (GameManager.Instance.Boards.Count > 0)
