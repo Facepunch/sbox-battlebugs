@@ -142,7 +142,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		if ( CurrentPlayer is not null )
 		{
-			UpdateCamera( CurrentPlayer );
+			var otherPlayer = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId );
+			UpdateCamera( otherPlayer );
 		}
 	}
 
