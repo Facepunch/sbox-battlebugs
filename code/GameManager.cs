@@ -161,6 +161,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			if ( IsFiring )
 			{
 				UpdateCamera( otherPlayer );
+				LastPebblePosition = Scene.Camera.Transform.Position + Scene.Camera.Transform.Rotation.Forward * 1000f;
 			}
 			else
 			{
