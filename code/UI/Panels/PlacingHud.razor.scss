@@ -10,10 +10,12 @@ PlacingHud
 	.bug-inventory
 	{
 		position: absolute;
-		top: 16px;
+		top: 0px;
 		left: 16px;
+		bottom: 0px;
 		flex-direction: column;
 		font-size: 32px;
+		justify-content: center;
 
 		.bug-inventory-item
 		{
