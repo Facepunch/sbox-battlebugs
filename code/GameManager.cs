@@ -51,6 +51,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	public void OnActive( Connection channel )
 	{
+		// TODO: Create a spectator pawn or something
+		if ( Boards.Count >= 2 ) return;
+
 		var currentBoardCount = Scene.GetAllComponents<BoardManager>().Count();
 		var client = BoardPrefab.Clone( new CloneConfig()
 		{
