@@ -6,6 +6,11 @@
 <root>
 	<div class="enable-mouse" />
 
+	@if (!(GameManager.Instance.State == GameState.Waiting || GameManager.Instance.State == GameState.Results))
+	{
+		<GameHud />
+	}
+
 	@if (GameManager.Instance.State == GameState.Waiting)
 	{
 		<WaitingHud />
@@ -13,10 +18,6 @@
 	else if (GameManager.Instance.State == GameState.Placing)
 	{
 		<PlacingHud />
-	}
-	else if (GameManager.Instance.State == GameState.Playing)
-	{
-		<GameHud />
 	}
 	else if (GameManager.Instance.State == GameState.Results)
 	{

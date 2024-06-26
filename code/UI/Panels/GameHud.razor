@@ -51,6 +51,10 @@
 
 	string GetHeader()
 	{
+		if (GameManager.Instance.State == GameState.Placing)
+		{
+			return "Place your bugs!";
+		}
 		if (GameManager.Instance.CurrentPlayer == BoardManager.Local)
 		{
 			return "It's your turn!";
