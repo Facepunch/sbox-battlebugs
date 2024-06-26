@@ -20,6 +20,7 @@ public class BugSegment : Component
 
     protected override void OnFixedUpdate()
     {
+        if ( IsProxy ) return;
         if ( !_initialized ) return;
 
         Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );

@@ -143,9 +143,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 			var segment = BugSegmentPrefab.Clone();
 			segment.Transform.Position = cells[i].Transform.Position;
 			segment.Transform.Rotation = rotation;
-			segment.SetParent( cells[i].GameObject );
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Bug.Color, cells.Count, i * 0.05f );
+			segment.NetworkSpawn();
 
 			cells[i].IsOccupied = true;
 		}
