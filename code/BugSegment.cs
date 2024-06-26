@@ -62,10 +62,17 @@ public class BugSegment : Component
         GameObject.Destroy();
     }
 
+    CellComponent GetCell()
+    {
+        return Scene.GetAllComponents<CellComponent>().OrderBy( x => x.Transform.Position.DistanceSquared( Transform.Position ) ).FirstOrDefault();
+    }
+
     [Broadcast]
     public void Damage( float damage )
     {
         _targetAlpha = 1f;
+        GetCell()?.Hit();
+
         if ( IsProxy ) return;
 
         Health -= damage;

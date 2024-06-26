@@ -12,6 +12,7 @@ public sealed class CellComponent : Component
 	public bool IsHovering { get; private set; } = false;
 	public bool IsSelected { get; set; } = false;
 	public bool IsOccupied { get; set; } = false;
+	public bool IsHit { get; set; } = false;
 
 	bool IsOdd = false;
 	Color BaseColor => IsOdd ? Color.White : Color.Gray;
@@ -53,6 +54,12 @@ public sealed class CellComponent : Component
 		IsHovering = false;
 
 		if ( IsSelected ) return;
+		UpdateHighlight();
+	}
+
+	public void Hit()
+	{
+		IsHit = true;
 		UpdateHighlight();
 	}
 
@@ -100,6 +107,11 @@ public sealed class CellComponent : Component
 
 	void UpdateHighlight()
 	{
+		if ( IsHit )
+		{
+			Renderer.Tint = Color.Lerp( BaseColor, Color.Red, 0.5f );
+			return;
+		}
 		if ( IsSelected )
 		{
 			var color = Color.Yellow;
