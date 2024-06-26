@@ -9,7 +9,7 @@ public sealed class GameInput : Component
 	public CellComponent HighlightedCell { get; set; } = null;
 	public List<CellComponent> SelectedCells { get; set; } = new();
 
-	public bool CanSelect { get; set; } = true;
+	public bool CanSelect { get; set; } = false;
 	public bool IsSelecting { get; private set; } = false;
 	public Bug AttemptingToPlace { get; private set; } = null;
 
