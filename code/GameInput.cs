@@ -83,10 +83,6 @@ public sealed class GameInput : Component
 			if ( SelectedCells.Count > 1 )
 			{
 				GameManager.Instance.CreateBug( SelectedCells );
-				foreach ( var cell in SelectedCells )
-				{
-					cell.IsOccupied = true;
-				}
 			}
 			DeselectAll();
 		}
