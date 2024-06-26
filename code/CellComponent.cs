@@ -16,14 +16,18 @@ public sealed class CellComponent : Component
 	bool IsOdd = false;
 	Color BaseColor => IsOdd ? Color.White : Color.Gray;
 
+	protected override void OnStart()
+	{
+		int index = GameObject.Parent.Children.IndexOf( GameObject );
+		index += (index - 2) / 10;
+		IsOdd = index % 2 == 0;
+		UpdateHighlight();
+	}
+
 	public void Init( BoardManager board, Vector2 position )
 	{
 		Board = board;
 		Position = position;
-
-		int index = (int)Position.x + (int)Position.y * (Board.Width + 1);
-		IsOdd = index % 2 == 0;
-		Renderer.Tint = IsOdd ? Color.White : Color.Gray;
 	}
 
 	public void MousePressed()
