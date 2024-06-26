@@ -7,7 +7,7 @@ public class BugSegment : Component
 
     public int ParentSegments { get; set; } = 1;
 
-    bool _initialized = false;
+    bool _initialized { get; set; } = false;
 
     public async void Init( Color color, int segments, float delay )
     {
@@ -20,10 +20,10 @@ public class BugSegment : Component
 
     protected override void OnFixedUpdate()
     {
-        if ( IsProxy ) return;
-        if ( !_initialized ) return;
-
-        Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );
+        if ( _initialized || IsProxy )
+        {
+            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );
+        }
     }
 
     public void Clear()
