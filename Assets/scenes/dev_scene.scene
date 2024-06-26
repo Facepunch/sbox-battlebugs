@@ -1,0 +1,105 @@
+{
+  "__guid": "15920c44-ce35-4abb-905d-495b6a37712b",
+  "GameObjects": [
+    {
+      "__guid": "e33b6492-f000-4ae0-80c3-5de0e41a2942",
+      "Flags": 0,
+      "Name": "Main Camera",
+      "Position": "-878.2805,0,532.6988",
+      "Rotation": "-0.00000001797573,0.2798287,0.00000006167203,0.9600499",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "81f01fc4-8547-4fa3-b520-3e0c55a52f14",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        }
+      ]
+    },
+    {
+      "__guid": "d17905eb-5ed9-408a-8d0d-fa98d731855f",
+      "Flags": 0,
+      "Name": "Directional Light",
+      "Position": "0,0,200",
+      "Rotation": "-0.2459842,0.5938582,0.2931525,0.7077327",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "0935a716-c534-4160-8036-f9aefc4c2cc6",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Shadows": true,
+          "SkyColor": "0.05882,0.07451,0.08235,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d52ae152-8b4f-4454-ac00-7a1eecc14dbd",
+      "Flags": 0,
+      "Name": "board",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/board.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "f5a50edf-75c7-4ae6-a68d-1312e9007270",
+      "Flags": 0,
+      "Name": "board (1)",
+      "Position": "1000,0,0",
+      "Rotation": "0,0,1,-0.00000004371139",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "__Prefab": "prefabs/board.prefab",
+      "__PrefabVariables": {}
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "dev_scene",
+  "Description": "",
+  "LastSaved": "2024-06-26T08:18:05.6200544-04:00",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

@@ -51,7 +51,7 @@ public sealed class BoardManager : Component
 		base.DrawGizmos();
 
 		var size = new Vector3( Width * GridSize, Height * GridSize, 0 );
-		var bounds = new BBox( Transform.Position + size / 2f, Transform.Position - size / 2f );
+		var bounds = new BBox( size / 2f, -size / 2f );
 		Gizmo.Draw.LineBBox( bounds );
 	}
 
