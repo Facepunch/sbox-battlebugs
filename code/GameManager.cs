@@ -23,8 +23,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
 
 	// Networked Variables
-	[Sync] public GameState State { get; set; }
-	[Sync] public Guid CurrentPlayerId { get; set; }
+	[HostSync] public GameState State { get; set; }
+	[HostSync] public Guid CurrentPlayerId { get; set; }
 
 	// Local Variables
 	public List<BoardManager> Boards;
@@ -55,7 +55,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var currentBoardCount = Scene.GetAllComponents<BoardManager>().Count();
 		var client = BoardPrefab.Clone( new CloneConfig()
 		{
-			Transform = new Transform( new Vector3( currentBoardCount * 1000f, 0, 0 ) ),
+			Transform = new Transform( new Vector3( currentBoardCount * 1000f, 0, 0 ), new Angles( 0, currentBoardCount == 0 ? 0 : 180, 0 ) ),
 			Name = channel.DisplayName
 		} );
 		client.Network.SetOrphanedMode( NetworkOrphaned.ClearOwner );
@@ -66,7 +66,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void StartGame()
 	{
+		State = GameState.Waiting;
+	}
 
+	void EndGame()
+	{
+		State = GameState.Results;
 	}
 
 	protected override void OnUpdate()
@@ -74,12 +79,51 @@ public sealed class GameManager : Component, Component.INetworkListener
 		switch ( State )
 		{
 			case GameState.Waiting: UpdateWaiting(); break;
+			case GameState.Placing: UpdatePlacing(); break;
+			case GameState.Results: UpdateResults(); break;
 		}
 	}
 
 	void UpdateWaiting()
 	{
-		var camTarget = BoardManager.Local.CameraPosition.Transform;
+		if ( BoardManager.Local is not null )
+		{
+			UpdateCamera( BoardManager.Local );
+		}
+
+		if ( Networking.IsHost )
+		{
+			if ( Boards.Count > 1 )
+			{
+				State = GameState.Placing;
+			}
+		}
+	}
+
+	void UpdatePlacing()
+	{
+		if ( BoardManager.Local is not null )
+		{
+			UpdateCamera( BoardManager.Local );
+		}
+
+		if ( Networking.IsHost )
+		{
+			if ( Boards.Any( x => x.Network.OwnerId == Guid.Empty ) )
+			{
+				EndGame();
+			}
+		}
+	}
+
+	void UpdateResults()
+	{
+
+	}
+
+	void UpdateCamera( BoardManager board )
+	{
+		var camTarget = board.CameraPosition.Transform;
 		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( camTarget.Position, Time.Delta * 5f );
 		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, camTarget.Rotation, Time.Delta * 5f );
 	}
