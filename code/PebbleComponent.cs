@@ -7,9 +7,11 @@ public sealed class PebbleComponent : Component
 {
 	[RequireComponent] Rigidbody Rigidbody { get; set; }
 
+	public TimeSince TimeSinceCreated = 0;
+
 	public void LaunchAt( Vector3 target )
 	{
-		var time = Random.Shared.Float( 2.5f, 3f );
+		var time = Random.Shared.Float( 1.5f, 2f );
 		var vector = target - Transform.Position.WithZ( target.z );
 		var direction = vector.Normal;
 		var velocity = vector / time;

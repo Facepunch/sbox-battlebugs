@@ -156,7 +156,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		if ( CurrentPlayer is not null )
 		{
 			var otherPlayer = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId );
-			UpdateCamera( otherPlayer );
+			if ( IsFiring )
+			{
+				UpdateCamera( otherPlayer );
+			}
+			else
+			{
+				var pebble = Scene.GetAllComponents<PebbleComponent>().Where( x => x.TimeSinceCreated > 0.6f ).FirstOrDefault();
+				if ( pebble is not null )
+				{
+					UpdateCamera( otherPlayer, pebble.Transform.Position );
+				}
+			}
 		}
 	}
 
@@ -170,6 +181,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var camTarget = board.CameraPosition.Transform;
 		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( camTarget.Position, Time.Delta * 5f );
 		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, camTarget.Rotation, Time.Delta * 5f );
+	}
+
+	void UpdateCamera( BoardManager board, Vector3 lookAt )
+	{
+		var camTarget = board.CameraPosition.Transform;
+		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( camTarget.Position, Time.Delta * 5f );
+
+		var rotation = Rotation.LookAt( lookAt - Scene.Camera.Transform.Position, Vector3.Up );
+		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, rotation, Time.Delta * 5f );
 	}
 
 	public void CreateBug( List<CellComponent> cells )
@@ -210,7 +230,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var pebble = pebbleObj.Components.Get<PebbleComponent>();
 		pebble.LaunchAt( position );
 
-		//IsFiring = false;
+		IsFiring = false;
 	}
 
 }
