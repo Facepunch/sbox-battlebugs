@@ -28,7 +28,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	// Local Variables
 	public List<BoardManager> Boards;
-	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.GameObject.Id == CurrentPlayerId );
+	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.Network.OwnerId == CurrentPlayerId );
 
 	protected override void OnAwake()
 	{
@@ -136,6 +136,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 	void UpdateGame()
 	{
 		GameInput.Instance.CanSelect = false;
+
+		if ( CurrentPlayer is not null )
+		{
+			UpdateCamera( CurrentPlayer );
+		}
 	}
 
 	void UpdateResults()
