@@ -9,24 +9,24 @@
     "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "Sandbox.ModelRenderer",
-        "__guid": "6ae742cf-a67a-46e8-a527-d20a7c41ea77",
-        "BodyGroups": 18446744073709551615,
-        "Model": "models/dev/dev_pebble_01.vmdl",
-        "RenderType": "On",
-        "Tint": "1,1,1,1"
+        "__type": "Battlebugs.PebbleComponent",
+        "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e",
+        "ParticlePrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/particles/particle_rock_burst.prefab"
+        }
       },
       {
         "__type": "Sandbox.SphereCollider",
-        "__guid": "ef760c2e-e409-4114-9f80-3a33469ef61e",
+        "__guid": "49d08623-0104-4dd7-b543-1f7a999a52a8",
         "Center": "0,0,0",
         "IsTrigger": false,
-        "Radius": 28.600029,
+        "Radius": 9.700001,
         "Static": false
       },
       {
         "__type": "Sandbox.Rigidbody",
-        "__guid": "887f5e40-c398-4753-85d9-45ee726ec688",
+        "__guid": "6fa8b88f-090b-4b4c-a564-578ffafb3b87",
         "AngularDamping": 0,
         "Gravity": true,
         "LinearDamping": 0,
@@ -35,13 +35,29 @@
         "MotionEnabled": true,
         "RigidbodyFlags": 0,
         "StartAsleep": false
-      },
-      {
-        "__type": "Battlebugs.PebbleComponent",
-        "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e"
       }
     ],
-    "Children": [],
+    "Children": [
+      {
+        "__guid": "02d3c70e-ad1f-4e85-ac59-228411d07558",
+        "Flags": 0,
+        "Name": "pebble",
+        "Scale": "0.3,0.3,0.3",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "9d574663-91cd-4c81-b59d-316fa183e9b1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/dev/dev_pebble_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
     "__variables": []
   },
   "ShowInMenu": false,
