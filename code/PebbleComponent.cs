@@ -26,6 +26,8 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 	protected override void OnFixedUpdate()
 	{
+		if ( IsProxy ) return;
+
 		if ( TimeSinceCreated > 10f )
 		{
 			GameObject.Destroy();
@@ -34,11 +36,18 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 	public void OnCollisionStart( Collision collision )
 	{
-		Log.Info( collision );
+		if ( IsProxy ) return;
+
+		BroadcastDestroyEffect();
+		GameObject.Destroy();
+	}
+
+	[Broadcast]
+	void BroadcastDestroyEffect()
+	{
 		if ( ParticlePrefab is not null )
 		{
 			ParticlePrefab.Clone( Transform.Position );
 		}
-		GameObject.Destroy();
 	}
 }

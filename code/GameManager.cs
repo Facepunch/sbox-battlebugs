@@ -239,6 +239,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var pebbleObj = PebblePrefab.Clone( board.CameraPosition.Transform.Position.WithZ( 32f ) );
 		var pebble = pebbleObj.Components.Get<PebbleComponent>();
 		pebble.LaunchAt( position );
+		pebbleObj.NetworkSpawn( null );
 
 		IsFiring = false;
 	}
