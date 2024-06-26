@@ -19,7 +19,7 @@ public sealed class CellComponent : Component
 	protected override void OnStart()
 	{
 		int index = GameObject.Parent.Children.IndexOf( GameObject );
-		index += (index - 2) / 10;
+		index += (index - 1) / 10;
 		IsOdd = index % 2 == 0;
 		UpdateHighlight();
 	}
