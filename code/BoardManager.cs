@@ -17,6 +17,7 @@ public sealed class BoardManager : Component
 		}
 	}
 	private static BoardManager _local;
+	public static BoardManager Opponent => Game.ActiveScene.GetAllComponents<BoardManager>().FirstOrDefault( x => !x.Network.IsOwner );
 
 	// Properties
 	[Property] public int GridSize { get; set; } = 64;

@@ -18,12 +18,19 @@
 		</div>
 		<div class="banner">@GetHeader()</div>
 		<div class="player opponent">
-			<img src="ui/player-banner.png" />
-			<div class="content">
-				<img src=@($"avatar:{BoardManager.Local.Network.OwnerConnection.SteamId}") />
-				<span class="name">@BoardManager.Local.GameObject.Name</span>
-				<span class="score">0</span>
-			</div>
+			@if (true)
+			{
+				var oppponent = BoardManager.Opponent;
+				if (oppponent.IsValid())
+				{
+					<img src="ui/player-banner.png" />
+					<div class="content">
+						<img src=@($"avatar:{oppponent.Network.OwnerConnection.SteamId}") />
+						<span class="name">@oppponent.GameObject.Name</span>
+						<span class="score">0</span>
+					</div>
+				}
+			}
 		</div>
 	</div>
 </root>
