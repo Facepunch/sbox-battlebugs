@@ -102,6 +102,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void UpdatePlacing()
 	{
+		GameInput.Instance.CanSelect = true;
 		if ( BoardManager.Local is not null )
 		{
 			UpdateCamera( BoardManager.Local );
