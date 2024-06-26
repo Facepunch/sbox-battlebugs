@@ -3,17 +3,17 @@
     "__guid": "460ade40-34db-408e-b336-b7d576ac14af",
     "Flags": 0,
     "Name": "cell",
-    "Tags": "cell",
+    "Tags": "solid,cell",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "Sandbox.PlaneCollider",
-        "__guid": "cb2b051f-4745-44a8-9c13-631a0f99c95f",
-        "Center": "0,0,0",
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "035594d0-bb32-4acc-8308-12d978ef9cf6",
+        "Center": "0,0,-12.5",
         "IsTrigger": false,
-        "Scale": "64,64",
+        "Scale": "64,64,25",
         "Static": true
       },
       {

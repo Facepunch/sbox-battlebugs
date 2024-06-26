@@ -41,7 +41,7 @@ public sealed class AttackingInput : Component
 					}
 					else
 					{
-						Reticle.Transform.Position = tr.HitPosition + Vector3.Up;
+						Reticle.Transform.Position = tr.HitPosition.WithZ( 0 ) + Vector3.Up;
 					}
 				}
 			}

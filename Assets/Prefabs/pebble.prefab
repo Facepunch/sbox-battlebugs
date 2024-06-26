@@ -17,10 +17,11 @@
         "Tint": "1,1,1,1"
       },
       {
-        "__type": "Sandbox.ModelCollider",
-        "__guid": "2dec48da-f878-4ac2-9e6c-6cef69d4f53e",
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "ef760c2e-e409-4114-9f80-3a33469ef61e",
+        "Center": "0,0,0",
         "IsTrigger": false,
-        "Model": "models/dev/dev_pebble_01.vmdl",
+        "Radius": 28.600029,
         "Static": false
       },
       {
@@ -39,7 +40,9 @@
         "__type": "Battlebugs.PebbleComponent",
         "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e"
       }
-    ]
+    ],
+    "Children": [],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
