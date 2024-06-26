@@ -1,6 +1,6 @@
 {
   "Name": "Bug",
-  "Color": "1,0,0,1",
+  "Color": "1,0,0.68333,1",
   "SegmentCount": 2,
   "SegmentPrefab": {
     "_type": "gameobject",
