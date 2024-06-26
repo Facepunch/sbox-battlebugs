@@ -44,5 +44,5 @@
 		return GameManager.Instance.State == GameState.Placing || (GameManager.Instance.CurrentPlayerId == BoardManager.Local.Network.OwnerId && GameManager.Instance.IsFiring);
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, AttackingInput.Instance.ReticleState, GameManager.Instance.CurrentPlayerId);
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, AttackingInput.Instance.ReticleState, GameManager.Instance.CurrentPlayerId, GameManager.Instance.IsFiring);
 }
