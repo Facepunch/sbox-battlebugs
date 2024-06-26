@@ -9,15 +9,6 @@
     "NetworkInterpolation": true,
     "Components": [
       {
-        "__type": "Sandbox.ModelRenderer",
-        "__guid": "4612c2e9-4e0b-416c-882c-50b7167af40c",
-        "BodyGroups": 18446744073709551615,
-        "MaterialOverride": "materials/dev/reflectivity_90b.vmat",
-        "Model": "models/dev/dev_cell.vmdl",
-        "RenderType": "On",
-        "Tint": "1,1,1,1"
-      },
-      {
         "__type": "Sandbox.PlaneCollider",
         "__guid": "cb2b051f-4745-44a8-9c13-631a0f99c95f",
         "Center": "0,0,0",
@@ -27,10 +18,37 @@
       },
       {
         "__type": "Battlebugs.CellComponent",
-        "__guid": "ee2809fb-9697-4946-a378-201ac23086eb"
+        "__guid": "ee2809fb-9697-4946-a378-201ac23086eb",
+        "Renderer": {
+          "_type": "component",
+          "component_id": "64768333-bbf5-4b0e-ad81-648b27180e54",
+          "go": "93c216f4-841e-4dac-86c5-7a0d3e5d906c",
+          "component_type": "ModelRenderer"
+        }
       }
     ],
-    "Children": [],
+    "Children": [
+      {
+        "__guid": "93c216f4-841e-4dac-86c5-7a0d3e5d906c",
+        "Flags": 0,
+        "Name": "Body",
+        "Position": "0,0,-12.5",
+        "Scale": "1.28,1.28,0.5",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "64768333-bbf5-4b0e-ad81-648b27180e54",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/dev/box.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
     "__variables": []
   },
   "ShowInMenu": false,

@@ -5,7 +5,7 @@ namespace Battlebugs;
 
 public sealed class CellComponent : Component
 {
-	[RequireComponent] ModelRenderer Renderer { get; set; }
+	[Property] ModelRenderer Renderer { get; set; }
 
 	public BoardManager Board { get; set; }
 	public Vector2 Position { get; set; }
@@ -14,6 +14,7 @@ public sealed class CellComponent : Component
 	public bool IsOccupied { get; set; } = false;
 
 	bool IsOdd = false;
+	Color BaseColor => IsOdd ? Color.White : Color.Gray;
 
 	public void Init( BoardManager board, Vector2 position )
 	{
@@ -40,7 +41,7 @@ public sealed class CellComponent : Component
 		IsHovering = true;
 
 		if ( IsSelected ) return;
-		Renderer.Tint = IsOccupied ? Color.Red : Color.Yellow;
+		UpdateHighlight();
 	}
 
 	public void MouseExit()
@@ -48,7 +49,7 @@ public sealed class CellComponent : Component
 		IsHovering = false;
 
 		if ( IsSelected ) return;
-		Renderer.Tint = IsOdd ? Color.White : Color.Gray;
+		UpdateHighlight();
 	}
 
 	public void Select()
@@ -56,17 +57,28 @@ public sealed class CellComponent : Component
 		IsSelected = true;
 		GameInput.Instance.SelectedCells.Add( this );
 
-		Renderer.Tint = Color.Blue;
+		foreach ( var cell in GameInput.Instance.SelectedCells )
+		{
+			cell.UpdateHighlight();
+		}
 	}
 
-	public void Deselect()
+	public void Deselect( bool remove = true )
 	{
 		IsSelected = false;
 
-		Renderer.Tint = IsOdd ? Color.White : Color.Gray;
+		if ( remove )
+		{
+			GameInput.Instance.SelectedCells.Remove( this );
+			UpdateHighlight();
+		}
+		foreach ( var cell in GameInput.Instance.SelectedCells )
+		{
+			cell.UpdateHighlight();
+		}
 	}
 
-	public bool IsAdjacent(CellComponent other)
+	public bool IsAdjacent( CellComponent other )
 	{
 		// Above/below
 		if ( Position.x == other.Position.x && MathF.Abs( Position.y - other.Position.y ) == 1 )
@@ -77,6 +89,23 @@ public sealed class CellComponent : Component
 			return true;
 
 		return false;
+	}
+
+	void UpdateHighlight()
+	{
+		if ( IsSelected )
+		{
+			var color = Color.Yellow;
+			Renderer.Tint = Color.Lerp( BaseColor, color, 0.8f );
+		}
+		else if ( IsHovering )
+		{
+			Renderer.Tint = Color.Lerp( BaseColor, Color.Yellow, 0.5f );
+		}
+		else
+		{
+			Renderer.Tint = BaseColor;
+		}
 	}
 
 }
