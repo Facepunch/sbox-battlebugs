@@ -5,7 +5,7 @@
   "Ident": "battlebugs",
   "Tags": null,
   "Schema": 1,
-  "Resources": null,
+  "Resources": "/UI/*",
   "PackageReferences": [],
   "EditorReferences": null,
   "Metadata": {
