@@ -21,6 +21,14 @@
           "go": "012d53be-b409-403e-83a1-d6d105cea566",
           "component_type": "ModelRenderer"
         }
+      },
+      {
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "55e5d9a7-a13c-4b9b-8754-880d049f6aa0",
+        "Center": "0,0,24.4",
+        "IsTrigger": false,
+        "Radius": 33.200047,
+        "Static": false
       }
     ],
     "Children": [
