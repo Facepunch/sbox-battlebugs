@@ -9,18 +9,22 @@
 
 	<div class="header">
 		<div class="player">
-			<img src="ui/player-banner.png" />
-			<div class="content">
-				<img src=@($"avatar:{BoardManager.Local.Network.OwnerConnection.SteamId}") />
-				<span class="name">@BoardManager.Local.GameObject.Name</span>
-				<span class="score">0</span>
-			</div>
+			@if (GameManager.Instance.Boards.Count > 0)
+			{
+				var player = GameManager.Instance.Boards.ElementAt(0);
+				<img src="ui/player-banner.png" />
+				<div class="content">
+					<img src=@($"avatar:{player.Network.OwnerConnection.SteamId}") />
+					<span class="name">@player.GameObject.Name</span>
+					<span class="score">0</span>
+				</div>
+			}
 		</div>
 		<div class="banner">@GetHeader()</div>
 		<div class="player opponent">
-			@if (true)
+			@if (GameManager.Instance.Boards.Count > 1)
 			{
-				var oppponent = BoardManager.Opponent;
+				var oppponent = GameManager.Instance.Boards.ElementAt(1);
 				if (oppponent.IsValid())
 				{
 					<img src="ui/player-banner.png" />

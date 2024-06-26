@@ -56,6 +56,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	}
 
+	protected override void OnStart()
+	{
+		// This is really just for late-joiners
+		Boards = Scene.GetAllComponents<BoardManager>().ToList();
+	}
+
 	public void OnActive( Connection channel )
 	{
 		// TODO: Create a spectator pawn or something
