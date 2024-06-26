@@ -88,7 +88,12 @@ public sealed class GameInput : Component
 
 			if ( SelectedCells.Count > 1 )
 			{
+				Sound.Play( "ui-select-complete" );
 				GameManager.Instance.CreateBug( SelectedCells );
+			}
+			else if ( SelectedCells.Count == 1 )
+			{
+				Sound.Play( "ui-select-bug" );
 			}
 			DeselectAll();
 		}

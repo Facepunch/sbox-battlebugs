@@ -61,6 +61,8 @@ public sealed class CellComponent : Component
 		IsSelected = true;
 		GameInput.Instance.SelectedCells.Add( this );
 
+		Sound.Play( "ui-select" );
+
 		foreach ( var cell in GameInput.Instance.SelectedCells )
 		{
 			cell.UpdateHighlight();
@@ -74,6 +76,7 @@ public sealed class CellComponent : Component
 		if ( remove )
 		{
 			GameInput.Instance.SelectedCells.Remove( this );
+			Sound.Play( "ui-select-bug" );
 			UpdateHighlight();
 		}
 		foreach ( var cell in GameInput.Instance.SelectedCells )
