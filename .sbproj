@@ -1,8 +1,8 @@
 {
   "Title": "Battlebugs",
   "Type": "game",
-  "Org": "carsonk",
-  "Ident": "bb_test",
+  "Org": "facepunch",
+  "Ident": "battlebugs",
   "Tags": null,
   "Schema": 1,
   "Resources": null,
