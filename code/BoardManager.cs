@@ -69,6 +69,11 @@ public sealed class BoardManager : Component
 			if ( segment.Network.OwnerId != Network.OwnerId ) continue;
 			segment.Clear();
 		}
+		var cells = Components.GetAll<CellComponent>( FindMode.InChildren );
+		foreach ( var cell in cells )
+		{
+			cell.IsOccupied = false;
+		}
 		ResetInventory();
 	}
 
