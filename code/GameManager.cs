@@ -74,6 +74,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
+	void StartPlaying()
+	{
+		State = GameState.Playing;
+		CurrentPlayerId = Boards.FirstOrDefault().Network.OwnerId;
+	}
+
 	void EndGame()
 	{
 		State = GameState.Results;
@@ -85,6 +91,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			case GameState.Waiting: UpdateWaiting(); break;
 			case GameState.Placing: UpdatePlacing(); break;
+			case GameState.Playing: UpdateGame(); break;
 			case GameState.Results: UpdateResults(); break;
 		}
 	}
@@ -119,7 +126,16 @@ public sealed class GameManager : Component, Component.INetworkListener
 			{
 				EndGame();
 			}
+			else if ( !Boards.Any( x => !x.IsReady ) )
+			{
+				StartPlaying();
+			}
 		}
+	}
+
+	void UpdateGame()
+	{
+		GameInput.Instance.CanSelect = false;
 	}
 
 	void UpdateResults()
