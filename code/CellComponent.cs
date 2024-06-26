@@ -96,6 +96,7 @@ public sealed class CellComponent : Component
 		if ( IsSelected )
 		{
 			var color = Color.Yellow;
+			if ( GameInput.Instance.AttemptingToPlace is not null ) color = GameInput.Instance.AttemptingToPlace.Color;
 			Renderer.Tint = Color.Lerp( BaseColor, color, 0.8f );
 		}
 		else if ( IsHovering )

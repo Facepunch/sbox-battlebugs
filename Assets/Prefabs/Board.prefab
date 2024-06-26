@@ -52,7 +52,7 @@
         "__guid": "1829e4c2-688b-4c5d-ac2b-59ecc640dfcb",
         "Flags": 0,
         "Name": "Cube",
-        "Position": "0,0,-1",
+        "Position": "0,0,-8",
         "Rotation": "0,0,1,-0.00000004371139",
         "Scale": "64,64,1",
         "Enabled": true,

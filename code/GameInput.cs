@@ -11,6 +11,7 @@ public sealed class GameInput : Component
 
 	public bool CanSelect { get; set; } = true;
 	public bool IsSelecting { get; private set; } = false;
+	public Bug AttemptingToPlace { get; private set; } = null;
 
 	protected override void OnAwake()
 	{
@@ -48,12 +49,13 @@ public sealed class GameInput : Component
 				{
 					if ( SelectedCells.Count > 1 && HighlightedCell == SelectedCells.ElementAt( SelectedCells.Count - 2 ) )
 					{
+						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Bug.SegmentCount == SelectedCells.Count - 1 ).Bug : null;
 						SelectedCells.LastOrDefault()?.Deselect();
-						SelectedCells.RemoveAt( SelectedCells.Count - 1 );
 					}
 
 					if ( HighlightedCell is not null && !HighlightedCell.IsOccupied && !SelectedCells.Contains( HighlightedCell ) && (SelectedCells.Count == 0 || SelectedCells.LastOrDefault().IsAdjacent( HighlightedCell )) && SelectedCells.Count < (BoardManager.Local?.MaxPlaceableSegments ?? 0) )
 					{
+						AttemptingToPlace = SelectedCells.Count > 0 ? SelectedCells.FirstOrDefault().Board.BugInventory.FirstOrDefault( x => x.Bug.SegmentCount == SelectedCells.Count + 1 ).Bug : null;
 						HighlightedCell?.Select();
 					}
 				}
@@ -92,7 +94,7 @@ public sealed class GameInput : Component
 	{
 		foreach ( var cell in SelectedCells )
 		{
-			cell.Deselect();
+			cell.Deselect( false );
 		}
 		SelectedCells.Clear();
 	}
