@@ -25,6 +25,10 @@
 	{
 		<PlacingHud />
 	}
+	else if (GameManager.Instance.State == GameState.Playing)
+	{
+		<WeaponHud />
+	}
 	else if (GameManager.Instance.State == GameState.Results)
 	{
 		<ResultsHud />

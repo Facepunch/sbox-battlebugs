@@ -1,0 +1,18 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="container">
+		<div class="weapons">
+			
+		</div>
+	</div>
+</root>
+
+@code
+{
+	protected override int BuildHash() => System.HashCode.Combine("");
+}

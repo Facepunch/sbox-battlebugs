@@ -1,0 +1,20 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@if (!GameManager.Instance.CurrentPlayer != BoardManager.Local || !GameManager.Instance.IsFiring) return;
+
+	<div class="container">
+		<div class="weapons">
+			
+		</div>
+	</div>
+</root>
+
+@code
+{
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.IsFiring, GameManager.Instance.CurrentPlayerId);
+}
