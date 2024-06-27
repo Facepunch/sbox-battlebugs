@@ -4,9 +4,10 @@
   "Icon": "ui/weapons/rock.png",
   "StartingAmount": -1,
   "AmountFired": "1.00,0.00,0",
+  "Damage": "8.00,8.00,0",
   "Prefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/pebble.prefab"
+    "prefab": "prefabs/rocks/rock.prefab"
   },
   "__references": [],
   "__version": 0

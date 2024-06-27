@@ -15,7 +15,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 	public void LaunchAt( Vector3 target )
 	{
-		var time = Random.Shared.Float( 1.5f, 2f );
+		var time = Random.Shared.Float( 1.8f, 2f );
 		var vector = target - Transform.Position.WithZ( target.z );
 		var direction = vector.Normal;
 		var velocity = vector / time;

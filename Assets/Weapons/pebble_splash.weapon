@@ -7,7 +7,7 @@
   "Damage": "2.00,8.00,0",
   "Prefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/pebble.prefab"
+    "prefab": "prefabs/rocks/pebble.prefab"
   },
   "__references": [],
   "__version": 0

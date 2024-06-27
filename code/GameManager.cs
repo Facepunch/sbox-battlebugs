@@ -25,7 +25,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
-	[Property, Group( "Prefabs" )] public GameObject PebblePrefab { get; set; }
 
 	// Networked Variables
 	[HostSync] public GameState State { get; set; }
@@ -253,21 +252,39 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Authority]
 	public void BroadcastFire( int weaponId, Vector3 position )
 	{
+		Log.Info( weaponId );
 		if ( Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
 		var weapon = ResourceLibrary.Get<Weapon>( weaponId );
 		if ( weapon is null ) return;
+		Log.Info( weapon );
 
 		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
 		if ( board is null ) return;
+		Log.Info( board );
 
-		// TODO: Implement firing logic
-		var pebbleObj = PebblePrefab.Clone( board.CameraPosition.Transform.Position.WithZ( 32f ) );
-		var pebble = pebbleObj.Components.Get<PebbleComponent>();
-		pebble.Damage = weapon.Damage.GetValue();
-		pebble.LaunchAt( position );
-		pebbleObj.NetworkSpawn( null );
+		int count = (int)MathF.Round( weapon.AmountFired.GetValue() );
+		Log.Info( count );
+
+		for ( int i = 0; i < count; i++ )
+		{
+			var pos = board.CameraPosition.Transform.Position.WithZ( 32f );
+			var target = position;
+			if ( count > 1 )
+			{
+				var offset = Vector3.Random.WithZ( 0 ) * 42f;
+				pos += offset;
+				target += offset;
+			}
+			var pebbleObj = weapon.Prefab.Clone( pos );
+			Log.Info( pebbleObj );
+			var pebble = pebbleObj.Components.Get<PebbleComponent>();
+			Log.Info( pebble );
+			pebble.Damage = weapon.Damage.GetValue();
+			pebble.LaunchAt( target );
+			pebbleObj.NetworkSpawn( null );
+		}
 
 		IsFiring = false;
 	}

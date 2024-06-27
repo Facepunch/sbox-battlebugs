@@ -11,8 +11,8 @@ public sealed class CellComponent : Component
 	public Vector2 Position { get; set; }
 	public bool IsHovering { get; private set; } = false;
 	public bool IsSelected { get; set; } = false;
-	public bool IsOccupied { get; set; } = false;
 
+	[Sync] public bool IsOccupied { get; set; } = false;
 	[Sync] bool IsHit { get; set; } = false;
 	[Sync] bool IsOdd { get; set; } = false;
 	Color BaseColor => IsOdd ? Color.White : Color.Gray;
@@ -123,7 +123,7 @@ public sealed class CellComponent : Component
 	{
 		if ( IsHit )
 		{
-			Renderer.Tint = Color.Lerp( BaseColor, Color.Red, 0.5f );
+			Renderer.Tint = Color.Lerp( BaseColor, IsOccupied ? Color.Green : Color.Red, 0.5f );
 		}
 		else if ( IsSelected )
 		{

@@ -21,7 +21,7 @@
         "__guid": "49d08623-0104-4dd7-b543-1f7a999a52a8",
         "Center": "0,0,0",
         "IsTrigger": false,
-        "Radius": 9.700001,
+        "Radius": 4.6,
         "Static": false
       },
       {
@@ -42,7 +42,7 @@
         "__guid": "02d3c70e-ad1f-4e85-ac59-228411d07558",
         "Flags": 0,
         "Name": "pebble",
-        "Scale": "0.3,0.3,0.3",
+        "Scale": "0.14,0.14,0.14",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
