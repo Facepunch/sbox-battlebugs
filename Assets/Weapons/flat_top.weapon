@@ -1,6 +1,6 @@
 {
   "Name": "Flat Top",
-  "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 3 different bugs in one shot. Rotation is unreliable.",
+  "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 3 different bugs in one shot.",
   "Icon": "ui/weapons/flat-stone.png",
   "StartingAmount": 3,
   "AmountFired": "1.00,6.00,0",

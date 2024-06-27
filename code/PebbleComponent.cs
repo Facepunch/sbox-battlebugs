@@ -8,8 +8,11 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	[RequireComponent] Rigidbody Rigidbody { get; set; }
 
 	[Property] GameObject ParticlePrefab { get; set; }
+	[Property] int HitCount { get; set; } = 1;
 
 	[Sync] public float Damage { get; set; } = 4f;
+	List<BugSegment> HitSegments = new();
+	List<CellComponent> HitCells = new();
 
 	public TimeSince TimeSinceCreated = 0;
 
@@ -43,16 +46,30 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 		if ( collision.Other.GameObject.Components.TryGet<BugSegment>( out var segment ) )
 		{
+			if ( HitSegments.Contains( segment ) ) return;
+			HitSegments.Add( segment );
 			GameManager.Instance.BroadcastDamageNumber( Transform.Position, Damage );
 			segment.Damage( Damage );
+			Hit();
 		}
 		else if ( collision.Other.GameObject.Components.TryGet<CellComponent>( out var cell ) )
 		{
+			if ( HitCells.Contains( cell ) ) return;
+			HitCells.Add( cell );
 			cell.BroadcastHit();
+			HitCount--;
+			if ( HitCount == 0 ) Hit();
 		}
+	}
 
-		BroadcastDestroyEffect();
-		GameObject.Destroy();
+	void Hit()
+	{
+		HitCount--;
+		if ( HitCount <= 0 )
+		{
+			BroadcastDestroyEffect();
+			GameObject.Destroy();
+		}
 	}
 
 	[Broadcast]
