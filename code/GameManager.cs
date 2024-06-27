@@ -73,7 +73,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var currentBoardCount = Scene.GetAllComponents<BoardManager>().Count();
 		var client = BoardPrefab.Clone( new CloneConfig()
 		{
-			Transform = new Transform( new Vector3( currentBoardCount * 1000f, 0, 12f ), new Angles( 0, currentBoardCount == 0 ? 0 : 180, 0 ) ),
+			Transform = new Transform( new Vector3( currentBoardCount * 1000f, 0, 2f ), new Angles( 0, currentBoardCount == 0 ? 0 : 180, 0 ) ),
 			Name = channel.DisplayName
 		} );
 		client.Network.SetOrphanedMode( NetworkOrphaned.ClearOwner );
