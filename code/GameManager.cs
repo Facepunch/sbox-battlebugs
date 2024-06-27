@@ -251,17 +251,22 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	[Authority]
-	public void BroadcastFire( Vector3 position )
+	public void BroadcastFire( int weaponId, Vector3 position )
 	{
 		if ( Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
+		var weapon = ResourceLibrary.Get<Weapon>( weaponId );
+		if ( weapon is null ) return;
+
 		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
 		if ( board is null ) return;
+		if ( board.WeaponInventory[weapon] == 0 ) return;
 
 		// TODO: Implement firing logic
 		var pebbleObj = PebblePrefab.Clone( board.CameraPosition.Transform.Position.WithZ( 32f ) );
 		var pebble = pebbleObj.Components.Get<PebbleComponent>();
+		pebble.Damage = weapon.Damage.GetValue();
 		pebble.LaunchAt( position );
 		pebbleObj.NetworkSpawn( null );
 

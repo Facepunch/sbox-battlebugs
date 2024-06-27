@@ -1,5 +1,6 @@
 {
   "Name": "Rock",
+  "Description": "Fires a single medium-sized rock that deals 8 damage.\nThis can be used unlimited times.",
   "Icon": "ui/weapons/rock.png",
   "StartingAmount": -1,
   "AmountFired": "1.00,0.00,0",

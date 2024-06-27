@@ -72,7 +72,7 @@ public sealed class AttackingInput : Component
 			if ( ReticleState < 2 ) ReticlePosition = Reticle.Transform.Position;
 			if ( ReticleState == 3 )
 			{
-				GameManager.Instance.BroadcastFire( Reticle.Transform.Position );
+				GameManager.Instance.BroadcastFire( BoardManager.Local.SelectedWeapon.ResourceId, Reticle.Transform.Position );
 				Reticle.Destroy();
 				Reticle = null;
 				ReticleState = 0;

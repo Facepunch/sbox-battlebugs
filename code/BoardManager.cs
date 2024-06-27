@@ -29,6 +29,7 @@ public sealed class BoardManager : Component
 	[Sync] public bool IsReady { get; set; } = false;
 
 	// Public Variables
+	public Weapon SelectedWeapon = null;
 	public Dictionary<Bug, int> BugInventory = new();
 	public Dictionary<Weapon, int> WeaponInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
@@ -107,6 +108,7 @@ public sealed class BoardManager : Component
 		foreach ( var weapon in allWeapons )
 		{
 			WeaponInventory[weapon] = weapon.StartingAmount;
+			if ( weapon.StartingAmount < 0 ) SelectedWeapon = weapon;
 		}
 	}
 
