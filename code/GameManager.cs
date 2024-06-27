@@ -280,8 +280,14 @@ public sealed class GameManager : Component, Component.INetworkListener
 			pebble.LaunchAt( target );
 			pebbleObj.NetworkSpawn( null );
 		}
-
+		BroadcastFireSound();
 		IsFiring = false;
+	}
+
+	[Broadcast]
+	void BroadcastFireSound()
+	{
+		Sound.Play( "fling-rocks" );
 	}
 
 	[Broadcast]
