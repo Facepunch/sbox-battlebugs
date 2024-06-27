@@ -5,11 +5,11 @@
 @attribute [StyleSheet]
 
 <root>
-	@if (!GameManager.Instance.CurrentPlayer != BoardManager.Local || !GameManager.Instance.IsFiring) return;
+	@if (GameManager.Instance.CurrentPlayer != BoardManager.Local || !GameManager.Instance.IsFiring) return;
 
 	<div class="container">
 		<div class="weapons">
-			
+
 		</div>
 	</div>
 </root>
