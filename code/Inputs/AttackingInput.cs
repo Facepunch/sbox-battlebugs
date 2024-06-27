@@ -72,7 +72,7 @@ public sealed class AttackingInput : Component
 				AimingSound?.Stop();
 				AimingSound = Sound.Play( "aiming-loop" );
 			}
-
+			Sound.Play( "aiming-click" );
 			ReticleState++;
 			ReticleOffset = Reticle.Transform.Position - ReticlePosition;
 			if ( ReticleState < 2 ) ReticlePosition = Reticle.Transform.Position;
@@ -86,6 +86,7 @@ public sealed class AttackingInput : Component
 
 		if ( Input.Pressed( "Attack2" ) && ReticleState == 1 )
 		{
+			Sound.Play( "ui.navigate.back" );
 			ReticleState--;
 			if ( ReticleState == 0 )
 			{
