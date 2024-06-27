@@ -1,0 +1,18 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits PanelComponent
+
+<root style="opacity: @(Alpha)">
+	<div class="inner">
+		<div class="fill" style="width: @(Segment.Health / Segment.Bug.StartingHealth * 100f)%" )" />
+	</div>
+</root>
+
+@code
+{
+	[Property] BugSegment Segment { get; set; }
+	[Property] public float Alpha { get; set; } = 0f;
+
+	protected override int BuildHash() => System.HashCode.Combine(Alpha, Segment.Health);
+}

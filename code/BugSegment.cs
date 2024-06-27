@@ -4,6 +4,7 @@ public class BugSegment : Component
 {
     [Property] public GameObject Body { get; set; }
     [Property] public ModelRenderer BodyRenderer { get; set; }
+    [Property] BugHealthbar Healthbar { get; set; }
 
     [Sync] public int BugId { get; set; }
     [Sync] public float Health { get; set; } = 10f;
@@ -36,6 +37,7 @@ public class BugSegment : Component
         {
             renderer.Tint = renderer.Tint.WithAlpha( renderer.Tint.a.LerpTo( _targetAlpha, Time.Delta * 5f ) );
         }
+        Healthbar.Alpha = Healthbar.Alpha.LerpTo( (_targetAlpha == 1 && GameManager.Instance.State != GameState.Placing) ? 1 : 0, Time.Delta * 5f );
     }
 
     protected override void OnFixedUpdate()

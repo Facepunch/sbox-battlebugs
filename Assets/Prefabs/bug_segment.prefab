@@ -20,6 +20,12 @@
           "component_id": "43caf1b2-dea2-40e9-9711-9a68f084d202",
           "go": "012d53be-b409-403e-83a1-d6d105cea566",
           "component_type": "ModelRenderer"
+        },
+        "Healthbar": {
+          "_type": "component",
+          "component_id": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
+          "go": "000ffeb9-13f5-4669-896b-57fd74729b48",
+          "component_type": "BugHealthbar"
         }
       },
       {
@@ -123,6 +129,38 @@
                 "Static": false
               }
             ]
+          }
+        ]
+      },
+      {
+        "__guid": "000ffeb9-13f5-4669-896b-57fd74729b48",
+        "Flags": 0,
+        "Name": "Healthbar",
+        "Position": "0,0,74.43885",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "e0ea9408-c364-4c74-8f02-b2657bb382e3",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "PanelSize": "1280,250",
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Battlebugs.BugHealthbar",
+            "__guid": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
+            "Alpha": 0,
+            "Segment": {
+              "_type": "component",
+              "component_id": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
+              "go": "eae2dbef-0f59-4f7e-a6a5-f1a9b66f833d",
+              "component_type": "BugSegment"
+            }
           }
         ]
       }
