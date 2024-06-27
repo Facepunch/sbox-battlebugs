@@ -13,6 +13,7 @@ public sealed class AttackingInput : Component
 	Vector3 ReticlePosition = Vector3.Zero;
 	Vector3 ReticleOffset = Vector3.Zero;
 	public int ReticleState = 0;
+	SoundHandle AimingSound = null;
 
 	protected override void OnAwake()
 	{
@@ -38,7 +39,7 @@ public sealed class AttackingInput : Component
 					{
 						if ( ReticlePrefab is not null )
 						{
-							Reticle = ReticlePrefab.Clone( tr.HitPosition );
+							CreateReticle( tr.HitPosition );
 						}
 					}
 					else
@@ -49,8 +50,7 @@ public sealed class AttackingInput : Component
 			}
 			else if ( Reticle.IsValid() )
 			{
-				Reticle?.Destroy();
-				Reticle = null;
+				DestroyReticle();
 			}
 		}
 		else if ( Reticle.IsValid() )
@@ -67,6 +67,12 @@ public sealed class AttackingInput : Component
 
 		if ( Reticle.IsValid() && Input.Pressed( "Attack1" ) && BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon] != 0 )
 		{
+			if ( ReticleState == 0 )
+			{
+				AimingSound?.Stop();
+				AimingSound = Sound.Play( "aiming-loop" );
+			}
+
 			ReticleState++;
 			ReticleOffset = Reticle.Transform.Position - ReticlePosition;
 			if ( ReticleState < 2 ) ReticlePosition = Reticle.Transform.Position;
@@ -74,20 +80,35 @@ public sealed class AttackingInput : Component
 			{
 				BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon]--;
 				GameManager.Instance.BroadcastFire( BoardManager.Local.SelectedWeapon.ResourceId, Reticle.Transform.Position );
-				Reticle.Destroy();
-				Reticle = null;
-				ReticleState = 0;
+				DestroyReticle();
 			}
 		}
 
 		if ( Input.Pressed( "Attack2" ) && ReticleState == 1 )
 		{
 			ReticleState--;
+			if ( ReticleState == 0 )
+			{
+				AimingSound?.Stop();
+				AimingSound = null;
+			}
 		}
 	}
 
 	protected override void OnDisabled()
 	{
+		DestroyReticle();
+	}
+
+	void CreateReticle( Vector3 position )
+	{
+		Reticle = ReticlePrefab.Clone( position );
+	}
+
+	void DestroyReticle()
+	{
+		AimingSound?.Stop();
+		AimingSound = null;
 		Reticle?.Destroy();
 		Reticle = null;
 		ReticleState = 0;
