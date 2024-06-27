@@ -13,7 +13,6 @@
         "Name": "DISABLE ME! Main Camera",
         "Position": "-878.2799,0.00003051758,532.6988",
         "Rotation": "-0.00000001117587,0.2798287,0.00000008940697,0.96005",
-        "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "Components": [
@@ -6774,16 +6773,16 @@
                 "0,0"
               ],
               "TextureUAxis": [
-                "1,0,0"
+                "1,-0.0000005313913,0"
               ],
               "TextureVAxis": [
-                "0.0000005727479,-1,0"
+                "-0.0000003036519,-1,0"
               ],
               "TextureScale": [
-                "0.25,0.2500003"
+                "0.2500002,0.25"
               ],
               "TextureOffset": [
-                "52.64099,60.6936"
+                "52.64209,60.69312"
               ],
               "MaterialIndex": [
                 1
