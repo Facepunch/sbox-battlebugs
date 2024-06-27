@@ -17,6 +17,18 @@
         "GridSize": 64,
         "Height": 10,
         "Width": 10
+      },
+      {
+        "__type": "Battlebugs.VoiceComponent",
+        "__guid": "617f69c6-e462-4f88-93d7-2687a8308b76",
+        "IsSpectator": false,
+        "Loopback": false,
+        "Mode": "PushToTalk",
+        "MorphScale": 3,
+        "MorphSmoothTime": 0.1,
+        "PushToTalkInput": "voice",
+        "Volume": 1,
+        "WorldspacePlayback": false
       }
     ],
     "Children": [
