@@ -1,7 +1,7 @@
 {
-  "Name": "Bug",
-  "Color": "0,1,0.78333,1",
-  "SegmentCount": 4,
+  "Name": "Caterpillar",
+  "Color": "0.36667,0,1,1",
+  "SegmentCount": 5,
   "SegmentPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"

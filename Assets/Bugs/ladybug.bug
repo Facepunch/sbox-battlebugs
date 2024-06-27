@@ -1,12 +1,13 @@
 {
-  "Name": "Bug",
-  "Color": "0.55,1,0,1",
+  "Name": "Ladybug",
+  "Color": "1,0,0.31667,1",
   "SegmentCount": 3,
   "SegmentPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
   "StartingAmount": 2,
+  "StartingHealth": 8,
   "__references": [],
   "__version": 0
 }

@@ -1,13 +1,13 @@
 {
-  "Name": "Bug",
-  "Color": "0.36667,0,1,1",
-  "SegmentCount": 5,
+  "Name": "Mantis",
+  "Color": "0.03791,0.45116,0.00839,1",
+  "SegmentCount": 2,
   "SegmentPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
-  "StartingAmount": 1,
-  "StartingHealth": 4,
+  "StartingAmount": 2,
+  "StartingHealth": 10,
   "__references": [],
   "__version": 0
 }

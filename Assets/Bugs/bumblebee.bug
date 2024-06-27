@@ -1,13 +1,13 @@
 {
-  "Name": "Bug",
-  "Color": "1,0,0.68333,1",
-  "SegmentCount": 2,
+  "Name": "Bumblebee",
+  "Color": "1,0.71667,0,1",
+  "SegmentCount": 4,
   "SegmentPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
   "StartingAmount": 2,
-  "StartingHealth": 10,
+  "StartingHealth": 7,
   "__references": [],
   "__version": 0
 }
