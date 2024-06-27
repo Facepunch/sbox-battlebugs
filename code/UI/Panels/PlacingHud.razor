@@ -8,18 +8,26 @@
 	@if (!BoardManager.Local.IsValid()) return;
 
 	<div class="bug-inventory">
-		@if (true)
-		{
-			@foreach (var bugItem in BoardManager.Local.BugInventory)
-			{
-				<div class="bug-inventory-item">
-					<div class="color" style="background-color: @bugItem.Key.Color.Hex">
-						<label>x@(bugItem.Key.SegmentCount)</label>
-					</div>
-					<label>@bugItem.Value</label>
-				</div>
-			}
-		}
+		<div class="container">
+			<label class="header">Bug Inventory</label>
+			<div class="content">
+				@if (true)
+				{
+					@foreach (var bugItem in BoardManager.Local.BugInventory)
+					{
+						<div class="bug-inventory-item">
+							<div class="bug">
+								@for (int i = 0; i < bugItem.Key.SegmentCount; i++)
+								{
+									<div class="color" style="background-color: @bugItem.Key.Color.Hex" />
+								}
+							</div>
+							<label>x@(bugItem.Value)</label>
+						</div>
+					}
+				}
+			</div>
+		</div>
 	</div>
 	<div class="footer">
 		@if (GameManager.Instance.Boards.Any(x => x.IsReady))
