@@ -13,6 +13,7 @@
         "Name": "DISABLE ME! Main Camera",
         "Position": "-878.2799,0.00003051758,532.6988",
         "Rotation": "-0.00000001117587,0.2798287,0.00000008940697,0.96005",
+        "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "Components": [
@@ -255,6 +256,27 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "4b6abf6a-4887-4a22-8cf3-7dd5f6220cba",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/rock/rock_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "9f04dbdd-b04e-4f62-afab-90b30b62eb25",
+        "Flags": 0,
+        "Name": "rock_01 (30)",
+        "Position": "916.0358,569.3317,1.882723",
+        "Rotation": "0,0,-0.7071069,-0.7071066",
+        "Scale": "1,1,1.205405",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "7a610e48-e0f1-458e-9754-e55fcc0d44fc",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/rock/rock_01.vmdl",
             "RenderType": "On",
@@ -1463,6 +1485,69 @@
         ]
       },
       {
+        "__guid": "7113d102-c8e1-4667-b315-d74993caf02f",
+        "Flags": 0,
+        "Name": "grass_01 (79)",
+        "Position": "861.1142,496.5069,2.279397",
+        "Rotation": "0,0,0.6499584,-0.7599699",
+        "Scale": "0.1934719,0.1934719,0.2038216",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "97208b87-4376-43da-b769-2e0cd40bfadd",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "1e28b3d9-509a-4791-814a-1a5d19b1a92d",
+        "Flags": 0,
+        "Name": "grass_01 (81)",
+        "Position": "971.474,581.2878,1.639635",
+        "Rotation": "0,0,0.7195859,-0.6944036",
+        "Scale": "0.1934719,0.1934719,0.2038216",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "fc5d2730-10a1-46cf-99e7-dc15a3c9527b",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "3e072524-8ae5-4bfc-9071-acb76abfe682",
+        "Flags": 0,
+        "Name": "grass_01 (84)",
+        "Position": "1051.435,605.5717,1.639634",
+        "Rotation": "0,0,0.5773729,-0.8164807",
+        "Scale": "0.1934719,0.1934719,0.2038216",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "313f89d2-d6ea-4a60-9086-7c745fb9ced5",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
         "__guid": "c7ddde63-5701-4a9e-be44-b64581a0f3b3",
         "Flags": 0,
         "Name": "grass_01 (64)",
@@ -2001,6 +2086,90 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "7fe05f57-2612-4a21-8ae3-df0a75792f26",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "a9f7baef-8ab0-46b7-9c20-8c79f12f27b4",
+        "Flags": 0,
+        "Name": "grass_01 (80)",
+        "Position": "887.0179,524.5548,2.247371",
+        "Rotation": "0,0,-0.5658992,0.824474",
+        "Scale": "0.1934719,0.1934719,0.1805035",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "b08474c8-cef5-49b0-82ce-c1365b9f52d1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "0b160b49-8cbc-4c9a-a6a5-6ced99fa35ca",
+        "Flags": 0,
+        "Name": "grass_01 (82)",
+        "Position": "959.0554,545.9734,1.24652",
+        "Rotation": "0,0,0.6499151,0.7600063",
+        "Scale": "0.1934719,0.1934719,0.1805035",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "cc5bd03b-e518-4b86-88ec-d2680835ba32",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "01336833-2210-4511-89c1-d4fc37c4133d",
+        "Flags": 0,
+        "Name": "grass_01 (83)",
+        "Position": "1009.348,592.62,1.112682",
+        "Rotation": "0,0,0.6499151,0.7600063",
+        "Scale": "0.1934719,0.1934719,0.1805035",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "b9067692-64a1-42a8-81f6-dac8543ccb30",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/grass/grass_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "9477888c-a34f-4e14-bcd1-3081b57fd5fd",
+        "Flags": 0,
+        "Name": "grass_01 (85)",
+        "Position": "1073.265,579.877,1.112718",
+        "Rotation": "0,0,0.7722552,0.635312",
+        "Scale": "0.1934719,0.1934719,0.1805035",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "088efbef-17df-4ec3-ab7e-7f6c0d4067ca",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/grass/grass_01.vmdl",
             "RenderType": "On",
@@ -2618,6 +2787,27 @@
         ]
       },
       {
+        "__guid": "0f0b8c1f-ad4b-46f7-9f69-045db300f29e",
+        "Flags": 0,
+        "Name": "tree_01 (11)",
+        "Position": "1048.826,611.9226,2.56981",
+        "Rotation": "0,0,-0.6403966,-0.7680447",
+        "Scale": "0.1,0.1,0.17",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "458dc989-d5c9-46ed-90b2-7ad27487c44d",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/trees/tree_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
         "__guid": "16768201-0193-4eef-80bf-26de71efae77",
         "Flags": 0,
         "Name": "tree_01 (4)",
@@ -2673,6 +2863,27 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "b1e4d09b-9001-431d-a9f2-1fc0a8821f68",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/trees/tree_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "61593f4f-b6dc-42f0-b97a-18538dcbe1e9",
+        "Flags": 0,
+        "Name": "tree_01 (10)",
+        "Position": "862.7815,510.9353,2.440056",
+        "Rotation": "0,0,-0.1882466,-0.9821221",
+        "Scale": "0.2326399,0.2375228,0.2586901",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "3f5c2fd0-1e84-450a-9cad-0ef731b29ee8",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/trees/tree_01.vmdl",
             "RenderType": "On",
@@ -4109,6 +4320,28 @@
         ]
       },
       {
+        "__guid": "6f6200ab-7426-4160-b4e1-56170e7b7fc3",
+        "Flags": 0,
+        "Name": "tree_02 (12)",
+        "Position": "965.2852,594.6507,2.438945",
+        "Rotation": "0,0,0.8483723,0.5294001",
+        "Scale": "0.4272783,0.4086539,0.2783321",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1c461359-310e-4517-8e2c-d1afeee02d9d",
+            "BodyGroups": 18446744073709551615,
+            "MaterialGroup": "default",
+            "Model": "models/paper/trees/tree_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
         "__guid": "7fc97537-13bc-4ee6-a55a-3a1058665fd9",
         "Flags": 0,
         "Name": "tree_02 (8)",
@@ -4908,6 +5141,27 @@
         ]
       },
       {
+        "__guid": "9b481939-30bd-47c8-abbf-265f7f7db16a",
+        "Flags": 0,
+        "Name": "cliff_01 (20)",
+        "Position": "1560.232,-849.6152,2.491769",
+        "Rotation": "0,0,0.7776693,0.6286734",
+        "Scale": "1.371107,1.927286,0.8920563",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "589459e8-433f-4ab1-b9c0-1dd169696a75",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.60465,0.60465,0.60465,1"
+          }
+        ]
+      },
+      {
         "__guid": "d8899bf0-0fff-413a-91b9-c74a26a4ac9c",
         "Flags": 0,
         "Name": "cliff_01 (10)",
@@ -4942,6 +5196,27 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "fb42a16e-ab9b-45ee-9479-e897769b6aa8",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.60465,0.60465,0.60465,1"
+          }
+        ]
+      },
+      {
+        "__guid": "0d01e386-8948-47c5-8a6e-96686e911868",
+        "Flags": 0,
+        "Name": "cliff_01 (17)",
+        "Position": "602.9969,-961.5543,2.49192",
+        "Rotation": "0,0,0.7855545,0.6187925",
+        "Scale": "2.322129,3.143417,1.71667",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "15e34dce-53ba-4d93-a053-f71a42effd5c",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/cliff/cliff_01.vmdl",
             "RenderType": "On",
@@ -5013,6 +5288,27 @@
         ]
       },
       {
+        "__guid": "16e0952d-8a72-468c-a5dd-2573805c4fe1",
+        "Flags": 0,
+        "Name": "cliff_01 (16)",
+        "Position": "827.243,-683.8632,2.491719",
+        "Rotation": "0,0,0.6224141,0.782688",
+        "Scale": "1.371107,1.050017,0.8920563",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "9ccf0a6a-3193-4c2c-aed6-e72a2bc15ab8",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.45581,0.45581,0.45581,1"
+          }
+        ]
+      },
+      {
         "__guid": "b3199cd5-a444-47a6-8e59-ef3799cc1172",
         "Flags": 0,
         "Name": "cliff_01 (9)",
@@ -5026,6 +5322,48 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "3a4f0505-6948-46c1-900b-7fefdf473d8b",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.45581,0.45581,0.45581,1"
+          }
+        ]
+      },
+      {
+        "__guid": "49c2b348-2b20-4af6-8974-2b32a24150d4",
+        "Flags": 0,
+        "Name": "cliff_01 (18)",
+        "Position": "983.4803,-767.8245,2.491532",
+        "Rotation": "0,0,0.7454833,0.6665245",
+        "Scale": "1.234931,1.280406,0.8114007",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "8117ec16-0acc-466c-be6d-6eb7fd9880b8",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01.vmdl",
+            "RenderType": "On",
+            "Tint": "0.45581,0.45581,0.45581,1"
+          }
+        ]
+      },
+      {
+        "__guid": "d78c9fcc-799f-49b4-8145-914de4c4673a",
+        "Flags": 0,
+        "Name": "cliff_01 (19)",
+        "Position": "1307.658,-747.7346,2.491469",
+        "Rotation": "0,0,0.6511434,0.7589549",
+        "Scale": "1.141463,1.408533,0.8886166",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "ca793c05-1b56-4b1f-9225-965875bd6b3b",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/cliff/cliff_01.vmdl",
             "RenderType": "On",
@@ -5290,6 +5628,48 @@
         ]
       },
       {
+        "__guid": "0afa99eb-24be-4485-b555-3063b461ee3e",
+        "Flags": 0,
+        "Name": "cliff_01a (6)",
+        "Position": "652.6971,-760.9207,0.00008252233",
+        "Rotation": "0,0,0.7044093,0.7097939",
+        "Scale": "1.384679,0.9089193,1.258834",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "3fb37611-07fa-446c-bb7e-08b4de13198f",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01a.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "078299d6-49b4-4295-a993-51a9bf689f6a",
+        "Flags": 0,
+        "Name": "cliff_01a (8)",
+        "Position": "1121.471,-676.8522,0.001362388",
+        "Rotation": "0,0,0.6762077,0.736711",
+        "Scale": "1.221968,0.654338,1.100819",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "1a82c659-7a10-4e56-acec-36d81fb1c73c",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01a.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
         "__guid": "dfb71ef2-450a-4c81-afb3-d6af06b88e92",
         "Flags": 0,
         "Name": "cliff_01a (3)",
@@ -5311,6 +5691,27 @@
         ]
       },
       {
+        "__guid": "a7d6298d-458b-43cd-bad3-52ee9de278a3",
+        "Flags": 0,
+        "Name": "cliff_01a (7)",
+        "Position": "1083.433,-911.6683,0.0006113331",
+        "Rotation": "0,0,0.7416226,0.6708176",
+        "Scale": "1.747694,2.143571,1.978648",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "fd42e448-107f-4828-9055-0032b7643b41",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01a.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
         "__guid": "1eb77d71-8fad-4012-8150-329a68bde791",
         "Flags": 0,
         "Name": "cliff_01a (4)",
@@ -5324,6 +5725,27 @@
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "e9335e5c-6566-4631-b0ed-5ce1090908e7",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/cliff/cliff_01a.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "905c6faf-2c32-49dd-9a47-0172be83cb7b",
+        "Flags": 0,
+        "Name": "cliff_01a (9)",
+        "Position": "1377.803,-975.8055,-0.0001999886",
+        "Rotation": "0,0,0.6001359,0.7998981",
+        "Scale": "1.678262,1.636475,1.489916",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "be14b908-cef3-4fc1-817a-6d48dc5702cd",
             "BodyGroups": 18446744073709551615,
             "Model": "models/paper/cliff/cliff_01a.vmdl",
             "RenderType": "On",
@@ -6212,6 +6634,177 @@
             "Looped": false,
             "Particles": "particles/leaves_fall_01.vpcf",
             "PlaybackSpeed": 1
+          }
+        ]
+      },
+      {
+        "__guid": "17466a1b-6537-442c-8453-194ee38798f2",
+        "Flags": 0,
+        "Name": "fence_01",
+        "Position": "1004.579,557.0461,0.890655",
+        "Rotation": "0,0,-0.3826834,0.9238796",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "b125ef2f-a298-49d0-b3ce-22ccd268a382",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/fence/fence_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "89f9c178-191a-469b-ace7-bce99592c47f",
+        "Flags": 0,
+        "Name": "fence_02",
+        "Position": "1037.695,579.241,-0.000008587991",
+        "Rotation": "0,0,0.4791491,-0.8777335",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "0f8ea6f8-ff00-45ee-ae6e-c90e94ffc37c",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/fence/fence_03.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "d55f5c7d-8d11-438d-8824-c56a102e8034",
+        "Flags": 0,
+        "Name": "fence_02",
+        "Position": "1077.477,595.7028,0.00001167953",
+        "Rotation": "0,0,-0.5654129,0.8248081",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "84ba7a4c-b3bb-48a3-b1d5-57c929507728",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/fence/fence_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "2fcb189c-05be-432d-a476-08c2e3b5ab4c",
+        "Flags": 0,
+        "Name": "fence_02 (9)",
+        "Position": "1120.001,604.5908,0.00005468319",
+        "Rotation": "0,0,-0.6203523,0.7843233",
+        "Scale": "1,1.09052,1",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "34c0ac89-2a65-49b2-a76e-843ed2b41a23",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/fence/fence_02.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "23d56da1-5fa8-44f4-b30d-e64a9cdc19be",
+        "Flags": 0,
+        "Name": "fence_01",
+        "Position": "1160.087,604.8808,0.00003676721",
+        "Rotation": "0,0,-0.7071067,0.7071068",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "0c046903-6bdd-4886-866a-6b2ba6d973ce",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/fence/fence_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "effa8c3c-8fa0-454c-80be-b95a49c11b87",
+        "Flags": 0,
+        "Name": "Box",
+        "Position": "820.9736,-700.6403,182.7671",
+        "Rotation": "0,0,-0.1180746,0.9930047",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.MeshComponent",
+            "__guid": "b293e9bd-db49-461f-a34c-6570669676b4",
+            "Collision": "Mesh",
+            "Color": "0.01961,0.14902,0.01961,1",
+            "HideInGame": false,
+            "IsTrigger": false,
+            "Mesh": {
+              "Topology": "H4sIAAAAAAAACk2MAQoAIAgDrSz7/4drBwoOjmKbczO7Ygg0hYuTHuB1hXgS/so\u002Bqi4vOdnOrb6NT15bJXy63JDz/\u002Bg6SXigAAAA",
+              "Positions": [
+                "-101.7893,-80.00458,0",
+                "99.2026,-80.00529,0",
+                "99.20261,80.00407,0",
+                "-101.7892,80.0048,0"
+              ],
+              "TextureCoord": [
+                "7.123509,6.381645",
+                "0,0",
+                "7.416649,5.16643",
+                "0,0",
+                "5.890185,4.798204",
+                "0,0",
+                "5.597046,6.013421",
+                "0,0"
+              ],
+              "TextureUAxis": [
+                "1,0,0"
+              ],
+              "TextureVAxis": [
+                "0.0000005727479,-1,0"
+              ],
+              "TextureScale": [
+                "0.25,0.2500003"
+              ],
+              "TextureOffset": [
+                "52.64099,60.6936"
+              ],
+              "MaterialIndex": [
+                1
+              ],
+              "EdgeFlags": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "Materials": [
+                "materials/dev/reflectivity_30.vmat",
+                "materials/paper/tint_paper.vmat"
+              ]
+            },
+            "SmoothingAngle": 40,
+            "Static": true
           }
         ]
       }
