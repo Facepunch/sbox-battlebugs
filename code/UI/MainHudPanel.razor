@@ -37,5 +37,5 @@
 
 @code
 {
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State);
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, GameManager.Instance.State);
 }
