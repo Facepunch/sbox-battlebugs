@@ -2,6 +2,34 @@
   "__guid": "15920c44-ce35-4abb-905d-495b6a37712b",
   "GameObjects": [
     {
+      "__guid": "6df5c658-f796-49b4-b6d5-9ba6543267e3",
+      "Flags": 0,
+      "Name": "Dummy Manager",
+      "Position": "7.382172,34.21912,-42.55549",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Battlebugs.GameManager",
+          "__guid": "99d87da1-bc62-463a-b7f4-f1f68e40d3a9",
+          "CellPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/cell.prefab"
+          },
+          "IsTestMode": true
+        },
+        {
+          "__type": "Battlebugs.PlacementInput",
+          "__guid": "83d72db5-7a89-4a24-834c-b28e532db0e6"
+        },
+        {
+          "__type": "Battlebugs.AttackingInput",
+          "__guid": "d01b0cf7-4d36-4d02-b38f-9f747c009632"
+        }
+      ]
+    },
+    {
       "__guid": "e33b6492-f000-4ae0-80c3-5de0e41a2942",
       "Flags": 0,
       "Name": "Main Camera",
@@ -2665,7 +2693,7 @@
   },
   "Title": "dev_scene",
   "Description": "",
-  "LastSaved": "2024-06-26T16:38:32.5848891\u002B01:00",
+  "LastSaved": "2024-06-27T06:29:47.8974088-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

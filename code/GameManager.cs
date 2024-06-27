@@ -21,6 +21,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[RequireComponent] AttackingInput _attackingInput { get; set; }
 
 	// Properties
+	[Property] public bool IsTestMode { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
@@ -47,6 +48,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	protected override async Task OnLoad()
 	{
 		if ( Scene.IsEditor ) return;
+		if ( IsTestMode ) return;
 
 		if ( !GameNetworkSystem.IsActive )
 		{
@@ -118,6 +120,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	protected override void OnUpdate()
 	{
+		if ( IsTestMode ) return;
+
 		switch ( State )
 		{
 			case GameState.Waiting: UpdateWaiting(); break;
