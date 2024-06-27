@@ -82,6 +82,7 @@ public sealed class PlacementInput : Component
 				bugs = bugs.Where( x => x.GameObject.Name == cellBug.GameObject.Name ).ToList();
 				foreach ( var bug in bugs )
 				{
+					bug.Cell.IsOccupied = false;
 					bug.Clear();
 				}
 			}
