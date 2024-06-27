@@ -84,6 +84,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Broadcast]
 	void StartGame()
 	{
+		Sound.Play( "player-join" );
+
 		if ( Networking.IsHost )
 		{
 			State = GameState.Placing;
