@@ -34,6 +34,8 @@ public sealed class BoardManager : Component
 
 	protected override void OnStart()
 	{
+		if ( IsProxy ) return;
+
 		InitBoard();
 		ResetInventory();
 	}
@@ -47,8 +49,10 @@ public sealed class BoardManager : Component
 			{
 				var cellObj = GameManager.Instance.CellPrefab.Clone( startingPosition + new Vector3( x * GridSize, y * GridSize, 0 ) );
 				var cell = cellObj.Components.Get<CellComponent>();
-				cell.Init( this, new Vector2( x, y ) );
+				var index = x + y * (Width + 1);
+				cell.Init( this, new Vector2( x, y ), index );
 				cellObj.SetParent( GameObject );
+				cellObj.NetworkSpawn( Network.OwnerConnection );
 			}
 		}
 	}

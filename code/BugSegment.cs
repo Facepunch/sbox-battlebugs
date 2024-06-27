@@ -71,7 +71,7 @@ public class BugSegment : Component
     public void Damage( float damage )
     {
         _targetAlpha = 1f;
-        GetCell()?.Hit();
+        GetCell()?.BroadcastHit();
 
         if ( IsProxy ) return;
 

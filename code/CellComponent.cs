@@ -12,23 +12,21 @@ public sealed class CellComponent : Component
 	public bool IsHovering { get; private set; } = false;
 	public bool IsSelected { get; set; } = false;
 	public bool IsOccupied { get; set; } = false;
-	public bool IsHit { get; set; } = false;
 
-	bool IsOdd = false;
+	[Sync] bool IsHit { get; set; } = false;
+	[Sync] bool IsOdd { get; set; } = false;
 	Color BaseColor => IsOdd ? Color.White : Color.Gray;
 
 	protected override void OnStart()
 	{
-		int index = GameObject.Parent.Children.IndexOf( GameObject );
-		index += (index - 1) / 10;
-		IsOdd = index % 2 == 0;
 		UpdateHighlight();
 	}
 
-	public void Init( BoardManager board, Vector2 position )
+	public void Init( BoardManager board, Vector2 position, int index )
 	{
 		Board = board;
 		Position = position;
+		IsOdd = index % 2 == 0;
 	}
 
 	public void MousePressed()
@@ -54,12 +52,6 @@ public sealed class CellComponent : Component
 		IsHovering = false;
 
 		if ( IsSelected ) return;
-		UpdateHighlight();
-	}
-
-	public void Hit()
-	{
-		IsHit = true;
 		UpdateHighlight();
 	}
 
@@ -110,9 +102,8 @@ public sealed class CellComponent : Component
 		if ( IsHit )
 		{
 			Renderer.Tint = Color.Lerp( BaseColor, Color.Red, 0.5f );
-			return;
 		}
-		if ( IsSelected )
+		else if ( IsSelected )
 		{
 			var color = Color.Yellow;
 			var placing = PlacementInput.Instance.AttemptingToPlace;
@@ -131,6 +122,20 @@ public sealed class CellComponent : Component
 		{
 			Renderer.Tint = BaseColor;
 		}
+	}
+
+	[Broadcast]
+	public void BroadcastHit()
+	{
+		if ( IsProxy ) return;
+		IsHit = true;
+		BroadcastUpdateHighlight();
+	}
+
+	[Broadcast]
+	public void BroadcastUpdateHighlight()
+	{
+		UpdateHighlight();
 	}
 
 }

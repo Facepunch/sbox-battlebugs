@@ -44,6 +44,10 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 		{
 			segment.Damage( Damage );
 		}
+		else if ( collision.Other.GameObject.Components.TryGet<CellComponent>( out var cell ) )
+		{
+			cell.BroadcastHit();
+		}
 
 		BroadcastDestroyEffect();
 		GameObject.Destroy();
