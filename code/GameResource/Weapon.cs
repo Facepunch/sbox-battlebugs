@@ -7,4 +7,5 @@ public class Weapon : GameResource
 
     public RangedFloat Amount { get; set; }
     public GameObject Prefab { get; set; }
+    [ImageAssetPath] public string Icon { get; set; }
 }

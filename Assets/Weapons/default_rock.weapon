@@ -5,6 +5,7 @@
     "_type": "gameobject",
     "prefab": "prefabs/pebble.prefab"
   },
+  "Icon": "ui/weapons/rock.png",
   "__references": [],
   "__version": 0
 }
