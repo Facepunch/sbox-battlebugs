@@ -1,0 +1,55 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits PanelComponent
+
+
+<root class="@(Segment is null ? "hidden" : "")">
+    @if (Segment is null) return;
+    <div class="header">
+        <h1>@Segment.Bug.Name</h1>
+        <div class="segments">
+            @for (var i = 0; i < Segment.Bug.SegmentCount; i++)
+            {
+                <div style="background-color: @Segment.Bug.Color.Hex" />
+            }
+        </div>
+    </div>
+    <div class="healthbar">
+        <div class="inner">
+            @if (true)
+            {
+                var value = Segment.Health / Segment.Bug.StartingHealth;
+                <div class="fill" style="background-color: @(HealthGradient.Evaluate(1f - value).Hex); width: @(value * 100f)%;" />
+            }
+        </div>
+    </div>
+</root>
+
+@code
+{
+    public static InspectorPanel Instance { get; private set; }
+    public BugSegment Segment { get; set; }
+
+    [Property] Gradient HealthGradient { get; set; }
+
+    protected override void OnAwake()
+    {
+        Instance = this;
+    }
+
+    protected override void OnUpdate()
+    {
+        if (!Segment.IsValid()) return;
+
+        var pos = Scene.Camera.PointToScreenPixels(Segment.Transform.Position);
+        pos.x /= Scene.Camera.ScreenRect.Size.x;
+        pos.y /= Scene.Camera.ScreenRect.Size.y;
+        pos *= 100f;
+
+        Panel.Style.Left = Length.Percent(pos.x + 2.5f);
+        Panel.Style.Bottom = Length.Percent(100f - pos.y);
+    }
+
+    protected override int BuildHash() => System.HashCode.Combine(Segment);
+}

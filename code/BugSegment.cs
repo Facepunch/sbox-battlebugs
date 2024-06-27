@@ -93,6 +93,7 @@ public class BugSegment : Component
 
     public void RemoveHighlight()
     {
+        if ( !IsValid ) return;
         Components.Get<HighlightOutline>()?.Destroy();
     }
 

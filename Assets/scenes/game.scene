@@ -68,6 +68,30 @@
         {
           "__type": "Battlebugs.MainHudPanel",
           "__guid": "3c197abb-fa4c-4e9b-b560-55b6d0c831ec"
+        },
+        {
+          "__type": "Battlebugs.InspectorPanel",
+          "__guid": "82b3beb7-b82b-4485-94f5-44207aea0db6",
+          "HealthGradient": {
+            "color": [
+              {
+                "c": "0.1,1,0,1"
+              },
+              {
+                "t": 0.47863248,
+                "c": "1,0.65,0,1"
+              },
+              {
+                "t": 1,
+                "c": "1,0,0,1"
+              }
+            ],
+            "alpha": [
+              {
+                "a": 1
+              }
+            ]
+          }
         }
       ]
     },
@@ -168,7 +192,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T14:45:30.0431969-04:00",
+  "LastSaved": "2024-06-27T15:42:18.8461047-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
