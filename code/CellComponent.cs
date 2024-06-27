@@ -12,6 +12,7 @@ public sealed class CellComponent : Component
 	public bool IsHovering { get; private set; } = false;
 	public bool IsSelected { get; set; } = false;
 
+	[Sync] public bool WasOccupied { get; set; } = false;
 	[Sync] public bool IsOccupied { get; set; } = false;
 	[Sync] bool IsHit { get; set; } = false;
 	[Sync] bool IsOdd { get; set; } = false;
@@ -123,7 +124,7 @@ public sealed class CellComponent : Component
 	{
 		if ( IsHit )
 		{
-			Renderer.Tint = Color.Lerp( BaseColor, IsOccupied ? Color.Green : Color.Red, 0.5f );
+			Renderer.Tint = Color.Lerp( BaseColor, IsOccupied ? Color.Orange : (WasOccupied ? Color.Green : Color.Red), 0.5f );
 		}
 		else if ( IsSelected )
 		{
@@ -150,7 +151,19 @@ public sealed class CellComponent : Component
 	public void BroadcastHit()
 	{
 		if ( IsProxy ) return;
+
 		IsHit = true;
+		BroadcastUpdateHighlight();
+	}
+
+	[Broadcast]
+	public void BroadcastClear()
+	{
+		if ( IsProxy ) return;
+
+		IsHit = true;
+		WasOccupied = IsOccupied;
+		IsOccupied = false;
 		BroadcastUpdateHighlight();
 	}
 
