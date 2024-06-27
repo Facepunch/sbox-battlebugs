@@ -14,6 +14,7 @@ public class BugSegment : Component
 
     bool _initialized { get; set; } = false;
     float _targetAlpha { get; set; } = 1f;
+    TimeSince _timeSinceLastDamage { get; set; } = 0f;
 
     public async void Init( Bug bug, float delay )
     {
@@ -45,6 +46,14 @@ public class BugSegment : Component
         if ( _initialized || IsProxy )
         {
             Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );
+        }
+
+        if ( !IsProxy )
+        {
+            if ( _timeSinceLastDamage > 1f && Health <= 0 )
+            {
+                Clear();
+            }
         }
     }
 
@@ -90,16 +99,14 @@ public class BugSegment : Component
     [Broadcast]
     public void Damage( float damage )
     {
+        if ( Health <= 0 ) return;
+
         _targetAlpha = 1f;
         GetCell()?.BroadcastHit();
 
         if ( IsProxy ) return;
 
         Health -= damage;
-
-        if ( Health <= 0f )
-        {
-            Clear();
-        }
+        _timeSinceLastDamage = 0f;
     }
 }

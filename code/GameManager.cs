@@ -192,7 +192,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 				if ( pebbles.Count() > 0 ) TimeSincePebbleToss = 0;
 				UpdateCamera( otherPlayer, LastPebblePosition );
 
-				if ( pebbles.Count() == 0 && TimeSincePebbleToss > 2f )
+				if ( pebbles.Count() == 0 && TimeSincePebbleToss > 3f )
 				{
 					StartTurn();
 				}
