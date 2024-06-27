@@ -1,11 +1,12 @@
 {
   "Name": "Rock",
-  "Amount": "1.00,0.00,0",
+  "Icon": "ui/weapons/rock.png",
+  "StartingAmount": -1,
+  "AmountFired": "1.00,0.00,0",
   "Prefab": {
     "_type": "gameobject",
     "prefab": "prefabs/pebble.prefab"
   },
-  "Icon": "ui/weapons/rock.png",
   "__references": [],
   "__version": 0
 }

@@ -1,4 +1,90 @@
 WeaponButton
 {
-	
+	position: relative;
+	flex-direction: column;
+	align-items: center;
+	color: white;
+	font-family: Poppins;
+	font-size: 24px;
+	gap: 8px;
+	padding: 8px 32px;
+	text-shadow: 0 0 4px black;
+	background-color: rgba(black, 0.2);
+	pointer-events: all;
+	cursor: pointer;
+
+	.icon
+	{
+		position: relative;
+
+		img
+		{
+			width: 64px;
+			height: 64px;
+		}
+
+		> label
+		{
+			position: absolute;
+			bottom: -8px;
+			right: -24px;
+		}
+	}
+
+	> label
+	{
+	}
+
+	> .info-panel
+	{
+		position: absolute;
+		top: 0px;
+		left: -64px;
+		right: -64px;
+		height: 0px;
+		background-color: rgba(black, 0.8);
+		overflow: hidden;
+		opacity: 0;
+		transition: all 0.3s ease;
+		flex-direction: column;
+		padding: 8px;
+		font-size: 18px;
+		gap: 8px;
+
+		.header
+		{
+			gap: 8px;
+			font-size: 24px;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+
+			img
+			{
+				width: 64px;
+				height: 64px;
+			}
+
+			.info
+			{
+				flex-direction: column;
+
+				.count
+				{
+					font-size: 18px;
+				}
+			}
+		}
+	}
+
+	&:hover
+	{
+		background-color: rgba(black, 0.5);
+
+		> .info-panel
+		{
+			top: -280px;
+			height: 280px;
+			opacity: 1;
+		}
+	}
 }

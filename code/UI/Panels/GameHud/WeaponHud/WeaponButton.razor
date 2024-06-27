@@ -5,14 +5,27 @@
 @attribute [StyleSheet]
 
 <root>
-	<div class="container">
-		<div class="weapons">
-			
+	<div class="icon">
+		<img src=@Entry.Key.Icon />
+		<label>@(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
+	</div>
+	<label>@Entry.Key.Name</label>
+
+	<div class="info-panel">
+		<div class="header">
+			<img src=@Entry.Key.Icon />
+			<div class="info">
+				<label class="name">@Entry.Key.Name</label>
+				<label class="count">Count: @(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
+			</div>
 		</div>
+		<label>Fires a single thing that does nothing of importance. This is the description.</label>
 	</div>
 </root>
 
 @code
 {
+	public KeyValuePair<Weapon, int> Entry { get; set; }
+
 	protected override int BuildHash() => System.HashCode.Combine("");
 }

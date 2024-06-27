@@ -30,6 +30,7 @@ public sealed class BoardManager : Component
 
 	// Public Variables
 	public Dictionary<Bug, int> BugInventory = new();
+	public Dictionary<Weapon, int> WeaponInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
 
 	protected override void OnStart()
@@ -37,7 +38,8 @@ public sealed class BoardManager : Component
 		if ( IsProxy ) return;
 
 		InitBoard();
-		ResetInventory();
+		ResetBugInventory();
+		ResetWeaponInventory();
 	}
 
 	void InitBoard()
@@ -79,7 +81,7 @@ public sealed class BoardManager : Component
 		{
 			cell.IsOccupied = false;
 		}
-		ResetInventory();
+		ResetBugInventory();
 	}
 
 	public void ToggleReady()
@@ -88,13 +90,23 @@ public sealed class BoardManager : Component
 		IsReady = !IsReady;
 	}
 
-	void ResetInventory()
+	void ResetBugInventory()
 	{
 		var allBugs = ResourceLibrary.GetAll<Bug>();
 		BugInventory.Clear();
 		foreach ( var bug in allBugs )
 		{
 			BugInventory[bug] = bug.StartingAmount;
+		}
+	}
+
+	void ResetWeaponInventory()
+	{
+		var allWeapons = ResourceLibrary.GetAll<Weapon>();
+		WeaponInventory.Clear();
+		foreach ( var weapon in allWeapons )
+		{
+			WeaponInventory[weapon] = weapon.StartingAmount;
 		}
 	}
 
