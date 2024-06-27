@@ -1,10 +1,11 @@
 {
   "Name": "Flat Top",
-  "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 3 different bugs/cells in one shot.",
+  "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 5 different bugs/cells in one shot.",
   "Icon": "ui/weapons/flat-stone.png",
-  "StartingAmount": 2,
+  "StartingAmount": 4,
   "AmountFired": "1.00,6.00,0",
   "Damage": "6.00,8.00,0",
+  "Spray": 1,
   "Prefab": {
     "_type": "gameobject",
     "prefab": "prefabs/rocks/flat_stone.prefab"

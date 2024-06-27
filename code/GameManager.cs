@@ -270,14 +270,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		for ( int i = 0; i < count; i++ )
 		{
-			var pos = board.CameraPosition.Transform.Position.WithZ( 32f );
-			var target = position;
-			if ( count > 1 )
-			{
-				var offset = Vector3.Random.WithZ( 0 ) * 42f;
-				pos += offset;
-				target += offset;
-			}
+			var offset = Vector3.Random.WithZ( 0 ) * weapon.Spray;
+			var pos = board.CameraPosition.Transform.Position.WithZ( 32f ) + offset;
+			var target = position + offset;
 			var pebbleObj = weapon.Prefab.Clone( pos );
 			var pebble = pebbleObj.Components.Get<PebbleComponent>();
 			pebble.Damage = weapon.Damage.GetValue();

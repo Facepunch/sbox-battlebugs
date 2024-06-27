@@ -11,6 +11,7 @@
       {
         "__type": "Battlebugs.PebbleComponent",
         "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e",
+        "HitCount": 2,
         "ParticlePrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_rock_burst.prefab"
