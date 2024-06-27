@@ -5,8 +5,9 @@ public class BugSegment : Component
     [Property] public GameObject Body { get; set; }
     [Property] public ModelRenderer BodyRenderer { get; set; }
 
-    [Sync] public Bug Bug { get; set; }
+    [Sync] public int BugId { get; set; }
     [Sync] public float Health { get; set; } = 10f;
+    public Bug Bug => ResourceLibrary.Get<Bug>( BugId );
 
     public CellComponent Cell { get; set; }
 
@@ -15,7 +16,7 @@ public class BugSegment : Component
 
     public async void Init( Bug bug, float delay )
     {
-        Bug = bug;
+        BugId = bug.ResourceId;
         BodyRenderer.Tint = bug.Color;
         Body.Transform.LocalPosition = Vector3.Down * 250f;
         await GameTask.DelaySeconds( delay );
