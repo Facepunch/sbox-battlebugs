@@ -58,6 +58,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	[Broadcast]
 	void BroadcastDestroyEffect()
 	{
+		Sound.Play( "break-rocks", Transform.Position );
 		if ( ParticlePrefab is not null )
 		{
 			ParticlePrefab.Clone( Transform.Position );

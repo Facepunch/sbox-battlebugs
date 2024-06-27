@@ -1,0 +1,17 @@
+{
+  "UI": false,
+  "Volume": "1.00,1.00,0",
+  "Pitch": "0.80,1.20,1",
+  "Decibels": 992,
+  "SelectionMode": "Random",
+  "Sounds": [
+    "sounds/sndbreak.vsnd"
+  ],
+  "Occlusion": false,
+  "AirAbsorption": false,
+  "Transmission": true,
+  "OcclusionRadius": 64,
+  "DistanceAttenuation": true,
+  "__references": [],
+  "__version": 0
+}
