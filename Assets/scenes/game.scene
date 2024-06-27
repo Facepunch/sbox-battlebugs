@@ -24,11 +24,7 @@
             "_type": "gameobject",
             "prefab": "prefabs/cell.prefab"
           },
-          "IsTestMode": false,
-          "PebblePrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/pebble.prefab"
-          }
+          "IsTestMode": false
         },
         {
           "__type": "Battlebugs.PlacementInput",
@@ -120,6 +116,14 @@
           "SkyColor": "0.05882,0.07451,0.08235,1"
         }
       ]
+    },
+    {
+      "__guid": "340f8389-346c-4714-9e32-95c7051213d6",
+      "Flags": 0,
+      "Name": "GameObject",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true
     }
   ],
   "SceneProperties": {
@@ -145,7 +149,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T07:43:37.8076805-04:00",
+  "LastSaved": "2024-06-27T11:02:12.3240383-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

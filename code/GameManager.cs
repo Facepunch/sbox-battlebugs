@@ -252,20 +252,16 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Authority]
 	public void BroadcastFire( int weaponId, Vector3 position )
 	{
-		Log.Info( weaponId );
 		if ( Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
 		var weapon = ResourceLibrary.Get<Weapon>( weaponId );
 		if ( weapon is null ) return;
-		Log.Info( weapon );
 
 		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
 		if ( board is null ) return;
-		Log.Info( board );
 
 		int count = (int)MathF.Round( weapon.AmountFired.GetValue() );
-		Log.Info( count );
 
 		for ( int i = 0; i < count; i++ )
 		{
@@ -278,9 +274,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 				target += offset;
 			}
 			var pebbleObj = weapon.Prefab.Clone( pos );
-			Log.Info( pebbleObj );
 			var pebble = pebbleObj.Components.Get<PebbleComponent>();
-			Log.Info( pebble );
 			pebble.Damage = weapon.Damage.GetValue();
 			pebble.LaunchAt( target );
 			pebbleObj.NetworkSpawn( null );
