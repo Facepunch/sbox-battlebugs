@@ -4,19 +4,20 @@
 @inherits Panel
 @attribute [StyleSheet]
 
-<root>
+<root class=@(BoardManager.Local.SelectedWeapon == Entry.Key ? "selected" : "")>
 	<div class="icon">
 		<img src=@Entry.Key.Icon />
 		<label>@(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
 	</div>
 	<label>@Entry.Key.Name</label>
+	<div class="border" />
 
 	<div class="info-panel">
 		<div class="header">
 			<img src=@Entry.Key.Icon />
 			<div class="info">
 				<label class="name">@Entry.Key.Name</label>
-				<label class="count">Count: @(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
+				<label class="count">Count: @(Entry.Value < 0 ? "∞" : Entry.Value.ToString())</label>
 			</div>
 		</div>
 		<label>@Entry.Key.Description</label>
@@ -27,5 +28,10 @@
 {
 	public KeyValuePair<Weapon, int> Entry { get; set; }
 
-	protected override int BuildHash() => System.HashCode.Combine("");
+	protected override void OnMouseDown(MousePanelEvent e)
+	{
+		BoardManager.Local.SelectedWeapon = Entry.Key;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local.SelectedWeapon, Entry.Value);
 }

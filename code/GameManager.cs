@@ -261,7 +261,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
 		if ( board is null ) return;
-		if ( board.WeaponInventory[weapon] == 0 ) return;
 
 		// TODO: Implement firing logic
 		var pebbleObj = PebblePrefab.Clone( board.CameraPosition.Transform.Position.WithZ( 32f ) );

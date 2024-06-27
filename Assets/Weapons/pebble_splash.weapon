@@ -1,0 +1,14 @@
+{
+  "Name": "Pebble Splash",
+  "Description": "Fires a splash of 4-6 small pebbles that deal 2 damage each.",
+  "Icon": "ui/weapons/pebble-splash.png",
+  "StartingAmount": 2,
+  "AmountFired": "4.00,6.00,1",
+  "Damage": "2.00,8.00,0",
+  "Prefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/pebble.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

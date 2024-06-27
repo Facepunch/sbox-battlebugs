@@ -65,7 +65,7 @@ public sealed class AttackingInput : Component
 			}
 		}
 
-		if ( Reticle.IsValid() && Input.Pressed( "Attack1" ) )
+		if ( Reticle.IsValid() && Input.Pressed( "Attack1" ) && BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon] != 0 )
 		{
 			ReticleState++;
 			ReticleOffset = Reticle.Transform.Position - ReticlePosition;
