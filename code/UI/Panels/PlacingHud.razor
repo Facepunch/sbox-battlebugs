@@ -36,12 +36,43 @@
 		}
 		<div class="buttons">
 			<button class="clear-bugs" onclick=@BoardManager.Local.ClearAllBugs>Reset Bugs</button>
-			<button class="ready-up" onclick=@BoardManager.Local.ToggleReady>@(BoardManager.Local.IsReady ? "Un-Ready" : "Ready")</button>
+			<button class="@ReadyClasses()" Tooltip=@ReadyTooltip() onclick=@ToggleReady>@ReadyText()</button>
 		</div>
 	</div>
 </root>
 
 @code
 {
+	string ReadyClasses()
+	{
+		string classes = "ready-up";
+		if (BoardManager.Local?.BugInventory?.Any(x => x.Value > 0) ?? true)
+		{
+			classes += " disabled";
+		}
+		return classes;
+	}
+
+	string ReadyTooltip()
+	{
+		if (BoardManager.Local?.BugInventory?.Any(x => x.Value > 0) ?? true)
+		{
+			return "You must place all bugs before you can ready up!";
+		}
+		return "";
+	}
+
+	string ReadyText()
+	{
+		return BoardManager.Local.IsReady ? "Un-Ready" : "Ready";
+	}
+
+	void ToggleReady()
+	{
+		if (BoardManager.Local?.BugInventory?.Any(x => x.Value > 0) ?? true) return;
+
+		BoardManager.Local.ToggleReady();
+	}
+
 	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Value), BoardManager.Local?.IsReady, GameManager.Instance.Boards.Any(x => x.IsReady));
 }

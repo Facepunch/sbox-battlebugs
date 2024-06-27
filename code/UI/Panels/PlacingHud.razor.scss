@@ -127,6 +127,16 @@ PlacingHud
 					background-color: #d32f2f;
 				}
 			}
+
+			&.ready-up
+			{
+
+				&.disabled
+				{
+					background-color: #666;
+					cursor: not-allowed;
+				}
+			}
 		}
 	}
 }
