@@ -5,7 +5,11 @@
 
 <root style="opacity: @(Alpha)">
 	<div class="inner">
-		<div class="fill" style="width: @(Segment.Health / Segment.Bug.StartingHealth * 100f)%" )" />
+		@if (true)
+		{
+			var amount = Segment.Health / Segment.Bug.StartingHealth;
+			<div class="fill" style="background-color: @(Gradient.Evaluate(1f - amount).Hex); width: @(amount * 100f)%;" )" />
+		}
 	</div>
 </root>
 
@@ -13,6 +17,7 @@
 {
 	[Property] BugSegment Segment { get; set; }
 	[Property] public float Alpha { get; set; } = 0f;
+	[Property] Gradient Gradient { get; set; }
 
 	protected override int BuildHash() => System.HashCode.Combine(Alpha, Segment.Health);
 }

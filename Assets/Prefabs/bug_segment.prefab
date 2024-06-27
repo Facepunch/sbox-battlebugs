@@ -159,6 +159,26 @@
             "__type": "Battlebugs.BugHealthbar",
             "__guid": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
             "Alpha": 0,
+            "Gradient": {
+              "color": [
+                {
+                  "c": "0.1,1,0,1"
+                },
+                {
+                  "t": 0.47863248,
+                  "c": "1,0.65,0,1"
+                },
+                {
+                  "t": 1,
+                  "c": "1,0,0,1"
+                }
+              ],
+              "alpha": [
+                {
+                  "a": 1
+                }
+              ]
+            },
             "Segment": {
               "_type": "component",
               "component_id": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
