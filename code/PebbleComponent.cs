@@ -39,6 +39,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	public void OnCollisionStart( Collision collision )
 	{
 		if ( IsProxy ) return;
+		if ( collision.Other.GameObject.Tags.Has( "pebble" ) ) return;
 
 		if ( collision.Other.GameObject.Components.TryGet<BugSegment>( out var segment ) )
 		{
