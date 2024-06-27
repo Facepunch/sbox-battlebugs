@@ -7,6 +7,7 @@
     "prefab": "prefabs/bug_segment.prefab"
   },
   "StartingAmount": 2,
+  "StartingHealth": 10,
   "__references": [],
   "__version": 0
 }

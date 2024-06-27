@@ -8,4 +8,5 @@ public class Bug : GameResource
     public int SegmentCount { get; set; } = 3;
     public GameObject SegmentPrefab { get; set; }
     public int StartingAmount { get; set; } = 1;
+    public float StartingHealth { get; set; } = 8f;
 }

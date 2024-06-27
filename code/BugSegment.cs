@@ -18,6 +18,7 @@ public class BugSegment : Component
     {
         BugId = bug.ResourceId;
         BodyRenderer.Tint = bug.Color;
+        Health = bug.StartingHealth;
         Body.Transform.LocalPosition = Vector3.Down * 250f;
         await GameTask.DelaySeconds( delay );
         _initialized = true;

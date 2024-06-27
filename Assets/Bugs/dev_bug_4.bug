@@ -6,6 +6,8 @@
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
+  "StartingAmount": 1,
+  "StartingHealth": 6,
   "__references": [],
   "__version": 0
 }
