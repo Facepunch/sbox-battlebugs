@@ -6,6 +6,8 @@ public class BugSegment : Component
     [Property] public ModelRenderer BodyRenderer { get; set; }
     [Property] BugHealthbar Healthbar { get; set; }
 
+    [Property, Group( "Prefabs" )] public GameObject BugSplatParticle { get; set; }
+
     [Sync] public int BugId { get; set; }
     [Sync] public float Health { get; set; } = 10f;
     public Bug Bug => ResourceLibrary.Get<Bug>( BugId );
@@ -72,7 +74,7 @@ public class BugSegment : Component
     public void Clear()
     {
         if ( IsProxy ) return;
-        // TODO: Funny destroy particles
+        BroadcastDestroyFX();
         GameObject.Destroy();
     }
 
@@ -108,5 +110,17 @@ public class BugSegment : Component
 
         Health -= damage;
         _timeSinceLastDamage = 0f;
+    }
+
+    [Broadcast]
+    void BroadcastDestroyFX()
+    {
+        Sound.Play( "impact-bullet-flesh", Transform.Position );
+        if ( BugSplatParticle is not null )
+        {
+            var obj = BugSplatParticle.Clone( Transform.Position + Vector3.Up * 16f );
+            var part = obj.Components.Get<ParticleEffect>();
+            part.Tint = Bug.Color;
+        }
     }
 }

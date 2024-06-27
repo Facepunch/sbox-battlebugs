@@ -21,6 +21,10 @@
           "go": "012d53be-b409-403e-83a1-d6d105cea566",
           "component_type": "ModelRenderer"
         },
+        "BugSplatParticle": {
+          "_type": "gameobject",
+          "prefab": "prefabs/particles/particle_bug_splat.prefab"
+        },
         "Healthbar": {
           "_type": "component",
           "component_id": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
