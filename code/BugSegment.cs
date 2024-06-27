@@ -74,7 +74,7 @@ public class BugSegment : Component
     public void Clear()
     {
         if ( IsProxy ) return;
-        Cell.BroadcastClear();
+        if ( GameManager.Instance.State == GameState.Playing ) Cell.BroadcastClear();
         BroadcastDestroyFX();
         GameObject.Destroy();
     }
