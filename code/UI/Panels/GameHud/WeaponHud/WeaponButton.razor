@@ -4,7 +4,7 @@
 @inherits Panel
 @attribute [StyleSheet]
 
-<root class=@(BoardManager.Local.SelectedWeapon == Entry.Key ? "selected" : "")>
+<root class=@GetClass()>
 	<div class="icon">
 		<img src=@Entry.Key.Icon />
 		<label>@(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
@@ -28,8 +28,19 @@
 {
 	public KeyValuePair<Weapon, int> Entry { get; set; }
 
+	string GetClass()
+	{
+		string str = BoardManager.Local.SelectedWeapon == Entry.Key ? "selected" : "";
+		if (Entry.Value == 0)
+		{
+			str += " disabled";
+		}
+		return str;
+	}
 	protected override void OnMouseDown(MousePanelEvent e)
 	{
+		if (Entry.Value == 0) return;
+
 		BoardManager.Local.SelectedWeapon = Entry.Key;
 	}
 

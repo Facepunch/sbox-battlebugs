@@ -88,6 +88,7 @@ WeaponButton
 	&:hover
 	{
 		background-color: rgba(black, 0.5);
+		sound-in: ui.button.over;
 
 		> .info-panel
 		{
@@ -97,11 +98,22 @@ WeaponButton
 		}
 	}
 
+	&:active
+	{
+		sound-in: ui.button.press;
+	}
+
 	&.selected
 	{
 		> .border
 		{
 			border: 4px solid white;
 		}
+	}
+
+	&.disabled
+	{
+		cursor: not-allowed;
+		opacity: 0.5;
 	}
 }
