@@ -1,0 +1,12 @@
+{
+  "MasterVolume": "1.00,1.00,0",
+  "LoopedSounds": [
+    {
+      "SoundFile": "sounds/amb-outdoors.vsnd",
+      "Volume": "1.00,1.00,0"
+    }
+  ],
+  "StingSounds": [],
+  "__references": [],
+  "__version": 0
+}
