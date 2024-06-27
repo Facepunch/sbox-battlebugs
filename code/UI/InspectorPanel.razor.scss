@@ -2,7 +2,7 @@ InspectorPanel
 {
     position: absolute;
     width: 300px;
-    height: 120px;
+    height: 100px;
     background-color: rgba(black, 0.7);
     opacity: 1;
     transition: opacity 0.2s ease-out;
@@ -13,6 +13,7 @@ InspectorPanel
     border-radius: 16px;
     flex-direction: column;
     gap: 8px;
+    justify-content: space-evenly;
 
     .header
     {
