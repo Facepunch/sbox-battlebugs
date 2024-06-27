@@ -240,7 +240,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			segment.Transform.Position = cells[i].Transform.Position;
 			segment.Transform.Rotation = rotation;
 			var component = segment.Components.Get<BugSegment>();
-			component.Init( bug.Key.Color, cells.Count, i * 0.05f );
+			component.Init( bug.Key, i * 0.05f );
 			component.Cell = cells[i];
 			segment.NetworkSpawn();
 

@@ -5,18 +5,18 @@ public class BugSegment : Component
     [Property] public GameObject Body { get; set; }
     [Property] public ModelRenderer BodyRenderer { get; set; }
 
+    [Sync] public Bug Bug { get; set; }
     [Sync] public float Health { get; set; } = 10f;
 
-    public int ParentSegments { get; set; } = 1;
     public CellComponent Cell { get; set; }
 
     bool _initialized { get; set; } = false;
     float _targetAlpha { get; set; } = 1f;
 
-    public async void Init( Color color, int segments, float delay )
+    public async void Init( Bug bug, float delay )
     {
-        BodyRenderer.Tint = color;
-        ParentSegments = segments;
+        Bug = bug;
+        BodyRenderer.Tint = bug.Color;
         Body.Transform.LocalPosition = Vector3.Down * 250f;
         await GameTask.DelaySeconds( delay );
         _initialized = true;
@@ -68,6 +68,9 @@ public class BugSegment : Component
     {
         var outline = Components.GetOrCreate<HighlightOutline>();
         outline.Color = color;
+        outline.InsideColor = Color.Transparent;
+        outline.ObscuredColor = Color.Transparent;
+        outline.InsideObscuredColor = Color.Transparent;
     }
 
     public void RemoveHighlight()

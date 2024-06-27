@@ -69,6 +69,24 @@ public sealed class PlacementInput : Component
 			}
 		}
 
+		if ( HighlightedCell is not null && Input.Pressed( "Attack2" ) )
+		{
+			IsSelecting = false;
+			DeselectAll();
+
+			var bugs = Scene.GetAllComponents<BugSegment>();
+			var cellBug = bugs.FirstOrDefault( x => x.Cell == HighlightedCell );
+			if ( cellBug is not null )
+			{
+				BoardManager.Local.BugInventory[cellBug.Bug]++;
+				bugs = bugs.Where( x => x.GameObject.Name == cellBug.GameObject.Name ).ToList();
+				foreach ( var bug in bugs )
+				{
+					bug.Clear();
+				}
+			}
+		}
+
 		if ( Input.Released( "Attack1" ) )
 		{
 			HighlightedCell?.MouseReleased();
