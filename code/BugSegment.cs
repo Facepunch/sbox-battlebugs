@@ -18,6 +18,8 @@ public class BugSegment : Component
     float _targetAlpha { get; set; } = 1f;
     TimeSince _timeSinceLastDamage { get; set; } = 0f;
 
+    public bool IsVisible => _targetAlpha > 0f;
+
     public async void Init( Bug bug, float delay )
     {
         BugId = bug.ResourceId;

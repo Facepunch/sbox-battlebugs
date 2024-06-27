@@ -41,6 +41,10 @@
             "_type": "gameobject",
             "prefab": "prefabs/aim_reticle.prefab"
           }
+        },
+        {
+          "__type": "Battlebugs.InspectInput",
+          "__guid": "5d90b99d-cb0c-4758-86ba-043ea1fa4213"
         }
       ]
     },
@@ -164,7 +168,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T14:00:37.1544003-04:00",
+  "LastSaved": "2024-06-27T14:45:30.0431969-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

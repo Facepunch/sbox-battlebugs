@@ -19,6 +19,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	[RequireComponent] PlacementInput _placementInput { get; set; }
 	[RequireComponent] AttackingInput _attackingInput { get; set; }
+	[RequireComponent] InspectInput _inspectInput { get; set; }
 
 	// Properties
 	[Property] public bool IsTestMode { get; set; }
@@ -131,6 +132,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			case GameState.Playing: UpdateGame(); break;
 			case GameState.Results: UpdateResults(); break;
 		}
+		InspectInput.Instance.Enabled = State == GameState.Playing;
 	}
 
 	void UpdateWaiting()
