@@ -1,5 +1,5 @@
 {
-  "__guid": "6ca35765-4665-4748-8045-5d0e150ee494",
+  "__guid": "0a6f73ad-c962-4a62-8138-7b0fd9c6faa6",
   "GameObjects": [
     {
       "__guid": "7fadc147-f669-400b-9617-bb39f723b259",
@@ -102,6 +102,10 @@
               }
             ]
           }
+        },
+        {
+          "__type": "Battlebugs.HintPanel",
+          "__guid": "bc670327-2f86-4c94-89a5-6c53df47fd3a"
         }
       ]
     },
@@ -271,7 +275,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T22:20:38.6744901\u002B01:00",
+  "LastSaved": "2024-06-27T17:44:24.7759923-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
