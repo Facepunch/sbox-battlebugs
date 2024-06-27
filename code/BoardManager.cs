@@ -71,6 +71,7 @@ public sealed class BoardManager : Component
 
 	public void ClearAllBugs()
 	{
+		Sound.Play( "clear-all-bugs" );
 		var segments = Scene.GetAllComponents<BugSegment>();
 		foreach ( var segment in segments )
 		{
