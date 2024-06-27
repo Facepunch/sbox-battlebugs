@@ -8,6 +8,7 @@ public class BugSegment : Component
     [Sync] public float Health { get; set; } = 10f;
 
     public int ParentSegments { get; set; } = 1;
+    public CellComponent Cell { get; set; }
 
     bool _initialized { get; set; } = false;
     float _targetAlpha { get; set; } = 1f;
@@ -60,6 +61,18 @@ public class BugSegment : Component
         if ( IsProxy ) return;
         // TODO: Funny destroy particles
         GameObject.Destroy();
+    }
+
+
+    public void AddHighlight( Color color = default )
+    {
+        var outline = Components.GetOrCreate<HighlightOutline>();
+        outline.Color = color;
+    }
+
+    public void RemoveHighlight()
+    {
+        Components.Get<HighlightOutline>()?.Destroy();
     }
 
     CellComponent GetCell()

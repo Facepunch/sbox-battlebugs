@@ -230,14 +230,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		var rotation = new Angles( 0, 0, 0 );
 		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Transform.Position - cells[0].Transform.Position, Vector3.Up );
 
+		var bugId = Guid.NewGuid();
+
 		for ( int i = 0; i < cells.Count; i++ )
 		{
 			if ( i > 0 ) rotation = Rotation.LookAt( cells[i].Transform.Position - cells[i - 1].Transform.Position, Vector3.Up );
 			var segment = BugSegmentPrefab.Clone();
+			segment.Name = bugId.ToString();
 			segment.Transform.Position = cells[i].Transform.Position;
 			segment.Transform.Rotation = rotation;
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Key.Color, cells.Count, i * 0.05f );
+			component.Cell = cells[i];
 			segment.NetworkSpawn();
 
 			cells[i].IsOccupied = true;
