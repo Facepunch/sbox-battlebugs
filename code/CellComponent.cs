@@ -20,6 +20,7 @@ public sealed class CellComponent : Component
 
 	protected override void OnStart()
 	{
+		Transform.Rotation = new Angles( 0, Random.Shared.Int( 0, 3 ) * 90f + Random.Shared.Float( -3f, 3f ), 0 );
 		UpdateHighlight();
 	}
 
