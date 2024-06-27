@@ -1,0 +1,33 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "shaders/battlebugs_world.shader"
+
+	//---- Rendering ----
+	F_RENDER_BACKFACES 1
+
+	//---- Color ----
+	Color "materials/paper/paper_01_color.png"
+	g_vTintColor "[0.019608 0.164706 0.019608 1.000000]"
+	TintMask "materials/default/default_mask.tga"
+	TransMask "materials/default/default_mask.tga"
+
+	//---- Detail ----
+	DetailMask "materials/default/default_mask.tga"
+	g_flBlendScale "0.050"
+	g_flDetailScale "1.000"
+	g_flScale "500.000"
+
+	//---- Fog ----
+	g_bFogEnabled "1"
+
+	//---- PBR ----
+	g_flMetalness "0.000"
+	Normal "materials/paper/paper_01_normal.png"
+	Rough "materials/paper/paper_01_color.png"
+
+	//---- Translucent ----
+	g_flAlphaTestReference "0.500"
+	g_flAntiAliasedEdgeStrength "1.000"
+}

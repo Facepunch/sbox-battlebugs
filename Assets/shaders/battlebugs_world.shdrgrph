@@ -1,0 +1,417 @@
+{
+  "Model": "models/dev/plane.vmdl",
+  "Description": "",
+  "BlendMode": "Masked",
+  "nodes": [
+    {
+      "_class": "Result",
+      "DefaultOpacity": 1,
+      "DefaultRoughness": 1,
+      "DefaultMetalness": 0,
+      "DefaultAmbientOcclusion": 1,
+      "Identifier": "0",
+      "Position": "976,-128",
+      "Albedo": {
+        "Identifier": "10",
+        "Output": "Result"
+      },
+      "Opacity": {
+        "Identifier": "26",
+        "Output": "Result"
+      },
+      "Normal": {
+        "Identifier": "1",
+        "Output": "Result"
+      },
+      "Roughness": {
+        "Identifier": "17",
+        "Output": "Result"
+      },
+      "Metalness": {
+        "Identifier": "2",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "NormapMapTriplanar",
+      "Image": "materials/dev/white_color.tga",
+      "Sampler": {},
+      "UI": {
+        "Name": "Normal",
+        "Default": "0.5,0.5,1,1",
+        "Extension": "Normal",
+        "CustomExtension": "",
+        "ColorSpace": "Linear",
+        "PrimaryGroup": {
+          "Name": "PBR"
+        }
+      },
+      "Identifier": "1",
+      "Position": "-544,384",
+      "Coords": {
+        "Identifier": "23",
+        "Output": "Result"
+      },
+      "Normal": {
+        "Identifier": "22",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1,
+      "Value": 0,
+      "Name": "Metalness",
+      "IsAttribute": false,
+      "UI": {
+        "PrimaryGroup": {
+          "Name": "PBR"
+        }
+      },
+      "Identifier": "2",
+      "Position": "-288,272"
+    },
+    {
+      "_class": "Tint",
+      "Identifier": "3",
+      "Position": "-736,-256"
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "4",
+      "Position": "-80,-272",
+      "A": {
+        "Identifier": "6",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "19",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float4",
+      "Value": "1,1,1,1",
+      "Name": "Tint Color",
+      "IsAttribute": false,
+      "UI": {
+        "Type": "Color",
+        "PrimaryGroup": {
+          "Name": "Color"
+        }
+      },
+      "Identifier": "5",
+      "Position": "-736,-192"
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "6",
+      "Position": "-192,-128",
+      "A": {
+        "Identifier": "24",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "16",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureTriplanar",
+      "Image": "materials/metals/metal_01_detail.png",
+      "Sampler": {},
+      "UI": {
+        "Name": "Detail Mask",
+        "Default": "1,1,1,1",
+        "Extension": "Mask",
+        "CustomExtension": "",
+        "SrgbRead": true,
+        "PrimaryGroup": {
+          "Name": "Detail"
+        }
+      },
+      "Identifier": "7",
+      "Position": "96,-432",
+      "Coords": {
+        "Identifier": "12",
+        "Output": "Result"
+      },
+      "Normal": {
+        "Identifier": "8",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "WorldNormal",
+      "Identifier": "8",
+      "Position": "-160,-384"
+    },
+    {
+      "_class": "WorldPosition",
+      "Identifier": "9",
+      "Position": "-400,-576"
+    },
+    {
+      "_class": "Blend",
+      "Fraction": 0.05,
+      "BlendMode": "SoftLight",
+      "Clamp": true,
+      "Identifier": "10",
+      "Position": "320,-256",
+      "A": {
+        "Identifier": "4",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "7",
+        "Output": "Result"
+      },
+      "C": {
+        "Identifier": "13",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1000,
+      "Value": 1,
+      "Name": "Detail Scale",
+      "IsAttribute": false,
+      "UI": {
+        "PrimaryGroup": {
+          "Name": "Detail"
+        }
+      },
+      "Identifier": "11",
+      "Position": "-624,-640"
+    },
+    {
+      "_class": "Divide",
+      "DefaultA": 0,
+      "DefaultB": 50,
+      "Identifier": "12",
+      "Position": "-112,-624",
+      "A": {
+        "Identifier": "9",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "11",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1,
+      "Value": 0.05,
+      "Name": "Blend Scale",
+      "IsAttribute": false,
+      "UI": {
+        "PrimaryGroup": {
+          "Name": "Detail"
+        }
+      },
+      "Identifier": "13",
+      "Position": "32,-48"
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "14",
+      "Position": "-992,-432"
+    },
+    {
+      "_class": "TextureSampler",
+      "Image": "materials/metals/white_metal_01_tint.png",
+      "Sampler": {},
+      "UI": {
+        "Name": "Tint Mask",
+        "Default": "1,1,1,1",
+        "Extension": "Mask",
+        "CustomExtension": "",
+        "SrgbRead": true,
+        "PrimaryGroup": {
+          "Name": "Color"
+        }
+      },
+      "Identifier": "15",
+      "Position": "-736,-448",
+      "Coords": {
+        "Identifier": "14",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Blend",
+      "Fraction": 0.5,
+      "BlendMode": "Mix",
+      "Clamp": true,
+      "Identifier": "16",
+      "Position": "-480,-208",
+      "A": {
+        "Identifier": "24",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "5",
+        "Output": "Result"
+      },
+      "C": {
+        "Identifier": "15",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureTriplanar",
+      "Image": "materials/metals/metal_01_detail.png",
+      "Sampler": {},
+      "UI": {
+        "Name": "Rough",
+        "Default": "1,1,1,1",
+        "CustomExtension": "",
+        "SrgbRead": true,
+        "PrimaryGroup": {
+          "Name": "PBR"
+        }
+      },
+      "Identifier": "17",
+      "Position": "-560,128",
+      "Coords": {
+        "Identifier": "23",
+        "Output": "Result"
+      },
+      "Normal": {
+        "Identifier": "22",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Blend",
+      "Fraction": 0.5,
+      "BlendMode": "Mix",
+      "Clamp": true,
+      "Identifier": "18",
+      "Position": "-416,-208"
+    },
+    {
+      "_class": "Blend",
+      "Fraction": 0.5,
+      "BlendMode": "Mix",
+      "Clamp": true,
+      "Identifier": "19",
+      "Position": "-304,-336",
+      "A": {
+        "Identifier": "16",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "3",
+        "Output": "RGBA"
+      },
+      "C": {
+        "Identifier": "15",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1000,
+      "Value": 1,
+      "Name": "Scale",
+      "IsAttribute": false,
+      "UI": {
+        "PrimaryGroup": {
+          "Name": "Detail"
+        }
+      },
+      "Identifier": "20",
+      "Position": "-1776,-144"
+    },
+    {
+      "_class": "WorldPosition",
+      "Identifier": "21",
+      "Position": "-1552,-80"
+    },
+    {
+      "_class": "WorldNormal",
+      "Identifier": "22",
+      "Position": "-1312,112"
+    },
+    {
+      "_class": "Divide",
+      "DefaultA": 0,
+      "DefaultB": 50,
+      "Identifier": "23",
+      "Position": "-1264,-128",
+      "A": {
+        "Identifier": "21",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "20",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureTriplanar",
+      "Image": "materials/metals/metal_01_detail.png",
+      "Sampler": {},
+      "UI": {
+        "Name": "Color",
+        "Default": "1,1,1,1",
+        "CustomExtension": "",
+        "SrgbRead": true,
+        "PrimaryGroup": {
+          "Name": "Color"
+        }
+      },
+      "Identifier": "24",
+      "Position": "-752,-16",
+      "Coords": {
+        "Identifier": "23",
+        "Output": "Result"
+      },
+      "Normal": {
+        "Identifier": "22",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "25",
+      "Position": "368,400"
+    },
+    {
+      "_class": "TextureSampler",
+      "Image": "materials/metals/white_metal_01_tint.png",
+      "Sampler": {},
+      "UI": {
+        "Name": "Trans Mask",
+        "Default": "1,1,1,1",
+        "Extension": "Mask",
+        "CustomExtension": "",
+        "SrgbRead": true,
+        "PrimaryGroup": {
+          "Name": "Color"
+        }
+      },
+      "Identifier": "26",
+      "Position": "624,384",
+      "Coords": {
+        "Identifier": "25",
+        "Output": "Result"
+      }
+    }
+  ]
+}
