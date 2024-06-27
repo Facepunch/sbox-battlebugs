@@ -4,7 +4,7 @@
     "Flags": 0,
     "Name": "aim_reticle",
     "Enabled": true,
-    "NetworkMode": 2,
+    "NetworkMode": 0,
     "NetworkInterpolation": true,
     "Children": [
       {
@@ -42,7 +42,8 @@
           }
         ]
       }
-    ]
+    ],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,

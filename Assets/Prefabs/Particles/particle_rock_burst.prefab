@@ -3,10 +3,9 @@
     "__guid": "2805ee51-206c-4009-a402-e6808ec4b0bf",
     "Flags": 0,
     "Name": "particle_rock_burst",
-    "Position": "-93.12033,-30.05712,29.18297",
     "Tags": "particles",
     "Enabled": true,
-    "NetworkMode": 2,
+    "NetworkMode": 0,
     "NetworkInterpolation": true,
     "Components": [
       {
@@ -160,7 +159,9 @@
         "Rate": 0,
         "Velocity": 144
       }
-    ]
+    ],
+    "Children": [],
+    "__variables": []
   },
   "ShowInMenu": false,
   "MenuPath": null,
