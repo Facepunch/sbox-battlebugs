@@ -86,6 +86,7 @@ public sealed class PlacementInput : Component
 					bug.Clear();
 				}
 			}
+			BoardManager.Local.IsReady = false;
 		}
 
 		if ( Input.Released( "Attack1" ) )
