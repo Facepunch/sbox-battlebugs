@@ -3,7 +3,7 @@
     "__guid": "460ade40-34db-408e-b336-b7d576ac14af",
     "Flags": 0,
     "Name": "cell",
-    "Tags": "solid,cell",
+    "Tags": "cell,solid",
     "Enabled": true,
     "NetworkMode": 2,
     "NetworkInterpolation": true,
@@ -32,8 +32,6 @@
         "__guid": "93c216f4-841e-4dac-86c5-7a0d3e5d906c",
         "Flags": 0,
         "Name": "Body",
-        "Position": "0,0,-12.5",
-        "Scale": "1.28,1.28,0.5",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
@@ -42,7 +40,7 @@
             "__type": "Sandbox.ModelRenderer",
             "__guid": "64768333-bbf5-4b0e-ad81-648b27180e54",
             "BodyGroups": 18446744073709551615,
-            "Model": "models/dev/box.vmdl",
+            "Model": "models/paper/cell/cell.vmdl",
             "RenderType": "On",
             "Tint": "1,1,1,1"
           }

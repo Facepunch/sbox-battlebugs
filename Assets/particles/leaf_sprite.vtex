@@ -1,0 +1,10 @@
+{
+  "Sequences": [
+    {
+      "Source": "particles/leaf_sprite.png",
+      "IsLooping": true,
+      "Frames": 64
+    }
+  ],
+  "OutputTypeString": "2D"
+}

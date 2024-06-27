@@ -139,6 +139,10 @@
         {
           "__type": "Battlebugs.AttackingInput",
           "__guid": "a99df6e3-22c5-4a61-b6b1-c627c374f66f"
+        },
+        {
+          "__type": "Battlebugs.InspectInput",
+          "__guid": "2f454394-2978-4ada-9d53-131c259e40af"
         }
       ]
     },
@@ -206,7 +210,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "a88c27ca-ca96-47cb-b346-e5e6a406be7d",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -227,7 +231,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "e7c23e92-e817-497c-9136-bde418838890",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -248,7 +252,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "5fcefd15-f91e-4b84-9fec-b2e53dd14bbe",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -269,7 +273,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "cef8f739-486b-47ae-9cdb-c56aa896cebc",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -290,7 +294,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "2c16ecb0-957d-49ab-8e49-f7771cf5c9f6",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -311,7 +315,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "e2de5944-a4be-49df-838e-2051c840a3d5",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -332,7 +336,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "bbd63f24-7458-44f5-a2cc-e55b7054c93a",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -353,7 +357,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "0ad1ef5e-3512-4e6e-bb34-c510a31822c4",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -373,7 +377,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "c135bb22-3603-4c94-8950-b74a1de31d09",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -393,7 +397,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "defd0408-81f2-4e96-9bfc-633c8f309ad0",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -436,7 +440,7 @@
               "__type": "Sandbox.ModelRenderer",
               "__guid": "f9cbdf1a-66a8-468e-b661-52cbfca93a66",
               "BodyGroups": 18446744073709551615,
-              "Model": "models/enviroment/hill_01.vmdl",
+              "Model": "models/dev/error.vmdl",
               "RenderType": "On",
               "Tint": "0,1,0.08333,1"
             }
@@ -1061,6 +1065,27 @@
       ]
     },
     {
+      "__guid": "2d35e024-6001-4473-9df1-157d539b6c84",
+      "Flags": 0,
+      "Name": "rock_01 (22)",
+      "Position": "761.6727,564.826,2.202891",
+      "Rotation": "0,0,-0.9802659,-0.1976839",
+      "Scale": "3.807296,3.807296,5.61057",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "af353838-d5b3-4463-91e0-74cee64e1e57",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.63256,0.63256,0.63256,1"
+        }
+      ]
+    },
+    {
       "__guid": "f1b9ee7b-4e8d-46f9-b9d1-622235814666",
       "Flags": 0,
       "Name": "rock_01 (19)",
@@ -1295,7 +1320,7 @@
       "__guid": "b315b3e8-8471-403f-ae47-3d5179bd813f",
       "Flags": 0,
       "Name": "grass_01 (26)",
-      "Position": "232.954,-369.4985,0",
+      "Position": "256.7034,-408.528,1.24741",
       "Rotation": "0,0,0.8255544,0.5643226",
       "Scale": "0.1934719,0.1934719,0.1934719",
       "Enabled": true,
@@ -2009,7 +2034,7 @@
       "__guid": "42d831c1-4902-441c-b7a1-888e39bd2798",
       "Flags": 0,
       "Name": "grass_01 (25)",
-      "Position": "275.6431,-381.8721,0",
+      "Position": "288.6812,-405.9588,1.458094",
       "Rotation": "0,0,0.9878406,0.1554694",
       "Scale": "0.1934719,0.1934719,0.2038216",
       "Enabled": true,
@@ -2807,7 +2832,7 @@
       "__guid": "5b0aa1ad-4011-4b0c-a548-861d9cfe1bea",
       "Flags": 0,
       "Name": "tree_01 (1)",
-      "Position": "287.5996,-396.1672,2.273334",
+      "Position": "299.3177,-403.3536,2.273334",
       "Rotation": "0,0,0.7914228,-0.6112694",
       "Scale": "0.2,0.2,0.1953713",
       "Enabled": true,
@@ -3191,9 +3216,9 @@
       "__guid": "2263e743-6933-4ced-a3bd-03886e878e4c",
       "Flags": 0,
       "Name": "ground_02",
-      "Position": "-448,-768,0.5",
+      "Position": "-687.793,-684.8447,0.5",
       "Rotation": "0,0,1,0.0000001947072",
-      "Scale": "2.047881,1.760531,1.000001",
+      "Scale": "2.047881,1.518339,1.000001",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -3226,6 +3251,69 @@
           "Model": "models/paper/ground/ground_02a.vmdl",
           "RenderType": "On",
           "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d0f33dc7-ea0c-4eb1-8804-fcf8f7e51267",
+      "Flags": 0,
+      "Name": "ground_02 (5)",
+      "Position": "2016.001,903.9973,0.0000141192",
+      "Rotation": "0,0,0.0000003894144,-1",
+      "Scale": "2.047881,1.760531,1.000001",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2cef2a03-469b-4135-88fd-9ad086cb7936",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/ground/ground_02a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "eb5acced-70cb-498e-93e6-5e1ece62f21b",
+      "Flags": 0,
+      "Name": "ground_02 (3)",
+      "Position": "506.6882,-678.0947,0.0001810064",
+      "Rotation": "0,0,-0.9985222,-0.05434416",
+      "Scale": "2.047881,1.760531,1.000001",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "cee3cbf3-1327-43c0-8a46-a3eaa3b66af1",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/ground/ground_02a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4f463e01-baa6-45be-a82a-60909d3086b4",
+      "Flags": 0,
+      "Name": "ground_02 (4)",
+      "Position": "1760.014,-602.5108,-0.00007367763",
+      "Rotation": "0,0,-0.7118383,0.7023434",
+      "Scale": "2.047881,1.760531,1.000001",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ce5d03b2-4988-4113-b20a-d321c60eb8bd",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/ground/ground_02a.vmdl",
+          "RenderType": "On",
+          "Tint": "0.55294,0.81569,0.32157,1"
         }
       ]
     },
@@ -5094,6 +5182,27 @@
       ]
     },
     {
+      "__guid": "655d043e-4409-487c-adba-7761b1af7267",
+      "Flags": 0,
+      "Name": "cliff_01 (12)",
+      "Position": "1357.147,798.6136,2.492268",
+      "Rotation": "0,0,-0.6141175,0.7892147",
+      "Scale": "1.050632,1.349228,0.798635",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "3803ce9b-41d0-4b27-ba2c-612df9e04a40",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.60465,0.60465,0.60465,1"
+        }
+      ]
+    },
+    {
       "__guid": "16d4ad61-6289-49e3-9609-ba7eb52c4992",
       "Flags": 0,
       "Name": "cliff_01 (4)",
@@ -5107,6 +5216,90 @@
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "de8e9d23-d0f0-41af-8fb3-45950eed97cc",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.60465,0.60465,0.60465,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3967cf3a-f803-442a-8c2e-ae085c3baef1",
+      "Flags": 0,
+      "Name": "cliff_01 (11)",
+      "Position": "1079.709,795.2082,2.491423",
+      "Rotation": "0,0,-0.7351949,0.6778557",
+      "Scale": "1.371107,1.927286,0.8920563",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "681f2588-fb56-45ee-b2cb-4a830cbbf2b2",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.60465,0.60465,0.60465,1"
+        }
+      ]
+    },
+    {
+      "__guid": "91ec09b8-7ac2-4b40-bfa4-bcd3d365427d",
+      "Flags": 0,
+      "Name": "cliff_01 (10)",
+      "Position": "673.7806,835.9482,2.491718",
+      "Rotation": "0,0,-0.7288388,0.6846852",
+      "Scale": "1.543517,2.364804,1.238408",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "56ebb03b-f19f-457c-bfcb-d54dffa86f51",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.60465,0.60465,0.60465,1"
+        }
+      ]
+    },
+    {
+      "__guid": "226cb0f2-54b9-4a74-91f7-b6395e2d2374",
+      "Flags": 0,
+      "Name": "cliff_01 (14)",
+      "Position": "948.1604,1120.627,2.491705",
+      "Rotation": "0,0,-0.7288388,0.6846852",
+      "Scale": "2.699508,3.520796,2.3944",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "584f33f7-3d1d-45be-a350-4bb3efd2df9d",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.60465,0.60465,0.60465,1"
+        }
+      ]
+    },
+    {
+      "__guid": "eeddfa6c-2a90-4e6f-bb69-9bc6e4096197",
+      "Flags": 0,
+      "Name": "cliff_01 (15)",
+      "Position": "-426.5663,955.9066,2.49109",
+      "Rotation": "0,0,-0.7288388,0.6846852",
+      "Scale": "2.699508,3.520796,2.3944",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "45b5f568-959a-44f9-9538-37441a9f7448",
           "BodyGroups": 18446744073709551615,
           "Model": "models/paper/cliff/cliff_01.vmdl",
           "RenderType": "On",
@@ -5212,6 +5405,27 @@
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "cc6b1b9c-d9e1-40ba-9ab6-56dbb0eb9165",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.36279,0.36279,0.36279,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b5f77c04-4ff0-4bda-b8a0-4106d5b1c16a",
+      "Flags": 0,
+      "Name": "cliff_01 (13)",
+      "Position": "1258.945,867.58,157.8039",
+      "Rotation": "0,0,-0.6429797,0.7658833",
+      "Scale": "0.8560978,1.068571,0.7281764",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9f1f2535-2e65-414a-9b57-e525b9dbdd2d",
           "BodyGroups": 18446744073709551615,
           "Model": "models/paper/cliff/cliff_01.vmdl",
           "RenderType": "On",
@@ -5384,6 +5598,69 @@
         {
           "__type": "Sandbox.ModelRenderer",
           "__guid": "f68a8a9f-291f-4d36-a789-7dcb1b15faad",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5e89a237-fac6-42a7-9d64-010ad74d1f84",
+      "Flags": 0,
+      "Name": "cliff_01a (2)",
+      "Position": "901.6301,761.3818,0.00002397799",
+      "Rotation": "0,0,-0.6117775,0.7910297",
+      "Scale": "1.384679,0.5282095,1.115204",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "57efbf23-5b2f-4e1e-be5c-d8a1c43d636f",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3643c74d-a751-47bf-9ff8-bfcd68a5e12c",
+      "Flags": 0,
+      "Name": "cliff_01a (3)",
+      "Position": "404.4574,1015.655,-0.0000686179",
+      "Rotation": "0,0,-0.7360834,0.6768909",
+      "Scale": "2.143571,2.143571,2.143571",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f3f5708a-dc98-436b-a56b-f2ede6d6fb65",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "57469fc8-17ca-4a73-9ad9-b1b8d5d5a94f",
+      "Flags": 0,
+      "Name": "cliff_01a (4)",
+      "Position": "78.42644,937.2773,-0.0003823006",
+      "Rotation": "0,0,-0.7147213,0.6994094",
+      "Scale": "2.143571,1.636475,1.694727",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d877539b-a3d1-4428-9e7e-f2ad71bc314f",
           "BodyGroups": 18446744073709551615,
           "Model": "models/paper/cliff/cliff_01a.vmdl",
           "RenderType": "On",
@@ -6234,6 +6511,46 @@
           "Static": true
         }
       ]
+    },
+    {
+      "__guid": "633c37c3-789b-4ca9-ab9d-183fd78d5a80",
+      "Flags": 0,
+      "Name": "leaves_fall_01",
+      "Position": "0,0,384",
+      "Tags": "particles",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.LegacyParticleSystem",
+          "__guid": "44035df0-7e9c-4e7e-9c03-c6b52b971906",
+          "ControlPoints": [],
+          "Looped": false,
+          "Particles": "particles/leaves_fall_01.vpcf",
+          "PlaybackSpeed": 1
+        }
+      ]
+    },
+    {
+      "__guid": "f0cbcf75-f225-499a-8c13-ac845d843cbb",
+      "Flags": 0,
+      "Name": "leaves_fall_01 (1)",
+      "Position": "960,0,384",
+      "Tags": "particles",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.LegacyParticleSystem",
+          "__guid": "84ebcb14-114c-47dd-83b5-bddbfbd24bfa",
+          "ControlPoints": [],
+          "Looped": false,
+          "Particles": "particles/leaves_fall_01.vpcf",
+          "PlaybackSpeed": 1
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -6259,7 +6576,7 @@
   },
   "Title": "dev_scene",
   "Description": "",
-  "LastSaved": "2024-06-27T16:53:05.5219893\u002B01:00",
+  "LastSaved": "2024-06-27T22:05:40.8919668\u002B01:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
