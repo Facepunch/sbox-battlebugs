@@ -28,7 +28,7 @@
 						name = "CellPlane_copy"
 						parent_bone = ""
 						material_name = "materials/cell/cell_paper.vmat"
-						origin = [ 0.0, 0.0, 1.376366 ]
+						origin = [ 0.0, 0.0, 2.0 ]
 						angles = [ -0.0, 92.0, 0.0 ]
 						max_u = 1.0
 						max_v = 1.0
