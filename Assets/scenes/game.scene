@@ -122,12 +122,23 @@
       ]
     },
     {
-      "__guid": "340f8389-346c-4714-9e32-95c7051213d6",
+      "__guid": "ad0454de-fd9e-4f26-8d22-3450cd362a16",
       "Flags": 0,
-      "Name": "GameObject",
+      "Name": "Soundscape",
       "Enabled": true,
       "NetworkMode": 2,
-      "NetworkInterpolation": true
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundscapeTrigger",
+          "__guid": "14158060-3854-45bc-94d9-d44966c86dc5",
+          "BoxSize": "50,50,50",
+          "Radius": 500,
+          "Soundscape": "sounds/outdoors.sndscape",
+          "StayActiveOnExit": true,
+          "Type": "Point"
+        }
+      ]
     }
   ],
   "SceneProperties": {
@@ -153,7 +164,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T12:08:04.6876272-04:00",
+  "LastSaved": "2024-06-27T14:00:37.1544003-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
