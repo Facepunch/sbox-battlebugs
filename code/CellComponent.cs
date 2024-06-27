@@ -43,6 +43,17 @@ public sealed class CellComponent : Component
 	{
 		IsHovering = true;
 
+		var bugs = Scene.GetAllComponents<BugSegment>();
+		var cellBug = bugs.FirstOrDefault( x => x.Cell == this );
+		if ( cellBug is not null )
+		{
+			bugs = bugs.Where( x => x.GameObject.Name == cellBug.GameObject.Name ).ToList();
+			foreach ( var bug in bugs )
+			{
+				bug.AddHighlight( Color.Red );
+			}
+		}
+
 		if ( IsSelected ) return;
 		UpdateHighlight();
 	}
@@ -50,6 +61,17 @@ public sealed class CellComponent : Component
 	public void MouseExit()
 	{
 		IsHovering = false;
+
+		var bugs = Scene.GetAllComponents<BugSegment>();
+		var cellBug = bugs.FirstOrDefault( x => x.Cell == this );
+		if ( cellBug is not null )
+		{
+			bugs = bugs.Where( x => x.GameObject.Name == cellBug.GameObject.Name ).ToList();
+			foreach ( var bug in bugs )
+			{
+				bug.RemoveHighlight();
+			}
+		}
 
 		if ( IsSelected ) return;
 		UpdateHighlight();

@@ -24,6 +24,7 @@
             "_type": "gameobject",
             "prefab": "prefabs/cell.prefab"
           },
+          "IsTestMode": false,
           "PebblePrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/pebble.prefab"
@@ -91,6 +92,10 @@
           "Viewport": "0,0,1,1",
           "ZFar": 10000,
           "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.Highlight",
+          "__guid": "17a58472-1cdb-4703-b7ff-fbacdc9e6989"
         }
       ]
     },
@@ -140,7 +145,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-26T16:31:48.4512467-04:00",
+  "LastSaved": "2024-06-27T07:14:52.5609198-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
