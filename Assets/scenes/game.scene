@@ -24,6 +24,10 @@
             "_type": "gameobject",
             "prefab": "prefabs/cell.prefab"
           },
+          "DamageNumberPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/particles/particle_damage_number.prefab"
+          },
           "IsTestMode": false
         },
         {
@@ -149,7 +153,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T11:03:32.978872-04:00",
+  "LastSaved": "2024-06-27T12:08:04.6876272-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

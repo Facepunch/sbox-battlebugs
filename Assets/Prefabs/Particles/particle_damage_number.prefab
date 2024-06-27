@@ -1,0 +1,35 @@
+{
+  "RootObject": {
+    "__guid": "71f3297a-61f0-4e29-a5ff-398a216b5942",
+    "Flags": 0,
+    "Name": "particle_damage_number",
+    "Enabled": true,
+    "NetworkMode": 0,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Sandbox.TextRenderer",
+        "__guid": "32d8278d-df9d-4a72-91f2-c920087cbc5b",
+        "Color": "1,1,1,1",
+        "FontFamily": "Poppins",
+        "FontSize": 32,
+        "FontWeight": 800,
+        "Scale": 1,
+        "Text": "-10",
+        "TextAlignment": "Center"
+      },
+      {
+        "__type": "Battlebugs.DamageNumber",
+        "__guid": "37b12590-0b35-4a00-badf-77de6acd6e0a"
+      }
+    ],
+    "Children": [],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

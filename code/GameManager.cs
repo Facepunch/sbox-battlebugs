@@ -25,6 +25,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
+	[Property, Group( "Prefabs" )] public GameObject DamageNumberPrefab { get; set; }
 
 	// Networked Variables
 	[HostSync] public GameState State { get; set; }
@@ -281,6 +282,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 
 		IsFiring = false;
+	}
+
+	[Broadcast]
+	public void BroadcastDamageNumber( Vector3 position, float damage )
+	{
+		if ( DamageNumberPrefab is not null )
+		{
+			var damageNumber = DamageNumberPrefab.Clone( position );
+			var text = damageNumber.Components.Get<TextRenderer>();
+			text.Text = "-" + damage.ToString();
+			text.Color = Color.Red;
+		}
 	}
 
 }

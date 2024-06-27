@@ -43,6 +43,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 		if ( collision.Other.GameObject.Components.TryGet<BugSegment>( out var segment ) )
 		{
+			GameManager.Instance.BroadcastDamageNumber( Transform.Position, Damage );
 			segment.Damage( Damage );
 		}
 		else if ( collision.Other.GameObject.Components.TryGet<CellComponent>( out var cell ) )
