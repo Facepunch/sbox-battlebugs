@@ -8,6 +8,7 @@ public class BugSegment : Component
 
     [Property, Group( "Prefabs" )] public GameObject BugSplatParticle { get; set; }
 
+    [Sync] public int Index { get; set; } = 0;
     [Sync] public int BugId { get; set; }
     [Sync] public float Health { get; set; } = 10f;
     public Bug Bug => ResourceLibrary.Get<Bug>( BugId );
@@ -20,13 +21,14 @@ public class BugSegment : Component
 
     public bool IsVisible => _targetAlpha > 0f;
 
-    public async void Init( Bug bug, float delay )
+    public async void Init( Bug bug, int index )
     {
+        Index = index;
         BugId = bug.ResourceId;
         BodyRenderer.Tint = bug.Color;
         Health = bug.StartingHealth;
         Body.Transform.LocalPosition = Vector3.Down * 250f;
-        await GameTask.DelaySeconds( delay );
+        await GameTask.DelaySeconds( index * 0.05f );
         _initialized = true;
         Sound.Play( "segment-drop" );
     }

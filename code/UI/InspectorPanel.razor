@@ -11,7 +11,8 @@
         <div class="segments">
             @for (var i = 0; i < Segment.Bug.SegmentCount; i++)
             {
-                <div style="background-color: @Segment.Bug.Color.Hex" />
+                var segment = Scene.GetAllComponents<BugSegment>().FirstOrDefault(x => x.GameObject.Name == Segment.GameObject.Name && x.Index == i);
+                <div style="background-color: @((segment?.Bug?.Color ?? Color.Black).Hex)" />
             }
         </div>
     </div>
