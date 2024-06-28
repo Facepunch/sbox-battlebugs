@@ -15,11 +15,11 @@
 						[
 							{
 								from = "tree.vmat"
-								to = "models/paper/trees/tree_01.vmat"
+								to = "models/paper/grass/grass_01a.vmat"
 							},
 							{
 								from = "tree2.vmat"
-								to = "models/paper/trees/tree_02.vmat"
+								to = "models/paper/grass/grass_02.vmat"
 							},
 							{
 								from = "bark.vmat"

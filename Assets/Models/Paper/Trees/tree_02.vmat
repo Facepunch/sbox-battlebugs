@@ -7,6 +7,10 @@ Layer0
 	//---- Rendering ----
 	F_RENDER_BACKFACES 1
 
+	g_flSway "0.146"
+	g_flSwayAmount "10.000"
+	g_flSwayMultiply "3.000"
+
 	//---- Color ----
 	Color "materials/paper/paper_01_color.png"
 	g_vTintColor "[0.070588 0.164706 0.015686 1.000000]"

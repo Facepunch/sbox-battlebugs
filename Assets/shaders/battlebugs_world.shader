@@ -53,7 +53,11 @@ struct PixelInput
 VS
 {
 	#include "common/vertex.hlsl"
-
+	
+	float g_flSway < UiGroup( ",0/,0/0" ); Default1( 0 ); Range1( 0, 1 ); >;
+	float g_flSwayAmount < UiGroup( ",0/,0/0" ); Default1( 0 ); Range1( 0, 100 ); >;
+	float g_flSwayMultiply < UiGroup( ",0/,0/0" ); Default1( 0 ); Range1( 0, 100 ); >;
+	
 	PixelInput MainVs( VertexInput v )
 	{
 		PixelInput i = ProcessVertex( v );
@@ -64,7 +68,22 @@ VS
 		i.vTintColor = extraShaderData.vTint;
 
 		VS_DecodeObjectSpaceNormalAndTangent( v, i.vNormalOs, i.vTangentUOs_flTangentVSign );
-
+		
+		float2 l_0 = i.vTextureCoords.xy * float2( 1, 1 );
+		float l_1 = g_flSway;
+		float l_2 = g_flTime * l_1;
+		float l_3 = sin( l_2 );
+		float l_4 = g_flSwayAmount;
+		float l_5 = l_3 * l_4;
+		float l_6 = 1.0f - VoronoiNoise( l_0, l_5, 3.29 );
+		float l_7 = g_flSwayMultiply;
+		float l_8 = l_6 * l_7;
+		float l_9 = l_8.x;
+		float l_10 = 0.0f;
+		float4 l_11 = float4( l_9, l_10, 0, 0 );
+		i.vPositionWs.xyz += l_11.xyz;
+		i.vPositionPs.xyzw = Position3WsToPs( i.vPositionWs.xyz );
+		
 		return FinalizeVertex( i );
 	}
 }

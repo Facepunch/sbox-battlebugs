@@ -27,7 +27,7 @@
 						_class = "RenderPrimitivePlane"
 						name = "CellPlane_copy"
 						parent_bone = ""
-						material_name = "materials/cell/cell_paper.vmat"
+						material_name = "materials/cell/cell_paper_02.vmat"
 						origin = [ 0.0, 0.0, 2.0 ]
 						angles = [ -0.0, 92.0, 0.0 ]
 						max_u = 1.0

@@ -1,5 +1,5 @@
 {
-  "Model": "models/dev/plane.vmdl",
+  "Model": null,
   "Description": "",
   "BlendMode": "Masked",
   "nodes": [
@@ -30,6 +30,10 @@
       "Metalness": {
         "Identifier": "2",
         "Output": "Result"
+      },
+      "PositionOffset": {
+        "Identifier": "32",
+        "Output": "Vector"
       }
     },
     {
@@ -390,7 +394,7 @@
       "UseSecondaryCoord": false,
       "Tiling": "1,1",
       "Identifier": "25",
-      "Position": "368,400"
+      "Position": "352,-96"
     },
     {
       "_class": "TextureSampler",
@@ -407,11 +411,152 @@
         }
       },
       "Identifier": "26",
-      "Position": "624,384",
+      "Position": "608,-112",
       "Coords": {
         "Identifier": "25",
         "Output": "Result"
       }
+    },
+    {
+      "_class": "TextureCoord",
+      "UseSecondaryCoord": false,
+      "Tiling": "1,1",
+      "Identifier": "27",
+      "Position": "256,352"
+    },
+    {
+      "_class": "Time",
+      "Identifier": "28",
+      "Position": "-160,432"
+    },
+    {
+      "_class": "VoronoiNoise",
+      "AngleOffset": 6.28,
+      "CellDensity": 3.29,
+      "Worley": true,
+      "Identifier": "29",
+      "Position": "512,336",
+      "Coords": {
+        "Identifier": "27",
+        "Output": "Result"
+      },
+      "A": {
+        "Identifier": "35",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "SplitVector",
+      "Identifier": "30",
+      "Position": "736,272",
+      "Input": {
+        "Identifier": "37",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Sine",
+      "Identifier": "31",
+      "Position": "288,432",
+      "Input": {
+        "Identifier": "33",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "CombineVector",
+      "DefaultX": 0,
+      "DefaultY": 0,
+      "DefaultZ": 0,
+      "DefaultW": 0,
+      "Identifier": "32",
+      "Position": "976,304",
+      "X": {
+        "Identifier": "30",
+        "Output": "X"
+      },
+      "Y": {
+        "Identifier": "30",
+        "Output": "Y"
+      }
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "33",
+      "Position": "64,528",
+      "A": {
+        "Identifier": "28",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "34",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 1,
+      "Value": 0,
+      "Name": "Sway",
+      "IsAttribute": false,
+      "UI": {},
+      "Identifier": "34",
+      "Position": "-208,640"
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "35",
+      "Position": "416,544",
+      "A": {
+        "Identifier": "31",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "36",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 100,
+      "Value": 0,
+      "Name": "Sway Amount",
+      "IsAttribute": false,
+      "UI": {},
+      "Identifier": "36",
+      "Position": "128,688"
+    },
+    {
+      "_class": "Multiply",
+      "DefaultA": 0,
+      "DefaultB": 1,
+      "Identifier": "37",
+      "Position": "704,544",
+      "A": {
+        "Identifier": "29",
+        "Output": "Result"
+      },
+      "B": {
+        "Identifier": "38",
+        "Output": "Result"
+      }
+    },
+    {
+      "_class": "Float",
+      "Min": 0,
+      "Max": 100,
+      "Value": 0,
+      "Name": "Sway Multiply",
+      "IsAttribute": false,
+      "UI": {},
+      "Identifier": "38",
+      "Position": "512,688"
     }
   ]
 }

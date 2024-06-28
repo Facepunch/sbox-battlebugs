@@ -4,6 +4,30 @@
       "Source": "particles/leaf_sprite.png",
       "IsLooping": true,
       "Frames": 64
+    },
+    {
+      "Source": "particles/circle_sprite.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particles/diamond_sprite.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particles/star_sprite.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particles/spade_sprite.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particles/shamrock_sprite.png",
+      "Frames": 64
+    },
+    {
+      "Source": "particles/heart_sprite.png",
+      "Frames": 64
     }
   ],
   "OutputTypeString": "2D"
