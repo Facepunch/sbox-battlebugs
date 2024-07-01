@@ -2,12 +2,24 @@
   "Name": "Mantis",
   "Color": "0.03791,0.45116,0.00839,1",
   "SegmentCount": 2,
-  "SegmentPrefab": {
+  "StartingAmount": 2,
+  "StartingHealth": 10,
+  "HeadPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
-  "StartingAmount": 2,
-  "StartingHealth": 10,
+  "BodyPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bug_segment.prefab"
+  },
+  "CornerPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bug_segment.prefab"
+  },
+  "TailPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bug_segment.prefab"
+  },
   "__references": [],
   "__version": 0
 }

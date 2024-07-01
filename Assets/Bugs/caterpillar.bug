@@ -2,12 +2,24 @@
   "Name": "Caterpillar",
   "Color": "0.36667,0,1,1",
   "SegmentCount": 5,
-  "SegmentPrefab": {
-    "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
-  },
   "StartingAmount": 1,
   "StartingHealth": 6,
+  "HeadPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+  },
+  "BodyPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+  },
+  "CornerPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+  },
+  "TailPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+  },
   "__references": [],
   "__version": 0
 }

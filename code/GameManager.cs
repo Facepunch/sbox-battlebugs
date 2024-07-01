@@ -5,14 +5,6 @@ using Sandbox.Network;
 
 namespace Battlebugs;
 
-public enum GameState
-{
-	Waiting,
-	Placing,
-	Playing,
-	Results
-}
-
 public sealed class GameManager : Component, Component.INetworkListener
 {
 	public static GameManager Instance { get; private set; }
@@ -25,7 +17,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property] public bool IsTestMode { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
-	[Property, Group( "Prefabs" )] public GameObject BugSegmentPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject DamageNumberPrefab { get; set; }
 
 	// Networked Variables
@@ -228,29 +219,29 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, rotation, Time.Delta * 5f );
 	}
 
-	public void CreateBug( List<CellComponent> cells )
+	public void CreateBug( List<PlacementInput.PlacementData> cells )
 	{
 		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
 		if ( bug.Value <= 0 ) return;
 
 		var rotation = new Angles( 0, 0, 0 );
-		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Transform.Position - cells[0].Transform.Position, Vector3.Up );
+		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Cell.Transform.Position - cells[0].Cell.Transform.Position, Vector3.Up );
 
 		var bugId = Guid.NewGuid();
 
 		for ( int i = 0; i < cells.Count; i++ )
 		{
-			if ( i > 0 ) rotation = Rotation.LookAt( cells[i].Transform.Position - cells[i - 1].Transform.Position, Vector3.Up );
-			var segment = BugSegmentPrefab.Clone();
+			if ( i < cells.Count - 1 ) rotation = Rotation.LookAt( cells[i + 1].Cell.Transform.Position - cells[i].Cell.Transform.Position, Vector3.Up );
+			var segment = cells[i].Prefab.Clone();
 			segment.Name = bugId.ToString();
-			segment.Transform.Position = cells[i].Transform.Position;
+			segment.Transform.Position = cells[i].Cell.Transform.Position;
 			segment.Transform.Rotation = rotation;
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Key, i );
-			component.Cell = cells[i];
+			component.Cell = cells[i].Cell;
 			segment.NetworkSpawn();
 
-			cells[i].IsOccupied = true;
+			cells[i].Cell.IsOccupied = true;
 		}
 
 		BoardManager.Local.BugInventory[bug.Key] = bug.Value - 1;

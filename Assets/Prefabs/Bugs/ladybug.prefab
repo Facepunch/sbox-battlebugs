@@ -1,0 +1,124 @@
+{
+  "RootObject": {
+    "__guid": "eae2dbef-0f59-4f7e-a6a5-f1a9b66f833d",
+    "Flags": 0,
+    "Name": "ladybug",
+    "Tags": "bug",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Battlebugs.BugSegment",
+        "__guid": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
+        "Body": {
+          "_type": "gameobject",
+          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d"
+        },
+        "BodyRenderer": {
+          "_type": "component",
+          "component_id": "471274ae-90cc-4618-b542-1ad99bf8ce60",
+          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+          "component_type": "ModelRenderer"
+        },
+        "BugSplatParticle": {
+          "_type": "gameobject",
+          "prefab": "prefabs/particles/particle_bug_splat.prefab"
+        },
+        "Healthbar": {
+          "_type": "component",
+          "component_id": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
+          "go": "000ffeb9-13f5-4669-896b-57fd74729b48",
+          "component_type": "BugHealthbar"
+        }
+      },
+      {
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "55e5d9a7-a13c-4b9b-8754-880d049f6aa0",
+        "Center": "0,0,24.4",
+        "IsTrigger": false,
+        "Radius": 33.200047,
+        "Static": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+        "Flags": 0,
+        "Name": "Body",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "471274ae-90cc-4618-b542-1ad99bf8ce60",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/bugs/ladybug.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "000ffeb9-13f5-4669-896b-57fd74729b48",
+        "Flags": 0,
+        "Name": "Healthbar",
+        "Position": "0,0,45.44152",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.WorldPanel",
+            "__guid": "e0ea9408-c364-4c74-8f02-b2657bb382e3",
+            "HorizontalAlign": "Center",
+            "InteractionRange": 1000,
+            "LookAtCamera": true,
+            "PanelSize": "1280,250",
+            "RenderScale": 1,
+            "VerticalAlign": "Center"
+          },
+          {
+            "__type": "Battlebugs.BugHealthbar",
+            "__guid": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
+            "Alpha": 0,
+            "Gradient": {
+              "color": [
+                {
+                  "c": "0.1,1,0,1"
+                },
+                {
+                  "t": 0.47863248,
+                  "c": "1,0.65,0,1"
+                },
+                {
+                  "t": 1,
+                  "c": "1,0,0,1"
+                }
+              ],
+              "alpha": [
+                {
+                  "a": 1
+                }
+              ]
+            },
+            "Segment": {
+              "_type": "component",
+              "component_id": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
+              "go": "eae2dbef-0f59-4f7e-a6a5-f1a9b66f833d",
+              "component_type": "BugSegment"
+            }
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

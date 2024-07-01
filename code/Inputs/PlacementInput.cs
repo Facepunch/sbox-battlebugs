@@ -98,7 +98,7 @@ public sealed class PlacementInput : Component
 			if ( SelectedCells.Count > 1 )
 			{
 				Sound.Play( "ui-select-complete" );
-				GameManager.Instance.CreateBug( SelectedCells );
+				GameManager.Instance.CreateBug( GetPlacementData() );
 			}
 			else if ( SelectedCells.Count == 1 )
 			{
@@ -106,6 +106,42 @@ public sealed class PlacementInput : Component
 			}
 			DeselectAll();
 		}
+	}
+
+	List<PlacementData> GetPlacementData()
+	{
+		var data = new List<PlacementData>();
+
+		var rotation = Rotation.From( 0, 0, 0 );
+		if ( SelectedCells.Count > 1 ) rotation = Rotation.LookAt( SelectedCells[1].Transform.Position - SelectedCells[0].Transform.Position, Vector3.Up );
+
+		for ( int i = 0; i < SelectedCells.Count; i++ )
+		{
+			if ( i > 0 ) rotation = Rotation.LookAt( SelectedCells[i].Transform.Position - SelectedCells[i - 1].Transform.Position, Vector3.Up );
+
+			// Get prefab based on rotation/position
+			var prefab = AttemptingToPlace.BodyPrefab;
+			if ( i == 0 ) prefab = AttemptingToPlace.HeadPrefab;
+			else if ( i == SelectedCells.Count - 1 ) prefab = AttemptingToPlace.TailPrefab;
+			else
+			{
+				var last = SelectedCells[i - 1];
+				var next = SelectedCells[i + 1];
+				if ( !(last.Position.x == next.Position.x || last.Position.y == next.Position.y) )
+				{
+					prefab = AttemptingToPlace.CornerPrefab;
+				}
+			}
+
+			data.Add( new PlacementData
+			{
+				Cell = SelectedCells[i],
+				Rotation = rotation,
+				Prefab = prefab
+			} );
+		}
+
+		return data;
 	}
 
 	protected override void OnDisabled()
@@ -127,5 +163,12 @@ public sealed class PlacementInput : Component
 			cell.Deselect( false );
 		}
 		SelectedCells.Clear();
+	}
+
+	public class PlacementData
+	{
+		public CellComponent Cell { get; set; }
+		public Rotation Rotation { get; set; }
+		public GameObject Prefab { get; set; }
 	}
 }

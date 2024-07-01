@@ -2,12 +2,24 @@
   "Name": "Ladybug",
   "Color": "1,0,0.31667,1",
   "SegmentCount": 3,
-  "SegmentPrefab": {
-    "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
-  },
   "StartingAmount": 2,
   "StartingHealth": 8,
+  "HeadPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/ladybug.prefab"
+  },
+  "BodyPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/ladybug.prefab"
+  },
+  "CornerPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/ladybug.prefab"
+  },
+  "TailPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/bugs/ladybug.prefab"
+  },
   "__references": [],
   "__version": 0
 }
