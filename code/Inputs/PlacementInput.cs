@@ -136,9 +136,6 @@ public sealed class PlacementInput : Component
 					var previousRotation = Rotation.LookAt( last.Transform.Position - current.Transform.Position, Vector3.Up );
 
 					// If previous piece is left and next piece is down
-					Log.Info( last.Transform.Position );
-					Log.Info( current.Transform.Position );
-					Log.Info( next.Transform.Position );
 					if ( last.Transform.Position.x < current.Transform.Position.x && next.Transform.Position.y > current.Transform.Position.y )
 					{
 						rotation -= new Angles( 0, 90 + 45, 0 );
