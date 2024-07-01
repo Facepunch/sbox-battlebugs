@@ -271,7 +271,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		for ( int i = 0; i < count; i++ )
 		{
 			var offset = Vector3.Random.WithZ( 0 ) * weapon.Spray;
-			var pos = board.CameraPosition.Transform.Position.WithZ( 32f ) + offset;
+			var pos = board.CameraPosition.Transform.Position.WithZ( 32f ) + (board.Transform.Rotation.Forward * 200f) + offset;
 			var target = position + offset;
 			var pebbleObj = weapon.Prefab.Clone( pos );
 			var pebble = pebbleObj.Components.Get<PebbleComponent>();
