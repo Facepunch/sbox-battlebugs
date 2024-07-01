@@ -5077,7 +5077,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "6be860fe-83ed-4a77-a04c-d44032f18271",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.98039,0.6902,0.02353,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -5225,7 +5225,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "358bfccd-e141-4c70-aaff-1c250ad646ff",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.12227,0.73023,0.12227,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -5373,7 +5373,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "b73c812e-3268-40b7-9536-447b846cc0ba",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.98039,0.6902,0.02353,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -5521,7 +5521,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "70734826-4403-4b22-b1b6-a6f4ae52749e",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.12093,0.50698,0.01415,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -5669,7 +5669,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "a7696089-720f-4af7-9e81-55b8887041f7",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.04279,0.42791,0,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -5739,7 +5739,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "739b18b9-3989-430a-8617-efd5a290bc07",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.98039,0.11922,0.02353,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -6050,7 +6050,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "b543babb-9c66-4119-a766-860aa3a101a7",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.19895,0.98039,0.02353,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -6361,7 +6361,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "a0e4d169-fe37-48ba-bd8a-d6e2421c156e",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0,0.53488,0.09806,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -7870,7 +7870,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "884f21f4-70be-4a4f-9e19-5d2b18a9b3a1",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.06851,0.24651,0.00917,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -8591,7 +8591,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "38871ded-64dd-4aa4-b23a-d884280b96ec",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.06937,0.46512,0.0411,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -9010,7 +9010,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "a1b852f5-5371-478f-8466-baf2b19ea8ab",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.02284,0.14884,0.02284,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -9387,7 +9387,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "0cc9fc4c-5a95-4f31-9f88-f5060d48119e",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.00784,0.0902,0.01176,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -9541,7 +9541,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "f1b4b4a0-4dcc-40a0-a120-ddfa2841a737",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.00784,0.0902,0.01176,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -9734,7 +9734,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "3fb202fa-53ef-4da0-a332-193877bc3cdd",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.00784,0.0902,0.01176,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -10458,7 +10458,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "b293e9bd-db49-461f-a34c-6570669676b4",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.01961,0.14902,0.01961,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -10528,7 +10528,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "85a0daaf-a2bc-4007-a8d1-9617a8d041ad",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -10754,7 +10754,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "af3f9725-d5b9-4bb5-a4d7-784326a24e23",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.03187,0.08372,0.01752,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -11094,7 +11094,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "63d1bdfd-9b48-41ae-8465-e46bb498b3e9",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -11224,7 +11224,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "f637331b-f409-4d60-ae74-895f93a0c998",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.02472,0.09767,0.00454,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -11635,7 +11635,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "3affdc46-87bc-4bc5-8e85-ef91b425e409",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -11786,7 +11786,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "7e8e758e-bd35-404b-83f9-b2980eafd8f4",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -11936,7 +11936,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "4e4301ea-4ee4-4b08-af02-47fc0940aa8b",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.02088,0.07907,0.00478,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -12619,7 +12619,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "f8fcac45-cde8-402a-bd29-a58ade3c2f66",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -12987,7 +12987,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "cf298539-afc7-42b6-b65e-fcc41c411b91",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.03137,0.08235,0.01569,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -13354,7 +13354,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "8e363ad7-b285-4ba2-b7b9-34b778002b46",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.05798,0.19535,0.01999,1",
             "HideInGame": false,
             "IsTrigger": false,
@@ -13656,7 +13656,7 @@
           {
             "__type": "Sandbox.MeshComponent",
             "__guid": "a257d2f5-3bd7-45a9-8277-ee5810f11a78",
-            "Collision": "Mesh",
+            "Collision": "None",
             "Color": "0.03137,0.08235,0.01569,1",
             "HideInGame": false,
             "IsTrigger": false,
