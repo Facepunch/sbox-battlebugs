@@ -7,6 +7,7 @@ public class BugSegment : Component
     [Property] public GameObject Body { get; set; }
     [Property] public ModelRenderer BodyRenderer { get; set; }
     [Property] BugHealthbar Healthbar { get; set; }
+    [Property] bool Floating { get; set; }
 
     [Property, Group( "Prefabs" )] public GameObject BugSplatParticle { get; set; }
 
@@ -53,7 +54,9 @@ public class BugSegment : Component
     {
         if ( _initialized || IsProxy )
         {
-            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Up * 2.5f, Time.Delta * 15f );
+            var targetPos = Vector3.Up * 2.5f;
+            if ( Floating ) targetPos += Vector3.Up * (MathF.Sin( (Time.Now + (Transform.Position.x + (Transform.Position.y * 10f)) / 32f) * 2f ) * 0.25f) * 8f;
+            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( targetPos, Time.Delta * 15f );
             Body.Transform.LocalRotation = Rotation.Slerp( Body.Transform.LocalRotation, Rotation.Identity, Time.Delta * 15f );
         }
 

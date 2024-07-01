@@ -13,7 +13,7 @@
         "__guid": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
         "Body": {
           "_type": "gameobject",
-          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d"
+          "go": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0"
         },
         "BodyRenderer": {
           "_type": "component",
@@ -25,6 +25,7 @@
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_bug_splat.prefab"
         },
+        "Floating": true,
         "Healthbar": {
           "_type": "component",
           "component_id": "f2f08c1b-4784-4e8b-b43f-6eb2bd67f06c",
@@ -52,21 +53,31 @@
     ],
     "Children": [
       {
-        "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+        "__guid": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0",
         "Flags": 0,
-        "Name": "Body",
-        "Position": "0,0,47.72671",
+        "Name": "Body Container",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
-        "Components": [
+        "Children": [
           {
-            "__type": "Sandbox.ModelRenderer",
-            "__guid": "471274ae-90cc-4618-b542-1ad99bf8ce60",
-            "BodyGroups": 18446744073709551615,
-            "Model": "models/paper/bugs/bee.vmdl",
-            "RenderType": "On",
-            "Tint": "1,1,1,1"
+            "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+            "Flags": 0,
+            "Name": "Body",
+            "Position": "0,0,49.65607",
+            "Enabled": true,
+            "NetworkMode": 2,
+            "NetworkInterpolation": true,
+            "Components": [
+              {
+                "__type": "Sandbox.ModelRenderer",
+                "__guid": "471274ae-90cc-4618-b542-1ad99bf8ce60",
+                "BodyGroups": 18446744073709551615,
+                "Model": "models/paper/bugs/bee.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1"
+              }
+            ]
           }
         ]
       },
