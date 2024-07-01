@@ -3,10 +3,11 @@ namespace Battlebugs;
 [GameResource( "Battlebugs/Bug", "bug", "Describes a bug definition", Icon = "bug_report" )]
 public class Bug : GameResource
 {
-    public string Name { get; set; } = "Bug";
-    public Color Color { get; set; } = Color.White;
-    public int SegmentCount { get; set; } = 3;
-    public GameObject SegmentPrefab { get; set; }
-    public int StartingAmount { get; set; } = 1;
-    public float StartingHealth { get; set; } = 8f;
+    [Group( "Information" )] public string Name { get; set; } = "Bug";
+    [Group( "Information" )] public Color Color { get; set; } = Color.White;
+    [Group( "Information" )] public int SegmentCount { get; set; } = 3;
+    [Group( "Stats" )] public int StartingAmount { get; set; } = 1;
+    [Group( "Stats" )] public float StartingHealth { get; set; } = 8f;
+    [Group( "Prefabs" )] public GameObject SegmentPrefab { get; set; }
+
 }
