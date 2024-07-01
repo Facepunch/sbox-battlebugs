@@ -1,7 +1,7 @@
 namespace Battlebugs;
 
 [GameResource( "Battlebugs/Weapon", "weapon", "Describes a weapon definition", Icon = "whatshot" )]
-public class Weapon : GameResource
+public class WeaponResource : GameResource
 {
     public string Name { get; set; } = "Rock";
     [TextArea] public string Description { get; set; } = "";

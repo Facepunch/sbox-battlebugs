@@ -262,7 +262,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		if ( Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
-		var weapon = ResourceLibrary.Get<Weapon>( weaponId );
+		var weapon = ResourceLibrary.Get<WeaponResource>( weaponId );
 		if ( weapon is null ) return;
 
 		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );

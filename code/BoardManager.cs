@@ -31,9 +31,9 @@ public sealed class BoardManager : Component
 	[Sync] public NetList<BugReference> BugReferences { get; set; } = new();
 
 	// Public Variables
-	public Weapon SelectedWeapon = null;
+	public WeaponResource SelectedWeapon = null;
 	public Dictionary<BugResource, int> BugInventory = new();
-	public Dictionary<Weapon, int> WeaponInventory = new();
+	public Dictionary<WeaponResource, int> WeaponInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
 
 	protected override void OnStart()
@@ -106,7 +106,7 @@ public sealed class BoardManager : Component
 
 	void ResetWeaponInventory()
 	{
-		var allWeapons = ResourceLibrary.GetAll<Weapon>();
+		var allWeapons = ResourceLibrary.GetAll<WeaponResource>();
 		WeaponInventory.Clear();
 		foreach ( var weapon in allWeapons )
 		{
