@@ -35,6 +35,7 @@
 		{
 			if (segment.IsVisible)
 			{
+				InspectInput.Instance.Deselect();
 				InspectInput.Instance.Select(segment, true);
 				InspectorPanel.Instance.Segment = segment;
 			}
