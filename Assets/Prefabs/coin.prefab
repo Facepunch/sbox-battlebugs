@@ -1,0 +1,49 @@
+{
+  "RootObject": {
+    "__guid": "44273a52-4dc2-4709-bb8f-89663c962e59",
+    "Flags": 0,
+    "Name": "coin",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "CoinComponent",
+        "__guid": "99244b7a-6d26-4e5a-a9c5-2279dafef16f"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "c07c2f00-b756-4e83-91df-c2d94ec55bb7",
+        "Flags": 0,
+        "Name": "GameObject",
+        "Position": "0,0,11",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "0e971642-cd7d-488f-973b-f9e984dbc445",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/paper/coin/coin.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          },
+          {
+            "__type": "Battlebugs.RotateConstantly",
+            "__guid": "d963b1f8-45be-4ec4-80f1-e2b467f430d8",
+            "RotationSpeed": "0,20,0"
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
