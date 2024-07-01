@@ -1,0 +1,18 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root style="background-color: @Color">
+
+</root>
+
+@code
+{
+	public GameObject GameObject { get; set; }
+	public string BugColor { get; set; } = "#000000";
+	string Color => GameObject.IsValid() ? BugColor : "#000000";
+
+	protected override int BuildHash() => System.HashCode.Combine(GameObject.IsValid());
+}

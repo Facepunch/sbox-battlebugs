@@ -8,9 +8,7 @@
 <root>
 	@for (int i = 0; i < Bug.SegmentCount; i++)
 	{
-		var obj = GetObject(BugReference.ObjectIds[i]);
-		var segmentColor = obj.IsValid() ? Bug.Color.Hex : "#000000";
-		<div class="color" style="background-color: @segmentColor" />
+		<BugListSegment GameObject=@GetObject(BugReference.ObjectIds[i]) BugColor=@Bug.Color.Hex />
 	}
 </root>
 
@@ -31,13 +29,5 @@
 		return obj;
 	}
 
-	protected override int BuildHash()
-	{
-		int hash = 0;
-		foreach (var id in BugReference.ObjectIds)
-		{
-			hash = System.HashCode.Combine(hash, GetObject(id).IsValid());
-		}
-		return hash;
-	}
+	protected override int BuildHash() => System.HashCode.Combine(BugReference);
 }
