@@ -53,7 +53,7 @@ public class BugSegment : Component
     {
         if ( _initialized || IsProxy )
         {
-            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Up * 2f, Time.Delta * 15f );
+            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Up * 2.5f, Time.Delta * 15f );
             Body.Transform.LocalRotation = Rotation.Slerp( Body.Transform.LocalRotation, Rotation.Identity, Time.Delta * 15f );
         }
 
