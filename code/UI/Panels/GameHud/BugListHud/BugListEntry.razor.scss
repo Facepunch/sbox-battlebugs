@@ -1,0 +1,22 @@
+BugListEntry
+{
+	flex-direction: row;
+    gap: 2px;
+
+    .color
+    {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        font-size: 12px;
+        justify-content: flex-end;
+        align-items: flex-end;
+        border-radius: 12px;
+
+        label
+        {
+            position: relative;
+            top: 8px;
+        }
+    }
+}

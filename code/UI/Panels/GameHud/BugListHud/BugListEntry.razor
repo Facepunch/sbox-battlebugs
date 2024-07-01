@@ -1,0 +1,43 @@
+@using System;
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@for (int i = 0; i < Bug.SegmentCount; i++)
+	{
+		var obj = GetObject(BugReference.ObjectIds[i]);
+		var segmentColor = obj.IsValid() ? Bug.Color.Hex : "#000000";
+		<div class="color" style="background-color: @segmentColor" />
+	}
+</root>
+
+@code
+{
+	public BoardManager.BugReference BugReference { get; set; }
+
+	Bug Bug => BugReference.GetBug();
+	Dictionary<string, GameObject> _gameObjects = new();
+
+	GameObject GetObject(string id)
+	{
+		if (!_gameObjects.TryGetValue(id, out var obj))
+		{
+			obj = Scene.Directory.FindByGuid(Guid.Parse(id));
+			_gameObjects[id] = obj;
+		}
+		return obj;
+	}
+
+	protected override int BuildHash()
+	{
+		int hash = 0;
+		foreach (var id in BugReference.ObjectIds)
+		{
+			hash = System.HashCode.Combine(hash, GetObject(id).IsValid());
+		}
+		return hash;
+	}
+}
