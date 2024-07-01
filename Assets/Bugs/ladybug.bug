@@ -8,18 +8,22 @@
     "_type": "gameobject",
     "prefab": "prefabs/bugs/ladybug.prefab"
   },
+  "HeadModel": "models/paper/bugs/ladybug.vmdl",
   "BodyPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/ladybug.prefab"
   },
+  "BodyModel": "models/paper/bugs/ladybug.vmdl",
   "CornerPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/ladybug.prefab"
   },
+  "CornerModel": "models/paper/bugs/ladybug.vmdl",
   "TailPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/ladybug.prefab"
   },
+  "TailModel": "models/paper/bugs/ladybug.vmdl",
   "__references": [],
   "__version": 0
 }

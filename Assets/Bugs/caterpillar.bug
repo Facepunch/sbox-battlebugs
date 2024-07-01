@@ -8,18 +8,22 @@
     "_type": "gameobject",
     "prefab": "prefabs/bugs/caterpillar_head.prefab"
   },
+  "HeadModel": "models/paper/bugs/caterpillar_head.vmdl",
   "BodyPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/caterpillar_body.prefab"
   },
+  "BodyModel": "models/paper/bugs/caterpillar_body.vmdl",
   "CornerPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/caterpillar_corner.prefab"
   },
+  "CornerModel": "models/paper/bugs/caterpillar_corner.vmdl",
   "TailPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/caterpillar_end.prefab"
   },
+  "TailModel": "models/paper/bugs/caterpillar_end.vmdl",
   "__references": [],
   "__version": 0
 }

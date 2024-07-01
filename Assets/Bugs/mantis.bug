@@ -8,18 +8,22 @@
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
+  "HeadModel": "models/dev/box.vmdl",
   "BodyPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
+  "BodyModel": "models/dev/box.vmdl",
   "CornerPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
+  "CornerModel": "models/dev/box.vmdl",
   "TailPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bug_segment.prefab"
   },
+  "TailModel": "models/dev/box.vmdl",
   "__references": [],
   "__version": 0
 }

@@ -8,18 +8,22 @@
     "_type": "gameobject",
     "prefab": "prefabs/bugs/bee.prefab"
   },
+  "HeadModel": "models/paper/bugs/bee.vmdl",
   "BodyPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/bee.prefab"
   },
+  "BodyModel": "models/paper/bugs/bee.vmdl",
   "CornerPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/bee.prefab"
   },
+  "CornerModel": "models/paper/bugs/bee.vmdl",
   "TailPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/bee.prefab"
   },
+  "TailModel": "models/paper/bugs/bee.vmdl",
   "__references": [],
   "__version": 0
 }
