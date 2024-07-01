@@ -104,6 +104,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 			StartTurn();
 		}
 
+		BoardManager.Local.SaveBugReferences();
+
 		foreach ( var segment in Scene.GetAllComponents<BugSegment>() )
 		{
 			segment.SetAlpha( segment.IsProxy ? 0f : 0.5f );

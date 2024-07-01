@@ -1,3 +1,4 @@
+using System;
 using Sandbox;
 
 namespace Battlebugs;
@@ -27,6 +28,7 @@ public sealed class BoardManager : Component
 
 	// Networked Variables
 	[Sync] public bool IsReady { get; set; } = false;
+	[Sync] public NetList<BugReference> BugReferences { get; set; } = new();
 
 	// Public Variables
 	public Weapon SelectedWeapon = null;
@@ -110,6 +112,60 @@ public sealed class BoardManager : Component
 		{
 			WeaponInventory[weapon] = weapon.StartingAmount;
 			if ( weapon.StartingAmount < 0 ) SelectedWeapon = weapon;
+		}
+	}
+
+	public void SaveBugReferences()
+	{
+		BugReferences.Clear();
+
+		// Compose the list of bugs and their individual ids
+		var references = new List<BugReference>();
+		var segments = Scene.GetAllComponents<BugSegment>();
+		foreach ( var segment in segments )
+		{
+			if ( segment.Network.OwnerId != Network.OwnerId ) continue;
+			var existingRef = references.FirstOrDefault( x => x.BugId == segment.GameObject.Name );
+			if ( existingRef.ResourceId != 0 ) existingRef.Add( segment.GameObject.Id );
+			else
+			{
+				var reference = new BugReference( segment.BugId, segment.GameObject.Name );
+				reference.Add( segment.GameObject.Id );
+				references.Add( reference );
+			}
+		}
+
+		// Add entries to the NetList
+		foreach ( var reference in references )
+		{
+			BugReferences.Add( reference );
+		}
+	}
+
+	public struct BugReference
+	{
+		public int ResourceId { get; set; }
+		public string BugId { get; set; }
+		public List<string> ObjectIds { get; set; }
+
+		private Bug _bug;
+
+		public BugReference( int resourceId, string bugId )
+		{
+			ResourceId = resourceId;
+			BugId = bugId;
+			ObjectIds = new List<string>();
+		}
+
+		public void Add( Guid objectId )
+		{
+			ObjectIds.Add( objectId.ToString() );
+		}
+
+		public Bug GetBug()
+		{
+			if ( _bug is null ) _bug = ResourceLibrary.Get<Bug>( ResourceId );
+			return _bug;
 		}
 	}
 
