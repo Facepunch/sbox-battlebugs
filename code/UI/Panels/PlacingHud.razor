@@ -19,7 +19,7 @@
 							<div class="bug">
 								@for (int i = 0; i < bugItem.Key.SegmentCount; i++)
 								{
-									<div class="color" style="background-color: @bugItem.Key.Color.Hex" />
+									<img src=@GetIcon(bugItem.Key, i) />
 								}
 							</div>
 							<label>x@(bugItem.Value)</label>
@@ -72,6 +72,13 @@
 		if (BoardManager.Local?.BugInventory?.Any(x => x.Value > 0) ?? true) return;
 
 		BoardManager.Local.ToggleReady();
+	}
+
+	string GetIcon(BugResource bug, int index)
+	{
+		if (index == 0) return bug.GetHeadIcon();
+		if (index == bug.SegmentCount - 1) return bug.GetTailIcon();
+		return bug.GetBodyIcon();
 	}
 
 	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local, BoardManager.Local?.BugInventory.Sum(x => x.Value), BoardManager.Local?.IsReady, GameManager.Instance.Boards.Any(x => x.IsReady));

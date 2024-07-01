@@ -17,10 +17,10 @@ internal static class EditorButtons
         foreach ( var bug in bugs )
         {
             var name = bug.ResourceName;
-            if ( !models.Any( x => x.Model == bug.HeadModel ) ) models.Add( new ThumbnailEntry( bug.HeadModel, name + "_head" ) );
-            if ( !models.Any( x => x.Model == bug.BodyModel ) ) models.Add( new ThumbnailEntry( bug.BodyModel, name + "_body" ) );
-            if ( !models.Any( x => x.Model == bug.CornerModel ) ) models.Add( new ThumbnailEntry( bug.CornerModel, name + "_corner" ) );
-            if ( !models.Any( x => x.Model == bug.TailModel ) ) models.Add( new ThumbnailEntry( bug.TailModel, name + "_tail" ) );
+            models.Add( new ThumbnailEntry( bug.HeadModel, name + "_head" ) );
+            models.Add( new ThumbnailEntry( bug.BodyModel, name + "_body" ) );
+            models.Add( new ThumbnailEntry( bug.CornerModel, name + "_corner" ) );
+            models.Add( new ThumbnailEntry( bug.TailModel, name + "_tail" ) );
         }
 
         foreach ( var entry in models )
@@ -35,16 +35,21 @@ internal static class EditorButtons
         var sceneModel = new SceneModel( sceneWorld, model, new() );
         var sceneCamera = new SceneCamera();
         var sceneLight = new SceneDirectionalLight( sceneWorld, Rotation.From( 0, 90, 0 ), Color.White );
+        sceneCamera.Ortho = true;
+        sceneCamera.OrthoHeight = 64f;
         sceneCamera.World = sceneWorld;
         sceneCamera.Rotation = Rotation.From( 0, 90, 0 );
         sceneModel.Rotation = Rotation.From( 0, 180, 0 );
         if ( model.Name.Contains( "corner" ) ) sceneModel.Rotation *= new Angles( 0, 0, 90 );
         else if ( !model.Name.Contains( "caterpillar" ) ) sceneModel.Rotation *= new Angles( 0, 90, 0 );
+        if ( fileName.Contains( "ladybug" ) ) sceneCamera.OrthoHeight = 42f;
+        else if ( fileName.Contains( "bumblebee" ) ) sceneCamera.OrthoHeight = 82f;
 
         var bounds = sceneModel.Bounds;
         var center = bounds.Center;
-        var distance = bounds.Size.Length * 0.8f;
-        sceneCamera.Position = center + sceneCamera.Rotation.Backward * distance;
+        sceneCamera.Position = sceneCamera.Rotation.Backward * 92f;
+        if ( fileName.Contains( "caterpillar_head" ) ) sceneCamera.Position += Vector3.Up * 18f;
+        else sceneCamera.Position += center;
 
         var texture = Texture.CreateRenderTarget().WithSize( 128, 128 ).Create();
         Graphics.RenderToTexture( sceneCamera, texture );

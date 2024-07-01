@@ -17,4 +17,11 @@ public class BugResource : GameResource
     [Group( "Prefabs" )] public GameObject TailPrefab { get; set; }
     [Group( "Prefabs" )] public Model TailModel { get; set; }
 
+    public string GetHeadIcon() => "ui/thumbnails/" + ResourceName + "_head.png";
+    public string GetBodyIcon() => "ui/thumbnails/" + ResourceName + "_body.png";
+    public string GetCornerIcon() => "ui/thumbnails/" + ResourceName + "_corner.png";
+    public string GetTailIcon() => "ui/thumbnails/" + ResourceName + "_tail.png";
+
+
+
 }
