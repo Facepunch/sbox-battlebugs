@@ -6,9 +6,10 @@ namespace Battlebugs;
 public sealed class InspectInput : Component
 {
 	public static InspectInput Instance { get; private set; }
-	BugSegment HighlightedSegment = null;
+	public BugSegment HighlightedSegment { get; private set; } = null;
 
 	TimeSince timeSinceMouseMoved = 0;
+	bool isPanelHovered = false;
 
 	Vector2 lastMousePosition = Vector2.Zero;
 
@@ -20,6 +21,7 @@ public sealed class InspectInput : Component
 
 	protected override void OnUpdate()
 	{
+		if ( isPanelHovered ) return;
 		if ( !BoardManager.Local.IsValid() ) return;
 		if ( Mouse.Position != lastMousePosition )
 		{
@@ -56,14 +58,16 @@ public sealed class InspectInput : Component
 		Deselect();
 	}
 
-	void Select( BugSegment bug )
+	public void Select( BugSegment bug, bool panelHovered = false )
 	{
+		isPanelHovered = panelHovered;
 		HighlightedSegment = bug;
 		HighlightedSegment.AddHighlight( Color.White );
 	}
 
-	void Deselect()
+	public void Deselect()
 	{
+		isPanelHovered = false;
 		if ( HighlightedSegment is null ) return;
 
 		InspectorPanel.Instance.Segment = null;

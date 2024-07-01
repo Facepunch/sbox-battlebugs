@@ -14,5 +14,27 @@
 	public string BugColor { get; set; } = "#000000";
 	string Color => GameObject.IsValid() ? BugColor : "#000000";
 
+	BugSegment segment = null;
+
+	protected override void OnMouseMove(MousePanelEvent e)
+	{
+		if (GameObject.IsValid() && GameObject.Components.TryGet<BugSegment>(out segment))
+		{
+			if (segment.IsVisible)
+			{
+				InspectInput.Instance.Select(segment, true);
+				InspectorPanel.Instance.Segment = segment;
+			}
+		}
+	}
+
+	protected override void OnMouseOut(MousePanelEvent e)
+	{
+		if (segment is not null && InspectInput.Instance.HighlightedSegment == segment)
+		{
+			InspectInput.Instance.Deselect();
+		}
+	}
+
 	protected override int BuildHash() => System.HashCode.Combine(GameObject.IsValid());
 }
