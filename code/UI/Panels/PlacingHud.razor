@@ -13,7 +13,7 @@
 			<div class="content">
 				@if (true)
 				{
-					@foreach (var bugItem in BoardManager.Local.BugInventory)
+					@foreach (var bugItem in BoardManager.Local.BugInventory.OrderBy(x => x.Key.SegmentCount))
 					{
 						<div class="bug-inventory-item">
 							<div class="bug">
