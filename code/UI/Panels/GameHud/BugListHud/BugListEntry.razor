@@ -16,7 +16,7 @@
 {
 	public BoardManager.BugReference BugReference { get; set; }
 
-	Bug Bug => BugReference.GetBug();
+	BugResource Bug => BugReference.GetBug();
 	Dictionary<string, GameObject> _gameObjects = new();
 
 	GameObject GetObject(string id)

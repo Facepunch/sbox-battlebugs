@@ -9,7 +9,7 @@ public sealed class PlacementInput : Component
 	public CellComponent HighlightedCell { get; set; } = null;
 	public List<CellComponent> SelectedCells { get; set; } = new();
 	public bool IsSelecting { get; private set; } = false;
-	public Bug AttemptingToPlace { get; private set; } = null;
+	public BugResource AttemptingToPlace { get; private set; } = null;
 
 	protected override void OnAwake()
 	{

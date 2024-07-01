@@ -1,7 +1,7 @@
 namespace Battlebugs;
 
 [GameResource( "Battlebugs/Bug", "bug", "Describes a bug definition", Icon = "bug_report" )]
-public class Bug : GameResource
+public class BugResource : GameResource
 {
     [Group( "Information" )] public string Name { get; set; } = "Bug";
     [Group( "Information" )] public Color Color { get; set; } = Color.White;

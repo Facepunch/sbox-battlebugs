@@ -11,7 +11,7 @@ public class BugSegment : Component
     [Sync] public int Index { get; set; } = 0;
     [Sync] public int BugId { get; set; }
     [Sync] public float Health { get; set; } = 10f;
-    public Bug Bug => ResourceLibrary.Get<Bug>( BugId );
+    public BugResource Bug => ResourceLibrary.Get<BugResource>( BugId );
 
     public CellComponent Cell { get; set; }
 
@@ -21,7 +21,7 @@ public class BugSegment : Component
 
     public bool IsVisible => _targetAlpha > 0f;
 
-    public async void Init( Bug bug, int index )
+    public async void Init( BugResource bug, int index )
     {
         Index = index;
         BugId = bug.ResourceId;

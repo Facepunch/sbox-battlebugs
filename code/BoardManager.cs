@@ -32,7 +32,7 @@ public sealed class BoardManager : Component
 
 	// Public Variables
 	public Weapon SelectedWeapon = null;
-	public Dictionary<Bug, int> BugInventory = new();
+	public Dictionary<BugResource, int> BugInventory = new();
 	public Dictionary<Weapon, int> WeaponInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
 
@@ -96,7 +96,7 @@ public sealed class BoardManager : Component
 
 	void ResetBugInventory()
 	{
-		var allBugs = ResourceLibrary.GetAll<Bug>();
+		var allBugs = ResourceLibrary.GetAll<BugResource>();
 		BugInventory.Clear();
 		foreach ( var bug in allBugs )
 		{
@@ -148,7 +148,7 @@ public sealed class BoardManager : Component
 		public string BugId { get; set; }
 		public List<string> ObjectIds { get; set; }
 
-		private Bug _bug;
+		private BugResource _bug;
 
 		public BugReference( int resourceId, string bugId )
 		{
@@ -162,9 +162,9 @@ public sealed class BoardManager : Component
 			ObjectIds.Add( objectId.ToString() );
 		}
 
-		public Bug GetBug()
+		public BugResource GetBug()
 		{
-			if ( _bug is null ) _bug = ResourceLibrary.Get<Bug>( ResourceId );
+			if ( _bug is null ) _bug = ResourceLibrary.Get<BugResource>( ResourceId );
 			return _bug;
 		}
 	}
