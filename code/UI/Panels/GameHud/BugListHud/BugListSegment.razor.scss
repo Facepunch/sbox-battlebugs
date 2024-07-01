@@ -1,17 +1,31 @@
 BugListSegment
 {
-	width: 32px;
-	height: 32px;
-	flex-shrink: 0;
-	font-size: 12px;
-	justify-content: flex-end;
-	align-items: flex-end;
-	border-radius: 12px;
-    pointer-events: all;
-
-	label
+	img
 	{
-		position: relative;
-		top: 8px;
+		width: 32px;
+		height: 32px;
+		flex-shrink: 0;
+		font-size: 12px;
+		justify-content: flex-end;
+		align-items: flex-end;
+
+		label
+		{
+			position: relative;
+			top: 8px;
+		}
+	}
+
+	&.dead
+	{
+		img
+		{
+			filter: brightness(-100);
+		}
+	}
+
+	&:hover
+	{
+		background-color: rgba(white, 0.1);
 	}
 }

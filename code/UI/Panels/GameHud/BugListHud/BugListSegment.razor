@@ -4,17 +4,30 @@
 @inherits Panel
 @attribute [StyleSheet]
 
-<root style="background-color: @Color">
-
+<root class="@(GameObject.IsValid() ? "" : "dead")">
+	<img src="@Icon" />
 </root>
 
 @code
 {
 	public GameObject GameObject { get; set; }
-	public string BugColor { get; set; } = "#000000";
-	string Color => GameObject.IsValid() ? BugColor : "#000000";
-
+	public BugResource Bug { get; set; }
+	public int Index { get; set; }
 	BugSegment segment = null;
+
+	string Icon
+	{
+		get
+		{
+			if (Bug is not null)
+			{
+				if (Index == 0) return Bug.GetHeadIcon();
+				else if (Index == Bug.SegmentCount - 1) return Bug.GetTailIcon();
+				else return Bug.GetBodyIcon();
+			}
+			return "";
+		}
+	}
 
 	protected override void OnMouseMove(MousePanelEvent e)
 	{

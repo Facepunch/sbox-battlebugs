@@ -8,7 +8,7 @@
 <root>
 	@for (int i = 0; i < Bug.SegmentCount; i++)
 	{
-		<BugListSegment GameObject=@GetObject(BugReference.ObjectIds[i]) BugColor=@Bug.Color.Hex />
+		<BugListSegment GameObject=@GetObject(BugReference.ObjectIds[Bug.SegmentCount - 1 - i]) Bug=@Bug Index=@i />
 	}
 </root>
 
