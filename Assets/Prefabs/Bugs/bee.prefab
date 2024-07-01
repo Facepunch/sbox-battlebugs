@@ -33,11 +33,20 @@
         }
       },
       {
-        "__type": "Sandbox.SphereCollider",
-        "__guid": "55e5d9a7-a13c-4b9b-8754-880d049f6aa0",
-        "Center": "0,0,24.4",
+        "__type": "Sandbox.CapsuleCollider",
+        "__guid": "16c9fc78-96f2-425c-baee-cf47df975734",
+        "End": "0,0,67.70007",
         "IsTrigger": false,
-        "Radius": 33.200047,
+        "Radius": 11.300002,
+        "Start": "0,0,24.9",
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "23c8b221-a481-4bc8-b6b7-c4f549b3ba8b",
+        "Center": "0,0,54.39997",
+        "IsTrigger": false,
+        "Scale": "2.099974,58.09992,15.29996",
         "Static": false
       }
     ],

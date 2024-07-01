@@ -35,9 +35,9 @@
       {
         "__type": "Sandbox.SphereCollider",
         "__guid": "55e5d9a7-a13c-4b9b-8754-880d049f6aa0",
-        "Center": "0,0,24.4",
+        "Center": "0,0,4.999975",
         "IsTrigger": false,
-        "Radius": 33.200047,
+        "Radius": 17.500013,
         "Static": false
       }
     ],
