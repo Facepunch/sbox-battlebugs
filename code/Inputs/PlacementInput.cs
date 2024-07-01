@@ -112,24 +112,46 @@ public sealed class PlacementInput : Component
 	{
 		var data = new List<PlacementData>();
 
-		var rotation = Rotation.From( 0, 0, 0 );
+		var rotation = new Angles( 0, 0, 0 );
 		if ( SelectedCells.Count > 1 ) rotation = Rotation.LookAt( SelectedCells[1].Transform.Position - SelectedCells[0].Transform.Position, Vector3.Up );
 
 		for ( int i = 0; i < SelectedCells.Count; i++ )
 		{
-			if ( i > 0 ) rotation = Rotation.LookAt( SelectedCells[i].Transform.Position - SelectedCells[i - 1].Transform.Position, Vector3.Up );
+			if ( i < SelectedCells.Count - 1 ) rotation = Rotation.LookAt( SelectedCells[i + 1].Transform.Position - SelectedCells[i].Transform.Position, Vector3.Up );
+			else if ( i > 0 ) rotation = Rotation.LookAt( SelectedCells[i].Transform.Position - SelectedCells[i - 1].Transform.Position, Vector3.Up );
 
 			// Get prefab based on rotation/position
 			var prefab = AttemptingToPlace.BodyPrefab;
-			if ( i == 0 ) prefab = AttemptingToPlace.HeadPrefab;
-			else if ( i == SelectedCells.Count - 1 ) prefab = AttemptingToPlace.TailPrefab;
+			if ( i == 0 ) prefab = AttemptingToPlace.TailPrefab;
+			else if ( i == SelectedCells.Count - 1 ) prefab = AttemptingToPlace.HeadPrefab;
 			else
 			{
 				var last = SelectedCells[i - 1];
 				var next = SelectedCells[i + 1];
+				var current = SelectedCells[i];
 				if ( !(last.Position.x == next.Position.x || last.Position.y == next.Position.y) )
 				{
 					prefab = AttemptingToPlace.CornerPrefab;
+					rotation = Rotation.LookAt( last.Transform.Position - next.Transform.Position, Vector3.Up );
+					var previousRotation = Rotation.LookAt( last.Transform.Position - current.Transform.Position, Vector3.Up );
+
+					// If previous piece is left and next piece is down
+					Log.Info( last.Transform.Position );
+					Log.Info( current.Transform.Position );
+					Log.Info( next.Transform.Position );
+					if ( last.Transform.Position.x < current.Transform.Position.x && next.Transform.Position.y > current.Transform.Position.y )
+					{
+						rotation -= new Angles( 0, 90 + 45, 0 );
+					}
+					// If rotating left
+					else if ( rotation.yaw - previousRotation.Yaw() > 0 )
+					{
+						rotation -= new Angles( 0, 45 + 90, 0 );
+					}
+					else
+					{
+						rotation += new Angles( 0, 45, 0 );
+					}
 				}
 			}
 

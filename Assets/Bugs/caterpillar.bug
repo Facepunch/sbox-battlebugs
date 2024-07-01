@@ -6,7 +6,7 @@
   "StartingHealth": 6,
   "HeadPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+    "prefab": "prefabs/bugs/caterpillar_head.prefab"
   },
   "BodyPrefab": {
     "_type": "gameobject",
@@ -14,11 +14,11 @@
   },
   "CornerPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+    "prefab": "prefabs/bugs/caterpillar_corner.prefab"
   },
   "TailPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bugs/caterpillar_body.prefab"
+    "prefab": "prefabs/bugs/caterpillar_end.prefab"
   },
   "__references": [],
   "__version": 0

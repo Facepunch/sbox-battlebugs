@@ -223,19 +223,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 	{
 		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
 		if ( bug.Value <= 0 ) return;
-
-		var rotation = new Angles( 0, 0, 0 );
-		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Cell.Transform.Position - cells[0].Cell.Transform.Position, Vector3.Up );
-
 		var bugId = Guid.NewGuid();
 
 		for ( int i = 0; i < cells.Count; i++ )
 		{
-			if ( i < cells.Count - 1 ) rotation = Rotation.LookAt( cells[i + 1].Cell.Transform.Position - cells[i].Cell.Transform.Position, Vector3.Up );
-			var segment = cells[i].Prefab.Clone();
+			var segment = cells[i].Prefab.Clone( new Transform(
+				cells[i].Cell.Transform.Position,
+				cells[i].Rotation
+			) );
 			segment.Name = bugId.ToString();
-			segment.Transform.Position = cells[i].Cell.Transform.Position;
-			segment.Transform.Rotation = rotation;
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Key, i );
 			component.Cell = cells[i].Cell;

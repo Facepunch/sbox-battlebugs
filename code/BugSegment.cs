@@ -1,3 +1,5 @@
+using System;
+
 namespace Battlebugs;
 
 public class BugSegment : Component
@@ -27,6 +29,7 @@ public class BugSegment : Component
         BugId = bug.ResourceId;
         Health = bug.StartingHealth;
         Body.Transform.LocalPosition = Vector3.Down * 250f;
+        Body.Transform.LocalRotation = new Angles( 0, Random.Shared.Float( -180f, 180f ), 0 );
         await GameTask.DelaySeconds( index * 0.05f );
         _initialized = true;
         Sound.Play( "segment-drop" );
@@ -50,7 +53,8 @@ public class BugSegment : Component
     {
         if ( _initialized || IsProxy )
         {
-            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Zero, Time.Delta * 15f );
+            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( Vector3.Up * 2f, Time.Delta * 15f );
+            Body.Transform.LocalRotation = Rotation.Slerp( Body.Transform.LocalRotation, Rotation.Identity, Time.Delta * 15f );
         }
 
         if ( !IsProxy )
