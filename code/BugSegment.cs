@@ -128,6 +128,7 @@ public class BugSegment : Component
     void BroadcastDestroyFX()
     {
         Sound.Play( "impact-bullet-flesh", Transform.Position );
+        GameManager.Instance.SpawnCoins( Transform.Position, 3 );
         if ( BugSplatParticle is not null )
         {
             var obj = BugSplatParticle.Clone( Transform.Position + Vector3.Up * 16f );

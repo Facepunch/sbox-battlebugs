@@ -18,6 +18,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject DamageNumberPrefab { get; set; }
+	[Property, Group( "Prefabs" )] public GameObject CoinPrefab { get; set; }
 
 	// Networked Variables
 	[HostSync] public GameState State { get; set; }
@@ -241,6 +242,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 
 		BoardManager.Local.BugInventory[bug.Key] = bug.Value - 1;
+	}
+
+	public void SpawnCoins( Vector3 position, int amount = 1 )
+	{
+		for ( int i = 0; i < amount; i++ )
+		{
+			CoinPrefab.Clone( position + Vector3.Up * 2f );
+		}
+
 	}
 
 	[Authority]

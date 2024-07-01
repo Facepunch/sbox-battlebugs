@@ -26,13 +26,13 @@
             "_type": "gameobject",
             "prefab": "prefabs/board.prefab"
           },
-          "BugSegmentPrefab": {
-            "_type": "gameobject",
-            "prefab": "prefabs/bug_segment.prefab"
-          },
           "CellPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/cell.prefab"
+          },
+          "CoinPrefab": {
+            "_type": "gameobject",
+            "prefab": "prefabs/coin.prefab"
           },
           "DamageNumberPrefab": {
             "_type": "gameobject",
@@ -275,7 +275,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-06-27T17:44:24.7759923-04:00",
+  "LastSaved": "2024-07-01T17:43:27.7752045-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
