@@ -57,6 +57,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 
 		// Enable friction after hitting something
 		Rigidbody.LinearDamping = 2.5f;
+		Rigidbody.AngularDamping = 2f;
 
 		if ( collision.Other.GameObject.Components.TryGet<BugSegment>( out var segment ) )
 		{
