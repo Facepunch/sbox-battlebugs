@@ -5,19 +5,23 @@
 @attribute [StyleSheet]
 
 <root>
-	<label class="header">Your Bugs</label>
-	<div class="bugs">
-		@foreach (var reference in BoardManager.Local.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
-		{
-			<BugListEntry BugReference=@reference />
-		}
+	<div class="section">
+		<label class="header">Your Bugs</label>
+		<div class="bugs">
+			@foreach (var reference in BoardManager.Local.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
+			{
+				<BugListEntry BugReference=@reference />
+			}
+		</div>
 	</div>
-	<label class="header">Opponent's Bugs</label>
-	<div class="bugs">
-		@foreach (var reference in BoardManager.Opponent.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
-		{
-			<BugListEntry BugReference=@reference />
-		}
+	<div class="section">
+		<label class="header">Opponent's Bugs</label>
+		<div class="bugs">
+			@foreach (var reference in BoardManager.Opponent.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
+			{
+				<BugListEntry BugReference=@reference />
+			}
+		</div>
 	</div>
 </root>
 

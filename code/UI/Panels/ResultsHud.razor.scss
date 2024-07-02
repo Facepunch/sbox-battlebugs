@@ -1,4 +1,5 @@
-PlacingHud {
+ResultsHud
+{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -8,4 +9,183 @@ PlacingHud {
 	align-items: center;
 	font-family: "paper cuts 2";
 	font-size: 32px;
+	background-color: rgba(black, 0.4);
+	opacity: 1;
+	transform: scale(1);
+	transition: all 0.5s ease-out;
+
+	> .container
+	{
+		width: 40%;
+		height: 80%;
+		background-color: rgba(black, 0.8);
+		flex-direction: column;
+		align-items: center;
+		padding: 32px;
+		color: white;
+		gap: 16px;
+
+		> .title
+		{
+			font-size: 48px;
+		}
+
+		> .jumbotron
+		{
+			flex-grow: 1;
+			width: 100%;
+			background-color: rgba(white, 0.05);
+			padding: 24px;
+			flex-direction: column;
+			justify-content: space-between;
+
+			> div
+			{
+				position: relative;
+				align-items: center;
+				width: 100%;
+
+				.info
+				{
+					gap: 16px;
+
+					img
+					{
+						width: 128px;
+						height: 128px;
+						flex-shrink: 0;
+					}
+
+					.info
+					{
+						flex-direction: column;
+						gap: 0px;
+						justify-content: center;
+						
+						.name
+						{
+							font-size: 48px;
+						}
+
+						.subtitle
+						{
+							color: grey;
+						}
+					}
+				}
+
+				.stats
+				{
+					flex-grow: 1;
+					flex-direction: column;
+					align-items: flex-end;
+					font-size: 24px;
+
+					.coins
+					{
+						font-size: 32px;
+					}
+				}
+			}
+
+			.divider
+			{
+				width: 100%;
+				gap: 8px;
+				align-items: center;
+				color: rgb(114, 114, 114);
+
+				.line
+				{
+					width: 100%;
+					height: 2px;
+					background-color: rgb(114, 114, 114);
+				}
+
+				label
+				{
+					position: relative;
+					flex-shrink: 0;
+					top: 2px;
+				}
+			}
+
+			.winner
+			{
+				.crown
+				{
+					position: absolute;
+					top: -64px;
+					left: 21px;
+					font-size: 64px;
+					transform-origin: 50% 100%;
+					animation: tilt-left-right 2s infinite ease-in-out alternate;
+				}
+			}
+
+			.loser
+			{
+				justify-content: flex-end;
+
+				.info
+				{
+					align-items: flex-end;
+				}
+
+				.stats
+				{
+					align-items: flex-start;
+				}
+
+				.boot
+				{
+					position: absolute;
+					top: -42px;
+					right: 72px;
+					font-size: 64px;
+					animation: tilt-left-right 2s infinite ease-in-out alternate;
+					animation-delay: 0.5s;
+				}
+			}
+		}
+
+		> .content
+		{
+			width: 100%;
+			flex-shrink: 0;
+			padding: 16px;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			flex-direction: column;
+			align-items: center;
+			gap: 16px;
+			
+
+			BugList
+			{
+				width: 100%;
+				align-items: center;
+				flex-direction: row;
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	&:intro
+	{
+		opacity: 0;
+		transform: scale(1.1);
+	}
+}
+
+@keyframes tilt-left-right
+{
+	0%
+	{
+		transform: rotate(-5deg);
+	}
+	100%
+	{
+		transform: rotate(5deg);
+	}
 }

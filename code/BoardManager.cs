@@ -30,6 +30,8 @@ public sealed class BoardManager : Component
 	[Sync] public int Coins { get; set; } = 100;
 	[Sync] public bool IsReady { get; set; } = false;
 	[Sync] public NetList<BugReference> BugReferences { get; set; } = new();
+	[Sync] public int CoinsSpent { get; set; } = 0;
+	[Sync] public int BugsKilled { get; set; } = 0;
 
 	// Public Variables
 	public WeaponResource SelectedWeapon = null;
@@ -201,6 +203,7 @@ public sealed class BoardManager : Component
 	public void GiveCoins( int amount )
 	{
 		Coins += amount;
+		CoinsSpent += amount;
 	}
 
 	[Authority]

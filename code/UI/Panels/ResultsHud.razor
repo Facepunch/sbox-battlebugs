@@ -1,4 +1,3 @@
-@using Sandbox;
 @using Sandbox.UI;
 @namespace Battlebugs
 @inherits Panel
@@ -7,10 +6,68 @@
 <root>
 	@if (!BoardManager.Local.IsValid()) return;
 
-	<label class="header">Results</label>
+	<div class="container">
+		<label class="title">Results</label>
+		<div class="jumbotron">
+			<div class="winner">
+				<div class="info">
+					@if (Winner.Network.OwnerConnection is null)
+					{
+						<img src="ui/cpu.png" />
+					}
+					else
+					{
+						<img src=@($"avatar:{Winner.Network.OwnerConnection.SteamId}") />
+					}
+					<div class="info">
+						<label class="name">@(Winner.GameObject.Name)</label>
+						<label class="subtitle">Is the winner!</label>
+					</div>
+					<label class="crown">👑</label>
+				</div>
+				<div class="stats">
+					<span class="coins">🪙 @Winner.Coins</span>
+					<label>@Winner.CoinsSpent Coins Spent</label>
+					<label>@Winner.BugsKilled Bugs Killed</label>
+				</div>
+			</div>
+			<div class="divider">
+				<div class="line" />
+				<label>VS</label>
+				<div class="line" />
+			</div>
+			<div class="loser">
+				<div class="stats">
+					<span class="coins">🪙 @Loser.Coins</span>
+					<label>@Loser.CoinsSpent Coins Spent</label>
+					<label>@Loser.BugsKilled Bugs Killed</label>
+				</div>
+				<div class="info">
+					<div class="info">
+						<label class="name">@(Loser.GameObject.Name)</label>
+						<label class="subtitle">Is the loser!</label>
+					</div>
+					@if (Loser.Network.OwnerConnection is null)
+					{
+						<img src="ui/cpu.png" />
+					}
+					else
+					{
+						<img src=@($"avatar:{Loser.Network.OwnerConnection.SteamId}") />
+					}
+					<label class="boot">😞</label>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<BugList />
+		</div>
+	</div>
 </root>
 
 @code
 {
+	BoardManager Winner => GameManager.Instance.Boards.FirstOrDefault(x => x.GetHealthPercent() != 0);
+	BoardManager Loser => GameManager.Instance.Boards.FirstOrDefault(x => x.GetHealthPercent() <= 0);
 	protected override int BuildHash() => System.HashCode.Combine("");
 }

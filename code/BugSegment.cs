@@ -84,8 +84,9 @@ public class BugSegment : Component
     public void Clear( bool dropCoin = false )
     {
         if ( IsProxy ) return;
-        var board = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-        board.GiveCoins( 15 );
+        var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
+        otherBoard.GiveCoins( 20 );
+        otherBoard.BugsKilled++;
         if ( GameManager.Instance.State == GameState.Playing ) Cell.BroadcastClear();
         BroadcastDestroyFX( dropCoin );
         GameObject.Destroy();
