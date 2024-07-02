@@ -24,14 +24,16 @@ public sealed class CoinComponent : Component
 
 		if ( tr.Hit )
 		{
+			if ( Velocity.z < -10 ) Sound.Play( "coin-bounce", Transform.Position );
 			Velocity = Vector3.Reflect( Velocity, tr.Normal );
-			Velocity /= 2f;
+			Velocity /= 1.5f;
 		}
 
 		Transform.Position += Velocity * Time.Delta;
 
 		if ( timeSinceStart > 1f )
 		{
+			Sound.Play( "coin-collect", Transform.Position );
 			GameObject.Destroy();
 		}
 	}
