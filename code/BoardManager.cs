@@ -27,6 +27,7 @@ public sealed class BoardManager : Component
 	[Property, Group( "References" )] public GameObject CameraPosition { get; set; }
 
 	// Networked Variables
+	[Sync] public int Coins { get; set; } = 100;
 	[Sync] public bool IsReady { get; set; } = false;
 	[Sync] public NetList<BugReference> BugReferences { get; set; } = new();
 

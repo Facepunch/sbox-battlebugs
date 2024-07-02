@@ -21,7 +21,7 @@
 						<img src=@($"avatar:{player.Network.OwnerConnection.SteamId}") />
 					}
 					<span class="name">@player.GameObject.Name</span>
-					<span class="score">0</span>
+					<span class="score">🪙 @player.Coins</span>
 				</div>
 			}
 		</div>
@@ -29,21 +29,21 @@
 		<div class="player opponent">
 			@if (GameManager.Instance.Boards.Count > 1)
 			{
-				var oppponent = GameManager.Instance.Boards.ElementAt(1);
-				if (oppponent.IsValid())
+				var opponent = GameManager.Instance.Boards.ElementAt(1);
+				if (opponent.IsValid())
 				{
 					<img src="ui/player-banner.png" />
 					<div class="content">
-						@if (oppponent.Network.OwnerConnection is null)
+						@if (opponent.Network.OwnerConnection is null)
 						{
 							<img src="ui/cpu.png" />
 						}
 						else
 						{
-							<img src=@($"avatar:{oppponent.Network.OwnerConnection.SteamId}") />
+							<img src=@($"avatar:{opponent.Network.OwnerConnection.SteamId}") />
 						}
-						<span class="name">@oppponent.GameObject.Name</span>
-						<span class="score">0</span>
+						<span class="name">@opponent.GameObject.Name</span>
+						<span class="score">🪙 @opponent.Coins</span>
 					</div>
 				}
 			}
