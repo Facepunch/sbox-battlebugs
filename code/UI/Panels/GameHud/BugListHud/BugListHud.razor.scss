@@ -9,7 +9,7 @@ BugListHud {
 	font-family: "paper cuts 2";
 	font-size: 16px;
 
-	.container {
+	.container{
 		padding: 8px;
 		background-color: rgba(black, 0.5);
 		flex-direction: column;
@@ -29,6 +29,29 @@ BugListHud {
 			flex-direction: column;
 			width: 100%;
 			gap: 4px;
+		}
+
+		button {
+			background-color: rgba(black, 0.4);
+			padding: 4px;
+			color: white;
+			font-family: "paper cuts 2";
+			font-size: 16px;
+			cursor: pointer;
+			transition: background-color 0.1s ease-out;
+			align-items: center;
+			gap: 8px;
+			width: 100%;
+			justify-content: center;
+			pointer-events: all;
+
+			&:hover {
+				background-color: rgba(white, 0.2);
+			}
+
+			&:active {
+				background-color: rgba(rgb(133, 133, 133), 0.4);
+			}
 		}
 	}
 }

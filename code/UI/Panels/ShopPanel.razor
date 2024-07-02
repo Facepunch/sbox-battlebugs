@@ -1,0 +1,36 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root class="@(IsOpen ? "show" : "")">
+	<div class="container">
+		<span class="header"><i>shopping_cart</i>Shop</span>
+		<i class="close" onclick=@(() => IsOpen = false)>close</i>
+	</div>
+</root>
+
+@code
+{
+	public static ShopPanel Instance { get; private set; }
+
+	public bool IsOpen { get; private set; } = false;
+
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		base.OnAfterTreeRender(firstTime);
+
+		if (firstTime)
+		{
+			Instance = this;
+		}
+	}
+
+	public void Open()
+	{
+		IsOpen = true;
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(IsOpen);
+}

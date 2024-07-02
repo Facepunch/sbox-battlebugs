@@ -1,0 +1,51 @@
+ShopPanel
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(black, 0.4);
+	opacity: 0;
+	transform: scale(1.1);
+	transition: all 0.2s ease-out;
+	color: white;
+	font-family: "paper cuts 2";
+	font-size: 24px;
+	pointer-events: all;
+
+	> .container
+	{
+		position: absolute;
+		top: 20%;
+		left: 30%;
+		bottom: 20%;
+		right: 30%;
+		background-color: rgba(black, 0.9);
+		padding: 16px;
+		flex-direction: column;
+		align-items: center;
+
+		> .header
+		{
+			font-size: 42px;
+			gap: 16px;
+			align-items: center;
+		}
+
+		> .close
+		{
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			font-size: 32px;
+			cursor: pointer;
+		}
+	}
+
+	&.show
+	{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
