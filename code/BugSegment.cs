@@ -38,7 +38,7 @@ public class BugSegment : Component
 
     protected override void OnStart()
     {
-        SetAlpha( IsProxy ? 0f : 1f, true );
+        SetAlpha( (Network.OwnerId == Connection.Local.Id) ? 1f : 0f, true );
     }
 
     protected override void OnUpdate()

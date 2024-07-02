@@ -79,7 +79,7 @@ public sealed class AttackingInput : Component
 			if ( ReticleState == 3 )
 			{
 				BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon]--;
-				GameManager.Instance.BroadcastFire( BoardManager.Local.SelectedWeapon.ResourceId, Reticle.Transform.Position );
+				GameManager.Instance.BroadcastFire( BoardManager.Local.Id, BoardManager.Local.SelectedWeapon.ResourceId, Reticle.Transform.Position );
 				DestroyReticle();
 			}
 		}

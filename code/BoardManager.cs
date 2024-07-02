@@ -35,6 +35,7 @@ public sealed class BoardManager : Component
 	public Dictionary<BugResource, int> BugInventory = new();
 	public Dictionary<WeaponResource, int> WeaponInventory = new();
 	public int MaxPlaceableSegments => BugInventory.Where( x => x.Value > 0 ).OrderBy( x => x.Key.SegmentCount ).LastOrDefault().Key?.SegmentCount ?? 0;
+	TimeSince timeSinceTurnStart = 0;
 
 	protected override void OnStart()
 	{
@@ -47,6 +48,28 @@ public sealed class BoardManager : Component
 		if ( Network.OwnerConnection is null )
 		{
 			SetupCpuBoard();
+		}
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if ( GameManager.Instance.CurrentPlayer != this ) timeSinceTurnStart = 0;
+		if ( Network.OwnerConnection is null && timeSinceTurnStart > 2.5f && GameManager.Instance.CurrentPlayer == this && GameManager.Instance.State == GameState.Playing && GameManager.Instance.IsFiring )
+		{
+			var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
+			var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * 128f);
+			var opponentPos = Local.Transform.Position;
+			targetPosition = new Vector3(
+				Math.Clamp( targetPosition.x, opponentPos.x - (Width * GridSize) / 2f, opponentPos.x + (Width * GridSize) / 2f ),
+				Math.Clamp( targetPosition.y, opponentPos.y - (Height * GridSize) / 2f, opponentPos.y + (Height * GridSize) / 2f ),
+				0
+			);
+
+			var weapon = WeaponInventory.OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Value != 0 ).Key;
+			Log.Info( weapon.Name );
+			SelectedWeapon = weapon;
+			WeaponInventory[SelectedWeapon]--;
+			GameManager.Instance.BroadcastFire( Id, SelectedWeapon.ResourceId, targetPosition );
 		}
 	}
 
@@ -153,6 +176,7 @@ public sealed class BoardManager : Component
 		int attempts = 0;
 		foreach ( var entry in BugInventory )
 		{
+			Log.Info( BugInventory[entry.Key] );
 			while ( BugInventory[entry.Key] > 0 )
 			{
 				while ( !TryPlaceCpuBug( entry.Key ) )
@@ -165,7 +189,6 @@ public sealed class BoardManager : Component
 						return;
 					}
 				}
-				BugInventory[entry.Key]--;
 			}
 		}
 		IsReady = true;

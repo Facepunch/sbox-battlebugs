@@ -114,7 +114,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		foreach ( var segment in Scene.GetAllComponents<BugSegment>() )
 		{
-			segment.SetAlpha( segment.IsProxy ? 0f : 0.5f );
+			segment.SetAlpha( (segment.Network.OwnerId == Connection.Local.Id) ? 0.5f : 0f );
 		}
 	}
 
@@ -253,7 +253,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			cells[i].Cell.IsOccupied = true;
 		}
 
-		board.BugInventory[bug.Key] = bug.Value - 1;
+		board.BugInventory[bug.Key]--;
 	}
 
 	public void SpawnCoins( Vector3 position, int amount = 1 )
@@ -266,15 +266,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	[Authority]
-	public void BroadcastFire( int weaponId, Vector3 position )
+	public void BroadcastFire( Guid boardId, int weaponId, Vector3 position )
 	{
-		if ( Rpc.CallerId != CurrentPlayerId ) return;
+		if ( !CpuMode && Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
 		var weapon = ResourceLibrary.Get<WeaponResource>( weaponId );
 		if ( weapon is null ) return;
 
-		var board = Boards.FirstOrDefault( x => x.Network.OwnerId != Rpc.CallerId );
+		var board = Boards.FirstOrDefault( x => x.Id != boardId );
 		if ( board is null ) return;
 
 		int count = (int)MathF.Round( weapon.AmountFired.GetValue() );
