@@ -14902,6 +14902,45 @@
             "Static": true
           }
         ]
+      },
+      {
+        "__guid": "ed78a720-b655-4d7c-8036-d50d5ac5d421",
+        "Flags": 0,
+        "Name": "board_base",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.Prop",
+            "__guid": "2e20e543-0261-46e5-999b-f2b5dbb35741",
+            "BodyGroups": 18446744073709551615,
+            "Health": 0,
+            "IsStatic": true,
+            "Model": "models/paper/board/board_base.vmdl",
+            "Tint": "0.05581,0.55194,0.8,1"
+          }
+        ]
+      },
+      {
+        "__guid": "d0804f59-49e4-44ab-b556-6116ec1969c0",
+        "Flags": 0,
+        "Name": "board_base",
+        "Position": "1000,0,0",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.Prop",
+            "__guid": "4a29aa21-1398-4f81-8762-0671a5a2e1e5",
+            "BodyGroups": 18446744073709551615,
+            "Health": 0,
+            "IsStatic": true,
+            "Model": "models/paper/board/board_base.vmdl",
+            "Tint": "0.60465,0.10987,0.03375,1"
+          }
+        ]
       }
     ],
     "__variables": []
