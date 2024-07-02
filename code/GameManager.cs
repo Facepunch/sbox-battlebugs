@@ -186,6 +186,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		if ( CurrentPlayer is not null )
 		{
+			var healthPercent = CurrentPlayer.GetHealthPercent();
+			if ( healthPercent == 0 || healthPercent == 1 )
+			{
+				EndGame();
+			}
+
 			var otherPlayer = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId );
 			if ( IsFiring )
 			{
