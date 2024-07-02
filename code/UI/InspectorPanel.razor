@@ -11,9 +11,10 @@
         <div class="segments">
             @for (var i = 0; i < Segment.Bug.SegmentCount; i++)
             {
-                var segment = Scene.GetAllComponents<BugSegment>().FirstOrDefault(x => x.GameObject.Name == Segment.GameObject.Name && x.Index == i);
+                var index = Segment.Bug.SegmentCount - 1 - i;
+                var segment = Scene.GetAllComponents<BugSegment>().FirstOrDefault(x => x.GameObject.Name == Segment.GameObject.Name && x.Index == index);
                 @* <div class="@(segment == Segment ? "this" : "")" style="background-color: @((segment?.Bug?.Color ?? Color.Black).Hex)" /> *@
-                <img class="@(segment == Segment ? "this" : "")" src="@GetIcon(Segment.Bug, i)" />
+                <img class="@(segment == Segment ? "this" : "")" src="@GetIcon(Segment.Bug, index)" />
             }
         </div>
     </div>
@@ -55,8 +56,8 @@
 
     string GetIcon(BugResource bug, int index)
     {
-        if (index == 0) return bug.GetHeadIcon();
-        if (index == bug.SegmentCount - 1) return bug.GetTailIcon();
+        if (index == 0) return bug.GetTailIcon();
+        if (index == bug.SegmentCount - 1) return bug.GetHeadIcon();
         return bug.GetBodyIcon();
     }
 
