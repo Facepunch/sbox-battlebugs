@@ -66,7 +66,6 @@ public sealed class BoardManager : Component
 			);
 
 			var weapon = WeaponInventory.OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Value != 0 ).Key;
-			Log.Info( weapon.Name );
 			SelectedWeapon = weapon;
 			WeaponInventory[SelectedWeapon]--;
 			GameManager.Instance.BroadcastFire( Id, SelectedWeapon.ResourceId, targetPosition );
