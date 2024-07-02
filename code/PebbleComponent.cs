@@ -15,6 +15,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	List<CellComponent> HitCells = new();
 
 	public TimeSince TimeSinceCreated = 0;
+	TimeSince timeSinceMoving = 0;
 
 	public void LaunchAt( Vector3 target )
 	{
@@ -36,6 +37,16 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 		if ( TimeSinceCreated > 10f )
 		{
 			GameObject.Destroy();
+		}
+
+		if ( Rigidbody.Velocity.Length > 1f )
+		{
+			timeSinceMoving = 0;
+		}
+		else if ( timeSinceMoving > 0.5f )
+		{
+			HitCount = 0;
+			Hit();
 		}
 	}
 
