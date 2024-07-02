@@ -175,7 +175,6 @@ public sealed class BoardManager : Component
 		int attempts = 0;
 		foreach ( var entry in BugInventory )
 		{
-			Log.Info( BugInventory[entry.Key] );
 			while ( BugInventory[entry.Key] > 0 )
 			{
 				while ( !TryPlaceCpuBug( entry.Key ) )
