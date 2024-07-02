@@ -64,7 +64,7 @@ public class BugSegment : Component
         {
             if ( _timeSinceLastDamage > 1f && Health <= 0 )
             {
-                Clear();
+                Clear( true );
             }
         }
     }
@@ -81,7 +81,7 @@ public class BugSegment : Component
         _targetAlpha = alpha;
     }
 
-    public void Clear()
+    public void Clear( bool dropCoin = false )
     {
         if ( IsProxy ) return;
         if ( GameManager.Instance.State == GameState.Playing ) Cell.BroadcastClear();
