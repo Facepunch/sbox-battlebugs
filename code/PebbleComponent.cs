@@ -55,6 +55,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 		else if ( collision.Other.GameObject.Components.TryGet<CellComponent>( out var cell ) )
 		{
 			if ( HitCells.Contains( cell ) ) return;
+			if ( cell.IsHit ) return;
 			HitCells.Add( cell );
 			cell.BroadcastHit();
 			HitCount--;

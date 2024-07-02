@@ -14,7 +14,7 @@ public sealed class CellComponent : Component
 
 	[Sync] public bool WasOccupied { get; set; } = false;
 	[Sync] public bool IsOccupied { get; set; } = false;
-	[Sync] bool IsHit { get; set; } = false;
+	[Sync] public bool IsHit { get; set; } = false;
 	[Sync] bool IsOdd { get; set; } = false;
 	Color BaseColor => IsOdd ? Color.White : Color.Gray;
 
