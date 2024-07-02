@@ -1,4 +1,5 @@
-BugListHud {
+SidePanel
+{
 	position: absolute;
 	top: 150px;
 	left: 0px;
@@ -9,27 +10,14 @@ BugListHud {
 	font-family: "paper cuts 2";
 	font-size: 16px;
 
-	.container{
+	.container
+	{
 		padding: 8px;
 		background-color: rgba(black, 0.5);
 		flex-direction: column;
 		align-items: center;
 		width: 250px;
 		transition: left 1s ease-out;
-
-		.header {
-			font-weight: 700;
-
-			&:not(:first-child) {
-				margin-top: 16px;
-			}
-		}
-
-		.bugs {
-			flex-direction: column;
-			width: 100%;
-			gap: 4px;
-		}
 
 		button {
 			background-color: rgba(black, 0.4);

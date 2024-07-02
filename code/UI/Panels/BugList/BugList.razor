@@ -1,0 +1,27 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<label class="header">Your Bugs</label>
+	<div class="bugs">
+		@foreach (var reference in BoardManager.Local.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
+		{
+			<BugListEntry BugReference=@reference />
+		}
+	</div>
+	<label class="header">Opponent's Bugs</label>
+	<div class="bugs">
+		@foreach (var reference in BoardManager.Opponent.BugReferences.OrderBy(x => x.GetBug().SegmentCount))
+		{
+			<BugListEntry BugReference=@reference />
+		}
+	</div>
+</root>
+
+@code
+{
+	protected override int BuildHash() => System.HashCode.Combine("");
+}

@@ -1,0 +1,17 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="container">
+		<BugList />
+		<button onclick=@(() => ShopPanel.Instance.Open())><i>shopping_cart</i>Shop</button>
+	</div>
+</root>
+
+@code
+{
+	protected override int BuildHash() => System.HashCode.Combine("");
+}
