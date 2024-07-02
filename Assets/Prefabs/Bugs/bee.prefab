@@ -15,12 +15,6 @@
           "_type": "gameobject",
           "go": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0"
         },
-        "BodyRenderer": {
-          "_type": "component",
-          "component_id": "471274ae-90cc-4618-b542-1ad99bf8ce60",
-          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
-          "component_type": "ModelRenderer"
-        },
         "BugSplatParticle": {
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_bug_splat.prefab"
@@ -70,12 +64,14 @@
             "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "471274ae-90cc-4618-b542-1ad99bf8ce60",
+                "__type": "Sandbox.SkinnedModelRenderer",
+                "__guid": "ff6bdd94-48e9-4ed4-b436-c72597db280a",
                 "BodyGroups": 18446744073709551615,
+                "CreateBoneObjects": false,
                 "Model": "models/paper/bugs/bee.vmdl",
                 "RenderType": "On",
-                "Tint": "1,1,1,1"
+                "Tint": "1,1,1,1",
+                "UseAnimGraph": true
               }
             ]
           }

@@ -15,12 +15,6 @@
           "_type": "gameobject",
           "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d"
         },
-        "BodyRenderer": {
-          "_type": "component",
-          "component_id": "43caf1b2-dea2-40e9-9711-9a68f084d202",
-          "go": "012d53be-b409-403e-83a1-d6d105cea566",
-          "component_type": "ModelRenderer"
-        },
         "BugSplatParticle": {
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_bug_splat.prefab"
@@ -55,20 +49,11 @@
             "__guid": "012d53be-b409-403e-83a1-d6d105cea566",
             "Flags": 0,
             "Name": "Body",
-            "Position": "0,0,24.97275",
-            "Scale": "1,0.7594551,1",
+            "Position": "0,0,38.85511",
             "Enabled": true,
             "NetworkMode": 2,
             "NetworkInterpolation": true,
             "Components": [
-              {
-                "__type": "Sandbox.ModelRenderer",
-                "__guid": "43caf1b2-dea2-40e9-9711-9a68f084d202",
-                "BodyGroups": 18446744073709551615,
-                "Model": "models/paper/bugs/dragonfly.vmdl",
-                "RenderType": "On",
-                "Tint": "1,1,1,1"
-              },
               {
                 "__type": "Sandbox.SphereCollider",
                 "__guid": "3893f0e5-e42b-43f4-8b62-f8b7da9c6906",
@@ -76,6 +61,16 @@
                 "IsTrigger": false,
                 "Radius": 32,
                 "Static": false
+              },
+              {
+                "__type": "Sandbox.SkinnedModelRenderer",
+                "__guid": "95a55c9c-7912-4b97-8bbd-31ad5d4637c8",
+                "BodyGroups": 18446744073709551615,
+                "CreateBoneObjects": false,
+                "Model": "models/paper/bugs/dragonfly.vmdl",
+                "RenderType": "On",
+                "Tint": "1,1,1,1",
+                "UseAnimGraph": true
               }
             ]
           }
