@@ -203,6 +203,14 @@ public sealed class BoardManager : Component
 		Coins += amount;
 	}
 
+	[Authority]
+	public void GiveCellCoins( Vector3 position )
+	{
+		GiveCoins( 5 );
+		GameManager.Instance.SpawnCoins( position, 1 );
+		HintPanel.Instance.CellCoinNotification();
+	}
+
 	public void SetupBoardRandomly()
 	{
 		ClearAllBugs( false );

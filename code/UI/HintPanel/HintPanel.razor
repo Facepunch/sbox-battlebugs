@@ -75,5 +75,14 @@
 		hasSeenGreenCell = true;
 	}
 
+	bool hasSeenCellCoin = false;
+	public void CellCoinNotification()
+	{
+		if (hasSeenCellCoin) return;
+
+		AddEntry("🪙", "Some cells contain coins. Coins can be spent at the shop to re-stock your weapons.", 12f);
+		hasSeenCellCoin = true;
+	}
+
 	protected override int BuildHash() => System.HashCode.Combine("");
 }

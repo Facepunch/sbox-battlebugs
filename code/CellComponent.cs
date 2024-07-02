@@ -168,6 +168,11 @@ public sealed class CellComponent : Component
 	[Authority]
 	public void BroadcastHit()
 	{
+		if ( !IsHit && Random.Shared.Float() < 0.3f )
+		{
+			var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
+			otherBoard.GiveCellCoins( Transform.Position );
+		}
 		IsHit = true;
 		BroadcastUpdateHighlight();
 	}
