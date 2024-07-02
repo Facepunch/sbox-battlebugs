@@ -318,4 +318,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	}
 
+	[Broadcast]
+	public void SendChatMessage(string message)
+	{
+		var playerHud = PlayerHud.Instances.FirstOrDefault(x => x.Board.Network.OwnerId == Rpc.CallerId);
+		if (playerHud is null) return;
+
+		playerHud.AddChatMessage(message);
+	}
+
 }

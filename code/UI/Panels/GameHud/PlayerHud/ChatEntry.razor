@@ -1,0 +1,28 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@Message
+</root>
+
+@code
+{
+	public string Message { get; set; }
+
+	TimeSince timeSinceCreated = 0;
+
+	public override void Tick()
+	{
+		base.Tick();
+
+		if (timeSinceCreated > 10 && !HasClass("fade"))
+		{
+			Delete();
+		}
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(Message);
+}

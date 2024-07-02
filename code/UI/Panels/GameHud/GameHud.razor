@@ -7,25 +7,10 @@
 
 <root>
 	<div class="header">
-		<div class="player">
-			@if (GameManager.Instance.Boards.Count > 0)
-			{
-				var player = GameManager.Instance.Boards.ElementAt(0);
-				<img src="ui/player-banner.png" />
-				<div class="content">
-					@if (player.Network.OwnerConnection is null)
-					{
-						<img src="ui/cpu.png" />
-					}
-					else
-					{
-						<img src=@($"avatar:{player.Network.OwnerConnection.SteamId}") />
-					}
-					<span class="name">@player.GameObject.Name</span>
-					<span class="score">🪙 @player.Coins</span>
-				</div>
-			}
-		</div>
+		@if (GameManager.Instance.Boards.Count > 0)
+		{
+			<PlayerHud Board=@GameManager.Instance.Boards.ElementAt(0) />
+		}
 		<div class="middle">
 			<div class="bar">
 				@if (GameManager.Instance.Boards.Count > 0)
@@ -36,28 +21,10 @@
 			</div>
 			<div class="banner">@GetHeader()</div>
 		</div>
-		<div class="player opponent">
-			@if (GameManager.Instance.Boards.Count > 1)
-			{
-				var opponent = GameManager.Instance.Boards.ElementAt(1);
-				if (opponent.IsValid())
-				{
-					<img src="ui/player-banner.png" />
-					<div class="content">
-						@if (opponent.Network.OwnerConnection is null)
-						{
-							<img src="ui/cpu.png" />
-						}
-						else
-						{
-							<img src=@($"avatar:{opponent.Network.OwnerConnection.SteamId}") />
-						}
-						<span class="name">@opponent.GameObject.Name</span>
-						<span class="score">🪙 @opponent.Coins</span>
-					</div>
-				}
-			}
-		</div>
+		@if (GameManager.Instance.Boards.Count > 1)
+		{
+			<PlayerHud Board=@GameManager.Instance.Boards.ElementAt(1) />
+		}
 	</div>
 </root>
 
@@ -88,5 +55,5 @@
 		return "Your opponent is thinking...";
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GetHeader(), Math.Floor(Time.Now / 2f));
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GetHeader(), BoardManager.Local.GetScorePercent());
 }

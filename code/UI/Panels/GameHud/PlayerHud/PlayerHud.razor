@@ -1,0 +1,88 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="player">
+		<img src="ui/player-banner.png" />
+		<div class="content">
+			@if (Board.Network.OwnerConnection is null)
+			{
+				<img src="ui/cpu.png" />
+			}
+			else
+			{
+				<img src=@($"avatar:{Board.Network.OwnerConnection.SteamId}") />
+			}
+			<span class="name">@Board.GameObject.Name</span>
+			<span class="score">🪙 @Board.Coins</span>
+		</div>
+	</div>
+	<div class="chat-container">
+		@if (Board == BoardManager.Local)
+		{
+			<TextEntry @ref="InputBox" onsubmit=@OnMessageSend CaretColor=@Color.Black AllowEmojiReplace=@(true) />
+		}
+		<div class="messages" @ref="ChatMessages" />
+	</div>
+</root>
+
+@code
+{
+	public BoardManager Board { get; set; }
+	TextEntry InputBox { get; set; }
+	Panel ChatMessages { get; set; }
+
+	public static List<PlayerHud> Instances { get; private set; } = new List<PlayerHud>();
+
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		base.OnAfterTreeRender(firstTime);
+
+		if (firstTime)
+		{
+			Instances.Add(this);
+		}
+	}
+
+	void OnMessageSend()
+	{
+		var message = InputBox.Text;
+		if (string.IsNullOrWhiteSpace(message))
+		{
+			InputBox.Blur();
+			return;
+		}
+
+		GameManager.Instance.SendChatMessage(message);
+		InputBox.Text = "";
+	}
+
+	public override void Tick()
+	{
+		base.Tick();
+
+		if (Input.Pressed("Chat"))
+		{
+			InputBox.Focus();
+		}
+	}
+
+	public override void OnDeleted()
+	{
+		Instances.Remove(this);
+		base.OnDeleted();
+	}
+
+	public void AddChatMessage(string message)
+	{
+		var entry = new ChatEntry();
+		entry.Message = message;
+		ChatMessages.AddChild(entry);
+		StateHasChanged();
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(Board?.Coins, InputBox?.HasFocus);
+}
