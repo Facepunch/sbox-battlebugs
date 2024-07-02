@@ -1,10 +1,9 @@
-WeaponButton
-{
+WeaponButton {
 	position: relative;
 	flex-direction: column;
 	align-items: center;
 	color: white;
-	font-family: Poppins;
+	font-family: "paper cuts 2";
 	font-size: 24px;
 	gap: 8px;
 	padding: 8px 32px;
@@ -15,30 +14,25 @@ WeaponButton
 	width: 160px;
 	justify-content: space-evenly;
 
-	.icon
-	{
+	.icon {
 		position: relative;
 
-		img
-		{
+		img {
 			width: 64px;
 			height: 64px;
 		}
 
-		> label
-		{
+		> label {
 			position: absolute;
 			bottom: -8px;
 			right: -24px;
 		}
 	}
 
-	> label
-	{
+	> label {
 	}
 
-	> .info-panel
-	{
+	> .info-panel {
 		position: absolute;
 		top: 0px;
 		left: -64px;
@@ -53,31 +47,26 @@ WeaponButton
 		font-size: 18px;
 		gap: 8px;
 
-		.header
-		{
+		.header {
 			gap: 8px;
 			font-size: 24px;
 
-			img
-			{
+			img {
 				width: 64px;
 				height: 64px;
 			}
 
-			.info
-			{
+			.info {
 				flex-direction: column;
 
-				.count
-				{
+				.count {
 					font-size: 18px;
 				}
 			}
 		}
 	}
 
-	> .border
-	{
+	> .border {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -85,34 +74,28 @@ WeaponButton
 		bottom: 0;
 	}
 
-	&:hover
-	{
+	&:hover {
 		background-color: rgba(black, 0.5);
 		sound-in: ui.button.over;
 
-		> .info-panel
-		{
+		> .info-panel {
 			top: -215px;
 			height: 215px;
 			opacity: 1;
 		}
 	}
 
-	&:active
-	{
+	&:active {
 		sound-in: ui.button.press;
 	}
 
-	&.selected
-	{
-		> .border
-		{
+	&.selected {
+		> .border {
 			border: 4px solid white;
 		}
 	}
 
-	&.disabled
-	{
+	&.disabled {
 		cursor: not-allowed;
 		opacity: 0.5;
 	}

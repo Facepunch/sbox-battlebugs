@@ -1,14 +1,12 @@
-PlacingHud
-{
+PlacingHud {
 	position: absolute;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	font-family: Poppins;
-	
-	.bug-inventory
-	{
+	font-family: "paper cuts 2";
+
+	.bug-inventory {
 		position: absolute;
 		top: 0px;
 		bottom: 0px;
@@ -17,45 +15,39 @@ PlacingHud
 		justify-content: center;
 		gap: 8px;
 
-		.container
-		{
+		.container {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 			color: white;
-			font-family: Poppins;
+			font-family: "paper cuts 2";
 			font-size: 16px;
 			padding: 8px;
 			background-color: rgba(black, 0.5);
-			gap: 8px;	
+			gap: 8px;
 
-			.header
-			{
+			.header {
 				font-weight: 700;
 				gap: 8px;
 			}
 
-			.content
-			{
+			.content {
 				flex-direction: column;
 				gap: 4px;
 			}
 		}
 
-		.bug-inventory-item
-		{
+		.bug-inventory-item {
 			gap: 12px;
 			align-items: center;
 
-			.bug
-			{
+			.bug {
 				gap: 2px;
 				width: 180px;
 				justify-content: flex-end;
 			}
 
-			img
-			{
+			img {
 				width: 32px;
 				height: 32px;
 				flex-shrink: 0;
@@ -63,23 +55,20 @@ PlacingHud
 				justify-content: flex-end;
 				align-items: flex-end;
 
-				label
-				{
+				label {
 					position: relative;
 					top: 8px;
 				}
 			}
 
-			label
-			{
+			label {
 				color: white;
 				font-weight: 700;
 			}
 		}
 	}
 
-	.footer
-	{
+	.footer {
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -93,15 +82,13 @@ PlacingHud
 		flex-direction: column;
 		gap: 12px;
 
-		> *
-		{
+		> * {
 			width: 100%;
 			justify-content: center;
 			text-align: center;
 		}
-	
-		button
-		{
+
+		button {
 			background-color: #4CAF50;
 			color: white;
 			padding: 10px 24px;
@@ -111,27 +98,22 @@ PlacingHud
 			font-size: 24px;
 			margin: 0 8px;
 			transition: background-color 0.3s;
-	
-			&:hover
-			{
+
+			&:hover {
 				background-color: #45a049;
 			}
 
-			&.clear-bugs
-			{
+			&.clear-bugs {
 				background-color: #f44336;
-	
-				&:hover
-				{
+
+				&:hover {
 					background-color: #d32f2f;
 				}
 			}
 
-			&.ready-up
-			{
+			&.ready-up {
 
-				&.disabled
-				{
+				&.disabled {
 					background-color: #666;
 					cursor: not-allowed;
 				}

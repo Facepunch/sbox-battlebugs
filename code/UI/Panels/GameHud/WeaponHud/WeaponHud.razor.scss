@@ -1,23 +1,20 @@
-WeaponHud
-{
+WeaponHud {
 	position: absolute;
 	left: 0;
 	right: 0;
 	bottom: 0;
 	justify-content: center;
 	align-items: center;
-	font-family: Poppins;
+	font-family: "paper cuts 2";
 	font-size: 32px;
 	pointer-events: all;
 
-	.container
-	{
+	.container {
 		background-color: rgba(black, 0.5);
 		padding: 16px;
 		padding-bottom: 0px;
 
-		.weapons
-		{
+		.weapons {
 			gap: 16px;
 		}
 	}

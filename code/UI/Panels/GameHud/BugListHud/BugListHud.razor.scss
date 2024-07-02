@@ -1,5 +1,4 @@
-BugListHud
-{
+BugListHud {
 	position: absolute;
 	top: 150px;
 	left: 0px;
@@ -7,11 +6,10 @@ BugListHud
 	flex-direction: column;
 	justify-content: center;
 	color: white;
-	font-family: Poppins;
+	font-family: "paper cuts 2";
 	font-size: 16px;
 
-	.container
-	{
+	.container {
 		padding: 8px;
 		background-color: rgba(black, 0.5);
 		flex-direction: column;
@@ -19,18 +17,15 @@ BugListHud
 		width: 250px;
 		transition: left 1s ease-out;
 
-		.header
-		{
+		.header {
 			font-weight: 700;
 
-			&:not(:first-child)
-			{
+			&:not(:first-child) {
 				margin-top: 16px;
 			}
 		}
 
-		.bugs
-		{
+		.bugs {
 			flex-direction: column;
 			width: 100%;
 			gap: 4px;

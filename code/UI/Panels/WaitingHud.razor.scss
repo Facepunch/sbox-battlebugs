@@ -1,5 +1,4 @@
-WaitingHud
-{
+WaitingHud {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -9,7 +8,7 @@ WaitingHud
 	backdrop-filter: blur(1px);
 	justify-content: center;
 	align-items: center;
-	font-family: Poppins;
+	font-family: "paper cuts 2";
 	font-size: 58px;
 	font-weight: 700;
 	color: white;
@@ -17,8 +16,7 @@ WaitingHud
 	gap: 64px;
 	pointer-events: all;
 
-	i
-	{
+	i {
 		font-size: 128px;
 		animation: rotateright 1s linear infinite;
 	}

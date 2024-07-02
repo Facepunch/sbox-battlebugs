@@ -1,5 +1,4 @@
-ControlsPanel
-{
+ControlsPanel {
 	position: absolute;
 	top: 0px;
 	right: 0px;
@@ -7,11 +6,10 @@ ControlsPanel
 	flex-direction: column;
 	justify-content: center;
 	color: white;
-	font-family: Poppins;
+	font-family: "paper cuts 2";
 	font-size: 16px;
 
-	.container
-	{
+	.container {
 		position: relative;
 		left: 300px;
 		padding: 8px;
@@ -21,28 +19,23 @@ ControlsPanel
 		width: 250px;
 		transition: left 1s ease-out;
 
-		.header
-		{
+		.header {
 			font-weight: 700;
 		}
 
-		.inputs
-		{
+		.inputs {
 			flex-direction: column;
 			width: 100%;
 
-			.input
-			{
+			.input {
 				align-items: center;
 				gap: 4px;
 			}
 		}
 	}
 
-	&.show
-	{
-		.container
-		{
+	&.show {
+		.container {
 			left: 0px;
 		}
 	}
