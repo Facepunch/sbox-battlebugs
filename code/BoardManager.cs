@@ -48,7 +48,8 @@ public sealed class BoardManager : Component
 
 		if ( Network.OwnerConnection is null )
 		{
-			SetupCpuBoard();
+			SetupBoardRandomly();
+			IsReady = true;
 		}
 	}
 
@@ -106,12 +107,14 @@ public sealed class BoardManager : Component
 		foreach ( var segment in segments )
 		{
 			if ( segment.Network.OwnerId != Network.OwnerId ) continue;
-			segment.Clear();
+			segment.Cell.IsOccupied = false;
+			segment.GameObject.Destroy();
 		}
 		var cells = Components.GetAll<CellComponent>( FindMode.InChildren );
 		foreach ( var cell in cells )
 		{
 			cell.IsOccupied = false;
+			cell.BroadcastUpdateHighlight();
 		}
 		ResetBugInventory();
 	}
@@ -183,29 +186,28 @@ public sealed class BoardManager : Component
 		Coins += amount;
 	}
 
-	void SetupCpuBoard()
+	public void SetupBoardRandomly()
 	{
+		ClearAllBugs( false );
 		int attempts = 0;
 		foreach ( var entry in BugInventory )
 		{
 			while ( BugInventory[entry.Key] > 0 )
 			{
-				while ( !TryPlaceCpuBug( entry.Key ) )
+				while ( !TryPlaceRandomBug( entry.Key ) )
 				{
 					attempts++;
 					if ( attempts > 100 )
 					{
-						ClearAllBugs( false );
-						SetupCpuBoard();
+						SetupBoardRandomly();
 						return;
 					}
 				}
 			}
 		}
-		IsReady = true;
 	}
 
-	bool TryPlaceCpuBug( BugResource bug )
+	bool TryPlaceRandomBug( BugResource bug )
 	{
 		int attempts = 0;
 
@@ -229,7 +231,7 @@ public sealed class BoardManager : Component
 			cells.Add( nextCell );
 		}
 
-		GameManager.Instance.CreateBug( this, PlacementInput.Instance.GetPlacementData( cells, bug ), true );
+		GameManager.Instance.CreateBug( this, PlacementInput.Instance.GetPlacementData( cells, bug ), Network.OwnerConnection is null );
 		return true;
 	}
 

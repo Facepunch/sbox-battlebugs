@@ -111,6 +111,15 @@ PlacingHud {
 				}
 			}
 
+			&.place-for-me {
+				background-color: #2196F3;
+
+				&:hover {
+					background-color: #0d8bf2;
+				}
+			
+			}
+
 			&.ready-up {
 
 				&.disabled {

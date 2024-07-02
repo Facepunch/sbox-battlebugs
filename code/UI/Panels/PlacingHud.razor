@@ -35,6 +35,7 @@
 			<label>@(BoardManager.Local.IsReady ? "Waiting for opponent..." : "Opponent is ready...")</label>
 		}
 		<div class="buttons">
+			<button class="place-for-me" onclick=@(() => BoardManager.Local.SetupBoardRandomly())>Place Bugs For Me</button>
 			<button class="clear-bugs" onclick=@(() => BoardManager.Local.ClearAllBugs())>Reset Bugs</button>
 			<button class="@ReadyClasses()" Tooltip=@ReadyTooltip() onclick=@ToggleReady>@ReadyText()</button>
 		</div>
