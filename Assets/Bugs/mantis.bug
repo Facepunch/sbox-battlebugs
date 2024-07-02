@@ -1,29 +1,29 @@
 {
   "Name": "Mantis",
-  "Color": "0.03791,0.45116,0.00839,1",
+  "Color": "0,0.7445,0.91163,1",
   "SegmentCount": 2,
   "StartingAmount": 2,
   "StartingHealth": 10,
   "HeadPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
+    "prefab": "prefabs/bugs/dragonfly.prefab"
   },
-  "HeadModel": "models/dev/box.vmdl",
+  "HeadModel": "models/paper/bugs/dragonfly.vmdl",
   "BodyPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
+    "prefab": "prefabs/bugs/dragonfly.prefab"
   },
-  "BodyModel": "models/dev/box.vmdl",
+  "BodyModel": "models/paper/bugs/dragonfly.vmdl",
   "CornerPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
+    "prefab": "prefabs/bugs/dragonfly.prefab"
   },
-  "CornerModel": "models/dev/box.vmdl",
+  "CornerModel": "models/paper/bugs/dragonfly.vmdl",
   "TailPrefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/bug_segment.prefab"
+    "prefab": "prefabs/bugs/dragonfly.prefab"
   },
-  "TailModel": "models/dev/box.vmdl",
+  "TailModel": "models/paper/bugs/dragonfly.vmdl",
   "__references": [],
   "__version": 0
 }
