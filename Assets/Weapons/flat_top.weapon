@@ -3,9 +3,9 @@
   "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 5 different bugs/cells in one shot.",
   "Icon": "ui/weapons/flat-stone.png",
   "StartingAmount": 4,
-  "Cost": 45,
+  "Cost": 70,
   "AmountFired": "1.00,6.00,0",
-  "Damage": "6.00,8.00,0",
+  "Damage": "10.00,8.00,0",
   "Spray": 1,
   "Prefab": {
     "_type": "gameobject",

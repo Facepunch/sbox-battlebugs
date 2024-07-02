@@ -3,7 +3,7 @@
   "Color": "1,0.71667,0,1",
   "SegmentCount": 4,
   "StartingAmount": 1,
-  "StartingHealth": 7,
+  "StartingHealth": 4,
   "HeadPrefab": {
     "_type": "gameobject",
     "prefab": "prefabs/bugs/bee.prefab"

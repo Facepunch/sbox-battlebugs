@@ -1,6 +1,6 @@
 {
   "Name": "Caterpillar",
-  "Color": "0.36667,0,1,1",
+  "Color": "0.02613,0.70233,0.02613,1",
   "SegmentCount": 5,
   "StartingAmount": 1,
   "StartingHealth": 6,
