@@ -165,11 +165,9 @@ public sealed class CellComponent : Component
 		}
 	}
 
-	[Broadcast]
+	[Authority]
 	public void BroadcastHit()
 	{
-		if ( IsProxy ) return;
-
 		IsHit = true;
 		BroadcastUpdateHighlight();
 	}
