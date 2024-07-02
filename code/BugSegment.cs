@@ -87,7 +87,7 @@ public class BugSegment : Component
         var board = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
         board.GiveCoins( 15 );
         if ( GameManager.Instance.State == GameState.Playing ) Cell.BroadcastClear();
-        BroadcastDestroyFX();
+        BroadcastDestroyFX( dropCoin );
         GameObject.Destroy();
     }
 
@@ -127,10 +127,10 @@ public class BugSegment : Component
     }
 
     [Broadcast]
-    void BroadcastDestroyFX()
+    void BroadcastDestroyFX( bool dropCoin = false )
     {
         Sound.Play( "impact-bullet-flesh", Transform.Position );
-        GameManager.Instance.SpawnCoins( Transform.Position, 3 );
+        if ( dropCoin ) GameManager.Instance.SpawnCoins( Transform.Position, 3 );
         if ( BugSplatParticle is not null )
         {
             var obj = BugSplatParticle.Clone( Transform.Position + Vector3.Up * 16f );
