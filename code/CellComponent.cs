@@ -142,7 +142,7 @@ public sealed class CellComponent : Component
 	{
 		if ( IsHit )
 		{
-			Renderer.Tint = Color.Lerp( BaseColor, IsOccupied ? Color.Orange : (WasOccupied ? Color.Green : Color.Red), 0.5f );
+			Renderer.Tint = Color.Lerp( BaseColor, IsOccupied ? Color.Orange : (WasOccupied ? Color.Green : Color.Red), 0.95f );
 		}
 		else if ( IsSelected )
 		{
@@ -157,7 +157,7 @@ public sealed class CellComponent : Component
 		}
 		else if ( IsHovering )
 		{
-			Renderer.Tint = IsOccupied ? Color.Lerp( BaseColor, Color.Red, 0.5f ) : Color.Lerp( BaseColor, Color.Yellow, 0.5f );
+			Renderer.Tint = IsOccupied ? Color.Lerp( BaseColor, Color.Red, 0.95f ) : Color.Lerp( BaseColor, Color.Yellow, 0.95f );
 		}
 		else
 		{
@@ -192,7 +192,7 @@ public sealed class CellComponent : Component
 		{
 			if ( IsOccupied )
 				HintPanel.Instance.YellowCellNotification();
-			else if(!WasOccupied)
+			else if ( !WasOccupied )
 				HintPanel.Instance.RedCellNotification();
 			else
 				HintPanel.Instance.GreenCellNotification();
