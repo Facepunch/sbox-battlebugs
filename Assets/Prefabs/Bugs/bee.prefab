@@ -15,6 +15,12 @@
           "_type": "gameobject",
           "go": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0"
         },
+        "BodyRenderer": {
+          "_type": "component",
+          "component_id": "ff6bdd94-48e9-4ed4-b436-c72597db280a",
+          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+          "component_type": "SkinnedModelRenderer"
+        },
         "BugSplatParticle": {
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_bug_splat.prefab"

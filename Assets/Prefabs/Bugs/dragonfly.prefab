@@ -13,7 +13,13 @@
         "__guid": "f4f7bc74-384c-42c1-ac7f-49ccdb503a59",
         "Body": {
           "_type": "gameobject",
-          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d"
+          "go": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0"
+        },
+        "BodyRenderer": {
+          "_type": "component",
+          "component_id": "ff6bdd94-48e9-4ed4-b436-c72597db280a",
+          "go": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+          "component_type": "SkinnedModelRenderer"
         },
         "BugSplatParticle": {
           "_type": "gameobject",
@@ -28,43 +34,44 @@
         }
       },
       {
-        "__type": "Sandbox.SphereCollider",
-        "__guid": "55e5d9a7-a13c-4b9b-8754-880d049f6aa0",
-        "Center": "0,0,24.4",
+        "__type": "Sandbox.CapsuleCollider",
+        "__guid": "16c9fc78-96f2-425c-baee-cf47df975734",
+        "End": "0,0,67.70007",
         "IsTrigger": false,
-        "Radius": 33.200047,
+        "Radius": 11.300002,
+        "Start": "0,0,24.9",
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "23c8b221-a481-4bc8-b6b7-c4f549b3ba8b",
+        "Center": "0,0,54.39997",
+        "IsTrigger": false,
+        "Scale": "2.099974,58.09992,15.29996",
         "Static": false
       }
     ],
     "Children": [
       {
-        "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
+        "__guid": "8a17695e-8a68-45ff-aab3-bb45a67fb4b0",
         "Flags": 0,
-        "Name": "Body",
+        "Name": "Body Container",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
         "Children": [
           {
-            "__guid": "012d53be-b409-403e-83a1-d6d105cea566",
+            "__guid": "6cb0c5e4-a209-4707-acf4-eacfcc1f0b7d",
             "Flags": 0,
             "Name": "Body",
-            "Position": "0,0,38.85511",
+            "Position": "0,0,32.93883",
             "Enabled": true,
             "NetworkMode": 2,
             "NetworkInterpolation": true,
             "Components": [
               {
-                "__type": "Sandbox.SphereCollider",
-                "__guid": "3893f0e5-e42b-43f4-8b62-f8b7da9c6906",
-                "Center": "0,0,0",
-                "IsTrigger": false,
-                "Radius": 32,
-                "Static": false
-              },
-              {
                 "__type": "Sandbox.SkinnedModelRenderer",
-                "__guid": "95a55c9c-7912-4b97-8bbd-31ad5d4637c8",
+                "__guid": "ff6bdd94-48e9-4ed4-b436-c72597db280a",
                 "BodyGroups": 18446744073709551615,
                 "CreateBoneObjects": false,
                 "Model": "models/paper/bugs/dragonfly.vmdl",
@@ -80,7 +87,7 @@
         "__guid": "000ffeb9-13f5-4669-896b-57fd74729b48",
         "Flags": 0,
         "Name": "Healthbar",
-        "Position": "0,0,74.43885",
+        "Position": "0,0,87.66226",
         "Enabled": true,
         "NetworkMode": 2,
         "NetworkInterpolation": true,
