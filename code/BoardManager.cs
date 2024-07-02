@@ -18,7 +18,7 @@ public sealed class BoardManager : Component
 		}
 	}
 	private static BoardManager _local;
-	public static BoardManager Opponent => Game.ActiveScene.GetAllComponents<BoardManager>().FirstOrDefault( x => !x.Network.IsOwner );
+	public static BoardManager Opponent => Game.ActiveScene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerConnection != Connection.Local );
 
 	// Properties
 	[Property] public int GridSize { get; set; } = 64;
@@ -120,6 +120,7 @@ public sealed class BoardManager : Component
 		}
 	}
 
+	[Authority]
 	public void SaveBugReferences()
 	{
 		BugReferences.Clear();

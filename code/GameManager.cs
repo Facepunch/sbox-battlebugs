@@ -105,9 +105,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			State = GameState.Playing;
 			StartTurn();
-		}
 
-		BoardManager.Local.SaveBugReferences();
+			foreach ( var board in Boards )
+			{
+				board.SaveBugReferences();
+			}
+		}
 
 		foreach ( var segment in Scene.GetAllComponents<BugSegment>() )
 		{
