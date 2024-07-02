@@ -42,8 +42,20 @@ internal static class EditorButtons
         sceneModel.Rotation = Rotation.From( 0, 180, 0 );
         if ( model.Name.Contains( "corner" ) ) sceneModel.Rotation *= new Angles( 0, 0, 90 );
         else if ( !model.Name.Contains( "caterpillar" ) ) sceneModel.Rotation *= new Angles( 0, 90, 0 );
+
         if ( fileName.Contains( "ladybug" ) ) sceneCamera.OrthoHeight = 42f;
-        else if ( fileName.Contains( "bumblebee" ) ) sceneCamera.OrthoHeight = 82f;
+        else if ( fileName.Contains( "bumblebee" ) )
+        {
+            sceneCamera.OrthoHeight = 82f;
+            sceneCamera.Rotation = Rotation.From( 0, 180, 0 );
+            sceneLight.Rotation = Rotation.From( 0, 180, 0 );
+        }
+        else if ( fileName.Contains( "dragonfly" ) )
+        {
+            sceneCamera.OrthoHeight = 82f;
+            sceneCamera.Rotation = Rotation.From( 0, 180, 0 );
+            sceneLight.Rotation = Rotation.From( 0, 180, 0 );
+        }
 
         var bounds = sceneModel.Bounds;
         var center = bounds.Center;
