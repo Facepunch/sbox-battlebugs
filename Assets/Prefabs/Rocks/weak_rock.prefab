@@ -1,0 +1,70 @@
+{
+  "RootObject": {
+    "__guid": "d5803de4-ebc5-4d08-bba6-99901156b4b3",
+    "Flags": 0,
+    "Name": "weak_rock",
+    "Tags": "pebble",
+    "Enabled": true,
+    "NetworkMode": 2,
+    "NetworkInterpolation": true,
+    "Components": [
+      {
+        "__type": "Battlebugs.PebbleComponent",
+        "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e",
+        "HitCount": 4,
+        "ParticlePrefab": {
+          "_type": "gameobject",
+          "prefab": "prefabs/particles/particle_rock_burst.prefab"
+        }
+      },
+      {
+        "__type": "Sandbox.SphereCollider",
+        "__guid": "49d08623-0104-4dd7-b543-1f7a999a52a8",
+        "Center": "0,0,0",
+        "IsTrigger": false,
+        "Radius": 9.700001,
+        "Static": false
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "6fa8b88f-090b-4b4c-a564-578ffafb3b87",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {},
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "02d3c70e-ad1f-4e85-ac59-228411d07558",
+        "Flags": 0,
+        "Name": "pebble",
+        "Scale": "0.3,0.3,0.3",
+        "Enabled": true,
+        "NetworkMode": 2,
+        "NetworkInterpolation": true,
+        "Components": [
+          {
+            "__type": "Sandbox.ModelRenderer",
+            "__guid": "9d574663-91cd-4c81-b59d-316fa183e9b1",
+            "BodyGroups": 18446744073709551615,
+            "Model": "models/dev/dev_pebble_01.vmdl",
+            "RenderType": "On",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      }
+    ],
+    "__variables": []
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

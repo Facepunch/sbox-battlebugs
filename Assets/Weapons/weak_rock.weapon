@@ -1,0 +1,16 @@
+{
+  "Name": "Weak Rock",
+  "Description": "Fires a single medium-sized rock that deals 4 damage. Can hit up to 4 bugs/cells.",
+  "Icon": "ui/weapons/rock.png",
+  "StartingAmount": 0,
+  "Cost": 30,
+  "AmountFired": "1.00,0.00,0",
+  "Damage": "4.00,8.00,0",
+  "Spray": 1,
+  "Prefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/rocks/rock.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}
