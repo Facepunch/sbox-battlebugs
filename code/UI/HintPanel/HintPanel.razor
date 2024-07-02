@@ -45,7 +45,7 @@
 		panelEntry.Entry = entry;
 		Panel.AddChild(panelEntry);
 		StateHasChanged();
-		// TODO: Play Sound
+		Sound.Play("notify-hint");
 	}
 
 	bool hasSeenRedCell = false;
