@@ -4,11 +4,76 @@
 @inherits PanelComponent
 
 <root>
-
 </root>
 
 @code
 {
+	public static HintPanel Instance { get; private set; }
+
+	public record Entry(string Icon, string Text, float Duration);
+
+	List<Entry> Queue = new();
+	TimeSince timeSinceLastCheck = 0;
+
+	protected override void OnAwake()
+	{
+		Instance = this;
+		timeSinceLastCheck = 0;
+	}
+
+	protected override void OnFixedUpdate()
+	{
+		if (timeSinceLastCheck > 4f)
+		{
+			timeSinceLastCheck = 0;
+			if (Queue.Count > 0)
+			{
+				CreateNotification(Queue[0]);
+				Queue.RemoveAt(0);
+			}
+		}
+	}
+
+	public void AddEntry(string icon, string text, float duration = 6f)
+	{
+		Queue.Add(new Entry(icon, text, duration));
+	}
+
+	void CreateNotification(Entry entry)
+	{
+		var panelEntry = new HintPanelEntry();
+		panelEntry.Entry = entry;
+		Panel.AddChild(panelEntry);
+		StateHasChanged();
+		// TODO: Play Sound
+	}
+
+	bool hasSeenRedCell = false;
+	public void RedCellNotification()
+	{
+		if (hasSeenRedCell) return;
+
+		AddEntry("color:#ff0000", "A red cell means there is no bug anywhere on that cell.", 12f);
+		hasSeenRedCell = true;
+	}
+
+	bool hasSeenYellowCell = false;
+	public void YellowCellNotification()
+	{
+		if (hasSeenYellowCell) return;
+
+		AddEntry("color:#ffff00", "A yellow cell means there is still a bug on that cell.\nIf the cell is yellow and the bug is not visible, you haven't hit the bug yet.", 15f);
+		hasSeenYellowCell = true;
+	}
+
+	bool hasSeenGreenCell = false;
+	public void GreenCellNotification()
+	{
+		if (hasSeenGreenCell) return;
+
+		AddEntry("color:#00ff00", "Once you've destroyed a bug on a given cell, that cell will turn green.\nThe bug panel on the left will also show the destroyed segment.", 16f);
+		hasSeenGreenCell = true;
+	}
 
 	protected override int BuildHash() => System.HashCode.Combine("");
 }

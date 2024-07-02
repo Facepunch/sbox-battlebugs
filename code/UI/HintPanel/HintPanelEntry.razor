@@ -4,11 +4,29 @@
 @inherits Panel
 
 <root>
-	
+	@if (Entry.Icon.StartsWith("color:"))
+	{
+		var color = Entry.Icon.Substring(6);
+		<div class="color-icon" style="background-color: @color" />
+	}
+	else
+	{
+		<i>@Entry.Icon</i>
+	}
+	<label class="message">@Entry.Text</label>
 </root>
 
 @code
 {
 
-	protected override int BuildHash() => System.HashCode.Combine("");
+	public HintPanel.Entry Entry { get; set; }
+	TimeSince timeSinceCreated = 0;
+
+	public override void Tick()
+	{
+		if (timeSinceCreated > Entry.Duration)
+		{
+			Delete();
+		}
+	}
 }

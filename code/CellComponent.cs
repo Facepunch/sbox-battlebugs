@@ -187,6 +187,16 @@ public sealed class CellComponent : Component
 	public void BroadcastUpdateHighlight()
 	{
 		UpdateHighlight();
+
+		if ( IsHit && !Network.IsOwner )
+		{
+			if ( IsOccupied )
+				HintPanel.Instance.YellowCellNotification();
+			else if(!WasOccupied)
+				HintPanel.Instance.RedCellNotification();
+			else
+				HintPanel.Instance.GreenCellNotification();
+		}
 	}
 
 }

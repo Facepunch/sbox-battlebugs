@@ -1,4 +1,49 @@
-HintPanel
-{
-	
+HintPanel {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    font-family: Tahoma;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 0 black;
+    align-items: flex-end;
+    gap: 8px;
+    flex-direction: column;
+	font-family: "paper cuts 2";
+
+    HintPanelEntry {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        opacity: 1;
+        gap: 12px;
+        background-color: rgba(black, 0.5);
+        // in-out-bounce bezier
+        transition: all 0.4s elastic-in;
+        padding: 10px 20px;
+        border-radius: 4px;
+        align-items: center;
+        white-space: pre;
+
+        .color-icon
+        {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 4px rgba(black, 0.5);
+        }
+
+        &:intro {
+            top: 32px;
+            left: 300px;
+            opacity: 0;
+        }
+
+        &:outro {
+            opacity: 0;
+            left: 300px;
+            transition: all 0.4s ease-in;
+        }
+    }
 }
