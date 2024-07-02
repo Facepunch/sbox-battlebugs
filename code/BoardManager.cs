@@ -57,7 +57,7 @@ public sealed class BoardManager : Component
 		if ( Network.OwnerConnection is null && timeSinceTurnStart > 2.5f && GameManager.Instance.CurrentPlayer == this && GameManager.Instance.State == GameState.Playing && GameManager.Instance.IsFiring )
 		{
 			var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-			var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * 128f);
+			var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 24 : 128f));
 			var opponentPos = Local.Transform.Position;
 			targetPosition = new Vector3(
 				Math.Clamp( targetPosition.x, opponentPos.x - (Width * GridSize) / 2f, opponentPos.x + (Width * GridSize) / 2f ),
