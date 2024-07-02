@@ -34,11 +34,11 @@
             "_type": "gameobject",
             "prefab": "prefabs/coin.prefab"
           },
+          "CpuMode": true,
           "DamageNumberPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/particles/particle_damage_number.prefab"
-          },
-          "IsTestMode": false
+          }
         },
         {
           "__type": "Battlebugs.PlacementInput",
@@ -226,7 +226,7 @@
     {
       "__guid": "f6ef5b5b-6c38-4c64-876c-60fd8b7dd904",
       "Flags": 0,
-      "Name": "Object",
+      "Name": "Envmap Probe",
       "Enabled": true,
       "NetworkMode": 2,
       "NetworkInterpolation": true,
@@ -275,7 +275,7 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-07-01T17:43:27.7752045-04:00",
+  "LastSaved": "2024-07-02T00:00:05.0416692-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

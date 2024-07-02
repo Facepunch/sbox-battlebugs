@@ -121,6 +121,23 @@ public sealed class CellComponent : Component
 		return false;
 	}
 
+	public List<CellComponent> GetNeighbors()
+	{
+		var neighbors = new List<CellComponent>();
+
+		var cells = Scene.GetAllComponents<CellComponent>();
+		foreach ( var cell in cells )
+		{
+			if ( cell == this ) continue;
+			if ( IsAdjacent( cell ) )
+			{
+				neighbors.Add( cell );
+			}
+		}
+
+		return neighbors;
+	}
+
 	void UpdateHighlight()
 	{
 		if ( IsHit )

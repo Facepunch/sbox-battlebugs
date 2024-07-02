@@ -98,7 +98,7 @@ public sealed class PlacementInput : Component
 			if ( SelectedCells.Count > 1 )
 			{
 				Sound.Play( "ui-select-complete" );
-				GameManager.Instance.CreateBug( GetPlacementData() );
+				GameManager.Instance.CreateBug( BoardManager.Local, GetPlacementData() );
 			}
 			else if ( SelectedCells.Count == 1 )
 			{
@@ -108,30 +108,32 @@ public sealed class PlacementInput : Component
 		}
 	}
 
-	List<PlacementData> GetPlacementData()
+	public List<PlacementData> GetPlacementData( List<CellComponent> cells = null, BugResource bug = null )
 	{
+		if ( cells is null ) cells = SelectedCells.ToList();
+		if ( bug is null ) bug = AttemptingToPlace;
 		var data = new List<PlacementData>();
 
 		var rotation = new Angles( 0, 0, 0 );
-		if ( SelectedCells.Count > 1 ) rotation = Rotation.LookAt( SelectedCells[1].Transform.Position - SelectedCells[0].Transform.Position, Vector3.Up );
+		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Transform.Position - cells[0].Transform.Position, Vector3.Up );
 
-		for ( int i = 0; i < SelectedCells.Count; i++ )
+		for ( int i = 0; i < cells.Count; i++ )
 		{
-			if ( i < SelectedCells.Count - 1 ) rotation = Rotation.LookAt( SelectedCells[i + 1].Transform.Position - SelectedCells[i].Transform.Position, Vector3.Up );
-			else if ( i > 0 ) rotation = Rotation.LookAt( SelectedCells[i].Transform.Position - SelectedCells[i - 1].Transform.Position, Vector3.Up );
+			if ( i < cells.Count - 1 ) rotation = Rotation.LookAt( cells[i + 1].Transform.Position - cells[i].Transform.Position, Vector3.Up );
+			else if ( i > 0 ) rotation = Rotation.LookAt( cells[i].Transform.Position - cells[i - 1].Transform.Position, Vector3.Up );
 
 			// Get prefab based on rotation/position
-			var prefab = AttemptingToPlace.BodyPrefab;
-			if ( i == 0 ) prefab = AttemptingToPlace.TailPrefab;
-			else if ( i == SelectedCells.Count - 1 ) prefab = AttemptingToPlace.HeadPrefab;
+			var prefab = bug.BodyPrefab;
+			if ( i == 0 ) prefab = bug.TailPrefab;
+			else if ( i == cells.Count - 1 ) prefab = bug.HeadPrefab;
 			else
 			{
-				var last = SelectedCells[i - 1];
-				var next = SelectedCells[i + 1];
-				var current = SelectedCells[i];
+				var last = cells[i - 1];
+				var next = cells[i + 1];
+				var current = cells[i];
 				if ( !(last.Position.x == next.Position.x || last.Position.y == next.Position.y) )
 				{
-					prefab = AttemptingToPlace.CornerPrefab;
+					prefab = bug.CornerPrefab;
 					rotation = Rotation.LookAt( last.Transform.Position - next.Transform.Position, Vector3.Up );
 					var previousRotation = Rotation.LookAt( last.Transform.Position - current.Transform.Position, Vector3.Up );
 
@@ -154,7 +156,7 @@ public sealed class PlacementInput : Component
 
 			data.Add( new PlacementData
 			{
-				Cell = SelectedCells[i],
+				Cell = cells[i],
 				Rotation = rotation,
 				Prefab = prefab
 			} );

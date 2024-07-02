@@ -12,7 +12,14 @@
 				var player = GameManager.Instance.Boards.ElementAt(0);
 				<img src="ui/player-banner.png" />
 				<div class="content">
-					<img src=@($"avatar:{player.Network.OwnerConnection.SteamId}") />
+					@if (player.Network.OwnerConnection is null)
+					{
+						<img src="ui/cpu.png" />
+					}
+					else
+					{
+						<img src=@($"avatar:{player.Network.OwnerConnection.SteamId}") />
+					}
 					<span class="name">@player.GameObject.Name</span>
 					<span class="score">0</span>
 				</div>
@@ -27,7 +34,14 @@
 				{
 					<img src="ui/player-banner.png" />
 					<div class="content">
-						<img src=@($"avatar:{oppponent.Network.OwnerConnection.SteamId}") />
+						@if (oppponent.Network.OwnerConnection is null)
+						{
+							<img src="ui/cpu.png" />
+						}
+						else
+						{
+							<img src=@($"avatar:{oppponent.Network.OwnerConnection.SteamId}") />
+						}
 						<span class="name">@oppponent.GameObject.Name</span>
 						<span class="score">0</span>
 					</div>

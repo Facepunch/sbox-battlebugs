@@ -14,7 +14,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[RequireComponent] InspectInput _inspectInput { get; set; }
 
 	// Properties
-	[Property] public bool IsTestMode { get; set; }
+	[Property, Title( "CPU Mode" )] public bool CpuMode { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject DamageNumberPrefab { get; set; }
@@ -41,7 +41,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	protected override async Task OnLoad()
 	{
 		if ( Scene.IsEditor ) return;
-		if ( IsTestMode ) return;
+		if ( CpuMode ) return;
 
 		if ( !GameNetworkSystem.IsActive )
 		{
@@ -55,6 +55,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 	{
 		// This is really just for late-joiners
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
+
+		if ( CpuMode )
+		{
+			CreateBoard( Connection.Local );
+			CreateBoard( null );
+		}
 	}
 
 	public void OnActive( Connection channel )
@@ -62,11 +68,16 @@ public sealed class GameManager : Component, Component.INetworkListener
 		// TODO: Create a spectator pawn or something
 		if ( Boards.Count >= 2 ) return;
 
+		CreateBoard( channel );
+	}
+
+	void CreateBoard( Connection channel )
+	{
 		var currentBoardCount = Scene.GetAllComponents<BoardManager>().Count();
 		var client = BoardPrefab.Clone( new CloneConfig()
 		{
 			Transform = new Transform( new Vector3( currentBoardCount * 1000f, 0, 2f ), new Angles( 0, currentBoardCount == 0 ? 0 : 180, 0 ) ),
-			Name = channel.DisplayName
+			Name = channel?.DisplayName ?? "CPU"
 		} );
 		client.Network.SetOrphanedMode( NetworkOrphaned.ClearOwner );
 		client.NetworkSpawn( channel );
@@ -117,8 +128,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	protected override void OnUpdate()
 	{
-		if ( IsTestMode ) return;
-
 		switch ( State )
 		{
 			case GameState.Waiting: UpdateWaiting(); break;
@@ -156,7 +165,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		if ( Networking.IsHost )
 		{
-			if ( Boards.Any( x => x.Network.OwnerId == Guid.Empty ) )
+			if ( Boards.Any( x => x.Network.OwnerId == Guid.Empty ) && !CpuMode )
 			{
 				EndGame();
 			}
@@ -220,7 +229,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, rotation, Time.Delta * 5f );
 	}
 
-	public void CreateBug( List<PlacementInput.PlacementData> cells )
+	public void CreateBug( BoardManager board, List<PlacementInput.PlacementData> cells, bool isCpu = false )
 	{
 		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
 		if ( bug.Value <= 0 ) return;
@@ -236,12 +245,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Key, i );
 			component.Cell = cells[i].Cell;
-			segment.NetworkSpawn();
+			segment.NetworkSpawn( isCpu ? null : Connection.Local );
 
 			cells[i].Cell.IsOccupied = true;
 		}
 
-		BoardManager.Local.BugInventory[bug.Key] = bug.Value - 1;
+		board.BugInventory[bug.Key] = bug.Value - 1;
 	}
 
 	public void SpawnCoins( Vector3 position, int amount = 1 )

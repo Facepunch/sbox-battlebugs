@@ -43,6 +43,11 @@ public sealed class BoardManager : Component
 		InitBoard();
 		ResetBugInventory();
 		ResetWeaponInventory();
+
+		if ( Network.OwnerConnection is null )
+		{
+			SetupCpuBoard();
+		}
 	}
 
 	void InitBoard()
@@ -71,9 +76,9 @@ public sealed class BoardManager : Component
 		Gizmo.Draw.LineBBox( bounds );
 	}
 
-	public void ClearAllBugs()
+	public void ClearAllBugs( bool playSound = true )
 	{
-		Sound.Play( "clear-all-bugs" );
+		if ( playSound ) Sound.Play( "clear-all-bugs" );
 		var segments = Scene.GetAllComponents<BugSegment>();
 		foreach ( var segment in segments )
 		{
@@ -140,6 +145,57 @@ public sealed class BoardManager : Component
 		{
 			BugReferences.Add( reference );
 		}
+	}
+
+	void SetupCpuBoard()
+	{
+		int attempts = 0;
+		foreach ( var entry in BugInventory )
+		{
+			while ( BugInventory[entry.Key] > 0 )
+			{
+				while ( !TryPlaceCpuBug( entry.Key ) )
+				{
+					attempts++;
+					if ( attempts > 100 )
+					{
+						ClearAllBugs( false );
+						SetupCpuBoard();
+						return;
+					}
+				}
+				BugInventory[entry.Key]--;
+			}
+		}
+		IsReady = true;
+	}
+
+	bool TryPlaceCpuBug( BugResource bug )
+	{
+		int attempts = 0;
+
+		var startingCell = Components.GetAll<CellComponent>().Where( x => !x.IsOccupied && x.GameObject.Root == GameObject ).OrderBy( x => Guid.NewGuid() ).FirstOrDefault();
+		if ( startingCell is null ) return false;
+
+		var cells = new List<CellComponent> { startingCell };
+
+		while ( cells.Count < bug.SegmentCount )
+		{
+			var cell = cells.Last();
+			var neighbors = cell.GetNeighbors().Where( x => !x.IsOccupied && !cells.Contains( x ) && x.GameObject.Root == GameObject ).ToList();
+			if ( neighbors.Count == 0 )
+			{
+				attempts++;
+				if ( attempts > 100 ) return false;
+				cells = new List<CellComponent> { startingCell };
+				continue;
+			}
+			var nextCell = neighbors.OrderBy( x => Random.Shared.Float() ).First();
+			cells.Add( nextCell );
+		}
+
+		GameManager.Instance.CreateBug( this, PlacementInput.Instance.GetPlacementData( cells, bug ), true );
+		return true;
 	}
 
 	public struct BugReference
