@@ -17,7 +17,6 @@ GameHud {
 		right: 0;
 		justify-content: center;
 		font-weight: 700;
-		gap: 128px;
 
 		.player {
 			position: relative;
@@ -57,14 +56,38 @@ GameHud {
 			}
 		}
 
-		.banner {
-			width: 55%;
-			height: 100px;
-			justify-content: center;
+		.middle
+		{
+			flex-direction: column;
 			align-items: center;
-			background-color: rgba(black, 0.7);
-			font-size: 38px;
-			border-radius: 0px 0px 32px 32px;
+			width: 1200px;
+
+			.bar
+			{
+				width: 100%;
+				height: 24px;
+				background-color: #FF3600;
+
+				.fill
+				{
+					position: relative;
+					top: 0;
+					left: 0;
+					height: 100%;
+					background-color: #0094FF;
+				}
+			}
+
+			.banner
+			{
+				width: 80%;
+				height: 100px;
+				justify-content: center;
+				align-items: center;
+				background-color: rgba(black, 0.7);
+				font-size: 38px;
+				border-radius: 0px 0px 32px 32px;
+			}
 		}
 	}
 }

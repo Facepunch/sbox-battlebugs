@@ -26,7 +26,16 @@
 				</div>
 			}
 		</div>
-		<div class="banner">@GetHeader()</div>
+		<div class="middle">
+			<div class="bar">
+				@if (GameManager.Instance.Boards.Count > 0)
+				{
+					var fill = GameManager.Instance.Boards.ElementAt(0).GetScorePercent() * 100f;
+					<div class="fill" style="width: @(fill)%" />
+				}
+			</div>
+			<div class="banner">@GetHeader()</div>
+		</div>
 		<div class="player opponent">
 			@if (GameManager.Instance.Boards.Count > 1)
 			{

@@ -152,6 +152,23 @@ public sealed class BoardManager : Component
 		}
 	}
 
+	public float GetHealthPercent()
+	{
+		var segments = Scene.GetAllComponents<BugSegment>().Where( x => x.Network.OwnerId == Network.OwnerId );
+		var totalSegments = segments.Count();
+		var totalHealth = segments.Sum( x => x.Health );
+		var totalMaxHealth = BugReferences.Sum( x => ResourceLibrary.Get<BugResource>( x.ResourceId ).StartingHealth * x.ObjectIds.Count );
+		return (float)totalHealth / totalMaxHealth;
+	}
+
+	public float GetScorePercent()
+	{
+		var myScore = GetHealthPercent();
+		var opponentScore = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId ).GetHealthPercent();
+		return myScore / (myScore + opponentScore);
+
+	}
+
 	[Authority]
 	public void SaveBugReferences()
 	{
