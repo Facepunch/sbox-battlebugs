@@ -74,7 +74,7 @@
           "Evaluation": "Particle",
           "Constants": "0.5,2,0,0"
         },
-        "MaxParticles": 100,
+        "MaxParticles": 20,
         "PerParticleTimeScale": {
           "Constants": "1,0.4,0,0"
         },
@@ -88,7 +88,7 @@
         "Scale": {
           "Type": "Curve",
           "CurveA": {
-            "rangey": "0,2",
+            "rangey": "0,10",
             "frames": [
               {
                 "in": -9.333329,
@@ -109,14 +109,18 @@
           },
           "Constants": "1,0,0,0"
         },
-        "SequenceId": {},
+        "SequenceId": {
+          "Type": "Range",
+          "Evaluation": "Particle",
+          "Constants": "0,10,0,0"
+        },
         "SequenceSpeed": {
           "Constants": "1,0,0,0"
         },
         "SequenceTime": {
           "Constants": "1,0,0,0"
         },
-        "SheetSequence": false,
+        "SheetSequence": true,
         "Space": "World",
         "StartVelocity": {
           "Type": "Range",
@@ -135,7 +139,7 @@
         "BlurOpacity": 0.91,
         "BlurSpacing": 0.73,
         "DepthFeather": 0,
-        "FaceVelocity": false,
+        "FaceVelocity": true,
         "FogStrength": 1,
         "LeadingTrail": true,
         "MotionBlur": false,
@@ -144,7 +148,7 @@
         "Scale": 1,
         "Shadows": false,
         "SortMode": "Unsorted",
-        "Texture": "materials/particles/shapes/circle1.vtex"
+        "Texture": "particles/leaf_sprite.vtex"
       },
       {
         "__type": "Sandbox.ParticleSphereEmitter",
