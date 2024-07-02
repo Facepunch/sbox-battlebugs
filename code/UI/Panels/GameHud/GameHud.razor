@@ -1,3 +1,4 @@
+@using System;
 @using Sandbox;
 @using Sandbox.UI;
 @namespace Battlebugs
@@ -78,5 +79,5 @@
 		return "Your opponent is thinking...";
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GetHeader());
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GetHeader(), Math.Floor(Time.Now / 2f));
 }

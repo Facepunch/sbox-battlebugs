@@ -122,6 +122,12 @@ public sealed class BoardManager : Component
 		IsReady = !IsReady;
 	}
 
+	public void PurchaseWeapon( WeaponResource weapon )
+	{
+		Coins -= weapon.Cost;
+		WeaponInventory[weapon]++;
+	}
+
 	void ResetBugInventory()
 	{
 		var allBugs = ResourceLibrary.GetAll<BugResource>();

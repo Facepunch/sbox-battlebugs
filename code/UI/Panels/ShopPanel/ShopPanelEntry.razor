@@ -1,0 +1,45 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root onclick=@Purchase>
+	<img src=@Weapon.Icon />
+	<div class="info">
+		<div class="top">
+			<label class="name">@Weapon.Name</label>
+			@if (Weapon.Cost > 0)
+			{
+				<span class="cost">🪙 @Weapon.Cost</span>
+			}
+			else
+			{
+				<span class="cost">🚫</span>
+			}
+		</div>
+		<div class="description">
+			@(Weapon.Cost > 0 ? Weapon.Description : "This weapon cannot be purchased.")
+		</div>
+	</div>
+</root>
+
+@code
+{
+	public WeaponResource Weapon { get; set; }
+
+	void Purchase()
+	{
+		if (Weapon.Cost > 0 && BoardManager.Local.Coins >= Weapon.Cost)
+		{
+			Sound.Play("shop-purchase");
+			BoardManager.Local.PurchaseWeapon(Weapon);
+		}
+		else
+		{
+			Sound.Play("ui.button.deny");
+		}
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(Weapon);
+}

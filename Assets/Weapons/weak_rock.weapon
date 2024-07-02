@@ -9,7 +9,7 @@
   "Spray": 1,
   "Prefab": {
     "_type": "gameobject",
-    "prefab": "prefabs/rocks/rock.prefab"
+    "prefab": "prefabs/rocks/weak_rock.prefab"
   },
   "__references": [],
   "__version": 0

@@ -11,7 +11,7 @@
 		<div class="weapons">
 			@foreach (var entry in BoardManager.Local.WeaponInventory)
 			{
-				<WeaponButton Entry=@entry />
+				<WeaponButton Weapon=@entry.Key />
 			}
 		</div>
 	</div>

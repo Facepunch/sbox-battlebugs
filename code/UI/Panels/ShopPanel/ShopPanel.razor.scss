@@ -33,6 +33,17 @@ ShopPanel
 			align-items: center;
 		}
 
+		> .content
+		{
+			width: 100%;
+			flex-grow: 1;
+			padding: 8px;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			flex-direction: column;
+			gap: 8px;
+		}
+
 		> .close
 		{
 			position: absolute;
@@ -40,6 +51,17 @@ ShopPanel
 			right: 8px;
 			font-size: 32px;
 			cursor: pointer;
+
+			&:hover
+			{
+				sound-in: ui.button.over;
+				background-color: rgba(white, 0.05);
+			}
+
+			&:active
+			{
+				sound-in: ui.navigate.back;
+			}
 		}
 	}
 

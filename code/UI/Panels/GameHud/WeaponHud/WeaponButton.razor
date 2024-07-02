@@ -6,32 +6,34 @@
 
 <root class=@GetClass()>
 	<div class="icon">
-		<img src=@Entry.Key.Icon />
-		<label>@(Entry.Value < 0 ? "∞" : $"x{Entry.Value}")</label>
+		<img src=@Weapon.Icon />
+		<label>@(Value < 0 ? "∞" : $"x{Value}")</label>
 	</div>
-	<label>@Entry.Key.Name</label>
+	<label>@Weapon.Name</label>
 	<div class="border" />
 
 	<div class="info-panel">
 		<div class="header">
-			<img src=@Entry.Key.Icon />
+			<img src=@Weapon.Icon />
 			<div class="info">
-				<label class="name">@Entry.Key.Name</label>
-				<label class="count">Count: @(Entry.Value < 0 ? "∞" : Entry.Value.ToString())</label>
+				<label class="name">@Weapon.Name</label>
+				<label class="count">Count: @(Value < 0 ? "∞" : Value.ToString())</label>
 			</div>
 		</div>
-		<label>@Entry.Key.Description</label>
+		<label>@Weapon.Description</label>
 	</div>
 </root>
 
 @code
 {
-	public KeyValuePair<WeaponResource, int> Entry { get; set; }
+	public WeaponResource Weapon { get; set; }
+
+	int Value => BoardManager.Local.WeaponInventory[Weapon];
 
 	string GetClass()
 	{
-		string str = BoardManager.Local.SelectedWeapon == Entry.Key ? "selected" : "";
-		if (Entry.Value == 0)
+		string str = BoardManager.Local.SelectedWeapon == Weapon ? "selected" : "";
+		if (Value == 0)
 		{
 			str += " disabled";
 		}
@@ -39,10 +41,10 @@
 	}
 	protected override void OnMouseDown(MousePanelEvent e)
 	{
-		if (Entry.Value == 0) return;
+		if (Value == 0) return;
 
-		BoardManager.Local.SelectedWeapon = Entry.Key;
+		BoardManager.Local.SelectedWeapon = Weapon;
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local.SelectedWeapon, Entry.Value);
+	protected override int BuildHash() => System.HashCode.Combine(BoardManager.Local.SelectedWeapon, Value);
 }

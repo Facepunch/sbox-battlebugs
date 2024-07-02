@@ -8,6 +8,12 @@
 	<div class="container">
 		<span class="header"><i>shopping_cart</i>Shop</span>
 		<i class="close" onclick=@(() => IsOpen = false)>close</i>
+		<div class="content">
+			@foreach (var weapon in BoardManager.Local.WeaponInventory.OrderBy(x => x.Key.Cost))
+			{
+				<ShopPanelEntry Weapon=@weapon.Key />
+			}
+		</div>
 	</div>
 </root>
 
@@ -29,6 +35,7 @@
 
 	public void Open()
 	{
+		Sound.Play("ui.navigate.forward");
 		IsOpen = true;
 	}
 
