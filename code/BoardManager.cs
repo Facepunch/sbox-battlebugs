@@ -171,6 +171,12 @@ public sealed class BoardManager : Component
 		}
 	}
 
+	[Authority]
+	public void GiveCoins( int amount )
+	{
+		Coins += amount;
+	}
+
 	void SetupCpuBoard()
 	{
 		int attempts = 0;
