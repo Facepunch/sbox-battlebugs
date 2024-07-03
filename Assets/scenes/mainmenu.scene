@@ -61,8 +61,8 @@
           "ZIndex": 100
         },
         {
-          "__type": "MainMenu",
-          "__guid": "425fb42b-bd56-426a-924c-f109505a9086"
+          "__type": "Battlebugs.MainMenu",
+          "__guid": "8feded2f-2ded-4dfe-93cb-13d51ee61d8e"
         }
       ]
     },
@@ -1608,7 +1608,6 @@
   },
   "Title": "mainmenu",
   "Description": "",
-  "LastSaved": "2024-07-03T10:16:29.0885848\u002B01:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1

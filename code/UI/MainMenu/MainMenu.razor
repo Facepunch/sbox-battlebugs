@@ -1,5 +1,6 @@
 @using Sandbox;
 @using Sandbox.UI;
+@namespace Battlebugs
 @inherits PanelComponent
 
 <root>
@@ -26,7 +27,7 @@
 		@if (State == MenuState.Stats)
 		{
 			<div class="content-panel">
-				@* <StatsPanel /> *@
+				<StatsPanel />
 			</div>
 		}
 	</div>
