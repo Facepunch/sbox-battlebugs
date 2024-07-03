@@ -19,7 +19,12 @@
 					<div class="fill" style="width: @(fill)%" />
 				}
 			</div>
-			<div class="banner">@GetHeader()</div>
+			<div class="banner">
+				<label>@GetHeader()</label>
+				<div class="timer-bar @(GameManager.Instance.IsFiring ? "show" : "")">
+					<div class="fill" style="width: @(100f - GameManager.Instance.TimeSinceTurnStart / 10f * 100f)%" />
+				</div>
+			</div>
 		</div>
 		@if (GameManager.Instance.Boards.Count > 1)
 		{
@@ -55,5 +60,5 @@
 		return "Your opponent is thinking...";
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GetHeader(), BoardManager.Local.GetScorePercent());
+	protected override int BuildHash() => System.HashCode.Combine(GameManager.Instance.State, GameManager.Instance.IsFiring ? GameManager.Instance.TimeSinceTurnStart.ToString() : "");
 }

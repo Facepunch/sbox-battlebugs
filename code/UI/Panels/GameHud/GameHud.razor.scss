@@ -49,6 +49,31 @@ GameHud {
 				background-color: rgba(black, 0.7);
 				font-size: 38px;
 				border-radius: 0px 0px 32px 32px;
+				flex-direction: column;
+				gap: 8px;
+
+				.timer-bar
+				{
+					width: 890;
+					height: 8px;
+					background-color: #ffffff3f;
+					opacity: 0;
+					transition: opacity 1s ease-out;
+
+					.fill
+					{
+						position: relative;
+						top: 0;
+						left: 0;
+						height: 100%;
+						background-color: #ffffff;
+					}
+
+					&.show
+					{
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}

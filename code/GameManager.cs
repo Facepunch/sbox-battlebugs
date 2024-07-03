@@ -23,6 +23,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[HostSync] public GameState State { get; set; }
 	[HostSync] public Guid CurrentPlayerId { get; set; }
 	[HostSync] public bool IsFiring { get; set; }
+	[HostSync] public TimeSince TimeSinceTurnStart { get; set; }
 
 	// Local Variables
 	public bool CpuMode;
@@ -122,6 +123,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void StartTurn()
 	{
+		TimeSinceTurnStart = 0;
 		CurrentPlayerId = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId ).Network.OwnerId;
 		IsFiring = true;
 	}
@@ -208,6 +210,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 			{
 				UpdateCamera( otherPlayer );
 				LastPebblePosition = Scene.Camera.Transform.Position + Scene.Camera.Transform.Rotation.Forward * 1000f;
+
+				if ( TimeSinceTurnStart >= 10f )
+				{
+					CurrentPlayer.AttackRandomly();
+				}
 			}
 			else
 			{

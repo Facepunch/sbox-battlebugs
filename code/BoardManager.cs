@@ -60,7 +60,7 @@ public sealed class BoardManager : Component
 		if ( GameManager.Instance.CurrentPlayer != this ) timeSinceTurnStart = 0;
 		if ( Network.OwnerConnection is null && timeSinceTurnStart > 2.5f && GameManager.Instance.CurrentPlayer == this && GameManager.Instance.State == GameState.Playing && GameManager.Instance.IsFiring )
 		{
-			CpuAttack();
+			AttackRandomly();
 		}
 	}
 
@@ -125,7 +125,8 @@ public sealed class BoardManager : Component
 		}
 	}
 
-	void CpuAttack()
+	[Authority]
+	public void AttackRandomly()
 	{
 		var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
 		var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 48 : 250));
