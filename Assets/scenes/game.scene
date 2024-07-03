@@ -1,5 +1,5 @@
 {
-  "__guid": "0a6f73ad-c962-4a62-8138-7b0fd9c6faa6",
+  "__guid": "671e2004-c6a0-4acf-ab7d-4ac705c2f48b",
   "GameObjects": [
     {
       "__guid": "7fadc147-f669-400b-9617-bb39f723b259",
@@ -275,7 +275,6 @@
   },
   "Title": "game",
   "Description": "",
-  "LastSaved": "2024-07-02T00:00:05.0416692-04:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
