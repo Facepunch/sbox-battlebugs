@@ -1,0 +1,56 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<label class="header">Stats</label>
+	<div class="entry">
+		<label class="stat">Games Played</label>
+		<label class="value">@Stats.Get("games_played").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Games Won</label>
+		<label class="value">@Stats.Get("games_won").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Games Lost</label>
+		<label class="value">@Stats.Get("games_lost").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Coins Earned</label>
+		<label class="value">@Stats.Get("coins_earned").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Coins Spent</label>
+		<label class="value">@Stats.Get("coins_spent").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Bugs Killed</label>
+		<label class="value">@Stats.Get("bugs_killed").ValueString</label>
+	</div>
+	<div class="entry">
+		<label class="stat">Damage Dealt</label>
+		<label class="value">@Stats.Get("damage_dealt").ValueString</label>
+	</div>
+</root>
+
+@code
+{
+	Sandbox.Services.Stats.PlayerStats Stats
+	{
+		get
+		{
+			if (_stats == null)
+			{
+				_stats = Sandbox.Services.Stats.GetLocalPlayerStats(Game.Ident);
+			}
+			return _stats;
+
+		}
+	}
+	Sandbox.Services.Stats.PlayerStats _stats = null;
+
+	protected override int BuildHash() => System.HashCode.Combine("");
+}

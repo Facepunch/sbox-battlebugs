@@ -35,6 +35,7 @@ MainMenu
 		{
 			flex-direction: column;
 			justify-content: flex-end;
+			flex-shrink: 0;
 		}
 
 		.content-panel
