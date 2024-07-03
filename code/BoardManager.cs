@@ -165,6 +165,7 @@ public sealed class BoardManager : Component
 
 	public float GetScorePercent()
 	{
+		if ( GameManager.Instance.State < GameState.Playing ) return 0.5f;
 		var myScore = GetHealthPercent();
 		var opponentScore = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId ).GetHealthPercent();
 		return myScore / (myScore + opponentScore);
