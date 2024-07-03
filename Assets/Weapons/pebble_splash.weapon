@@ -2,7 +2,7 @@
   "Name": "Pebble Splash",
   "Description": "Fires a splash of 9-10 small pebbles that deal 1 damage each.",
   "Icon": "ui/weapons/pebble-splash.png",
-  "StartingAmount": 6,
+  "StartingAmount": 3,
   "Cost": 50,
   "AmountFired": "9.00,10.00,1",
   "Damage": "1.00,8.00,0",

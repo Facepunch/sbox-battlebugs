@@ -1,0 +1,16 @@
+{
+  "Name": "Double Rock",
+  "Description": "Fires 2 medium-sized rocks that deal 6 damage each. Each rock can hit up to 3 bugs/cells.",
+  "Icon": "ui/weapons/rock.png",
+  "StartingAmount": 3,
+  "Cost": 30,
+  "AmountFired": "2.00,0.00,0",
+  "Damage": "6.00,8.00,0",
+  "Spray": 32,
+  "Prefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/rocks/weak_rock.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}
