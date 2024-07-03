@@ -1,0 +1,53 @@
+MainMenu {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	border-radius: 20px;
+	font-family: "paper cuts 2";
+	pointer-events: all;
+	cursor: "bug-default";
+	backdrop-filter: blur( 10px );
+
+	.title {
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 50px;
+		font-size: 105px;
+		color: #fff;
+		text-shadow: 10px 10px 5px black;
+	}
+
+	.button-container {
+		flex-direction: column;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 50px;
+	}
+
+	.button {
+		width: 500px;
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		font-size: 66px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 12px;
+		box-shadow: 10px 10px 5px black;
+		cursor: "bug-hover";
+
+		&:hover {
+			background-color: #45a049;
+			sound-in: ui.button.over;
+		}
+	}
+}

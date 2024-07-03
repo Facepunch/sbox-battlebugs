@@ -1,0 +1,31 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="title">BATTLEBUGS</div>
+	<div class="button-container">
+		<div class="button" onclick="@(() => Play())">Play</div>
+		<div class="button" onclick="@(() => Quit())">Quit</div>
+	</div>
+</root>
+
+@code
+{
+	void Play()
+	{
+		Game.ActiveScene.LoadFromFile("scenes/game.scene");
+	}
+
+	void Quit()
+	{
+		if (Game.IsEditor)
+		{
+			Log.Info("Quit");
+		}
+		else
+		{
+			Game.Close();
+		}
+	}
+}
