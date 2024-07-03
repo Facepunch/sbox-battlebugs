@@ -7,7 +7,7 @@
 	<label class="title">Paused</label>
 	<div class="content">
 		<button onclick=@(() => IsOpen = false)>Resume</button>
-		<button class="red" onclick=@(() => Game.ActiveScene.Load(SceneFile))>Quit to Main Menu</button>
+		<button class="red" onclick=@(() => ReturnToMainMenu())>Quit to Main Menu</button>
 	</div>
 </root>
 
@@ -30,6 +30,11 @@
 			IsOpen = !IsOpen;
 			Input.EscapePressed = false;
 		}
+	}
+
+	public void ReturnToMainMenu()
+	{
+		Game.ActiveScene.Load(SceneFile);
 	}
 
 	protected override int BuildHash() => System.HashCode.Combine(IsOpen);

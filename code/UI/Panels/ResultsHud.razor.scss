@@ -13,6 +13,7 @@ ResultsHud
 	opacity: 1;
 	transform: scale(1);
 	transition: all 0.5s ease-out;
+	pointer-events: all;
 
 	> .container
 	{
@@ -169,6 +170,32 @@ ResultsHud
 				justify-content: space-evenly;
 			}
 		}
+	}
+
+	button
+	{
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 8px 32px;
+		text-align: center;
+		font-size: 32px;
+		cursor: pointer;
+		box-shadow: 6px 6px 0px black;
+		cursor: "bug-hover";
+
+		&:hover
+		{
+			background-color: #45a049;
+			sound-in: ui.button.over;
+		}
+
+		&:active
+		{
+			background-color: #3e8e41;
+			sound-in: ui.button.press;
+		}
+	
 	}
 
 	&:intro

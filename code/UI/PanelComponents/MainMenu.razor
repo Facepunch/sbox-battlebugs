@@ -15,8 +15,8 @@
 			}
 			else if (State == MenuState.Play)
 			{
-				<div class="button" onclick="@(() => StartGame(true))">VS CPU</div>
-				<div class="button" onclick="@(() => StartGame(false))">VS Player (Online)</div>
+				<div class="button" onclick="@(() => StartGame(true))">Bot Match</div>
+				<div class="button" onclick="@(() => StartGame(false))">Host Game</div>
 				<div class="button red" onclick="@(() => ButtonBack())">Back</div>
 			}
 			else if (State == MenuState.Stats)
