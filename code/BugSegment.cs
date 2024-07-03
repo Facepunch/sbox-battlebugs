@@ -128,7 +128,7 @@ public class BugSegment : Component
     }
 
     [Broadcast]
-    void BroadcastDestroyFX( bool dropCoin = false )
+    public void BroadcastDestroyFX( bool dropCoin = false )
     {
         Sound.Play( "impact-bullet-flesh", Transform.Position );
         if ( dropCoin ) GameManager.Instance.SpawnCoins( Transform.Position, 3 );

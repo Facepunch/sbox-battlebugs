@@ -83,7 +83,8 @@ public sealed class PlacementInput : Component
 				foreach ( var bug in bugs )
 				{
 					bug.Cell.IsOccupied = false;
-					bug.Clear();
+					bug.BroadcastDestroyFX();
+					bug.GameObject.Destroy();
 				}
 			}
 			BoardManager.Local.IsReady = false;
