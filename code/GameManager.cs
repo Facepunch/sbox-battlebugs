@@ -14,7 +14,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[RequireComponent] InspectInput _inspectInput { get; set; }
 
 	// Properties
-	[Property, Title( "CPU Mode" )] public bool CpuMode { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject BoardPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject CellPrefab { get; set; }
 	[Property, Group( "Prefabs" )] public GameObject DamageNumberPrefab { get; set; }
@@ -26,6 +25,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[HostSync] public bool IsFiring { get; set; }
 
 	// Local Variables
+	public bool CpuMode;
 	public List<BoardManager> Boards;
 	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.Network.OwnerId == CurrentPlayerId );
 	Vector3 LastPebblePosition;
@@ -40,6 +40,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	protected override async Task OnLoad()
 	{
+		CpuMode = MainMenu.IsCpuGame;
+
 		if ( Scene.IsEditor ) return;
 		if ( CpuMode ) return;
 
@@ -319,12 +321,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	[Broadcast]
-	public void SendChatMessage(string message)
+	public void SendChatMessage( string message )
 	{
-		var playerHud = PlayerHud.Instances.FirstOrDefault(x => x.Board.Network.OwnerId == Rpc.CallerId);
-		if (playerHud is null) return;
+		var playerHud = PlayerHud.Instances.FirstOrDefault( x => x.Board.Network.OwnerId == Rpc.CallerId );
+		if ( playerHud is null ) return;
 
-		playerHud.AddChatMessage(message);
+		playerHud.AddChatMessage( message );
 	}
 
 }

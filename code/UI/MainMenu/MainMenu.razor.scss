@@ -1,4 +1,5 @@
-MainMenu {
+MainMenu
+{
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -7,23 +8,25 @@ MainMenu {
 	justify-content: center;
 	align-items: center;
 	font-weight: bold;
-	border-radius: 20px;
 	font-family: "paper cuts 2";
 	pointer-events: all;
 	cursor: "bug-default";
-	backdrop-filter: blur( 10px );
+	background-color: rgba(black, 0.2);
+	backdrop-filter: blur( 1px );
 
-	.title {
+	.title 
+	{
 		position: absolute;
 		top: 0;
 		right: 0;
 		padding: 50px;
-		font-size: 105px;
+		font-size: 128px;
 		color: #fff;
-		text-shadow: 10px 10px 5px black;
+		text-shadow: 8px 8px 0px black;
 	}
 
-	.button-container {
+	.button-container
+	{
 		flex-direction: column;
 		position: absolute;
 		bottom: 0;
@@ -31,23 +34,44 @@ MainMenu {
 		padding: 50px;
 	}
 
-	.button {
+	.button
+	{
 		width: 500px;
 		background-color: #4CAF50;
 		border: none;
 		color: white;
 		padding: 15px 32px;
 		text-align: center;
-		font-size: 66px;
+		font-size: 54px;
 		margin: 4px 2px;
 		cursor: pointer;
-		border-radius: 12px;
-		box-shadow: 10px 10px 5px black;
+		box-shadow: 6px 6px 0px black;
 		cursor: "bug-hover";
 
-		&:hover {
+		&:hover
+		{
 			background-color: #45a049;
 			sound-in: ui.button.over;
+		}
+
+		&.red
+		{
+			background-color: #f44336;
+
+			&:hover
+			{
+				background-color: #d32f2f;
+			}
+		}
+
+		&.blue
+		{
+			background-color: #2196F3;
+
+			&:hover
+			{
+				background-color: #1e87f0;
+			}
 		}
 	}
 }

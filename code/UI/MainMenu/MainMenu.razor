@@ -5,15 +5,77 @@
 <root>
 	<div class="title">BATTLEBUGS</div>
 	<div class="button-container">
-		<div class="button" onclick="@(() => Play())">Play</div>
-		<div class="button" onclick="@(() => Quit())">Quit</div>
+		@if (State == MenuState.Main)
+		{
+			<div class="button" onclick="@(() => ButtonPlay())">Play</div>
+			<div class="button blue" onclick="@(() => ButtonStats())">Stats</div>
+			<div class="button red" onclick="@(() => Quit())">Quit</div>
+		}
+		else if (State == MenuState.Play)
+		{
+			<div class="button" onclick="@(() => StartGame(true))">VS CPU</div>
+			<div class="button" onclick="@(() => StartGame(false))">VS Player (Online)</div>
+			<div class="button red" onclick="@(() => ButtonBack())">Back</div>
+		}
+		else if (State == MenuState.Stats)
+		{
+			<div class="button red" onclick="@(() => ButtonBack())">Back</div>
+		}
 	</div>
 </root>
 
 @code
 {
-	void Play()
+	public static MainMenu Instance { get; private set; }
+	public static bool IsCpuGame { get; private set; } = true;
+
+	public MenuState State = MenuState.Main;
+	Angles cameraAngles = Angles.Zero;
+
+	public enum MenuState
 	{
+		Main,
+		Play,
+		Stats
+	}
+
+	protected override void OnAwake()
+	{
+		Instance = this;
+	}
+
+	protected override void OnStart()
+	{
+		cameraAngles = Scene.Camera.Transform.Rotation;
+	}
+
+	protected override void OnUpdate()
+	{
+		var camAngles = cameraAngles + new Angles(Mouse.Position.y - (Screen.Height / 2f), -Mouse.Position.x - (-Screen.Width / 2f), 0) * 0.0015f;
+		Scene.Camera.Transform.Rotation = Angles.Lerp(Scene.Camera.Transform.Rotation, camAngles, Time.Delta * 5.0f);
+	}
+
+	void ButtonPlay()
+	{
+		State = MenuState.Play;
+		Sound.Play("ui.button.press");
+	}
+
+	void ButtonStats()
+	{
+		State = MenuState.Stats;
+		Sound.Play("ui.button.press");
+	}
+
+	void ButtonBack()
+	{
+		State = MenuState.Main;
+		Sound.Play("ui.navigate.back");
+	}
+
+	void StartGame(bool isCpuGame = false)
+	{
+		IsCpuGame = isCpuGame;
 		Game.ActiveScene.LoadFromFile("scenes/game.scene");
 	}
 
@@ -28,4 +90,6 @@
 			Game.Close();
 		}
 	}
+
+	protected override int BuildHash() => System.HashCode.Combine(State);
 }
