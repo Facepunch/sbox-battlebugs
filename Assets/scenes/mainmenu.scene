@@ -24,6 +24,26 @@
       ]
     },
     {
+      "__guid": "59860220-a452-496c-8de9-c3e66a690227",
+      "Flags": 0,
+      "Name": "Soundscape",
+      "Position": "-128,0,64",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundscapeTrigger",
+          "__guid": "36196203-b6d0-48a4-952d-0b17772422a1",
+          "BoxSize": "50,50,50",
+          "Radius": 500,
+          "Soundscape": "sounds/outdoors.sndscape",
+          "StayActiveOnExit": true,
+          "Type": "Point"
+        }
+      ]
+    },
+    {
       "__guid": "6ebd0095-ed3d-40a9-925e-8ebb4af35be0",
       "Flags": 0,
       "Name": "Screen - UI",
@@ -1588,7 +1608,7 @@
   },
   "Title": "mainmenu",
   "Description": "",
-  "LastSaved": "2024-07-03T10:12:10.0530628\u002B01:00",
+  "LastSaved": "2024-07-03T10:16:29.0885848\u002B01:00",
   "ResourceVersion": 1,
   "__references": [],
   "__version": 1
