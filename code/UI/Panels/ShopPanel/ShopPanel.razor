@@ -9,7 +9,7 @@
 		<span class="header"><i>shopping_cart</i>Shop</span>
 		<i class="close" onclick=@(() => IsOpen = false)>close</i>
 		<div class="content">
-			@foreach (var weapon in BoardManager.Local.WeaponInventory.OrderBy(x => x.Key.Cost))
+			@foreach (var weapon in BoardManager.Local.WeaponInventory.OrderBy(x => x.Key.Cost).Where(x => x.Key.Cost > 0))
 			{
 				<ShopPanelEntry Weapon=@weapon.Key />
 			}
