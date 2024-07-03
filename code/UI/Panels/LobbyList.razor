@@ -1,0 +1,77 @@
+@using System.Threading.Tasks;
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Network;
+@namespace Battlebugs
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<label class="header">Lobbies</label>
+	<div class="lobbies">
+		@if (!refreshing && list.Count > 0)
+		{
+			@foreach (var lobby in list)
+			{
+				<div class="lobby">
+					<img src="ui/gamepad.png" />
+					<div class="info">
+						<label class="name">@lobby.Name</label>
+						<label class="desc">Looking for opponent...</label>
+					</div>
+				</div>
+			}
+		}
+		else
+		{
+			<div class="no-lobbies">
+				No lobbies found...
+			</div>
+		}
+		@* <div class="lobby">
+		<img src="ui/gamepad.png" />
+		<div class="info">
+		<label class="name">Carson vs Bakscratch</label>
+		<label class="desc">Waiting for players...</label>
+		</div>
+		</div> *@
+	</div>
+</root>
+
+@code
+{
+	List<LobbyInformation> list = new();
+	bool refreshing = true;
+
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		base.OnAfterTreeRender(firstTime);
+
+		if (firstTime)
+		{
+			_ = RefreshLobbyList();
+		}
+	}
+
+	async Task RefreshLobbyList()
+	{
+		while (true)
+		{
+			await Refresh();
+			await Task.DelayRealtimeSeconds(5f);
+		}
+	}
+
+	async Task Refresh()
+	{
+		refreshing = true;
+		StateHasChanged();
+
+		list = await Networking.QueryLobbies();
+
+		refreshing = false;
+		StateHasChanged();
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine("");
+}

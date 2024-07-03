@@ -24,7 +24,13 @@
 				<div class="button red" onclick="@(() => ButtonBack())">Back</div>
 			}
 		</div>
-		@if (State == MenuState.Stats)
+		@if (State == MenuState.Play)
+		{
+			<div class="content-panel">
+				<LobbyList />
+			</div>
+		}
+		else if (State == MenuState.Stats)
 		{
 			<div class="content-panel">
 				<StatsPanel />
