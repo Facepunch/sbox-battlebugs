@@ -31,7 +31,7 @@ public sealed class AttackingInput : Component
 
 		if ( ReticleState == 0 )
 		{
-			if ( !ShopPanel.Instance.IsOpen && tr.Hit && tr.GameObject.Components.TryGet<CellComponent>( out var cell ) )
+			if ( !ShopPanel.Instance.IsOpen && !PauseMenu.Instance.IsOpen && tr.Hit && tr.GameObject.Components.TryGet<CellComponent>( out var cell ) )
 			{
 				if ( cell.Board != BoardManager.Local )
 				{

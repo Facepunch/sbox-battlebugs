@@ -1,0 +1,84 @@
+PauseMenu
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(black, 0.9);
+	z-index: 1000;
+	cursor: "bug-default";
+	font-family: "paper cuts 2";
+	color: white;
+	font-size: 32px;
+	padding: 256px;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	pointer-events: all;
+	opacity: 0;
+	transition: all 0.1s ease-in-out;
+
+	.title 
+	{
+		font-size: 128px;
+		text-shadow: 8px 8px 0px black;
+	}
+
+	> .content
+	{
+		flex-grow: 1;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+
+		button
+		{
+			width: 500px;
+			background-color: #4CAF50;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			text-align: center;
+			font-size: 54px;
+			margin: 4px 2px;
+			cursor: pointer;
+			box-shadow: 6px 6px 0px black;
+			cursor: "bug-hover";
+
+			&:hover
+			{
+				background-color: #45a049;
+				sound-in: ui.button.over;
+			}
+
+			&:active
+			{
+				background-color: #3e8e41;
+				sound-in: ui.button.press;
+			}
+
+			&.red
+			{
+				background-color: #f44336;
+
+				&:hover
+				{
+					background-color: #d32f2f;
+				}
+
+				&:active
+				{
+					background-color: #c62828;
+				}
+			}
+		}
+	}
+
+	&.show
+	{
+		opacity: 1;
+	}
+
+}

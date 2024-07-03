@@ -34,7 +34,6 @@
             "_type": "gameobject",
             "prefab": "prefabs/coin.prefab"
           },
-          "CpuMode": true,
           "DamageNumberPrefab": {
             "_type": "gameobject",
             "prefab": "prefabs/particles/particle_damage_number.prefab"
@@ -106,6 +105,11 @@
         {
           "__type": "Battlebugs.HintPanel",
           "__guid": "bc670327-2f86-4c94-89a5-6c53df47fd3a"
+        },
+        {
+          "__type": "Battlebugs.PauseMenu",
+          "__guid": "60a3f095-adab-4c3b-8dcd-259a975b0601",
+          "SceneFile": "scenes/mainmenu.scene"
         }
       ]
     },

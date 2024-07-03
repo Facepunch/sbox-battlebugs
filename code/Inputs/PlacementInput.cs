@@ -25,7 +25,7 @@ public sealed class PlacementInput : Component
 			.WithoutTags( "bug" )
 			.Run();
 
-		if ( tr.Hit )
+		if ( !PauseMenu.Instance.IsOpen && tr.Hit )
 		{
 			var newCell = tr.GameObject.Components.Get<CellComponent>();
 			if ( newCell?.Board != BoardManager.Local ) return;

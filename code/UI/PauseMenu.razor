@@ -1,0 +1,36 @@
+@using Sandbox;
+@using Sandbox.UI;
+@namespace Battlebugs
+@inherits PanelComponent
+
+<root class="@(IsOpen ? "show" : "")">
+	<label class="title">Paused</label>
+	<div class="content">
+		<button onclick=@(() => IsOpen = false)>Resume</button>
+		<button class="red" onclick=@(() => Game.ActiveScene.Load(SceneFile))>Quit to Main Menu</button>
+	</div>
+</root>
+
+@code
+{
+	public static PauseMenu Instance { get; private set; }
+	[Property] SceneFile SceneFile { get; set; }
+
+	public bool IsOpen { get; private set; }
+
+	protected override void OnAwake()
+	{
+		Instance = this;
+	}
+
+	protected override void OnUpdate()
+	{
+		if (Input.EscapePressed)
+		{
+			IsOpen = !IsOpen;
+			Input.EscapePressed = false;
+		}
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(IsOpen);
+}
