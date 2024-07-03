@@ -1,0 +1,1595 @@
+{
+  "__guid": "04cacc63-79ef-412e-8570-b5ceba7c4038",
+  "GameObjects": [
+    {
+      "__guid": "92750727-3c71-4f1b-8d27-a8258dabf350",
+      "Flags": 0,
+      "Name": "Directional Light",
+      "Position": "0,-0.00002291037,128",
+      "Rotation": "-0.25,0.4330127,0.4330127,0.7500001",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "a64a5301-7fb3-4e97-9de5-3d9d42bae4be",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "1,0.97395,0.92558,1",
+          "Shadows": true,
+          "SkyColor": "0.7,0.7,0.7,1"
+        }
+      ]
+    },
+    {
+      "__guid": "6ebd0095-ed3d-40a9-925e-8ebb4af35be0",
+      "Flags": 0,
+      "Name": "Screen - UI",
+      "Position": "-251.4384,34.02167,51.95111",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "c9881029-4342-443f-afcf-f2bcfd92b315",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ZIndex": 100
+        },
+        {
+          "__type": "MainMenu",
+          "__guid": "425fb42b-bd56-426a-924c-f109505a9086"
+        }
+      ]
+    },
+    {
+      "__guid": "72e8700f-3ff8-4b0f-a4a2-a63c053861dd",
+      "Flags": 0,
+      "Name": "Gradient Fog",
+      "Position": "0,0,192",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.GradientFog",
+          "__guid": "3b151c69-613d-4b66-95b0-b80acacdd3e6",
+          "Color": "0.66047,0.37805,0.05529,1",
+          "EndDistance": 2048,
+          "FalloffExponent": 4,
+          "Height": 256,
+          "StartDistance": 1100,
+          "VerticalFalloffExponent": 2
+        }
+      ]
+    },
+    {
+      "__guid": "8c5a5685-2d78-49b8-890d-caa5e0174007",
+      "Flags": 0,
+      "Name": "Main Camera",
+      "Position": "-479.0386,31.13064,172.8885",
+      "Rotation": "0,0.258819,0,0.9659259",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "2c785fd9-07c6-4ee6-badc-a581c1241234",
+          "BackgroundColor": "0.66275,0.37647,0.0549,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.Bloom",
+          "__guid": "3106f5df-9b72-46af-8515-1cd41a7ee750",
+          "BloomColor": {
+            "color": [
+              {
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "y": 0.5
+            },
+            {
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "Mode": "Screen",
+          "Strength": 2.27,
+          "Threshold": 0.91,
+          "ThresholdWidth": 0.76
+        },
+        {
+          "__type": "Sandbox.AmbientOcclusion",
+          "__guid": "a658db41-e7ac-4d9f-b77b-600623ab2fad",
+          "Intensity": 14.2,
+          "Quality": "High",
+          "Radius": 32
+        },
+        {
+          "__type": "Sandbox.Tonemapping",
+          "__guid": "d996fcba-c0a0-4377-beac-cc807a8e7341",
+          "__version": 1,
+          "ExposureBias": 6.35,
+          "ExposureCompensation": 0,
+          "ExposureMethod": "RGB",
+          "MaximumExposure": 2,
+          "MinimumExposure": 1,
+          "Mode": "HableFilmic",
+          "Rate": 1
+        },
+        {
+          "__type": "Sandbox.Vignette",
+          "__guid": "15c3e383-86bb-4c7b-8203-28698cf18836",
+          "Center": "0.5,0.5",
+          "Color": "0,0,0,1",
+          "Intensity": 0.4,
+          "Roundness": 1,
+          "Smoothness": 1
+        },
+        {
+          "__type": "Sandbox.Sharpen",
+          "__guid": "8ef4f1e5-b5b3-44fd-ad02-af6e76a13d64",
+          "Scale": 1
+        }
+      ]
+    },
+    {
+      "__guid": "5a0a51d9-cfdf-4803-a994-eed207c29b20",
+      "Flags": 0,
+      "Name": "Box",
+      "Position": "128,0,0",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "655fcf78-031e-4789-b7bf-cf21888f38a5",
+          "Collision": "Mesh",
+          "Color": "0.00784,0.0902,0.01176,1",
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACk2MAQoAIAgDrSz7/4drBwoOjmKbczO7Ygg0hYuTHuB1hXgS/so\u002Bqi4vOdnOrb6NT15bJXy63JDz/\u002Bg6SXigAAAA",
+            "Positions": [
+              "-896,-1408,0",
+              "896,-1408,0",
+              "896,1408,0",
+              "-896,1408,0"
+            ],
+            "TextureCoord": [
+              "7,11",
+              "0,0",
+              "7,-11",
+              "0,0",
+              "-7,-11",
+              "0,0",
+              "-7,11",
+              "0,0"
+            ],
+            "TextureUAxis": [
+              "1,0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0"
+            ],
+            "TextureScale": [
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,0"
+            ],
+            "MaterialIndex": [
+              1
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/paper/tint_paper.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true
+        }
+      ]
+    },
+    {
+      "__guid": "8bfa5aa0-7490-44f7-978b-c167ab8bfe5a",
+      "Flags": 0,
+      "Name": "ground_02a",
+      "Position": "448,-640,0.09984268",
+      "Rotation": "0,0,-0.6348195,0.7726604",
+      "Scale": "2.126939,2.126939,2.126939",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6e1a7228-8412-49ef-af5e-f44f1043e9b9",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/ground/ground_02a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "fdde2742-457c-4f80-99d9-f8b1d2f38425",
+      "Flags": 0,
+      "Name": "cliff_01",
+      "Position": "192,320,1.820078",
+      "Rotation": "0,0,0.9914449,-0.1305261",
+      "Scale": "1,1.911808,1.054836",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "76532d1e-956a-41dc-ac2e-e03643c2226c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.5907,0.5907,0.5907,1"
+        }
+      ]
+    },
+    {
+      "__guid": "32b7a368-6825-4708-ab6e-302c80b2361e",
+      "Flags": 0,
+      "Name": "cliff_01 (2)",
+      "Position": "231.5571,-342.8412,9.049595",
+      "Rotation": "0,0,0.9914449,-0.1305261",
+      "Scale": "1,1.911808,1.054836",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "708dbaba-b091-4b9e-8645-aa0cf994fee5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.33488,0.33488,0.33488,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d5729fb6-a44e-4b0c-80fb-2a4f67260380",
+      "Flags": 0,
+      "Name": "cliff_01 (1)",
+      "Position": "235.8047,-50.55742,4.61486",
+      "Rotation": "0,0,0.9971204,0.07583362",
+      "Scale": "1,1.451443,0.8359021",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "0abbc490-6157-42c7-b937-5b3e329c8a08",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.5907,0.5907,0.5907,1"
+        }
+      ]
+    },
+    {
+      "__guid": "6cc712ea-f0e9-46cf-9ad2-7203e40bcd4f",
+      "Flags": 0,
+      "Name": "cliff_01a",
+      "Position": "302.911,110.6766,0.00001059207",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Scale": "1.930333,0.628544,1.550009",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "fcd751b1-fe0a-40c7-b49d-536eebfdeb52",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c491f411-9229-44ea-b283-de92f1d2dbfb",
+      "Flags": 0,
+      "Name": "cliff_01a (1)",
+      "Position": "110.0292,-183.1971,0.000006540861",
+      "Rotation": "0,0,-1,0.0000001947072",
+      "Scale": "0.5598764,0.8289981,0.5259528",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1c8ef79b-070c-435e-9bc1-297348cf4f18",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/cliff/cliff_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "0.6093,0.6093,0.6093,1"
+        }
+      ]
+    },
+    {
+      "__guid": "20e9ad1c-6419-4bbc-8347-0837926af3d6",
+      "Flags": 0,
+      "Name": "grass_01 (35)",
+      "Position": "44.61681,375.7284,3.60905",
+      "Rotation": "0,0,0.9678453,-0.2515463",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7a085420-8e46-4cd8-ba85-3786dba704d4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "24bb0612-606f-4c33-85a3-4a257f0b6850",
+      "Flags": 0,
+      "Name": "grass_01 (1)",
+      "Position": "42.19402,329.7772,3.609024",
+      "Rotation": "0,0,0.990435,0.1379799",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "ea1ac5b3-998f-48dc-a1ba-7eedf8f70065",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "81f0a867-ad72-4b59-a39b-72d4f67f76d0",
+      "Flags": 0,
+      "Name": "grass_01 (4)",
+      "Position": "19.58377,288.424,3.609034",
+      "Rotation": "0,0,0.9099314,-0.414759",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "edcdbb36-fd07-4132-91ff-30a0892d8696",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c62a535e-8526-448c-9023-9b91f9c3f50f",
+      "Flags": 0,
+      "Name": "grass_01 (5)",
+      "Position": "26.83485,239.8931,3.60899",
+      "Rotation": "0,0,0.1066127,-0.9943007",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "14d95acb-ad44-4dec-a24a-ee699f02779c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "cc50ac31-c004-4b1b-a0f8-fc7a056ea751",
+      "Flags": 0,
+      "Name": "grass_01 (2)",
+      "Position": "51.63314,291.9725,3.609041",
+      "Rotation": "0,0,0.9892576,-0.1461826",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a639e07d-04d8-4bc4-a115-a1bf49589810",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "bdd3db21-9170-491e-a102-cabb47c660b5",
+      "Flags": 0,
+      "Name": "grass_01 (3)",
+      "Position": "61.50731,259.2914,3.609041",
+      "Rotation": "0,0,-0.2011998,-0.9795502",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "87b07096-6353-4a20-8253-26712018718a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "89937b1a-cb25-4ef4-a248-2140ce56294a",
+      "Flags": 0,
+      "Name": "grass_01 (17)",
+      "Position": "98.13553,-75.79222,6.86994",
+      "Rotation": "0,0,-0.2011998,-0.9795502",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "442e40da-0f55-4333-af2b-426193ed3866",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "29421064-23da-4976-951f-ed33702b0345",
+      "Flags": 0,
+      "Name": "grass_01 (18)",
+      "Position": "70.05336,-78.11579,7.200921",
+      "Rotation": "0,0,-0.8769052,-0.4806632",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "4831633c-e7ca-496e-8f4a-3c2b33122c0e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "7c1803f3-826c-4a0d-a82b-30d008a856f5",
+      "Flags": 0,
+      "Name": "grass_01 (19)",
+      "Position": "25.96831,-243.4357,4.987438",
+      "Rotation": "0,0,-0.8769052,-0.4806632",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5455ecb1-0cf6-498f-a7f1-cc51d750abdc",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5cc16df3-7323-48fd-baa6-c1becdea625d",
+      "Flags": 0,
+      "Name": "grass_01 (10)",
+      "Position": "86.23315,92.87511,4.53802",
+      "Rotation": "0,0,-0.1137517,-0.9935091",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f213d271-0d11-4416-b414-8b33fe6ed1c7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "dda24e05-af67-4326-bc7c-8c5a054f7c27",
+      "Flags": 0,
+      "Name": "grass_01 (12)",
+      "Position": "-103.6445,-93.60097,4.538016",
+      "Rotation": "0,0,0.2682163,-0.9633587",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "4994dfa7-5887-4f71-b29f-176189e5b662",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "09ae3a95-47a8-491d-9e94-ec6209e3e001",
+      "Flags": 0,
+      "Name": "grass_01 (13)",
+      "Position": "-84.45816,-130.5432,4.811872",
+      "Rotation": "0,0,-0.4020192,-0.9156311",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d1a4f16d-a274-460b-be67-26ed0d092fe7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "9d4103d9-131d-4e05-84cb-0e3ce70198a8",
+      "Flags": 0,
+      "Name": "grass_01 (11)",
+      "Position": "47.92831,55.0256,4.538017",
+      "Rotation": "0,0,-0.9998571,-0.01690058",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "e9fda38a-b559-4fbc-96cf-420258b0e704",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "fc1f9eb3-de0b-4f94-a9da-b485686f404c",
+      "Flags": 0,
+      "Name": "grass_01 (14)",
+      "Position": "-121.3333,-64.23877,4.538032",
+      "Rotation": "0,0,-0.9998571,-0.01690058",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "4535f556-1fca-4eba-94f5-3731ca6374f4",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e3298ba4-1c4a-44af-b7eb-9036fa1160c0",
+      "Flags": 0,
+      "Name": "grass_01 (15)",
+      "Position": "-62.48692,25.86642,4.538041",
+      "Rotation": "0,0,-0.9753308,0.2207479",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d5bc7b5b-1acd-4885-b0db-2666806bce6f",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "bd5d12fc-04cf-41ee-878c-07ca88fb76fc",
+      "Flags": 0,
+      "Name": "grass_01 (16)",
+      "Position": "-53.81942,-41.63216,6.33713",
+      "Rotation": "0,0,-0.9753308,0.2207479",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a5ad4624-0216-4554-946b-7e46327d5ca6",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "f5081b1a-6f2d-4bc0-b00d-f6a06627b85a",
+      "Flags": 0,
+      "Name": "grass_01 (6)",
+      "Position": "-248.4545,112.6336,2.868055",
+      "Rotation": "0,0,-0.2011998,-0.9795502",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "61d7f2c2-2a13-4771-a206-bf9de7232d34",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d05dc238-05e9-49ad-a4d9-1a4cf22141cf",
+      "Flags": 0,
+      "Name": "grass_01 (7)",
+      "Position": "-267.1812,154.2305,2.868051",
+      "Rotation": "0,0,0.1946921,-0.9808645",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9a4fdad2-acf4-4648-a333-caca3cc05b67",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "a512dc81-fa45-47ff-94eb-be68d55707c5",
+      "Flags": 0,
+      "Name": "grass_01 (8)",
+      "Position": "-280.0768,119.3743,2.868051",
+      "Rotation": "0,0,0.9448276,-0.3275684",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "67302902-1159-4a65-a8c2-331bd7294481",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c005defe-7963-4d4b-80bb-69aa71a8307c",
+      "Flags": 0,
+      "Name": "grass_01 (9)",
+      "Position": "-264.4839,-10.90676,2.868063",
+      "Rotation": "0,0,0.9516894,0.307063",
+      "Scale": "0.1934719,0.1934719,0.2038216",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "541d19f6-5d02-4fb1-a4d6-387b3d31b65c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "78c47b85-afd7-4402-80af-6ccfefb5f9b0",
+      "Flags": 0,
+      "Name": "rock_01",
+      "Position": "68.3782,217.2626,2.367314",
+      "Rotation": "0,0,0.9615228,0.2747251",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "6c98ec7d-8778-4ab2-b34e-c2022170f627",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "39e229a1-b7ea-49c2-9d28-f1ee9b939d87",
+      "Flags": 0,
+      "Name": "rock_01 (5)",
+      "Position": "-30.72631,27.87967,4.917245",
+      "Rotation": "0,0,0.9616469,-0.2742908",
+      "Scale": "1.145289,1.145289,1.412611",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a154a106-e8c5-4643-b0f7-3c09f5906256",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "adf93a0f-3b35-4bb3-a838-18ffdc4b8eca",
+      "Flags": 0,
+      "Name": "rock_01 (4)",
+      "Position": "112.1367,40.27719,6.435344",
+      "Rotation": "0,0,0.5471902,-0.8370084",
+      "Scale": "1.710183,1.441317,2.228233",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "16e094b2-c716-4240-bc35-5590cd47bdc9",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.70698,0.70698,0.70698,1"
+        }
+      ]
+    },
+    {
+      "__guid": "80a11270-e7e9-43bb-a6f8-3abfcb442e1f",
+      "Flags": 0,
+      "Name": "rock_01 (7)",
+      "Position": "65.23164,-294.4009,4.210856",
+      "Rotation": "0,0,0.5471902,-0.8370084",
+      "Scale": "1.710183,1.441317,2.228233",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "88c0a678-3980-4738-acb5-9b44e23f601b",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.70698,0.70698,0.70698,1"
+        }
+      ]
+    },
+    {
+      "__guid": "428eab9b-b288-489d-9afe-3b21af9c86e8",
+      "Flags": 0,
+      "Name": "rock_01 (6)",
+      "Position": "-21.80291,-10.98683,5.706261",
+      "Rotation": "0,0,0.9846572,-0.1745",
+      "Scale": "1.710183,1.441317,2.228233",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b9d55c5e-b700-4029-818a-dcfa444177b8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "0.70698,0.70698,0.70698,1"
+        }
+      ]
+    },
+    {
+      "__guid": "3cedddc2-c170-4026-afe9-f1724ba83a78",
+      "Flags": 0,
+      "Name": "rock_01 (2)",
+      "Position": "-219.3879,152.7342,0.618762",
+      "Rotation": "0,0,0.9615228,0.2747251",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5e31d5f5-0095-494f-860f-26c6c7915170",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "359395cc-1cbd-46d8-9df4-76a405d57abe",
+      "Flags": 0,
+      "Name": "rock_01 (3)",
+      "Position": "-230.0421,72.84044,2.439785",
+      "Rotation": "0,0,0.5461075,-0.8377151",
+      "Scale": "1,1,0.5402464",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "21fc8567-b42d-48e9-9de2-2ac3410320e5",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "822d934a-a02d-4349-b33e-5aaaf0acb09f",
+      "Flags": 0,
+      "Name": "rock_01 (1)",
+      "Position": "89.14692,154.2892,2.609688",
+      "Rotation": "0,0,0.3673839,0.9300694",
+      "Scale": "2.018371,2.018371,2.018371",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1814a14d-2c55-4ae3-a2bd-041d4c7dda79",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/rock/rock_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "4182b44a-8239-4124-ad31-012376f64fa1",
+      "Flags": 0,
+      "Name": "ground_01a",
+      "Position": "-268.6361,77.37526,0.1481283",
+      "Rotation": "0,0,0.679365,0.7338005",
+      "Scale": "1.766598,1.191672,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7cd1dc89-79e6-4c96-9520-01a9b3022355",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/ground/ground_01a.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "11a9ac41-53c0-40bd-b621-c17056a35e2c",
+      "Flags": 0,
+      "Name": "tree_02 (1)",
+      "Position": "-250.3918,151.2468,1.677837",
+      "Rotation": "0,0,0.9364576,-0.3507806",
+      "Scale": "0.3353771,0.3098927,0.2783321",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a23d9bf1-b865-48b3-9d16-315c34fed62c",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "default",
+          "Model": "models/paper/trees/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "9ebfd6b3-99de-4830-a4da-d6a1a54fd14d",
+      "Flags": 0,
+      "Name": "tree_02 (3)",
+      "Position": "-226.9914,107.8317,1.677838",
+      "Rotation": "0,0,0.3777247,-0.9259179",
+      "Scale": "0.274211,0.2622372,0.1962643",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "04892b5e-c0a3-4444-b6eb-b0aa5a991ca8",
+          "BodyGroups": 18446744073709551615,
+          "MaterialGroup": "tree2",
+          "Model": "models/paper/trees/tree_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b31e3bea-bc48-40ff-b833-5c1364a936a7",
+      "Flags": 0,
+      "Name": "tree_02 (2)",
+      "Position": "-95.06451,-111.3177,4.262792",
+      "Rotation": "0,0,0.9364576,-0.3507806",
+      "Scale": "0.3353771,0.3098927,0.2783321",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f21114d6-b529-4467-8a2c-5c8087f7c669",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/trees/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "44158922-f88c-44d9-9400-589c610d005b",
+      "Flags": 0,
+      "Name": "tree_02 (4)",
+      "Position": "70.22184,64.23381,5.624876",
+      "Rotation": "0,0,0.4470548,-0.8945065",
+      "Scale": "0.1927949,0.2250909,0.1523728",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "eb494a34-539f-4a61-a261-cec5a7e3299e",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/trees/tree_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "77e3c66c-7c77-48b6-a5fc-4be9c3c8fabf",
+      "Flags": 0,
+      "Name": "grass_03 (13)",
+      "Position": "-307.9634,112.4898,2.983599",
+      "Rotation": "0,0,0.995195,-0.09791465",
+      "Scale": "1.602888,1.602888,1.602888",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "9755cf79-1924-4a10-8342-2d12cb72fbce",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_03.vmdl",
+          "RenderType": "On",
+          "Tint": "0.07476,0.34419,0.04482,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ce891b30-d9d7-4e05-bcee-adb3d9482043",
+      "Flags": 0,
+      "Name": "grass_03 (2)",
+      "Position": "9.069427,128.3931,2.983544",
+      "Rotation": "0,0,0.995195,-0.09791465",
+      "Scale": "1.602888,1.602888,1.602888",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a58eed78-53be-4276-931b-ba8b0f0ae398",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_03.vmdl",
+          "RenderType": "On",
+          "Tint": "0.03752,0.21395,0.01791,1"
+        }
+      ]
+    },
+    {
+      "__guid": "deedbc25-943e-46fe-89d3-ef9082d92e9a",
+      "Flags": 0,
+      "Name": "grass_03 (1)",
+      "Position": "-296.5402,-0.2420731,2.983606",
+      "Rotation": "0,0,0.9953635,0.09618621",
+      "Scale": "1.262803,1.262803,1.262803",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "04f558f9-850e-46b5-82ce-d7b3bd3bdb55",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_03.vmdl",
+          "RenderType": "On",
+          "Tint": "0.10597,0.46977,0.06555,1"
+        }
+      ]
+    },
+    {
+      "__guid": "2cd452cf-980e-4127-94ff-6bc930f05846",
+      "Flags": 0,
+      "Name": "grass_03 (3)",
+      "Position": "-69.45704,-2.813942,4.626028",
+      "Rotation": "0,0,0.9953635,0.09618621",
+      "Scale": "1.262803,1.262803,1.262803",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "94a09a71-62a6-46e8-8f87-9a84980d4d03",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/grass/grass_03.vmdl",
+          "RenderType": "On",
+          "Tint": "0.10597,0.46977,0.06555,1"
+        }
+      ]
+    },
+    {
+      "__guid": "37bf3c9b-9ea2-4e12-a8d6-8766ad3620a2",
+      "Flags": 0,
+      "Name": "fence_01",
+      "Position": "-290.7131,161.0368,2.021074",
+      "Rotation": "0,0,-0.09794591,0.9951918",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "2ac45411-1a07-42f5-b54a-32ef16448f55",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ad14f87f-dd2f-4bff-afac-2072d502d3c5",
+      "Flags": 0,
+      "Name": "fence_02",
+      "Position": "-297.8345,121.0471,2.889927",
+      "Rotation": "0,0,0.1238679,0.9922987",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b0c07c7a-f010-4fb7-a4f3-460777fb5256",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "799e4a1f-29c0-40f3-b89a-b0eb9201466e",
+      "Flags": 0,
+      "Name": "fence_02 (1)",
+      "Position": "-285.9073,82.43666,2.889927",
+      "Rotation": "0,0,0.4093387,0.9123826",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5e7ffc55-219b-4e12-bd46-3ff45a6b5d23",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "ace406a6-965f-46b3-bf0f-10e44365bda0",
+      "Flags": 0,
+      "Name": "bush_02",
+      "Position": "-269.0683,52.93818,3.102787",
+      "Rotation": "0,0,-0.9659258,0.2588192",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "8ba8ff91-7081-4a57-b043-f3376721aff8",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bush/bush_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "78709fd3-1fa1-4692-b041-2472ba9edc14",
+      "Flags": 0,
+      "Name": "leaves_fall_01",
+      "Position": "-202.2132,0.000003205942,256",
+      "Tags": "particles",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.LegacyParticleSystem",
+          "__guid": "ce579c13-1201-4a23-ac18-a30a87d770cd",
+          "ControlPoints": [],
+          "Looped": false,
+          "Particles": "particles/leaves_fall_01.vpcf",
+          "PlaybackSpeed": 1
+        }
+      ]
+    },
+    {
+      "__guid": "d74929fb-c026-46e6-a957-e35a2be4b8ee",
+      "Flags": 0,
+      "Name": "leaves_fall_01 (1)",
+      "Position": "-202.2132,0.000003205942,232.2499",
+      "Rotation": "0,0,0.3826834,0.9238796",
+      "Tags": "particles",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.LegacyParticleSystem",
+          "__guid": "2592e2f6-a747-409f-9f6a-ec36d1d6c334",
+          "ControlPoints": [],
+          "Looped": false,
+          "Particles": "particles/leaves_fall_01.vpcf",
+          "PlaybackSpeed": 1
+        }
+      ]
+    },
+    {
+      "__guid": "748bb8e8-8a22-4ddb-818d-96a786fb84bf",
+      "Flags": 0,
+      "Name": "dragonfly",
+      "Position": "-279.5221,103.5441,52.41574",
+      "Rotation": "-0.1678164,-0.003154621,-0.9568496,0.2372057",
+      "Scale": "0.5052003,0.5052003,0.5052003",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "fb05f1d1-ef55-4984-b68f-6a90fdaed329",
+          "BodyGroups": 18446744073709551615,
+          "CreateBoneObjects": false,
+          "Model": "models/paper/bugs/dragonfly.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": true
+        }
+      ]
+    },
+    {
+      "__guid": "caf84ed1-b87a-4ed0-8ce7-7e132af2d10a",
+      "Flags": 0,
+      "Name": "dragonfly (1)",
+      "Position": "-188.7681,-87.65955,51.55216",
+      "Rotation": "0.08373574,0.155418,0.9744441,0.1388969",
+      "Scale": "0.5541634,0.5541634,0.5541634",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "e6e3660c-aba9-49e6-bc7c-77548170bfa4",
+          "BodyGroups": 18446744073709551615,
+          "CreateBoneObjects": false,
+          "Model": "models/paper/bugs/bee.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": true
+        }
+      ]
+    },
+    {
+      "__guid": "b59817bb-9235-4285-aedf-b69ac975e1ff",
+      "Flags": 0,
+      "Name": "ladybug",
+      "Position": "-298.3242,-83.69489,1.549026",
+      "Rotation": "0,0,0.903659,0.4282526",
+      "Scale": "0.6756487,0.6756487,0.6756487",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b11d9ac7-21f3-4a0b-b4d1-98c78cb83a6f",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bugs/ladybug.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "100f7fc4-b9e2-4316-ae6d-7804d606bd8b",
+      "Flags": 0,
+      "Name": "caterpillar_head",
+      "Position": "-87.60969,62.78949,3.317877",
+      "Rotation": "0,0,-0.9906783,0.1362209",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "b3ae532c-1cd1-4c6e-9e8b-60c91d7b35fb",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bugs/caterpillar_head.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "97f9b7ec-0544-42ae-a922-83c3b6972bdd",
+      "Flags": 0,
+      "Name": "caterpillar_head (1)",
+      "Position": "-61.05788,70.22334,3.284511",
+      "Rotation": "0.01522376,-0.001753019,-0.7969588,-0.603839",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "40b95c0a-266f-4bb0-a64f-54f7c7ad6237",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bugs/caterpillar_corner.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "8e753b12-f037-4a43-8369-0620e4128a89",
+      "Flags": 0,
+      "Name": "caterpillar_body",
+      "Position": "-68.01734,96.50262,3.317878",
+      "Rotation": "0,0,0.796838,0.6041929",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "7c6fb05d-5a12-4d0e-a9d5-950b352282d7",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bugs/caterpillar_body.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "1be6ae1a-116d-4a83-81f4-dfec3ba26b63",
+      "Flags": 0,
+      "Name": "caterpillar_body (1)",
+      "Position": "-75.37865,122.7645,3.317878",
+      "Rotation": "0,0,0.796838,0.6041929",
+      "Scale": "0.5,0.5,0.5",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "5ff9b3e9-22fc-4b02-8738-1d8ec50c6cb3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/bugs/caterpillar_body.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "5585e9d1-cba8-43c9-b0fe-8da937c1b471",
+      "Flags": 0,
+      "Name": "fence_01",
+      "Position": "13.30652,164.3219,2.627174",
+      "Rotation": "0,0,0.1984217,0.9801167",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "1be8fa8a-bfdf-468d-85a8-b7eb4fbbd77a",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "264d2999-7ef9-48e7-9b57-c2d01a6e093e",
+      "Flags": 0,
+      "Name": "fence_01 (1)",
+      "Position": "63.09519,52.51139,5.628107",
+      "Rotation": "0,0,0.007133022,0.9999745",
+      "Scale": "1,1.317658,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "a8e6d8f2-b3f3-40f5-a077-6ad0a7331cb3",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "cd2a6d5e-2bff-4885-bc18-25656a8628c5",
+      "Flags": 0,
+      "Name": "fence_02",
+      "Position": "29.96916,128.1291,4.060629",
+      "Rotation": "0,0,0.2285948,0.9735217",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "074df570-1dea-414d-9fb9-0c2993673553",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "47a80904-a874-4c81-b54a-a3d919744352",
+      "Flags": 0,
+      "Name": "fence_02 (2)",
+      "Position": "48.56069,93.55228,4.060629",
+      "Rotation": "0,0,0.1903497,0.9817163",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "d2e5f040-58e1-48b9-b9ab-40d14483d547",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_02.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "b2fb03f5-64e8-4128-a014-787b769582d0",
+      "Flags": 0,
+      "Name": "fence_01",
+      "Position": "-124.2971,-27.22618,4.119911",
+      "Rotation": "0,0,0.333299,0.9428211",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "bf7138a9-877b-4f36-9532-9322ffc889c9",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "e898236d-b2b2-45aa-9dfa-1a75ce53ce93",
+      "Flags": 0,
+      "Name": "fence_01 (2)",
+      "Position": "-95.87932,-61.27193,4.119911",
+      "Rotation": "0,0,0.2643488,0.9644271",
+      "Scale": "1,1.314693,1",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "f0b6fb9f-f70d-4533-ac8d-45364806c723",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_01.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "d38a4576-1c1d-4ae8-8c78-c9ae63e36ee0",
+      "Flags": 0,
+      "Name": "fence_03",
+      "Position": "-58.13185,-140.7571,4.889241",
+      "Rotation": "0,0,-0.9916475,0.1289774",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "92af3a48-bdb4-4954-8da5-c90a3d28fb2c",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_03.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "780eb3bd-900f-4bee-93fe-04c8e4379b85",
+      "Flags": 0,
+      "Name": "fence_03 (1)",
+      "Position": "-42.50937,-176.7059,4.889241",
+      "Rotation": "0,0,-0.9676952,0.2521232",
+      "Enabled": true,
+      "NetworkMode": 2,
+      "NetworkInterpolation": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ModelRenderer",
+          "__guid": "998e2cc3-e847-4371-ad85-7d87f2b76235",
+          "BodyGroups": 18446744073709551615,
+          "Model": "models/paper/fence/fence_03.vmdl",
+          "RenderType": "On",
+          "Tint": "1,1,1,1"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "Title": "mainmenu",
+  "Description": "",
+  "LastSaved": "2024-07-03T10:12:10.0530628\u002B01:00",
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}
