@@ -1,12 +1,10 @@
-PlayerHud
-{
+PlayerHud {
 	flex-direction: column;
 	align-items: center;
 	width: 160px;
 	gap: 8px;
 
-	.player
-	{
+	.player {
 		position: relative;
 		flex-direction: column;
 		color: black;
@@ -16,8 +14,7 @@ PlayerHud
 		color: white;
 		text-shadow: 1px 1px 1px black;
 
-		> img
-		{
+		> img {
 			position: absolute;
 			width: 100%;
 			height: 100%;
@@ -25,30 +22,26 @@ PlayerHud
 			z-index: -5;
 		}
 
-		.content
-		{
+		.content {
 			flex-direction: column;
 			padding: 16px;
 			height: 260px;
 			gap: 4px;
 			align-items: center;
 
-			img
-			{
+			img {
 				aspect-ratio: 1;
 				width: 100%;
 			}
 		}
 	}
 
-	.chat-container
-	{
+	.chat-container {
 		width: 240px;
 		flex-direction: column;
 		gap: 8px;
 
-		TextEntry
-		{
+		TextEntry {
 			width: 100%;
 			min-height: 50px;
 			height: auto;
@@ -59,27 +52,24 @@ PlayerHud
 			pointer-events: all;
 			font-size: 16px;
 			display: none;
+			cursor: "bug-textedit";
 
-			> label
-			{
+			> label {
 				max-width: 240px;
 				white-space: normal;
 			}
 
-			&:focus
-			{
+			&:focus {
 				display: flex;
 			}
 		}
 
-		.messages
-		{
+		.messages {
 			flex-direction: column-reverse;
 			gap: 8px;
 			color: black;
 
-			ChatEntry
-			{
+			ChatEntry {
 				width: 100%;
 				background-color: rgb(255, 255, 255);
 				border: 2px solid rgb(167, 167, 167);
@@ -91,13 +81,11 @@ PlayerHud
 				text-align: center;
 				justify-content: center;
 
-				&:intro
-				{
+				&:intro {
 					opacity: 0;
 				}
 
-				&:outro
-				{
+				&:outro {
 					transition: opacity 2s linear;
 					opacity: 0;
 				}
@@ -105,12 +93,9 @@ PlayerHud
 		}
 	}
 
-	&:last-child
-	{
-		.player
-		{
-			> img
-			{
+	&:last-child {
+		.player {
+			> img {
 				filter: hue-rotate(140deg);
 			}
 		}

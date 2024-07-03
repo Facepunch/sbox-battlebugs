@@ -10,7 +10,7 @@ WeaponButton {
 	text-shadow: 0 0 4px black;
 	background-color: rgba(black, 0.2);
 	pointer-events: all;
-	cursor: pointer;
+	cursor: "bug-hover";
 	width: 160px;
 	justify-content: space-evenly;
 
@@ -97,7 +97,7 @@ WeaponButton {
 	}
 
 	&.disabled {
-		cursor: not-allowed;
+		cursor: "bug-disabled";
 		opacity: 0.5;
 	}
 }

@@ -94,7 +94,7 @@ PlacingHud {
 			padding: 10px 24px;
 			border: none;
 			border-radius: 4px;
-			cursor: pointer;
+			cursor: "bug-hover";
 			font-size: 24px;
 			margin: 0 8px;
 			transition: background-color 0.3s;
@@ -117,14 +117,13 @@ PlacingHud {
 				&:hover {
 					background-color: #0d8bf2;
 				}
-			
 			}
 
 			&.ready-up {
 
 				&.disabled {
 					background-color: #666;
-					cursor: not-allowed;
+					cursor: "bug-disabled";
 				}
 			}
 		}

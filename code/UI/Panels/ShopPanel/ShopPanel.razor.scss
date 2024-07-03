@@ -1,5 +1,4 @@
-ShopPanel
-{
+ShopPanel {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -14,8 +13,7 @@ ShopPanel
 	font-size: 24px;
 	pointer-events: all;
 
-	> .container
-	{
+	> .container {
 		position: absolute;
 		top: 20%;
 		left: 30%;
@@ -26,15 +24,13 @@ ShopPanel
 		flex-direction: column;
 		align-items: center;
 
-		> .header
-		{
+		> .header {
 			font-size: 42px;
 			gap: 16px;
 			align-items: center;
 		}
 
-		> .content
-		{
+		> .content {
 			width: 100%;
 			flex-grow: 1;
 			padding: 8px;
@@ -44,29 +40,25 @@ ShopPanel
 			gap: 8px;
 		}
 
-		> .close
-		{
+		> .close {
 			position: absolute;
 			top: 8px;
 			right: 8px;
 			font-size: 32px;
-			cursor: pointer;
+			cursor: "bug-hover";
 
-			&:hover
-			{
+			&:hover {
 				sound-in: ui.button.over;
 				background-color: rgba(white, 0.05);
 			}
 
-			&:active
-			{
+			&:active {
 				sound-in: ui.navigate.back;
 			}
 		}
 	}
 
-	&.show
-	{
+	&.show {
 		opacity: 1;
 		transform: scale(1);
 	}

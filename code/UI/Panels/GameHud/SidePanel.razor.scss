@@ -1,5 +1,4 @@
-SidePanel
-{
+SidePanel {
 	position: absolute;
 	top: 150px;
 	left: 0px;
@@ -10,8 +9,7 @@ SidePanel
 	font-family: "paper cuts 2";
 	font-size: 16px;
 
-	.container
-	{
+	.container {
 		padding: 8px;
 		background-color: rgba(black, 0.5);
 		flex-direction: column;
@@ -25,7 +23,7 @@ SidePanel
 			color: white;
 			font-family: "paper cuts 2";
 			font-size: 16px;
-			cursor: pointer;
+			cursor: "bug-hover";
 			transition: background-color 0.1s ease-out;
 			align-items: center;
 			gap: 8px;
