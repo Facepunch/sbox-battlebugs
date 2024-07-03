@@ -126,9 +126,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		IsFiring = true;
 	}
 
+	[Broadcast]
 	void EndGame()
 	{
-		State = GameState.Results;
+		if ( Networking.IsHost )
+		{
+			State = GameState.Results;
+		}
+
+		var didWin = BoardManager.Local.GetScorePercent() > 0.5f;
+		Sandbox.Services.Stats.Increment( "games_played", 1 );
+		if ( didWin ) Sandbox.Services.Stats.Increment( "games_won", 1 );
+		else Sandbox.Services.Stats.Increment( "games_lost", 1 );
 	}
 
 	protected override void OnUpdate()

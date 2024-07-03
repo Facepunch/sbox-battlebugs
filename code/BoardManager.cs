@@ -127,12 +127,6 @@ public sealed class BoardManager : Component
 		IsReady = !IsReady;
 	}
 
-	public void PurchaseWeapon( WeaponResource weapon )
-	{
-		Coins -= weapon.Cost;
-		WeaponInventory[weapon]++;
-	}
-
 	void ResetBugInventory()
 	{
 		var allBugs = ResourceLibrary.GetAll<BugResource>();
@@ -200,11 +194,31 @@ public sealed class BoardManager : Component
 		}
 	}
 
+	public void PurchaseWeapon( WeaponResource weapon )
+	{
+		Coins -= weapon.Cost;
+		WeaponInventory[weapon]++;
+		Sandbox.Services.Stats.Increment( "coins_spent", weapon.Cost );
+	}
+
 	[Authority]
 	public void GiveCoins( int amount )
 	{
 		Coins += amount;
 		CoinsSpent += amount;
+		Sandbox.Services.Stats.Increment( "coins_earned", amount );
+	}
+
+	[Authority]
+	public void IncrementBugsKilled()
+	{
+		BugsKilled++;
+		Sandbox.Services.Stats.Increment( "bugs_killed", 1 );
+	}
+
+	public void IncrementDamageDealt( float damage )
+	{
+		Sandbox.Services.Stats.Increment( "damage_dealt", (int)damage );
 	}
 
 	[Authority]

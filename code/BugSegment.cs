@@ -86,7 +86,7 @@ public class BugSegment : Component
         if ( IsProxy ) return;
         var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
         otherBoard.GiveCoins( 20 );
-        otherBoard.BugsKilled++;
+        otherBoard.IncrementBugsKilled();
         if ( GameManager.Instance.State == GameState.Playing ) Cell.BroadcastClear();
         BroadcastDestroyFX( dropCoin );
         GameObject.Destroy();
@@ -120,6 +120,12 @@ public class BugSegment : Component
 
         _targetAlpha = 1f;
         GetCell()?.BroadcastHit();
+
+        var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
+        if(otherBoard == BoardManager.Local)
+        {
+            otherBoard.IncrementDamageDealt( damage );
+        }
 
         if ( IsProxy ) return;
 
