@@ -1,6 +1,6 @@
 {
   "Name": "Flat Top",
-  "Description": "Fires a large flat stone that deals 6 damage to everything it touches. Can hit up to 5 different bugs/cells in one shot.",
+  "Description": "Fires a giant flat stone that deals 10 damage to everything it touches. Can hit up to 5 different bugs/cells in one shot.",
   "Icon": "ui/weapons/flat-stone.png",
   "StartingAmount": 3,
   "Cost": 70,
