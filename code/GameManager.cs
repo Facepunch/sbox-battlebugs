@@ -37,24 +37,18 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Instance = this;
 		State = GameState.Waiting;
 		Boards = new();
-
-		if ( !IsProxy )
-		{
-			CpuMode = MainMenu.IsCpuGame;
-		}
 	}
 
 	protected override async Task OnLoad()
 	{
 		if ( Scene.IsEditor ) return;
+		if ( GameNetworkSystem.IsActive ) return;
+		CpuMode = MainMenu.IsCpuGame;
 		if ( CpuMode ) return;
 
-		if ( !GameNetworkSystem.IsActive )
-		{
-			LoadingScreen.Title = "Creating Lobby";
-			await Task.DelayRealtimeSeconds( 0.1f );
-			GameNetworkSystem.CreateLobby();
-		}
+		LoadingScreen.Title = "Creating Lobby";
+		await Task.DelayRealtimeSeconds( 0.1f );
+		GameNetworkSystem.CreateLobby();
 	}
 
 	protected override void OnStart()
