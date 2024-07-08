@@ -17,7 +17,11 @@
 					<img src="ui/gamepad.png" />
 					<div class="info">
 						<label class="name">@lobby.Name</label>
-						<label class="desc">Looking for opponent...</label>
+						@* <label class="desc">Looking for opponent...</label> *@
+					</div>
+					<div class="players">
+						<i>person</i>
+						<label>@lobby.Members/@lobby.MaxMembers</label>
 					</div>
 				</div>
 			}
@@ -28,11 +32,16 @@
 				No lobbies found...
 			</div>
 		}
+		@* Uncomment the block below to preview a lobby entry *@
 		@* <div class="lobby">
 		<img src="ui/gamepad.png" />
 		<div class="info">
 		<label class="name">Carson vs Bakscratch</label>
 		<label class="desc">Waiting for players...</label>
+		</div>
+		<div class="players">
+		<i>person</i>
+		<label>1/2</label>
 		</div>
 		</div> *@
 	</div>
