@@ -193,7 +193,7 @@ public sealed class CellComponent : Component
 	{
 		UpdateHighlight();
 
-		if ( IsHit && !Network.IsOwner )
+		if ( IsHit && !Network.IsOwner && BoardManager.Local.IsValid() )
 		{
 			if ( IsOccupied )
 				HintPanel.Instance.YellowCellNotification();
