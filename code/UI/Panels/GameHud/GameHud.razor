@@ -49,6 +49,20 @@
 
 	string GetHeader()
 	{
+		if (!BoardManager.Local.IsValid())
+		{
+			if (GameManager.Instance.State == GameState.Placing)
+			{
+				return "Waiting for players to place bugs...";
+			}
+			else if (GameManager.Instance.CurrentPlayer == GameManager.Instance.Boards.FirstOrDefault())
+			{
+				return $"It's {GameManager.Instance.Boards.FirstOrDefault().GameObject.Name}'s turn!";
+			}
+
+			return $"It's {GameManager.Instance.Boards.LastOrDefault().GameObject.Name}'s turn!";
+		}
+
 		if (GameManager.Instance.State == GameState.Placing)
 		{
 			return "Place your bugs!";

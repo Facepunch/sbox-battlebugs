@@ -8,6 +8,9 @@
 
 	@if (!BoardManager.Local.IsValid())
 	{
+		@* Spectating UI *@
+		<GameHud />
+			
 		return;
 	}
 
