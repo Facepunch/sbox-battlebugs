@@ -209,7 +209,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 				UpdateCamera( otherPlayer );
 				LastPebblePosition = Scene.Camera.Transform.Position + Scene.Camera.Transform.Rotation.Forward * 1000f;
 
-				if ( TimeSinceTurnStart >= 10f )
+				if ( TimeSinceTurnStart >= 15f )
 				{
 					CurrentPlayer.AttackRandomly();
 				}
