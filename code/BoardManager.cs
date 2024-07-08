@@ -130,7 +130,7 @@ public sealed class BoardManager : Component
 	{
 		var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
 		var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 48 : 250));
-		var opponentPos = Local.Transform.Position;
+		var opponentPos = targetSegment.GameObject.Root.Transform.Position;
 		targetPosition = new Vector3(
 			Math.Clamp( targetPosition.x, opponentPos.x - (Width * GridSize) / 2f, opponentPos.x + (Width * GridSize) / 2f ),
 			Math.Clamp( targetPosition.y, opponentPos.y - (Height * GridSize) / 2f, opponentPos.y + (Height * GridSize) / 2f ),
