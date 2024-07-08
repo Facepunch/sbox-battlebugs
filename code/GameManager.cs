@@ -24,9 +24,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[HostSync] public Guid CurrentPlayerId { get; set; }
 	[HostSync] public bool IsFiring { get; set; }
 	[HostSync] public TimeSince TimeSinceTurnStart { get; set; }
+	[HostSync] public bool CpuMode { get; set; }
 
 	// Local Variables
-	public bool CpuMode;
 	public List<BoardManager> Boards;
 	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.Network.OwnerId == CurrentPlayerId );
 	Vector3 LastPebblePosition;
@@ -37,12 +37,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Instance = this;
 		State = GameState.Waiting;
 		Boards = new();
+
+		if ( !IsProxy )
+		{
+			CpuMode = MainMenu.IsCpuGame;
+		}
 	}
 
 	protected override async Task OnLoad()
 	{
-		CpuMode = MainMenu.IsCpuGame;
-
 		if ( Scene.IsEditor ) return;
 		if ( CpuMode ) return;
 
@@ -59,7 +62,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 		// This is really just for late-joiners
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 
-		if ( CpuMode )
+		// Initialize both boards right away if in CPU mode
+		if ( CpuMode && !IsProxy )
 		{
 			CreateBoard( Connection.Local );
 			CreateBoard( null );
