@@ -13,7 +13,7 @@
 		{
 			@foreach (var lobby in list)
 			{
-				<div class="lobby">
+				<div class="lobby" onclick=@(() => JoinLobby(lobby))>
 					<img src="ui/gamepad.png" />
 					<div class="info">
 						<label class="name">@lobby.Name</label>
@@ -80,6 +80,11 @@
 
 		refreshing = false;
 		StateHasChanged();
+	}
+
+	void JoinLobby(LobbyInformation lobby)
+	{
+		GameNetworkSystem.Connect(lobby.LobbyId);
 	}
 
 	protected override int BuildHash() => System.HashCode.Combine("");
