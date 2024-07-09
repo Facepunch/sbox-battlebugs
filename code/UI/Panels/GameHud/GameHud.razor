@@ -49,7 +49,7 @@
 
 	string GetHeader()
 	{
-		if (!BoardManager.Local.IsValid())
+		if (!BoardManager.Local.IsValid() && GameManager.Instance.Boards.Count >= 2)
 		{
 			if (GameManager.Instance.State == GameState.Placing)
 			{
@@ -59,22 +59,18 @@
 			{
 				return $"It's {GameManager.Instance.Boards.FirstOrDefault().GameObject.Name}'s turn!";
 			}
-			else if (GameManager.Instance.Boards.Count > 1)
-			{
-				return $"It's {GameManager.Instance.Boards.LastOrDefault().GameObject.Name}'s turn!";
-			}
+
+			return $"It's {GameManager.Instance.Boards.LastOrDefault().GameObject.Name}'s turn!";
 		}
 
 		if (GameManager.Instance.State == GameState.Placing)
 		{
 			return "Place your bugs!";
 		}
-
 		if (GameManager.Instance.CurrentPlayer == BoardManager.Local)
 		{
 			return "It's your turn!";
 		}
-
 		return "Your opponent is thinking...";
 	}
 
