@@ -28,7 +28,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	// Local Variables
 	public List<BoardManager> Boards;
-	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.Network.OwnerId == CurrentPlayerId );
+	public BoardManager CurrentPlayer => Boards.FirstOrDefault( x => x.IsValid() && x.Network.OwnerId == CurrentPlayerId );
 	Vector3 LastPebblePosition;
 	TimeSince TimeSincePebbleToss;
 
@@ -134,6 +134,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			State = GameState.Results;
 		}
 
+		if ( !(BoardManager.Local?.IsValid() ?? false) ) return;
 		var didWin = BoardManager.Local.GetScorePercent() > 0.5f;
 		Sandbox.Services.Stats.Increment( "games_played", 1 );
 		if ( didWin ) Sandbox.Services.Stats.Increment( "games_won", 1 );
@@ -192,18 +193,20 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void UpdateGame()
 	{
+		var currentPlayer = CurrentPlayer;
 		PlacementInput.Instance.Enabled = false;
-		AttackingInput.Instance.Enabled = IsFiring && (CurrentPlayer == BoardManager.Local);
+		AttackingInput.Instance.Enabled = IsFiring && (currentPlayer == BoardManager.Local);
 
-		if ( CurrentPlayer is not null )
+		if ( currentPlayer is not null )
 		{
-			var healthPercent = CurrentPlayer.GetHealthPercent();
+			var healthPercent = currentPlayer.GetHealthPercent();
 			if ( healthPercent == 0 )
 			{
 				EndGame();
 			}
 
-			var otherPlayer = Boards.FirstOrDefault( x => x.Network.OwnerId != CurrentPlayerId );
+			var otherPlayer = Boards.FirstOrDefault( x => x.IsValid() && x.Network.OwnerId != CurrentPlayerId );
+			if ( otherPlayer is null ) return;
 			if ( IsFiring )
 			{
 				UpdateCamera( otherPlayer );
@@ -211,7 +214,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 				if ( TimeSinceTurnStart >= 15f )
 				{
-					CurrentPlayer.AttackRandomly();
+					currentPlayer.AttackRandomly();
 				}
 			}
 			else
