@@ -44,7 +44,7 @@ public sealed class AttackingInput : Component
 					}
 					else
 					{
-						Reticle.Transform.Position = tr.HitPosition.WithZ( BoardManager.Local.Transform.Position.z ) + Vector3.Up * 4f;
+						Reticle.WorldPosition = tr.HitPosition.WithZ( BoardManager.Local.WorldPosition.z ) + Vector3.Up * 4f;
 					}
 				}
 			}
@@ -57,11 +57,11 @@ public sealed class AttackingInput : Component
 		{
 			if ( ReticleState == 1 )
 			{
-				Reticle.Transform.Position = ReticlePosition + Vector3.Forward * MathF.Sin( Time.Now * 5f ) * 72f;
+				Reticle.WorldPosition = ReticlePosition + Vector3.Forward * MathF.Sin( Time.Now * 5f ) * 72f;
 			}
 			else if ( ReticleState == 2 )
 			{
-				Reticle.Transform.Position = ReticlePosition + ReticleOffset + Vector3.Right * MathF.Sin( Time.Now * 5f ) * 72f;
+				Reticle.WorldPosition = ReticlePosition + ReticleOffset + Vector3.Right * MathF.Sin( Time.Now * 5f ) * 72f;
 			}
 		}
 
@@ -74,12 +74,12 @@ public sealed class AttackingInput : Component
 			}
 			Sound.Play( "aiming-click" );
 			ReticleState++;
-			ReticleOffset = Reticle.Transform.Position - ReticlePosition;
-			if ( ReticleState < 2 ) ReticlePosition = Reticle.Transform.Position;
+			ReticleOffset = Reticle.WorldPosition - ReticlePosition;
+			if ( ReticleState < 2 ) ReticlePosition = Reticle.WorldPosition;
 			if ( ReticleState == 3 )
 			{
 				BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon]--;
-				GameManager.Instance.BroadcastFire( BoardManager.Local.Id, BoardManager.Local.SelectedWeapon.ResourceId, Reticle.Transform.Position );
+				GameManager.Instance.BroadcastFire( BoardManager.Local.Id, BoardManager.Local.SelectedWeapon.ResourceId, Reticle.WorldPosition );
 				DestroyReticle();
 			}
 		}

@@ -29,8 +29,8 @@ public class BugSegment : Component
         Index = index;
         BugId = bug.ResourceId;
         Health = bug.StartingHealth;
-        Body.Transform.LocalPosition = Vector3.Down * 250f;
-        Body.Transform.LocalRotation = new Angles( 0, Random.Shared.Float( -180f, 180f ), 0 );
+        Body.LocalPosition = Vector3.Down * 250f;
+        Body.LocalRotation = new Angles( 0, Random.Shared.Float( -180f, 180f ), 0 );
         await GameTask.DelaySeconds( index * 0.05f );
         _initialized = true;
         Sound.Play( "segment-drop" );
@@ -55,9 +55,9 @@ public class BugSegment : Component
         if ( _initialized || IsProxy )
         {
             var targetPos = Vector3.Up * 2.5f;
-            if ( Floating ) targetPos += Vector3.Up * (MathF.Sin( (Time.Now + (Transform.Position.x + (Transform.Position.y * 10f)) / 32f) * 2f ) * 0.25f) * 8f;
-            Body.Transform.LocalPosition = Body.Transform.LocalPosition.LerpTo( targetPos, Time.Delta * 15f );
-            Body.Transform.LocalRotation = Rotation.Slerp( Body.Transform.LocalRotation, Rotation.Identity, Time.Delta * 15f );
+            if ( Floating ) targetPos += Vector3.Up * (MathF.Sin( (Time.Now + (WorldPosition.x + (WorldPosition.y * 10f)) / 32f) * 2f ) * 0.25f) * 8f;
+            Body.LocalPosition = Body.LocalPosition.LerpTo( targetPos, Time.Delta * 15f );
+            Body.LocalRotation = Rotation.Slerp( Body.LocalRotation, Rotation.Identity, Time.Delta * 15f );
         }
 
         if ( !IsProxy )
@@ -110,10 +110,10 @@ public class BugSegment : Component
 
     CellComponent GetCell()
     {
-        return Scene.GetAllComponents<CellComponent>().OrderBy( x => x.Transform.Position.DistanceSquared( Transform.Position ) ).FirstOrDefault();
+        return Scene.GetAllComponents<CellComponent>().OrderBy( x => x.WorldPosition.DistanceSquared( WorldPosition ) ).FirstOrDefault();
     }
 
-    [Broadcast]
+    [Rpc.Broadcast]
     public void Damage( float damage )
     {
         if ( Health <= 0 ) return;
@@ -122,7 +122,7 @@ public class BugSegment : Component
         GetCell()?.BroadcastHit();
 
         var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-        if(otherBoard == BoardManager.Local)
+        if ( otherBoard == BoardManager.Local )
         {
             otherBoard.IncrementDamageDealt( damage );
         }
@@ -133,14 +133,14 @@ public class BugSegment : Component
         _timeSinceLastDamage = 0f;
     }
 
-    [Broadcast]
+    [Rpc.Broadcast]
     public void BroadcastDestroyFX( bool dropCoin = false )
     {
-        Sound.Play( "impact-bullet-flesh", Transform.Position );
-        if ( dropCoin ) GameManager.Instance.SpawnCoins( Transform.Position, 3 );
+        Sound.Play( "impact-bullet-flesh", WorldPosition );
+        if ( dropCoin ) GameManager.Instance.SpawnCoins( WorldPosition, 3 );
         if ( BugSplatParticle is not null )
         {
-            var obj = BugSplatParticle.Clone( Transform.Position + Vector3.Up * 16f );
+            var obj = BugSplatParticle.Clone( WorldPosition + Vector3.Up * 16f );
             var part = obj.Components.Get<ParticleEffect>();
             part.Tint = Bug.Color;
         }

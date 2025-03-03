@@ -45,7 +45,7 @@
     {
         if (!Segment.IsValid()) return;
 
-        var pos = Scene.Camera.PointToScreenPixels(Segment.Transform.Position);
+        var pos = Scene.Camera.PointToScreenPixels(Segment.WorldPosition);
         pos.x /= Scene.Camera.ScreenRect.Size.x;
         pos.y /= Scene.Camera.ScreenRect.Size.y;
         pos *= 100f;

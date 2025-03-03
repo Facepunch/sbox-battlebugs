@@ -61,13 +61,13 @@
 
 	protected override void OnStart()
 	{
-		cameraAngles = Scene.Camera.Transform.Rotation;
+		cameraAngles = Scene.Camera.WorldRotation;
 	}
 
 	protected override void OnUpdate()
 	{
 		var camAngles = cameraAngles + new Angles(Mouse.Position.y - (Screen.Height / 2f), -Mouse.Position.x - (-Screen.Width / 2f), 0) * 0.0015f;
-		Scene.Camera.Transform.Rotation = Angles.Lerp(Scene.Camera.Transform.Rotation, camAngles, Time.Delta * 5.0f);
+		Scene.Camera.WorldRotation = Angles.Lerp(Scene.Camera.WorldRotation, camAngles, Time.Delta * 5.0f);
 	}
 
 	void ButtonPlay()

@@ -20,7 +20,7 @@ public sealed class CellComponent : Component
 
 	protected override void OnStart()
 	{
-		Transform.Rotation = new Angles( 0, Random.Shared.Int( 0, 3 ) * 90f + Random.Shared.Float( -3f, 3f ), 0 );
+		WorldRotation = new Angles( 0, Random.Shared.Int( 0, 3 ) * 90f + Random.Shared.Float( -3f, 3f ), 0 );
 		UpdateHighlight();
 	}
 
@@ -165,19 +165,19 @@ public sealed class CellComponent : Component
 		}
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void BroadcastHit()
 	{
 		if ( !IsHit && Random.Shared.Float() < 0.3f )
 		{
 			var otherBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-			otherBoard.GiveCellCoins( Transform.Position );
+			otherBoard.GiveCellCoins( WorldPosition );
 		}
 		IsHit = true;
 		BroadcastUpdateHighlight();
 	}
 
-	[Broadcast]
+	[Rpc.Owner]
 	public void BroadcastClear()
 	{
 		if ( IsProxy ) return;
@@ -188,7 +188,7 @@ public sealed class CellComponent : Component
 		BroadcastUpdateHighlight();
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	public void BroadcastUpdateHighlight()
 	{
 		UpdateHighlight();

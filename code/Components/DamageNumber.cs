@@ -11,7 +11,7 @@ public sealed class DamageNumber : Component
 
 	protected override void OnUpdate()
 	{
-		Transform.Position += Vector3.Up * speed * Time.Delta;
+		WorldPosition += Vector3.Up * speed * Time.Delta;
 		speed = speed.LerpTo( 0, Time.Delta * 4f );
 
 		if ( timeSinceCreated > 1f )
@@ -26,6 +26,6 @@ public sealed class DamageNumber : Component
 
 	protected override void OnPreRender()
 	{
-		Transform.Rotation = Rotation.LookAt( Transform.Position - Scene.Camera.Transform.Position );
+		WorldRotation = Rotation.LookAt( WorldPosition - Scene.Camera.WorldPosition );
 	}
 }

@@ -20,7 +20,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 	public void LaunchAt( Vector3 target )
 	{
 		var time = Random.Shared.Float( 1.8f, 2f );
-		var vector = target - Transform.Position.WithZ( target.z );
+		var vector = target - WorldPosition.WithZ( target.z );
 		var direction = vector.Normal;
 		var velocity = vector / time;
 		var verticalForce = -Scene.PhysicsWorld.Gravity.z * time / 2f;
@@ -63,7 +63,7 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 		{
 			if ( HitSegments.Contains( segment ) ) return;
 			HitSegments.Add( segment );
-			GameManager.Instance.BroadcastDamageNumber( Transform.Position, Damage );
+			GameManager.Instance.BroadcastDamageNumber( WorldPosition, Damage );
 			segment.Damage( Damage );
 			Hit();
 		}
@@ -88,13 +88,13 @@ public sealed class PebbleComponent : Component, Component.ICollisionListener
 		}
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	void BroadcastDestroyEffect()
 	{
-		Sound.Play( "break-rocks", Transform.Position );
+		Sound.Play( "break-rocks", WorldPosition );
 		if ( ParticlePrefab is not null )
 		{
-			ParticlePrefab.Clone( Transform.Position );
+			ParticlePrefab.Clone( WorldPosition );
 		}
 	}
 }

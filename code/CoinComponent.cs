@@ -18,22 +18,22 @@ public sealed class CoinComponent : Component
 	{
 		Velocity += Vector3.Down * 100 * Time.Delta;
 
-		var tr = Scene.Trace.Ray( Transform.Position, Transform.Position + Velocity * Time.Delta )
+		var tr = Scene.Trace.Ray( WorldPosition, WorldPosition + Velocity * Time.Delta )
 			.IgnoreGameObjectHierarchy( GameObject )
 			.Run();
 
 		if ( tr.Hit )
 		{
-			if ( Velocity.z < -10 ) Sound.Play( "coin-bounce", Transform.Position );
+			if ( Velocity.z < -10 ) Sound.Play( "coin-bounce", WorldPosition );
 			Velocity = Vector3.Reflect( Velocity, tr.Normal );
 			Velocity /= 1.5f;
 		}
 
-		Transform.Position += Velocity * Time.Delta;
+		WorldPosition += Velocity * Time.Delta;
 
 		if ( timeSinceStart > 1f )
 		{
-			Sound.Play( "coin-collect", Transform.Position );
+			Sound.Play( "coin-collect", WorldPosition );
 			GameObject.Destroy();
 		}
 	}

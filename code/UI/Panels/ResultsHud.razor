@@ -11,13 +11,13 @@
 		<div class="jumbotron">
 			<div class="winner">
 				<div class="info">
-					@if (Winner.Network.OwnerConnection is null)
+					@if (Winner.Network.Owner is null)
 					{
 						<img src="ui/cpu.png" />
 					}
 					else
 					{
-						<img src=@($"avatar:{Winner.Network.OwnerConnection.SteamId}") />
+						<img src=@($"avatar:{Winner.Network.Owner.SteamId}") />
 					}
 					<div class="info">
 						<label class="name">@(Winner.GameObject.Name)</label>
@@ -47,13 +47,13 @@
 						<label class="name">@(Loser.GameObject.Name)</label>
 						<label class="subtitle">Is the loser!</label>
 					</div>
-					@if (Loser.Network.OwnerConnection is null)
+					@if (Loser.Network.Owner is null)
 					{
 						<img src="ui/cpu.png" />
 					}
 					else
 					{
-						<img src=@($"avatar:{Loser.Network.OwnerConnection.SteamId}") />
+						<img src=@($"avatar:{Loser.Network.Owner.SteamId}") />
 					}
 					<label class="boot">😞</label>
 				</div>

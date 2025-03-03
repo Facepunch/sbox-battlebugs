@@ -18,7 +18,7 @@ public sealed class BoardManager : Component
 		}
 	}
 	private static BoardManager _local;
-	public static BoardManager Opponent => Game.ActiveScene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerConnection != Connection.Local );
+	public static BoardManager Opponent => Game.ActiveScene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.Owner != Connection.Local );
 
 	// Properties
 	[Property] public int GridSize { get; set; } = 64;
@@ -48,7 +48,7 @@ public sealed class BoardManager : Component
 		ResetBugInventory();
 		ResetWeaponInventory();
 
-		if ( Network.OwnerConnection is null )
+		if ( Network.Owner is null )
 		{
 			SetupBoardRandomly();
 			IsReady = true;
@@ -58,7 +58,7 @@ public sealed class BoardManager : Component
 	protected override void OnFixedUpdate()
 	{
 		if ( GameManager.Instance.CurrentPlayer != this ) timeSinceTurnStart = 0;
-		if ( Network.OwnerConnection is null && timeSinceTurnStart > 2.5f && GameManager.Instance.CurrentPlayer == this && GameManager.Instance.State == GameState.Playing && GameManager.Instance.IsFiring )
+		if ( Network.Owner is null && timeSinceTurnStart > 2.5f && GameManager.Instance.CurrentPlayer == this && GameManager.Instance.State == GameState.Playing && GameManager.Instance.IsFiring )
 		{
 			AttackRandomly();
 		}
@@ -66,7 +66,7 @@ public sealed class BoardManager : Component
 
 	void InitBoard()
 	{
-		Vector3 startingPosition = Transform.Position + new Vector3( -(Width * GridSize) / 2f + GridSize / 2f, -(Height * GridSize) / 2f + GridSize / 2f, 0 );
+		Vector3 startingPosition = WorldPosition + new Vector3( -(Width * GridSize) / 2f + GridSize / 2f, -(Height * GridSize) / 2f + GridSize / 2f, 0 );
 		for ( int x = 0; x < Width; x++ )
 		{
 			for ( int y = 0; y < Height; y++ )
@@ -76,7 +76,7 @@ public sealed class BoardManager : Component
 				var index = x + y * (Width + 1);
 				cell.Init( this, new Vector2( x, y ), index );
 				cellObj.SetParent( GameObject );
-				cellObj.NetworkSpawn( Network.OwnerConnection );
+				cellObj.NetworkSpawn( Network.Owner );
 			}
 		}
 	}
@@ -125,12 +125,12 @@ public sealed class BoardManager : Component
 		}
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void AttackRandomly()
 	{
 		var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-		var targetPosition = targetSegment.Transform.Position + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 48 : 250));
-		var opponentPos = targetSegment.GameObject.Root.Transform.Position;
+		var targetPosition = targetSegment.WorldPosition + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 48 : 250));
+		var opponentPos = targetSegment.GameObject.Root.WorldPosition;
 		targetPosition = new Vector3(
 			Math.Clamp( targetPosition.x, opponentPos.x - (Width * GridSize) / 2f, opponentPos.x + (Width * GridSize) / 2f ),
 			Math.Clamp( targetPosition.y, opponentPos.y - (Height * GridSize) / 2f, opponentPos.y + (Height * GridSize) / 2f ),
@@ -172,7 +172,7 @@ public sealed class BoardManager : Component
 
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void SaveBugReferences()
 	{
 		BugReferences.Clear();
@@ -207,7 +207,7 @@ public sealed class BoardManager : Component
 		Sandbox.Services.Stats.Increment( "coins_spent", weapon.Cost );
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void GiveCoins( int amount )
 	{
 		Coins += amount;
@@ -215,7 +215,7 @@ public sealed class BoardManager : Component
 		Sandbox.Services.Stats.Increment( "coins_earned", amount );
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void IncrementBugsKilled()
 	{
 		BugsKilled++;
@@ -227,7 +227,7 @@ public sealed class BoardManager : Component
 		Sandbox.Services.Stats.Increment( "damage_dealt", (int)damage );
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void GiveCellCoins( Vector3 position )
 	{
 		GiveCoins( 5 );
@@ -280,7 +280,7 @@ public sealed class BoardManager : Component
 			cells.Add( nextCell );
 		}
 
-		GameManager.Instance.CreateBug( this, PlacementInput.Instance.GetPlacementData( cells, bug ), Network.OwnerConnection is null );
+		GameManager.Instance.CreateBug( this, PlacementInput.Instance.GetPlacementData( cells, bug ), Network.Owner is null );
 		return true;
 	}
 

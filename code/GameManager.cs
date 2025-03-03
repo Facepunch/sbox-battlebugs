@@ -20,11 +20,11 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Property, Group( "Prefabs" )] public GameObject CoinPrefab { get; set; }
 
 	// Networked Variables
-	[HostSync] public GameState State { get; set; }
-	[HostSync] public Guid CurrentPlayerId { get; set; }
-	[HostSync] public bool IsFiring { get; set; }
-	[HostSync] public TimeSince TimeSinceTurnStart { get; set; }
-	[HostSync] public bool CpuMode { get; set; }
+	[Sync( SyncFlags.FromHost )] public GameState State { get; set; }
+	[Sync( SyncFlags.FromHost )] public Guid CurrentPlayerId { get; set; }
+	[Sync( SyncFlags.FromHost )] public bool IsFiring { get; set; }
+	[Sync( SyncFlags.FromHost )] public TimeSince TimeSinceTurnStart { get; set; }
+	[Sync( SyncFlags.FromHost )] public bool CpuMode { get; set; }
 
 	// Local Variables
 	public List<BoardManager> Boards;
@@ -42,13 +42,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 	protected override async Task OnLoad()
 	{
 		if ( Scene.IsEditor ) return;
-		if ( GameNetworkSystem.IsActive ) return;
+		if ( Networking.IsActive ) return;
 		CpuMode = MainMenu.IsCpuGame;
 		if ( CpuMode ) return;
 
 		LoadingScreen.Title = "Creating Lobby";
 		await Task.DelayRealtimeSeconds( 0.1f );
-		GameNetworkSystem.CreateLobby();
+		Networking.CreateLobby( new LobbyConfig() );
 	}
 
 	protected override void OnStart()
@@ -86,7 +86,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	void StartGame()
 	{
 		Sound.Play( "player-join" );
@@ -99,7 +99,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	void StartPlaying()
 	{
 		if ( Networking.IsHost )
@@ -126,7 +126,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		IsFiring = true;
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	void EndGame()
 	{
 		if ( Networking.IsHost )
@@ -210,7 +210,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			if ( IsFiring )
 			{
 				UpdateCamera( otherPlayer );
-				LastPebblePosition = Scene.Camera.Transform.Position + Scene.Camera.Transform.Rotation.Forward * 1000f;
+				LastPebblePosition = Scene.Camera.WorldPosition + Scene.Camera.WorldRotation.Forward * 1000f;
 
 				if ( TimeSinceTurnStart >= 15f )
 				{
@@ -223,7 +223,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 				var pebble = pebbles.Where( x => x.TimeSinceCreated > 0.6f ).FirstOrDefault();
 				if ( pebble is not null )
 				{
-					LastPebblePosition = pebble.Transform.Position;
+					LastPebblePosition = pebble.WorldPosition;
 				}
 				if ( pebbles.Count() > 0 ) TimeSincePebbleToss = 0;
 				UpdateCamera( otherPlayer, LastPebblePosition );
@@ -243,18 +243,16 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	void UpdateCamera( BoardManager board )
 	{
-		var camTarget = board.CameraPosition.Transform;
-		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( camTarget.Position, Time.Delta * 5f );
-		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, camTarget.Rotation, Time.Delta * 5f );
+		Scene.Camera.WorldPosition = Scene.Camera.WorldPosition.LerpTo( board.CameraPosition.WorldPosition, Time.Delta * 5f );
+		Scene.Camera.WorldRotation = Rotation.Slerp( Scene.Camera.WorldRotation, board.CameraPosition.WorldRotation, Time.Delta * 5f );
 	}
 
 	void UpdateCamera( BoardManager board, Vector3 lookAt )
 	{
-		var camTarget = board.CameraPosition.Transform;
-		Scene.Camera.Transform.Position = Scene.Camera.Transform.Position.LerpTo( camTarget.Position, Time.Delta * 5f );
+		Scene.Camera.WorldPosition = Scene.Camera.WorldPosition.LerpTo( board.CameraPosition.WorldPosition, Time.Delta * 5f );
 
-		var rotation = Rotation.LookAt( lookAt - Scene.Camera.Transform.Position, Vector3.Up );
-		Scene.Camera.Transform.Rotation = Rotation.Slerp( Scene.Camera.Transform.Rotation, rotation, Time.Delta * 5f );
+		var rotation = Rotation.LookAt( lookAt - Scene.Camera.WorldPosition, Vector3.Up );
+		Scene.Camera.WorldRotation = Rotation.Slerp( Scene.Camera.WorldRotation, rotation, Time.Delta * 5f );
 	}
 
 	public void CreateBug( BoardManager board, List<PlacementInput.PlacementData> cells, bool isCpu = false )
@@ -266,7 +264,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		for ( int i = 0; i < cells.Count; i++ )
 		{
 			var segment = cells[i].Prefab.Clone( new Transform(
-				cells[i].Cell.Transform.Position,
+				cells[i].Cell.WorldPosition,
 				cells[i].Rotation
 			) );
 			segment.Name = bugId.ToString();
@@ -290,7 +288,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	}
 
-	[Authority]
+	[Rpc.Owner]
 	public void BroadcastFire( Guid boardId, int weaponId, Vector3 position )
 	{
 		if ( !CpuMode && Rpc.CallerId != CurrentPlayerId ) return;
@@ -307,7 +305,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		for ( int i = 0; i < count; i++ )
 		{
 			var offset = Vector3.Random.WithZ( 0 ) * weapon.Spray;
-			var pos = board.CameraPosition.Transform.Position.WithZ( 32f ) + (board.Transform.Rotation.Forward * 200f) + offset;
+			var pos = board.CameraPosition.WorldPosition.WithZ( 32f ) + (board.WorldRotation.Forward * 200f) + offset;
 			var target = position + offset;
 			var pebbleObj = weapon.Prefab.Clone( pos );
 			var pebble = pebbleObj.Components.Get<PebbleComponent>();
@@ -319,13 +317,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 		IsFiring = false;
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	void BroadcastFireSound()
 	{
 		Sound.Play( "fling-rocks" );
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	public void BroadcastDamageNumber( Vector3 position, float damage )
 	{
 		if ( DamageNumberPrefab is not null )
@@ -337,7 +335,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 		}
 	}
 
-	[Broadcast]
+	[Rpc.Broadcast]
 	public void SendChatMessage( string message )
 	{
 		var playerHud = PlayerHud.Instances.FirstOrDefault( x => x.Board.Network.OwnerId == Rpc.CallerId );

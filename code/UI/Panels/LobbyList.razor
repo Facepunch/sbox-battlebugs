@@ -84,7 +84,7 @@
 
 	void JoinLobby(LobbyInformation lobby)
 	{
-		GameNetworkSystem.Connect(lobby.LobbyId);
+		Networking.Connect(lobby.LobbyId);
 	}
 
 	protected override int BuildHash() => System.HashCode.Combine("");

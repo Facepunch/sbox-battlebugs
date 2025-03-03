@@ -8,13 +8,13 @@
 	<div class="player">
 		<img src="ui/player-banner.png" />
 		<div class="content">
-			@if (Board.Network.OwnerConnection is null)
+			@if (Board.Network.Owner is null)
 			{
 				<img src="ui/cpu.png" />
 			}
 			else
 			{
-				<img src=@($"avatar:{Board.Network.OwnerConnection.SteamId}") />
+				<img src=@($"avatar:{Board.Network.Owner.SteamId}") />
 			}
 			<span class="name">@Board.GameObject.Name</span>
 			<span class="score">🪙 @Board.Coins</span>
@@ -23,7 +23,7 @@
 	<div class="chat-container">
 		@if (Board == BoardManager.Local)
 		{
-			<TextEntry @ref="InputBox" onsubmit=@OnMessageSend CaretColor=@Color.Black AllowEmojiReplace=@(true) />
+			<TextEntry @ref="InputBox" onsubmit=@OnMessageSend AllowEmojiReplace=@(true) />
 		}
 		<div class="messages" @ref="ChatMessages" />
 	</div>

@@ -116,12 +116,12 @@ public sealed class PlacementInput : Component
 		var data = new List<PlacementData>();
 
 		var rotation = new Angles( 0, 0, 0 );
-		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].Transform.Position - cells[0].Transform.Position, Vector3.Up );
+		if ( cells.Count > 1 ) rotation = Rotation.LookAt( cells[1].WorldPosition - cells[0].WorldPosition, Vector3.Up );
 
 		for ( int i = 0; i < cells.Count; i++ )
 		{
-			if ( i < cells.Count - 1 ) rotation = Rotation.LookAt( cells[i + 1].Transform.Position - cells[i].Transform.Position, Vector3.Up );
-			else if ( i > 0 ) rotation = Rotation.LookAt( cells[i].Transform.Position - cells[i - 1].Transform.Position, Vector3.Up );
+			if ( i < cells.Count - 1 ) rotation = Rotation.LookAt( cells[i + 1].WorldPosition - cells[i].WorldPosition, Vector3.Up );
+			else if ( i > 0 ) rotation = Rotation.LookAt( cells[i].WorldPosition - cells[i - 1].WorldPosition, Vector3.Up );
 
 			// Get prefab based on rotation/position
 			var prefab = bug.BodyPrefab;
@@ -135,11 +135,11 @@ public sealed class PlacementInput : Component
 				if ( !(last.Position.x == next.Position.x || last.Position.y == next.Position.y) )
 				{
 					prefab = bug.CornerPrefab;
-					rotation = Rotation.LookAt( last.Transform.Position - next.Transform.Position, Vector3.Up );
-					var previousRotation = Rotation.LookAt( last.Transform.Position - current.Transform.Position, Vector3.Up );
+					rotation = Rotation.LookAt( last.WorldPosition - next.WorldPosition, Vector3.Up );
+					var previousRotation = Rotation.LookAt( last.WorldPosition - current.WorldPosition, Vector3.Up );
 
 					// If previous piece is left and next piece is down
-					if ( last.Transform.Position.x < current.Transform.Position.x && next.Transform.Position.y > current.Transform.Position.y )
+					if ( last.WorldPosition.x < current.WorldPosition.x && next.WorldPosition.y > current.WorldPosition.y )
 					{
 						rotation -= new Angles( 0, 90 + 45, 0 );
 					}

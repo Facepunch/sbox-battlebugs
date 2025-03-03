@@ -8,6 +8,6 @@ public sealed class RotateConstantly : Component
 
 	protected override void OnUpdate()
 	{
-		Transform.Rotation *= RotationSpeed * Time.Delta;
+		WorldRotation *= RotationSpeed * Time.Delta;
 	}
 }
