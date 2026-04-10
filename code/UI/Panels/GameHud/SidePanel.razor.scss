@@ -1,7 +1,7 @@
 SidePanel {
 	position: absolute;
 	top: 150px;
-	left: 0px;
+	left: 8px;
 	bottom: 0px;
 	flex-direction: column;
 	justify-content: center;
@@ -11,11 +11,12 @@ SidePanel {
 
 	.container {
 		padding: 8px;
-		background-color: rgba(black, 0.5);
+		background-color: rgba(white, 0.05);
 		flex-direction: column;
 		align-items: center;
-		width: 250px;
+		width: 210px;
 		transition: left 1s ease-out;
+		backdrop-filter: blur(4px);
 
 		button {
 			padding: 4px;
