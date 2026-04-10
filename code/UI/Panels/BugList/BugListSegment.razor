@@ -4,13 +4,13 @@
 @inherits Panel
 @attribute [StyleSheet]
 
-<root class="@(GameObject.IsValid() ? "" : "dead")">
+<root class="@(SegmentObject.IsValid() ? "" : "dead")">
 	<img src="@Icon" />
 </root>
 
 @code
 {
-	public GameObject GameObject { get; set; }
+	public GameObject SegmentObject { get; set; }
 	public BugResource Bug { get; set; }
 	public int Index { get; set; }
 	BugSegment segment = null;
@@ -31,7 +31,7 @@
 
 	protected override void OnMouseMove(MousePanelEvent e)
 	{
-		if (GameObject.IsValid() && GameObject.Components.TryGet<BugSegment>(out segment))
+		if ( SegmentObject.IsValid() && SegmentObject.Components.TryGet<BugSegment>( out segment ) )
 		{
 			if (segment.IsVisible)
 			{
@@ -50,5 +50,5 @@
 		}
 	}
 
-	protected override int BuildHash() => System.HashCode.Combine(GameObject.IsValid());
+	protected override int BuildHash () => System.HashCode.Combine( SegmentObject.IsValid() );
 }

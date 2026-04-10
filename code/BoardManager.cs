@@ -140,7 +140,7 @@ public sealed class BoardManager : Component
 		var weapon = WeaponInventory.OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Value != 0 ).Key;
 		SelectedWeapon = weapon;
 		WeaponInventory[SelectedWeapon]--;
-		GameManager.Instance.BroadcastFire( Id, SelectedWeapon.ResourceId, targetPosition );
+		GameManager.Instance.BroadcastFire( Id, SelectedWeapon.ResourcePath, targetPosition );
 	}
 
 	void ResetWeaponInventory()
@@ -159,7 +159,7 @@ public sealed class BoardManager : Component
 		var segments = Scene.GetAllComponents<BugSegment>().Where( x => x.Network.OwnerId == Network.OwnerId );
 		var totalSegments = segments.Count();
 		var totalHealth = segments.Sum( x => x.Health );
-		var totalMaxHealth = BugReferences.Sum( x => ResourceLibrary.Get<BugResource>( x.ResourceId ).StartingHealth * x.ObjectIds.Count );
+		var totalMaxHealth = BugReferences.Sum( x => ResourceLibrary.Get<BugResource>( x.ResourcePath ).StartingHealth * x.ObjectIds.Count );
 		return (float)totalHealth / totalMaxHealth;
 	}
 
@@ -184,10 +184,13 @@ public sealed class BoardManager : Component
 		{
 			if ( segment.Network.OwnerId != Network.OwnerId ) continue;
 			var existingRef = references.FirstOrDefault( x => x.BugId == segment.GameObject.Name );
-			if ( existingRef.ResourceId != 0 ) existingRef.Add( segment.GameObject.Id );
+			if ( !string.IsNullOrEmpty( existingRef.ResourcePath ) )
+			{
+				existingRef.Add( segment.GameObject.Id );
+			}
 			else
 			{
-				var reference = new BugReference( segment.BugId, segment.GameObject.Name );
+				var reference = new BugReference( segment.BugPath, segment.GameObject.Name );
 				reference.Add( segment.GameObject.Id );
 				references.Add( reference );
 			}
@@ -286,15 +289,15 @@ public sealed class BoardManager : Component
 
 	public struct BugReference
 	{
-		public int ResourceId { get; set; }
+		public string ResourcePath { get; set; }
 		public string BugId { get; set; }
 		public List<string> ObjectIds { get; set; }
 
 		private BugResource _bug;
 
-		public BugReference( int resourceId, string bugId )
+		public BugReference( string resourcePath, string bugId )
 		{
-			ResourceId = resourceId;
+			ResourcePath = resourcePath;
 			BugId = bugId;
 			ObjectIds = new List<string>();
 		}
@@ -306,7 +309,7 @@ public sealed class BoardManager : Component
 
 		public BugResource GetBug()
 		{
-			if ( _bug is null ) _bug = ResourceLibrary.Get<BugResource>( ResourceId );
+			if ( _bug is null ) _bug = ResourceLibrary.Get<BugResource>( ResourcePath );
 			return _bug;
 		}
 	}

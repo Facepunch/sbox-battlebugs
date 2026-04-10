@@ -1,5 +1,4 @@
 using System;
-using Sandbox;
 
 namespace Battlebugs;
 
@@ -150,7 +149,7 @@ public sealed class CellComponent : Component
 			var placing = PlacementInput.Instance.AttemptingToPlace;
 			if ( placing is not null )
 			{
-				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.ResourceId == placing.ResourceId ).Value <= 0 ) color = Color.Yellow;
+				if ( BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.ResourcePath == placing.ResourcePath ).Value <= 0 ) color = Color.Yellow;
 				else color = placing.Color;
 			}
 			Renderer.Tint = Color.Lerp( BaseColor, color, 0.8f );

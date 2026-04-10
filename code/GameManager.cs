@@ -294,12 +294,12 @@ public sealed class GameManager : Component, Component.INetworkListener
 	}
 
 	[Rpc.Owner]
-	public void BroadcastFire( Guid boardId, int weaponId, Vector3 position )
+	public void BroadcastFire( Guid boardId, string weaponPath, Vector3 position )
 	{
 		if ( !CpuMode && Rpc.CallerId != CurrentPlayerId ) return;
 		if ( IsFiring == false ) return;
 
-		var weapon = ResourceLibrary.Get<WeaponResource>( weaponId );
+		var weapon = ResourceLibrary.Get<WeaponResource>( weaponPath );
 		if ( weapon is null ) return;
 
 		var board = Boards.FirstOrDefault( x => x.Id != boardId );

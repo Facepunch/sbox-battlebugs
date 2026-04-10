@@ -1,5 +1,4 @@
 using System;
-using Sandbox;
 
 namespace Battlebugs;
 
@@ -79,7 +78,7 @@ public sealed class AttackingInput : Component
 			if ( ReticleState == 3 )
 			{
 				BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon]--;
-				GameManager.Instance.BroadcastFire( BoardManager.Local.Id, BoardManager.Local.SelectedWeapon.ResourceId, Reticle.WorldPosition );
+				GameManager.Instance.BroadcastFire( BoardManager.Local.Id, BoardManager.Local.SelectedWeapon.ResourcePath, Reticle.WorldPosition );
 				DestroyReticle();
 			}
 		}
