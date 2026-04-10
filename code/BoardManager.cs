@@ -128,12 +128,38 @@ public sealed class BoardManager : Component
 	[Rpc.Owner]
 	public void AttackRandomly()
 	{
-		var targetSegment = Scene.GetAllComponents<BugSegment>().OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
-		var targetPosition = targetSegment.WorldPosition + (Vector3.Random.WithZ( 0 ) * (targetSegment.IsVisible ? 48 : 250));
-		var opponentPos = targetSegment.GameObject.Root.WorldPosition;
+		var opponentBoard = Scene.GetAllComponents<BoardManager>().FirstOrDefault( x => x.Network.OwnerId != Network.OwnerId );
+		if ( opponentBoard is null ) return;
+
+		var opponentPos = opponentBoard.WorldPosition;
+		var halfWidth = (Width * GridSize) / 2f;
+		var halfHeight = (Height * GridSize) / 2f;
+
+		Vector3 targetPosition;
+
+		// Prioritise visible (discovered) segments, shoot near them with some scatter.
+		var visibleSegments = Scene.GetAllComponents<BugSegment>()
+			.Where( x => x.Network.OwnerId != Network.OwnerId && x.IsVisible )
+			.ToList();
+
+		if ( visibleSegments.Count > 0 )
+		{
+			var target = visibleSegments.OrderBy( x => Random.Shared.Float() ).First();
+			targetPosition = target.WorldPosition + (Vector3.Random.WithZ( 0 ) * 48f);
+		}
+		else
+		{
+			// If nothing is discovered, shoot at a completely random board position.
+			targetPosition = opponentPos + new Vector3(
+				Random.Shared.Float( -halfWidth, halfWidth ),
+				Random.Shared.Float( -halfHeight, halfHeight ),
+				0
+			);
+		}
+
 		targetPosition = new Vector3(
-			Math.Clamp( targetPosition.x, opponentPos.x - (Width * GridSize) / 2f, opponentPos.x + (Width * GridSize) / 2f ),
-			Math.Clamp( targetPosition.y, opponentPos.y - (Height * GridSize) / 2f, opponentPos.y + (Height * GridSize) / 2f ),
+			Math.Clamp( targetPosition.x, opponentPos.x - halfWidth, opponentPos.x + halfWidth ),
+			Math.Clamp( targetPosition.y, opponentPos.y - halfHeight, opponentPos.y + halfHeight ),
 			0
 		);
 
