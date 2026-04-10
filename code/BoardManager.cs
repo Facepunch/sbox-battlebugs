@@ -175,6 +175,13 @@ public sealed class BoardManager : Component
 		);
 
 		var weapon = WeaponInventory.OrderBy( x => Random.Shared.Float() ).FirstOrDefault( x => x.Value != 0 ).Key;
+
+		// CPU spends coins to restock weapons when running low on purchasable ammo.
+		if ( Network.Owner is null )
+		{
+			CpuPurchaseWeapons();
+		}
+
 		SelectedWeapon = weapon;
 		WeaponInventory[SelectedWeapon]--;
 		GameManager.Instance.BroadcastFire( Id, SelectedWeapon.ResourcePath, targetPosition );
@@ -189,6 +196,33 @@ public sealed class BoardManager : Component
 			WeaponInventory[weapon] = weapon.StartingAmount;
 			if ( weapon.StartingAmount < 0 ) SelectedWeapon = weapon;
 		}
+	}
+
+	/// <summary>
+	/// CPU spends coins to buy a random affordable weapon when purchasable ammo is low.
+	/// </summary>
+	void CpuPurchaseWeapons()
+	{
+		// Count total non-unlimited ammo remaining (unlimited = negative StartingAmount).
+		var purchasableAmmo = WeaponInventory
+			.Where( x => x.Key.Cost > 0 )
+			.Sum( x => x.Value );
+
+		// Only buy when running low on special ammo.
+		if ( purchasableAmmo > 2 ) return;
+
+		// Pick a random weapon the CPU can afford, preferring cheaper ones slightly.
+		var affordable = WeaponInventory.Keys
+			.Where( x => x.Cost > 0 && Coins >= x.Cost )
+			.OrderBy( x => x.Cost )
+			.ThenBy( x => Random.Shared.Float() )
+			.ToList();
+
+		if ( affordable.Count == 0 ) return;
+
+		// Buy one random affordable weapon.
+		var toBuy = affordable.OrderBy( x => Random.Shared.Float() ).First();
+		PurchaseWeapon( toBuy );
 	}
 
 	public float GetHealthPercent()
