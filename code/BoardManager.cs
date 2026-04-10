@@ -1,5 +1,4 @@
 using System;
-using Sandbox;
 
 namespace Battlebugs;
 
@@ -76,6 +75,7 @@ public sealed class BoardManager : Component
 				var index = x + y * (Width + 1);
 				cell.Init( this, new Vector2( x, y ), index );
 				cellObj.SetParent( GameObject );
+				cellObj.Network.SetOrphanedMode( NetworkOrphaned.ClearOwner );
 				cellObj.NetworkSpawn( Network.Owner );
 			}
 		}

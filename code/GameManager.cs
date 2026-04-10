@@ -1,7 +1,6 @@
+using Sandbox.Network;
 using System;
 using System.Threading.Tasks;
-using Sandbox;
-using Sandbox.Network;
 
 namespace Battlebugs;
 
@@ -70,6 +69,15 @@ public sealed class GameManager : Component, Component.INetworkListener
 		if ( Boards.Count >= 2 ) return;
 
 		CreateBoard( channel );
+	}
+
+	public void OnDisconnected( Connection channel )
+	{
+		if ( !Networking.IsHost ) return;
+		if ( CpuMode ) return;
+
+		Log.Info( $"Player '{channel.DisplayName}' disconnected" );
+		EndGame();
 	}
 
 	void CreateBoard( Connection channel )
@@ -180,11 +188,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 		if ( Networking.IsHost )
 		{
-			if ( Boards.Any( x => x.Network.OwnerId == Guid.Empty ) && !CpuMode )
-			{
-				EndGame();
-			}
-			else if ( !Boards.Any( x => !x.IsReady ) )
+			if ( !Boards.Any( x => !x.IsReady ) )
 			{
 				StartPlaying();
 			}
@@ -271,6 +275,7 @@ public sealed class GameManager : Component, Component.INetworkListener
 			var component = segment.Components.Get<BugSegment>();
 			component.Init( bug.Key, i );
 			component.Cell = cells[i].Cell;
+			segment.Network.SetOrphanedMode( NetworkOrphaned.ClearOwner );
 			segment.NetworkSpawn( isCpu ? null : Connection.Local );
 
 			cells[i].Cell.IsOccupied = true;
