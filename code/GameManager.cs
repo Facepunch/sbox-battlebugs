@@ -23,7 +23,8 @@ public sealed class GameManager : Component, Component.INetworkListener
 	[Sync( SyncFlags.FromHost )] public Guid CurrentPlayerId { get; set; }
 	[Sync( SyncFlags.FromHost )] public bool IsFiring { get; set; }
 	[Sync( SyncFlags.FromHost )] public TimeSince TimeSinceTurnStart { get; set; }
-	[Sync( SyncFlags.FromHost )] public bool CpuMode { get; set; }
+
+	public static bool CpuMode { get; set; }
 
 	// Local Variables
 	public List<BoardManager> Boards;
@@ -40,27 +41,26 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	protected override async Task OnLoad()
 	{
-		if ( Scene.IsEditor ) return;
 		if ( Networking.IsActive ) return;
-		CpuMode = MainMenu.IsCpuGame;
-		if ( CpuMode ) return;
 
-		LoadingScreen.Title = "Creating Lobby";
+		LoadingScreen.Title = CpuMode ? "Starting Bot Match" : "Creating Lobby";
 		await Task.DelayRealtimeSeconds( 0.1f );
-		Networking.CreateLobby( new LobbyConfig() );
+
+		// CPU mode still needs a networking session for NetworkSpawn, IsHost, and RPCs to function.
+		// Make it private with max 1 player so nobody else can join.
+		var config = new LobbyConfig();
+		if ( CpuMode )
+		{
+			config.MaxPlayers = 1;
+			config.Privacy = LobbyPrivacy.Private;
+		}
+		Networking.CreateLobby( config );
 	}
 
 	protected override void OnStart()
 	{
 		// This is really just for late-joiners
 		Boards = Scene.GetAllComponents<BoardManager>().ToList();
-
-		// Initialize both boards right away if in CPU mode
-		if ( CpuMode && !IsProxy )
-		{
-			CreateBoard( Connection.Local );
-			CreateBoard( null );
-		}
 	}
 
 	public void OnActive( Connection channel )
@@ -69,6 +69,13 @@ public sealed class GameManager : Component, Component.INetworkListener
 		if ( Boards.Count >= 2 ) return;
 
 		CreateBoard( channel );
+
+		// In CPU mode, also create the CPU board now that the lobby is active.
+		// Must happen here (not OnStart) because NetworkSpawn requires an active lobby.
+		if ( CpuMode )
+		{
+			CreateBoard( null );
+		}
 	}
 
 	public void OnDisconnected( Connection channel )
@@ -261,7 +268,9 @@ public sealed class GameManager : Component, Component.INetworkListener
 
 	public void CreateBug( BoardManager board, List<PlacementInput.PlacementData> cells, bool isCpu = false )
 	{
-		var bug = BoardManager.Local.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
+		// Use the board's own inventory rather than BoardManager.Local, since the
+		// local board may not be initialised yet when the CPU places its bugs.
+		var bug = board.BugInventory.FirstOrDefault( x => x.Key.SegmentCount == cells.Count );
 		if ( bug.Value <= 0 ) return;
 		var bugId = Guid.NewGuid();
 
@@ -290,7 +299,6 @@ public sealed class GameManager : Component, Component.INetworkListener
 		{
 			CoinPrefab.Clone( position + Vector3.Up * 2f );
 		}
-
 	}
 
 	[Rpc.Owner]

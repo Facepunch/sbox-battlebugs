@@ -42,7 +42,6 @@
 @code
 {
 	public static MainMenu Instance { get; private set; }
-	public static bool IsCpuGame { get; private set; } = true;
 
 	public MenuState State = MenuState.Main;
 	Angles cameraAngles = Angles.Zero;
@@ -90,7 +89,7 @@
 
 	void StartGame(bool isCpuGame = false)
 	{
-		IsCpuGame = isCpuGame;
+		GameManager.CpuMode = isCpuGame;
 		Game.ActiveScene.LoadFromFile("scenes/game.scene");
 	}
 
