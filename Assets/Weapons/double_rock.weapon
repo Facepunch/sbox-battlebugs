@@ -1,7 +1,7 @@
 {
   "Name": "Tri-Stones",
   "Description": "Fires 3 medium-sized rocks that deal 8 damage each. Each rock can hit up to 2 bugs/cells for a total of 6.",
-  "Icon": "ui/weapons/rock.png",
+  "Icon": "ui/weapons/tri-stone.png",
   "StartingAmount": 3,
   "Cost": 30,
   "AmountFired": "3",
