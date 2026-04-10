@@ -14,6 +14,9 @@ public sealed class AttackingInput : Component
 	public int ReticleState = 0;
 	SoundHandle AimingSound = null;
 
+	const float BaseReticleScale = 0.8f;
+	const float MinSprayRadius = 48f;
+
 	protected override void OnAwake()
 	{
 		Instance = this;
@@ -64,6 +67,12 @@ public sealed class AttackingInput : Component
 			}
 		}
 
+		// Scale the reticle to match the selected weapon's spray radius.
+		if ( Reticle.IsValid() )
+		{
+			UpdateReticleScale();
+		}
+
 		if ( Reticle.IsValid() && Input.Pressed( "Attack1" ) && BoardManager.Local.WeaponInventory[BoardManager.Local.SelectedWeapon] != 0 )
 		{
 			if ( ReticleState == 0 )
@@ -103,6 +112,21 @@ public sealed class AttackingInput : Component
 	void CreateReticle( Vector3 position )
 	{
 		Reticle = ReticlePrefab.Clone( position );
+		UpdateReticleScale();
+	}
+
+	void UpdateReticleScale()
+	{
+		if ( !Reticle.IsValid() || BoardManager.Local?.SelectedWeapon is null ) return;
+
+		var spray = MathF.Max( BoardManager.Local.SelectedWeapon.Spray, MinSprayRadius );
+		// The base prefab scale (0.8) represents roughly one cell (~64 units)
+		var scale = (spray / 64f) * BaseReticleScale;
+		var plane = Reticle.Children.FirstOrDefault();
+		if ( plane.IsValid() )
+		{
+			plane.LocalScale = new Vector3( scale, scale, 1f );
+		}
 	}
 
 	void DestroyReticle()
