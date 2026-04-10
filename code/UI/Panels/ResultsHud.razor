@@ -38,13 +38,13 @@
 			</div>
 			<div class="loser">
 				<div class="stats">
-					<span class="coins">🪙 @Loser.Coins</span>
-					<label>@Loser.CoinsSpent Coins Spent</label>
-					<label>@Loser.BugsKilled Bugs Killed</label>
+					<span class="coins">🪙 @(Loser?.Coins ?? 0)</span>
+					<label>@(Loser?.CoinsSpent ?? 0) Coins Spent</label>
+					<label>@(Loser?.BugsKilled ?? 0) Bugs Killed</label>
 				</div>
 				<div class="info">
 					<div class="info">
-						<label class="name">@(Loser.GameObject.Name)</label>
+						<label class="name">@(Loser?.GameObject.Name ?? "Disconnected User")</label>
 						<label class="subtitle">Is the loser!</label>
 					</div>
 					@if (Loser.Network.Owner is null)
