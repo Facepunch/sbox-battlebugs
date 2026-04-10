@@ -137,19 +137,30 @@ public sealed class BoardManager : Component
 
 		Vector3 targetPosition;
 
-		// Prioritise visible (discovered) segments, shoot near them with some scatter.
-		var visibleSegments = Scene.GetAllComponents<BugSegment>()
-			.Where( x => x.Network.OwnerId != Network.OwnerId && x.IsVisible )
-			.ToList();
+		// Use cell state to decide where to shoot. Cells that have been hit and still
+		// have a living bug (IsHit && IsOccupied) are high-value targets — shoot near them.
+		// Otherwise fire at a random cell that hasn't been hit yet to explore the board.
+		// Never target cells that are already cleared (WasOccupied = bug dead).
+		var opponentCells = opponentBoard.Components.GetAll<CellComponent>( FindMode.InChildren ).ToList();
 
-		if ( visibleSegments.Count > 0 )
+		var activeBugCells = opponentCells.Where( x => x.IsHit && x.IsOccupied ).ToList();
+		var unexploredCells = opponentCells.Where( x => !x.IsHit ).ToList();
+
+		if ( activeBugCells.Count > 0 )
 		{
-			var target = visibleSegments.OrderBy( x => Random.Shared.Float() ).First();
+			// Target a known living bug cell with some scatter.
+			var target = activeBugCells.OrderBy( x => Random.Shared.Float() ).First();
 			targetPosition = target.WorldPosition + (Vector3.Random.WithZ( 0 ) * 48f);
+		}
+		else if ( unexploredCells.Count > 0 )
+		{
+			// Shoot at a random unexplored cell.
+			var target = unexploredCells.OrderBy( x => Random.Shared.Float() ).First();
+			targetPosition = target.WorldPosition;
 		}
 		else
 		{
-			// If nothing is discovered, shoot at a completely random board position.
+			// Fallback: random board position.
 			targetPosition = opponentPos + new Vector3(
 				Random.Shared.Float( -halfWidth, halfWidth ),
 				Random.Shared.Float( -halfHeight, halfHeight ),
