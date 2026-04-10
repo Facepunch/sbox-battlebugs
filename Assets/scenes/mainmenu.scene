@@ -260,15 +260,15 @@
           "__version": 1,
           "Filter": "Bilinear",
           "Gamma": 2.2,
-          "Mode": "Screen",
+          "Mode": "Additive",
           "OnComponentDestroy": null,
           "OnComponentDisabled": null,
           "OnComponentEnabled": null,
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Strength": 2.27,
-          "Threshold": 1.455,
+          "Strength": 1,
+          "Threshold": 1,
           "Tint": "1,1,1,1"
         },
         {
@@ -337,7 +337,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Scale": 1,
+          "Scale": 0.06,
           "TexelSize": 1
         }
       ],
@@ -3429,7 +3429,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "9364fcd6-18c4-4078-9a56-9fb689f3bce2"
+          "$blob": "821e96c6-a999-4d42-8f5f-ec8a33d67ca8"
         }
       },
       "Sandbox.MovieMaker.MovieRecorderSystem": {

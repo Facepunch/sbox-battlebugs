@@ -1470,7 +1470,7 @@
           "OnComponentFixedUpdate": null,
           "OnComponentStart": null,
           "OnComponentUpdate": null,
-          "Scale": 1,
+          "Scale": 0.06,
           "TexelSize": 1
         },
         {
@@ -1564,7 +1564,7 @@
     "GameObjectSystems": {
       "Sandbox.Clutter.ClutterGridSystem": {
         "Storage": {
-          "$blob": "fe5889ac-3616-48e0-aa98-78392b9e1735"
+          "$blob": "d3c5dc86-c3d7-4566-9808-7a2cd5890a02"
         }
       },
       "Sandbox.MovieMaker.MovieRecorderSystem": {
