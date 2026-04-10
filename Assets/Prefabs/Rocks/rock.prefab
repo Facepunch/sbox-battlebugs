@@ -1,17 +1,32 @@
 {
   "RootObject": {
     "__guid": "d5803de4-ebc5-4d08-bba6-99901156b4b3",
+    "__version": 2,
     "Flags": 0,
     "Name": "rock",
+    "Position": "0,0,0",
+    "Rotation": "0,0,0,1",
+    "Scale": "1,1,1",
     "Tags": "pebble",
     "Enabled": true,
     "NetworkMode": 2,
-    "NetworkInterpolation": true,
+    "NetworkFlags": 0,
+    "NetworkOrphaned": 0,
+    "NetworkTransmit": true,
+    "OwnerTransfer": 1,
     "Components": [
       {
         "__type": "Battlebugs.PebbleComponent",
         "__guid": "1f8ee6c6-67fc-4684-9922-780ab5fcb17e",
-        "HitCount": 2,
+        "__enabled": true,
+        "Flags": 0,
+        "HitCount": 3,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
         "ParticlePrefab": {
           "_type": "gameobject",
           "prefab": "prefabs/particles/particle_rock_burst.prefab"
@@ -20,20 +35,60 @@
       {
         "__type": "Sandbox.SphereCollider",
         "__guid": "49d08623-0104-4dd7-b543-1f7a999a52a8",
+        "__enabled": true,
+        "Flags": 0,
         "Center": "0,0,0",
+        "ColliderFlags": 0,
+        "Elasticity": null,
+        "Friction": null,
         "IsTrigger": false,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OnObjectTriggerEnter": null,
+        "OnObjectTriggerExit": null,
+        "OnTriggerEnter": null,
+        "OnTriggerExit": null,
         "Radius": 18.30002,
-        "Static": false
+        "RollingResistance": null,
+        "Static": false,
+        "Surface": null,
+        "SurfaceVelocity": "0,0,0"
       },
       {
         "__type": "Sandbox.Rigidbody",
         "__guid": "6fa8b88f-090b-4b4c-a564-578ffafb3b87",
+        "__enabled": true,
+        "Flags": 0,
         "AngularDamping": 0,
+        "EnableImpactDamage": true,
+        "EnhancedCcd": false,
         "Gravity": true,
+        "GravityScale": 1,
+        "ImpactDamage": 0,
         "LinearDamping": 0,
-        "Locking": {},
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "0,0,0",
         "MassOverride": 0,
+        "MinImpactDamageSpeed": 500,
         "MotionEnabled": true,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "OverrideMassCenter": false,
         "RigidbodyFlags": 0,
         "StartAsleep": false
       }
@@ -41,30 +96,78 @@
     "Children": [
       {
         "__guid": "02d3c70e-ad1f-4e85-ac59-228411d07558",
+        "__version": 2,
         "Flags": 0,
         "Name": "pebble",
-        "Scale": "0.6,0.6,0.6",
+        "Position": "0,0,0",
+        "Rotation": "0,0,0,1",
+        "Scale": "0.600000024,0.600000024,0.600000024",
+        "Tags": "",
         "Enabled": true,
         "NetworkMode": 2,
-        "NetworkInterpolation": true,
+        "NetworkFlags": 0,
+        "NetworkOrphaned": 0,
+        "NetworkTransmit": true,
+        "OwnerTransfer": 1,
         "Components": [
           {
             "__type": "Sandbox.ModelRenderer",
             "__guid": "9d574663-91cd-4c81-b59d-316fa183e9b1",
+            "__enabled": true,
+            "Flags": 0,
             "BodyGroups": 18446744073709551615,
+            "CreateAttachments": false,
+            "LodOverride": null,
+            "MaterialGroup": null,
+            "MaterialOverride": null,
+            "Materials": null,
             "Model": "models/dev/dev_pebble_01.vmdl",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
+            "RenderOptions": {
+              "GameLayer": true,
+              "OverlayLayer": false,
+              "BloomLayer": false,
+              "AfterUILayer": false
+            },
             "RenderType": "On",
             "Tint": "1,1,1,1"
           }
-        ]
+        ],
+        "Children": []
       }
     ],
+    "__properties": {
+      "NetworkInterpolation": true,
+      "TimeScale": 1,
+      "WantsSystemScene": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": false,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": "",
+        "DeferGeneration": false,
+        "CustomBounds": false
+      }
+    },
     "__variables": []
   },
+  "ResourceVersion": 2,
   "ShowInMenu": false,
   "MenuPath": null,
   "MenuIcon": null,
-  "ResourceVersion": 1,
+  "DontBreakAsTemplate": false,
   "__references": [],
-  "__version": 1
+  "__version": 2
 }

@@ -1,12 +1,12 @@
 {
-  "Name": "Twin Stones",
-  "Description": "Fires 2 medium-sized rocks that deal 6 damage each. Each rock can hit up to 3 bugs/cells.",
+  "Name": "Tri-Stones",
+  "Description": "Fires 3 medium-sized rocks that deal 8 damage each. Each rock can hit up to 2 bugs/cells for a total of 6.",
   "Icon": "ui/weapons/rock.png",
   "StartingAmount": 3,
   "Cost": 30,
-  "AmountFired": "2.00,0.00,0",
-  "Damage": "6.00,8.00,0",
-  "Spray": 32,
+  "AmountFired": "3",
+  "Damage": "8",
+  "Spray": 72,
   "Prefab": {
     "_type": "gameobject",
     "prefab": "prefabs/rocks/weak_rock.prefab"
