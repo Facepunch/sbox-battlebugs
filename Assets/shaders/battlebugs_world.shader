@@ -11,10 +11,8 @@ FEATURES
 
 MODES
 {
-	VrForward();
-	Depth(); 
-	ToolsVis( S_MODE_TOOLS_VIS );
-	ToolsWireframe( "vr_tools_wireframe.shader" );
+	Forward();
+	Depth();
 	ToolsShadingComplexity( "tools_shading_complexity.shader" );
 }
 
@@ -31,7 +29,6 @@ COMMON
 	#include "procedural.hlsl"
 
 	#define S_UV2 1
-	#define CUSTOM_MATERIAL_INPUTS
 }
 
 struct VertexInput
@@ -48,6 +45,9 @@ struct PixelInput
 	float4 vTangentUOs_flTangentVSign : TANGENT	< Semantic( TangentU_SignV ); >;
 	float4 vColor : COLOR0;
 	float4 vTintColor : COLOR1;
+	#if ( PROGRAM == VFX_PROGRAM_PS )
+		bool vFrontFacing : SV_IsFrontFace;
+	#endif
 };
 
 VS
@@ -60,13 +60,14 @@ VS
 	
 	PixelInput MainVs( VertexInput v )
 	{
+		
 		PixelInput i = ProcessVertex( v );
 		i.vPositionOs = v.vPositionOs.xyz;
 		i.vColor = v.vColor;
-
-		ExtraShaderData_t extraShaderData = GetExtraPerInstanceShaderData( v );
+		
+		ExtraShaderData_t extraShaderData = GetExtraPerInstanceShaderData( v.nInstanceTransformID );
 		i.vTintColor = extraShaderData.vTint;
-
+		
 		VS_DecodeObjectSpaceNormalAndTangent( v, i.vNormalOs, i.vTangentUOs_flTangentVSign );
 		
 		float2 l_0 = i.vTextureCoords.xy * float2( 1, 1 );
@@ -83,21 +84,22 @@ VS
 		float4 l_11 = float4( l_9, l_10, 0, 0 );
 		i.vPositionWs.xyz += l_11.xyz;
 		i.vPositionPs.xyzw = Position3WsToPs( i.vPositionWs.xyz );
-		
 		return FinalizeVertex( i );
+		
 	}
 }
 
 PS
 {
 	#include "common/pixel.hlsl"
-	
+	RenderState( CullMode, F_RENDER_BACKFACES ? NONE : DEFAULT );
+		
 	SamplerState g_sSampler0 < Filter( ANISO ); AddressU( WRAP ); AddressV( WRAP ); >;
 	CreateInputTexture2D( Color, Srgb, 8, "None", "_color", "Color,0/,0/0", Default4( 1.00, 1.00, 1.00, 1.00 ) );
 	CreateInputTexture2D( TintMask, Srgb, 8, "None", "_mask", "Color,0/,0/0", Default4( 1.00, 1.00, 1.00, 1.00 ) );
 	CreateInputTexture2D( DetailMask, Srgb, 8, "None", "_mask", "Detail,0/,0/0", Default4( 1.00, 1.00, 1.00, 1.00 ) );
 	CreateInputTexture2D( TransMask, Srgb, 8, "None", "_mask", "Color,0/,0/0", Default4( 1.00, 1.00, 1.00, 1.00 ) );
-	CreateInputTexture2D( Normal, Linear, 8, "None", "_normal", "PBR,0/,0/0", Default4( 0.50, 0.50, 1.00, 1.00 ) );
+	CreateInputTexture2D( Normal, Linear, 8, "None", "_normal", "PBR,0/,0/0", DefaultFile( "materials/dev/white_color.tga" ) );
 	CreateInputTexture2D( Rough, Srgb, 8, "None", "_color", "PBR,0/,0/0", Default4( 1.00, 1.00, 1.00, 1.00 ) );
 	Texture2D g_tColor < Channel( RGBA, Box( Color ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
 	Texture2D g_tTintMask < Channel( RGBA, Box( TintMask ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
@@ -105,6 +107,8 @@ PS
 	Texture2D g_tTransMask < Channel( RGBA, Box( TransMask ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
 	Texture2D g_tNormal < Channel( RGBA, Box( Normal ), Linear ); OutputFormat( DXT5 ); SrgbRead( False ); >;
 	Texture2D g_tRough < Channel( RGBA, Box( Rough ), Srgb ); OutputFormat( DXT5 ); SrgbRead( True ); >;
+	TextureAttribute( LightSim_DiffuseAlbedoTexture, g_tDetailMask )
+	TextureAttribute( RepresentativeTexture, g_tDetailMask )
 	float g_flScale < UiGroup( "Detail,0/,0/0" ); Default1( 1 ); Range1( 0, 1000 ); >;
 	float4 g_vTintColor < UiType( Color ); UiGroup( "Color,0/,0/0" ); Default4( 1.00, 1.00, 1.00, 1.00 ); >;
 	float g_flDetailScale < UiGroup( "Detail,0/,0/0" ); Default1( 1 ); Range1( 0, 1000 ); >;
@@ -195,7 +199,8 @@ PS
 	
 	float4 MainPs( PixelInput i ) : SV_Target0
 	{
-		Material m = Material::Init();
+		
+		Material m = Material::Init( i );
 		m.Albedo = float3( 1, 1, 1 );
 		m.Normal = float3( 0, 0, 1 );
 		m.Roughness = 1;
@@ -237,19 +242,20 @@ PS
 		m.Metalness = l_22;
 		m.AmbientOcclusion = 1;
 		
+		
 		m.AmbientOcclusion = saturate( m.AmbientOcclusion );
 		m.Roughness = saturate( m.Roughness );
 		m.Metalness = saturate( m.Metalness );
 		m.Opacity = saturate( m.Opacity );
-
+		
 		// Result node takes normal as tangent space, convert it to world space now
 		m.Normal = TransformNormal( m.Normal, i.vNormalWs, i.vTangentUWs, i.vTangentVWs );
-
+		
 		// for some toolvis shit
 		m.WorldTangentU = i.vTangentUWs;
 		m.WorldTangentV = i.vTangentVWs;
-        m.TextureCoords = i.vTextureCoords.xy;
-		
-		return ShadingModelStandard::Shade( i, m );
+		m.TextureCoords = i.vTextureCoords.xy;
+				
+		return ShadingModelStandard::Shade( m );
 	}
 }

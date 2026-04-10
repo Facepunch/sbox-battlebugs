@@ -1,7 +1,24 @@
 {
+  "IsSubgraph": false,
+  "Path": "shaders/battlebugs_world.shdrgrph",
   "Model": null,
+  "Title": null,
   "Description": "",
+  "Category": null,
+  "Icon": null,
+  "AddToNodeLibrary": false,
   "BlendMode": "Masked",
+  "ShadingModel": "Lit",
+  "Domain": "Surface",
+  "PreviewSettings": {
+    "RenderBackfaces": false,
+    "EnableShadows": true,
+    "ShowGround": false,
+    "ShowSkybox": true,
+    "BackgroundColor": "0,0,0,1",
+    "Tint": "1,1,1,1"
+  },
+  "Version": 1,
   "nodes": [
     {
       "_class": "Result",
@@ -10,7 +27,8 @@
       "DefaultMetalness": 0,
       "DefaultAmbientOcclusion": 1,
       "Identifier": "0",
-      "Position": "976,-128",
+      "Position": "972,-132",
+      "HandleOffsets": {},
       "Albedo": {
         "Identifier": "10",
         "Output": "Result"
@@ -33,25 +51,41 @@
       },
       "PositionOffset": {
         "Identifier": "32",
-        "Output": "Vector"
+        "Output": "XYZW"
       }
     },
     {
       "_class": "NormapMapTriplanar",
       "Image": "materials/dev/white_color.tga",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Normal",
+        "IsAttribute": false,
         "Default": "0.5,0.5,1,1",
         "Extension": "Normal",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
         "ColorSpace": "Linear",
+        "ImageFormat": "DXT5",
+        "SrgbRead": false,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "PBR"
+          "Name": "PBR",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "1",
-      "Position": "-544,384",
+      "Position": "-540,384",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "23",
         "Output": "Result"
@@ -69,24 +103,35 @@
       "Name": "Metalness",
       "IsAttribute": false,
       "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "PBR"
+          "Name": "PBR",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "2",
-      "Position": "-288,272"
+      "Position": "-288,276",
+      "HandleOffsets": {}
     },
     {
       "_class": "Tint",
       "Identifier": "3",
-      "Position": "-736,-256"
+      "Position": "-732,-252",
+      "HandleOffsets": {}
     },
     {
       "_class": "Multiply",
       "DefaultA": 0,
       "DefaultB": 1,
       "Identifier": "4",
-      "Position": "-80,-272",
+      "Position": "-84,-276",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "6",
         "Output": "Result"
@@ -103,19 +148,28 @@
       "IsAttribute": false,
       "UI": {
         "Type": "Color",
+        "Step": 0,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Color"
+          "Name": "Color",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "5",
-      "Position": "-736,-192"
+      "Position": "-732,-192",
+      "HandleOffsets": {}
     },
     {
       "_class": "Multiply",
       "DefaultA": 0,
       "DefaultB": 1,
       "Identifier": "6",
-      "Position": "-192,-128",
+      "Position": "-192,-132",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "24",
         "Output": "Result"
@@ -128,19 +182,35 @@
     {
       "_class": "TextureTriplanar",
       "Image": "materials/metals/metal_01_detail.png",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Detail Mask",
+        "IsAttribute": false,
         "Default": "1,1,1,1",
         "Extension": "Mask",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
+        "ColorSpace": "Srgb",
+        "ImageFormat": "DXT5",
         "SrgbRead": true,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Detail"
+          "Name": "Detail",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "7",
       "Position": "96,-432",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "12",
         "Output": "Result"
@@ -153,20 +223,25 @@
     {
       "_class": "WorldNormal",
       "Identifier": "8",
-      "Position": "-160,-384"
+      "Position": "-156,-384",
+      "HandleOffsets": {}
     },
     {
       "_class": "WorldPosition",
       "Identifier": "9",
-      "Position": "-400,-576"
+      "Position": "-396,-576",
+      "HandleOffsets": {}
     },
     {
       "_class": "Blend",
+      "DefaultA": "0,0,0,1",
+      "DefaultB": "1,1,1,1",
       "Fraction": 0.05,
       "BlendMode": "SoftLight",
       "Clamp": true,
       "Identifier": "10",
-      "Position": "320,-256",
+      "Position": "324,-252",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "4",
         "Output": "Result"
@@ -188,19 +263,29 @@
       "Name": "Detail Scale",
       "IsAttribute": false,
       "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Detail"
+          "Name": "Detail",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "11",
-      "Position": "-624,-640"
+      "Position": "-624,-636",
+      "HandleOffsets": {}
     },
     {
       "_class": "Divide",
       "DefaultA": 0,
       "DefaultB": 50,
       "Identifier": "12",
-      "Position": "-112,-624",
+      "Position": "-108,-624",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "9",
         "Output": "Result"
@@ -218,36 +303,62 @@
       "Name": "Blend Scale",
       "IsAttribute": false,
       "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Detail"
+          "Name": "Detail",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "13",
-      "Position": "32,-48"
+      "Position": "36,-48",
+      "HandleOffsets": {}
     },
     {
       "_class": "TextureCoord",
       "UseSecondaryCoord": false,
       "Tiling": "1,1",
       "Identifier": "14",
-      "Position": "-992,-432"
+      "Position": "-996,-432",
+      "HandleOffsets": {}
     },
     {
       "_class": "TextureSampler",
       "Image": "materials/metals/white_metal_01_tint.png",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Tint Mask",
+        "IsAttribute": false,
         "Default": "1,1,1,1",
         "Extension": "Mask",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
+        "ColorSpace": "Srgb",
+        "ImageFormat": "DXT5",
         "SrgbRead": true,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Color"
+          "Name": "Color",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "15",
-      "Position": "-736,-448",
+      "Position": "-732,-444",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "14",
         "Output": "Result"
@@ -255,11 +366,14 @@
     },
     {
       "_class": "Blend",
+      "DefaultA": "0,0,0,1",
+      "DefaultB": "1,1,1,1",
       "Fraction": 0.5,
       "BlendMode": "Mix",
       "Clamp": true,
       "Identifier": "16",
-      "Position": "-480,-208",
+      "Position": "-480,-204",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "24",
         "Output": "Result"
@@ -276,18 +390,35 @@
     {
       "_class": "TextureTriplanar",
       "Image": "materials/metals/metal_01_detail.png",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Rough",
+        "IsAttribute": false,
         "Default": "1,1,1,1",
+        "Extension": "Color",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
+        "ColorSpace": "Srgb",
+        "ImageFormat": "DXT5",
         "SrgbRead": true,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "PBR"
+          "Name": "PBR",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "17",
-      "Position": "-560,128",
+      "Position": "-564,132",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "23",
         "Output": "Result"
@@ -299,19 +430,25 @@
     },
     {
       "_class": "Blend",
+      "DefaultA": "0,0,0,1",
+      "DefaultB": "1,1,1,1",
       "Fraction": 0.5,
       "BlendMode": "Mix",
       "Clamp": true,
       "Identifier": "18",
-      "Position": "-416,-208"
+      "Position": "-420,-204",
+      "HandleOffsets": {}
     },
     {
       "_class": "Blend",
+      "DefaultA": "0,0,0,1",
+      "DefaultB": "1,1,1,1",
       "Fraction": 0.5,
       "BlendMode": "Mix",
       "Clamp": true,
       "Identifier": "19",
-      "Position": "-304,-336",
+      "Position": "-300,-336",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "16",
         "Output": "Result"
@@ -333,29 +470,41 @@
       "Name": "Scale",
       "IsAttribute": false,
       "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Detail"
+          "Name": "Detail",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "20",
-      "Position": "-1776,-144"
+      "Position": "-1776,-144",
+      "HandleOffsets": {}
     },
     {
       "_class": "WorldPosition",
       "Identifier": "21",
-      "Position": "-1552,-80"
+      "Position": "-1548,-84",
+      "HandleOffsets": {}
     },
     {
       "_class": "WorldNormal",
       "Identifier": "22",
-      "Position": "-1312,112"
+      "Position": "-1308,108",
+      "HandleOffsets": {}
     },
     {
       "_class": "Divide",
       "DefaultA": 0,
       "DefaultB": 50,
       "Identifier": "23",
-      "Position": "-1264,-128",
+      "Position": "-1260,-132",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "21",
         "Output": "Result"
@@ -368,18 +517,35 @@
     {
       "_class": "TextureTriplanar",
       "Image": "materials/metals/metal_01_detail.png",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Color",
+        "IsAttribute": false,
         "Default": "1,1,1,1",
+        "Extension": "Color",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
+        "ColorSpace": "Srgb",
+        "ImageFormat": "DXT5",
         "SrgbRead": true,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Color"
+          "Name": "Color",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "24",
-      "Position": "-752,-16",
+      "Position": "-756,-12",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "23",
         "Output": "Result"
@@ -394,24 +560,41 @@
       "UseSecondaryCoord": false,
       "Tiling": "1,1",
       "Identifier": "25",
-      "Position": "352,-96"
+      "Position": "348,-96",
+      "HandleOffsets": {}
     },
     {
       "_class": "TextureSampler",
       "Image": "materials/metals/white_metal_01_tint.png",
-      "Sampler": {},
+      "Sampler": {
+        "Filter": "Aniso",
+        "AddressU": "Wrap",
+        "AddressV": "Wrap"
+      },
       "UI": {
         "Name": "Trans Mask",
+        "IsAttribute": false,
         "Default": "1,1,1,1",
         "Extension": "Mask",
         "CustomExtension": "",
+        "ShowExtension": true,
+        "Processor": "None",
+        "ColorSpace": "Srgb",
+        "ImageFormat": "DXT5",
         "SrgbRead": true,
+        "Priority": 0,
         "PrimaryGroup": {
-          "Name": "Color"
+          "Name": "Color",
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
         }
       },
       "Identifier": "26",
-      "Position": "608,-112",
+      "Position": "612,-108",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "25",
         "Output": "Result"
@@ -422,12 +605,14 @@
       "UseSecondaryCoord": false,
       "Tiling": "1,1",
       "Identifier": "27",
-      "Position": "256,352"
+      "Position": "252,348",
+      "HandleOffsets": {}
     },
     {
       "_class": "Time",
       "Identifier": "28",
-      "Position": "-160,432"
+      "Position": "-156,432",
+      "HandleOffsets": {}
     },
     {
       "_class": "VoronoiNoise",
@@ -435,7 +620,8 @@
       "CellDensity": 3.29,
       "Worley": true,
       "Identifier": "29",
-      "Position": "512,336",
+      "Position": "516,336",
+      "HandleOffsets": {},
       "Coords": {
         "Identifier": "27",
         "Output": "Result"
@@ -448,7 +634,8 @@
     {
       "_class": "SplitVector",
       "Identifier": "30",
-      "Position": "736,272",
+      "Position": "732,276",
+      "HandleOffsets": {},
       "Input": {
         "Identifier": "37",
         "Output": "Result"
@@ -458,6 +645,7 @@
       "_class": "Sine",
       "Identifier": "31",
       "Position": "288,432",
+      "HandleOffsets": {},
       "Input": {
         "Identifier": "33",
         "Output": "Result"
@@ -470,7 +658,8 @@
       "DefaultZ": 0,
       "DefaultW": 0,
       "Identifier": "32",
-      "Position": "976,304",
+      "Position": "972,300",
+      "HandleOffsets": {},
       "X": {
         "Identifier": "30",
         "Output": "X"
@@ -485,7 +674,8 @@
       "DefaultA": 0,
       "DefaultB": 1,
       "Identifier": "33",
-      "Position": "64,528",
+      "Position": "60,528",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "28",
         "Output": "Result"
@@ -502,16 +692,30 @@
       "Value": 0,
       "Name": "Sway",
       "IsAttribute": false,
-      "UI": {},
+      "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
+        "PrimaryGroup": {
+          "Name": null,
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
+        }
+      },
       "Identifier": "34",
-      "Position": "-208,640"
+      "Position": "-204,636",
+      "HandleOffsets": {}
     },
     {
       "_class": "Multiply",
       "DefaultA": 0,
       "DefaultB": 1,
       "Identifier": "35",
-      "Position": "416,544",
+      "Position": "420,540",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "31",
         "Output": "Result"
@@ -528,16 +732,30 @@
       "Value": 0,
       "Name": "Sway Amount",
       "IsAttribute": false,
-      "UI": {},
+      "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
+        "PrimaryGroup": {
+          "Name": null,
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
+        }
+      },
       "Identifier": "36",
-      "Position": "128,688"
+      "Position": "132,684",
+      "HandleOffsets": {}
     },
     {
       "_class": "Multiply",
       "DefaultA": 0,
       "DefaultB": 1,
       "Identifier": "37",
-      "Position": "704,544",
+      "Position": "708,540",
+      "HandleOffsets": {},
       "A": {
         "Identifier": "29",
         "Output": "Result"
@@ -554,9 +772,22 @@
       "Value": 0,
       "Name": "Sway Multiply",
       "IsAttribute": false,
-      "UI": {},
+      "UI": {
+        "Type": "Default",
+        "Step": 0,
+        "Priority": 0,
+        "PrimaryGroup": {
+          "Name": null,
+          "Priority": 0
+        },
+        "SecondaryGroup": {
+          "Name": null,
+          "Priority": 0
+        }
+      },
       "Identifier": "38",
-      "Position": "512,688"
+      "Position": "516,684",
+      "HandleOffsets": {}
     }
   ]
 }
